@@ -28,12 +28,12 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://tse1-mm.cn.bing.net/th/id/R-C.6a798913ec070c3669bca64bdfc85ef8?rik=a4i/grG5tyTsJw&riu=http://i1.hdslb.com/bfs/archive/1fd7a0c86a8a851015ae306083a8b962a9113064.jpg&ehk=CZHE5FEGZvMQnl6TDT/hwdvDyXuGaXPIQOc81x266QE=&risl=&pid=ImgRaw&r=0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
-    <link rel="stylesheet" href="/css/style.css?v=1630895678781">
+    <link rel="stylesheet" href="/css/style.css?v=1630901600093">
      
     
         <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
     
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1630895678781">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1630901600093">
     
         <link rel="stylesheet" href="/custom.css">
     
@@ -128,6 +128,39 @@
 <div>
     <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=235 height=100 src="//music.163.com/outchain/player?type=2&id=29129889&auto=1&height=66"></iframe>
 </div>
+
+    
+    <span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt = new Date("08/31/2021 17:38:00"); //在此处修改你的建站时间
+        now.setTime(now.getTime() + 250);
+        days = (now - grt) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt) / 1000 / 60 / 60 - 24 * dnum;
+        hnum = Math.floor(hours);
+        if (String(hnum).length == 1) {
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt) / 1000 / 60 - 24 * 60 * dnum - 60 * hnum;
+        mnum = Math.floor(minutes);
+        if (String(mnum).length == 1) {
+            mnum = "0" + mnum;
+        }
+        seconds = (now - grt) / 1000 - 24 * 60 * 60 * dnum - 60 * 60 * hnum - 60 * mnum;
+        snum = Math.round(seconds);
+        if (String(snum).length == 1) {
+            snum = "0" + snum;
+        }
+        document.getElementById("timeDate").innerHTML =
+            " 在这儿等候你的第 " + dnum + " 天 ";
+        document.getElementById("times").innerHTML =
+            hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+    setInterval("createtime()", 250);
+</script>
 
     
 </aside>
@@ -237,7 +270,7 @@
 
  
 
-<script async src="/js/app.js?v=1630895678783"></script>
+<script async src="/js/app.js?v=1630901600094"></script>
 
 
 
@@ -250,6 +283,7 @@
 </script>
 
 
+
     
 
 
@@ -257,11 +291,15 @@
 
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/chitose.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
-
-</html>
-
+<!--烟花爆炸-->
 <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
 <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
 <script type="text/javascript" src="/js/firework.js"></script>
+
+<!--单击显示文字-->
+<script type="text/javascript" src="/js/click_show_text.js"></script>
+
+
+</html>
 
 
