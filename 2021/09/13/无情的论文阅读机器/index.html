@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    
+    <title>论文概述复读机系列（一） - 幽托匹亚</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="我々は此処にて石となる">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
+
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/631212502/631212502.github.io/main/resources/img/logo.png" type="image/png" />
+    <meta name="description" content="MMDL综述篇：三句话从入门到劝退导师：CV太卷，NLP太难，小伙子，不如来搞多模态吧~我：多模态是干什么滴啊，能当饭吃？导师：可以~~东拼一点CV西凑一点NLP，再往锅里一炖，香得亚匹！文献1:[《Multimodal Machine Learning: A Survey and Taxonomy》][1]Abstract—Our experience of the world is multi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文概述复读机系列（一）">
+<meta property="og:url" content="http://example.com/2021/09/13/%E6%97%A0%E6%83%85%E7%9A%84%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E6%9C%BA%E5%99%A8/index.html">
+<meta property="og:site_name" content="幽托匹亚">
+<meta property="og:description" content="MMDL综述篇：三句话从入门到劝退导师：CV太卷，NLP太难，小伙子，不如来搞多模态吧~我：多模态是干什么滴啊，能当饭吃？导师：可以~~东拼一点CV西凑一点NLP，再往锅里一炖，香得亚匹！文献1:[《Multimodal Machine Learning: A Survey and Taxonomy》][1]Abstract—Our experience of the world is multi">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-09-13T01:33:06.000Z">
+<meta property="article:modified_time" content="2021-09-13T02:22:13.988Z">
+<meta property="article:author" content="Natu Matu">
+<meta property="article:tag" content="学术">
+<meta name="twitter:card" content="summary">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
+    <link rel="stylesheet" href="/css/style.css?v=1631611646572">
+     
+    
+        <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
+    
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1631611646572">
+    
+        <link rel="stylesheet" href="/custom.css">
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="mdui-drawer-body-left">
+    
+    <div id="nexmoe-background">
+        <div class="nexmoe-bg" style="background-image: url(https://raw.githubusercontent.com/631212502/631212502.github.io/main/resources/img/bg.jpg)"></div>
+        <div class="mdui-appbar mdui-shadow-0">
+            <div class="mdui-toolbar">
+                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                <div class="mdui-toolbar-spacer"></div>
+                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                <a href="/" title="Natu Matu" class="mdui-btn mdui-btn-icon"><img src="https://raw.githubusercontent.com/631212502/631212502.github.io/main/resources/img/avatar.jpg" alt="Natu Matu"></a>
+            </div>
+        </div>
+    </div>
+    <div id="nexmoe-header">
+        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="Natu Matu">
+            <img src="https://raw.githubusercontent.com/631212502/631212502.github.io/main/resources/img/avatar.jpg" alt="Natu Matu" alt="Natu Matu">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>7</div>
+        <div><span>标签</span>5</div>
+        <div><span>分类</span>2</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/PY.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+         
+            <form id="search_form" action_e="https://cn.bing.com/search?q=" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder="搜索"></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://jq.qq.com/?_wv=1027&k=5CfKHun" target="_blank" mdui-tooltip="{content: 'QQ群'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="https://space.bilibili.com/10580381" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/631212502" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/僕の世界へ/">僕の世界へ</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/无情の论文机器/">无情の论文机器</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/works/" style="font-size: 10px;">works</a> <a href="/tags/%E5%83%95%E3%81%AE%E4%B8%96%E7%95%8C%E3%81%B8/" style="font-size: 10px;">僕の世界へ</a> <a href="/tags/%E5%AD%A6%E6%9C%AF/" style="font-size: 10px;">学术</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 20px;">编程</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 10px;">随笔</a>
+    </div>
+    
+  </div>
+
+    
+    <!-- 音乐播放器 -->
+<div>
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=325  height=100 src="//music.163.com/outchain/player?type=2&id=29129889&auto=0&height=66"></iframe>
+</div>
+
+
+    
+
+    
+    <span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt = new Date("08/31/2021 17:38:00"); //在此处修改你的建站时间
+        now.setTime(now.getTime() + 250);
+        days = (now - grt) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt) / 1000 / 60 / 60 - 24 * dnum;
+        hnum = Math.floor(hours);
+        if (String(hnum).length == 1) {
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt) / 1000 / 60 - 24 * 60 * dnum - 60 * hnum;
+        mnum = Math.floor(minutes);
+        if (String(mnum).length == 1) {
+            mnum = "0" + mnum;
+        }
+        seconds = (now - grt) / 1000 - 24 * 60 * 60 * dnum - 60 * 60 * hnum - 60 * mnum;
+        snum = Math.round(seconds);
+        if (String(snum).length == 1) {
+            snum = "0" + snum;
+        }
+        document.getElementById("timeDate").innerHTML =
+            dnum + " days ";
+        document.getElementById("times").innerHTML =
+            hnum + " h " + mnum + " m " + snum + " s waiting for you";
+    }
+    setInterval("createtime()", 250);
+</script>
+
+    
+</aside>
+
+
+    <div class="nexmoe-copyright">
+        &copy; 2021 Natu Matu
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        
+    </div>
+</div><!-- .nexmoe-drawer -->
+    </div>
+    <div id="nexmoe-content">
+        <div class="nexmoe-primary">
+            <div class="nexmoe-post">
+
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: 41.66666666666667%;"> 
+              <img data-src="https://raw.githubusercontent.com/631212502/631212502.github.io/main/resources/img/bg.jpg" data-sizes="auto" alt="论文概述复读机系列（一）" class="lazyload">
+              <h1>论文概述复读机系列（一）</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2021年09月13日</a>
+    <a><i class="nexmoefont icon-areachart"></i>604 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
+</div>
+
+      
+
+      <h1 id="MMDL综述篇：三句话从入门到劝退"><a href="#MMDL综述篇：三句话从入门到劝退" class="headerlink" title="MMDL综述篇：三句话从入门到劝退"></a>MMDL综述篇：三句话从入门到劝退</h1><h2 id="导师：CV太卷，NLP太难，小伙子，不如来搞多模态吧"><a href="#导师：CV太卷，NLP太难，小伙子，不如来搞多模态吧" class="headerlink" title="导师：CV太卷，NLP太难，小伙子，不如来搞多模态吧~"></a>导师：CV太卷，NLP太难，小伙子，不如来搞多模态吧~</h2><h2 id="我：多模态是干什么滴啊，能当饭吃？"><a href="#我：多模态是干什么滴啊，能当饭吃？" class="headerlink" title="我：多模态是干什么滴啊，能当饭吃？"></a>我：多模态是干什么滴啊，能当饭吃？</h2><h2 id="导师：可以-东拼一点CV西凑一点NLP，再往锅里一炖，香得亚匹！"><a href="#导师：可以-东拼一点CV西凑一点NLP，再往锅里一炖，香得亚匹！" class="headerlink" title="导师：可以~~东拼一点CV西凑一点NLP，再往锅里一炖，香得亚匹！"></a>导师：可以~~东拼一点CV西凑一点NLP，再往锅里一炖，香得亚匹！</h2><h3 id="文献1-《Multimodal-Machine-Learning-A-Survey-and-Taxonomy》-1"><a href="#文献1-《Multimodal-Machine-Learning-A-Survey-and-Taxonomy》-1" class="headerlink" title="文献1:[《Multimodal Machine Learning: A Survey and Taxonomy》][1]"></a>文献1:[《Multimodal Machine Learning: A Survey and Taxonomy》][1]</h3><p>Abstract—Our experience of the world is multimodal - we see objects, hear sounds, feel texture, smell odors, and taste flavors.<br>Modality refers to the way in which something happens or is experienced and a research problem is characterized as multimodal when<br>it includes multiple such modalities. In order for Artificial Intelligence to make progress in understanding the world around us, it needs<br>to be able to interpret such multimodal signals together. Multimodal machine learning aims to build models that can process and relate<br>information from multiple modalities. It is a vibrant multi-disciplinary field of increasing importance and with extraordinary potential.<br>Instead of focusing on specific multimodal applications, this paper surveys the recent advances in multimodal machine learning itself<br>and presents them in a common taxonomy. We go beyond the typical early and late fusion categorization and identify broader<br>challenges that are faced by multimodal machine learning, namely: representation, translation, alignment, fusion, and co-learning. This<br>new taxonomy will enable researchers to better understand the state of the field and identify directions for futur</p>
+<p>翻译：【摘要】我们对世界的体验是多模式的 - 我们看到物体，听到声音，感觉到纹理，闻到气味和尝到味道。模态是指某种事物发生或经历的方式，并且当研究问题包括多种这样的形式时，研究问题被描述为多模态。<br>为了使人工智能在理解我们周围的世界方面取得进展，它需要能够一起解释这种多模信号。多模式机器学习旨在构建可以处理和关联来自多种模态信息的模型。这是一个充满活力的多学科领域，具有越来越重要的意义和非凡的潜力。<br>本文不是关注特定的多模态应用，而是研究多模态机器学习本身的最新进展。我们超越了典型的早期和晚期融合分类，并确定了多模式机器学习所面临的更广泛的挑战，即：表示，翻译，对齐，融合和共同学习。<br>这种新的分类法将使研究人员能够更好地了解该领域的状况，并确定未来研究的方向。</p>
+<p><strong>要点整理：知道现在多模态有5大task：representation, translation, alignment, fusion, and co-learning</strong><br>    [1]:extension://bfdogplmndidlpjfhoijckpakkdjkkil/pdf/viewer.html?file=file%3A%2F%2F%2FC%3A%2FUsers%2F63121%2FDesktop%2FPDF%2FMoudle%2520mix%2F%25E7%25BB%25BC%25E8%25BF%25B0%2FMultimodal%2520Machine%2520Learning.pdf</p>
+<hr>
+<h3 id="文献2"><a href="#文献2" class="headerlink" title="文献2:"></a>文献2:</h3>
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>Natu Matu<br>
+        <strong>本文链接：</strong><a href="http://example.com/2021/09/13/%E6%97%A0%E6%83%85%E7%9A%84%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E6%9C%BA%E5%99%A8/" title="http:&#x2F;&#x2F;example.com&#x2F;2021&#x2F;09&#x2F;13&#x2F;%E6%97%A0%E6%83%85%E7%9A%84%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E6%9C%BA%E5%99%A8&#x2F;" target="_blank" rel="noopener">http:&#x2F;&#x2F;example.com&#x2F;2021&#x2F;09&#x2F;13&#x2F;%E6%97%A0%E6%83%85%E7%9A%84%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E6%9C%BA%E5%99%A8&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/%E6%97%A0%E6%83%85%E3%81%AE%E8%AE%BA%E6%96%87%E6%9C%BA%E5%99%A8/">无情の论文机器</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E5%AD%A6%E6%9C%AF/" rel="tag">学术</a>
+    
+</div>
+
+  
+      <div class="nexmoe-post-footer">
+          <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: 'cdc194d30f71cf392fdd',
+        clientSecret: 'b27b4f1ec813cb7eaa115ab184569422b663176a',
+        id: window.location.pathname,
+        repo: '631212502.github.io',
+        owner: '631212502',
+        admin: '631212502'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+      </div>
+  
+</div>
+            <div class="nexmoe-post-right">
+              <div class="nexmoe-fixed">
+                  <div class="nexmoe-tool"> 
+                    
+                      
+                    
+                      <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+     
+    <div id="nexmoe-search-space">
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <input class="search-input" type="text" placeholder="搜索" oninput="sinput();">
+                </div>
+                <a class="search-close" onclick="sclose();">×</a>
+            </div>
+            <div class="search-body"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+ 
+
+<script async src="/js/app.js?v=1631611646572"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+
+
+    
+
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<!--烟花爆炸-->
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script type="text/javascript" src="/js/firework.js"></script>
+
+<!--单击显示文字-->
+<script type="text/javascript" src="/js/click_show_text.js"></script>
+
+
+</html>
+
+
