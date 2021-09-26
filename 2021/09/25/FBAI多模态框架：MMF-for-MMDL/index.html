@@ -4,7 +4,7 @@
 
 <head>
     
-    <title>标签：学术 - 幽托匹亚</title>
+    <title>FAIR多模态框架：MMF for MMDL - 幽托匹亚</title>
     <meta charset="UTF-8">
     <meta name="description" content="一个用于丈量生命的博客">
     <meta name="keywords" content="">
@@ -13,22 +13,25 @@
     
 
     <link rel="shortcut icon" href="https://raw.githubusercontent.com/631212502/631212502.github.io/main/resources/img/logo.png" type="image/png" />
-    <meta name="description" content="一个用于丈量生命的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="幽托匹亚">
-<meta property="og:url" content="http://example.com/tags/%E5%AD%A6%E6%9C%AF/index.html">
+    <meta name="description" content="一文搭建多模态深度学习框架MMFA modular framework for vision &amp; language multimodal research from Facebook AI Research (FAIR).[MMF][https:&#x2F;&#x2F;mmf.sh&#x2F;]是Facebook AI Research (FAIR)发布的多模态深度学习框架，基于Python 与Pytorch完成的与视">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FAIR多模态框架：MMF for MMDL">
+<meta property="og:url" content="http://example.com/2021/09/25/FBAI%E5%A4%9A%E6%A8%A1%E6%80%81%E6%A1%86%E6%9E%B6%EF%BC%9AMMF-for-MMDL/index.html">
 <meta property="og:site_name" content="幽托匹亚">
-<meta property="og:description" content="一个用于丈量生命的博客">
+<meta property="og:description" content="一文搭建多模态深度学习框架MMFA modular framework for vision &amp; language multimodal research from Facebook AI Research (FAIR).[MMF][https:&#x2F;&#x2F;mmf.sh&#x2F;]是Facebook AI Research (FAIR)发布的多模态深度学习框架，基于Python 与Pytorch完成的与视">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-09-25T03:35:52.000Z">
+<meta property="article:modified_time" content="2021-09-26T11:56:15.902Z">
 <meta property="article:author" content="Natu Matu">
+<meta property="article:tag" content="编程">
 <meta name="twitter:card" content="summary">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
-    <link rel="stylesheet" href="/css/style.css?v=1632658078708">
+    <link rel="stylesheet" href="/css/style.css?v=1632658078692">
      
     
         <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
     
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1632658078708">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1632658078692">
     
         <link rel="stylesheet" href="/custom.css">
     
@@ -218,33 +221,98 @@
     </div>
     <div id="nexmoe-content">
         <div class="nexmoe-primary">
-            <section class="nexmoe-posts">
-    
-    <div class="nexmoe-post">
-        <a href="/2021/09/13/%E6%97%A0%E6%83%85%E7%9A%84%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E6%9C%BA%E5%99%A8/">
-            
-                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 41.66666666666667%;"> 
-                    <img data-src="https://raw.githubusercontent.com/631212502/631212502.github.io/main/resources/img/bg.jpg" data-sizes="auto" alt="论文概述复读机系列（一）" class="lazyload">
-                    <h1>论文概述复读机系列（一）</h1>
-                </div>
-            
-        </a>
+            <div class="nexmoe-post">
 
-        <div class="nexmoe-post-meta nexmoe-rainbow">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2021年09月13日</a>
-            <a><i class="nexmoefont icon-areachart"></i>605 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
-        </div>
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: 41.66666666666667%;"> 
+              <img data-src="https://raw.githubusercontent.com/631212502/631212502.github.io/main/resources/img/bg.jpg" data-sizes="auto" alt="FAIR多模态框架：MMF for MMDL" class="lazyload">
+              <h1>FAIR多模态框架：MMF for MMDL</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2021年09月25日</a>
+    <a><i class="nexmoefont icon-areachart"></i>733 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 3 分钟</a>
+</div>
 
-        <article>
-            
-                <h2 id="MMDL综述篇：三句话从入门到劝退"><a href="#MMDL综述篇：三句话从入门到劝退" class="headerlink" title="MMDL综述篇：三句话从入门到劝退"></a>MMDL综述篇：三句话从入门到劝退</h2><p>导师：CV太卷，NLP太难，小伙子...
-            
-        </article>
+      
+
+      <h2 id="一文搭建多模态深度学习框架MMF"><a href="#一文搭建多模态深度学习框架MMF" class="headerlink" title="一文搭建多模态深度学习框架MMF"></a>一文搭建多模态深度学习框架MMF</h2><h3 id="A-modular-framework-for-vision-amp-language-multimodal-research-from-Facebook-AI-Research-FAIR"><a href="#A-modular-framework-for-vision-amp-language-multimodal-research-from-Facebook-AI-Research-FAIR" class="headerlink" title="A modular framework for vision &amp; language multimodal research from Facebook AI Research (FAIR)."></a>A modular framework for vision &amp; language multimodal research from Facebook AI Research (FAIR).</h3><p>[MMF][<a target="_blank" rel="noopener" href="https://mmf.sh/]%E6%98%AFFacebook">https://mmf.sh/]是Facebook</a> AI Research (FAIR)发布的多模态深度学习框架，基于Python 与Pytorch完成的与视觉&amp;语言相关的多模态模块化框架，易于复现并且具有极强的可扩展性。</p>
+<h3 id="文章框架"><a href="#文章框架" class="headerlink" title="文章框架"></a>文章框架</h3><ul>
+<li>MMF特点</li>
+<li>MMF安装</li>
+<li>MMF快速使用</li>
+<li>FAQs<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3></li>
+</ul>
+<ol>
+<li>模型池（Model Zoo）：模型池中包含当前主流的视觉&amp;语言模型的参考实现，包括VisualBERT，ViLBERT，M4C（TextVQA和TextCaps上的SoTA），Pythia（VQA 2018挑战赛冠军）等模型。</li>
+<li>支持多任务：支持一起训练多个数据集。</li>
+<li>数据集：该框架支持多种数据集，包括VQA，VizWiz，TextVQA，Visual Dialog和COCO Caption等。运行特定的脚本文件可以自动为用户下载并设置数据集的格式。但是在实际使用过程中，数据下载过程中需要访问国外站点，由于网络的原因很容易发生自动下载失败。笔者采用了先于本地下载成功（…）后，再将其上传到服务器（winscp等）进行实验的方法</li>
+<li>网络层模块化：MMF提供许多视觉&amp;语言模型常用网络层的实现。</li>
+<li>分布式：MMF支持使用DistributedDataParallel进行分布式训练。<h3 id="MMF安装"><a href="#MMF安装" class="headerlink" title="MMF安装"></a>MMF安装</h3>MMF has been tested on Python 3.7+ and PyTorch 1.6. We recommend using a conda environment to install MMF.<br>环境准备：python3.7+以及Pytorch1.6+并且建议使用conda环境配置</li>
+<li>创建环境<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda create -n mmf python=3.7</span><br><span class="line">conda activate mmf</span><br></pre></td></tr></table></figure></li>
+<li>MMF安装<ul>
+<li>源文件安装<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/facebookresearch/mmf.git</span><br><span class="line"><span class="built_in">cd</span> mmf</span><br><span class="line">pip install --editable .</span><br></pre></td></tr></table></figure>
+如果遇到文件夹权限问题<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install --editable . --user --no-build-isolation</span><br></pre></td></tr></table></figure></li>
+<li>pip安装mmf<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install --upgrade --pre mmf</span><br></pre></td></tr></table></figure>
+注释：如果只想安装mmf作为库函数，不考虑模型更新，可以采用pip方式安装，其他情况建议采用源码安装<br>（仅针对Linux Window安装自行查阅官网[MMF][<a target="_blank" rel="noopener" href="https://mmf.sh/docs]%EF%BC%89">https://mmf.sh/docs]）</a></li>
+</ul>
+</li>
+<li>快速启动MMF<br>在本快速入门指南中，我们将在TextVQA数据集上培训M4C模型。TextVQA要求模型阅读并推理图像中的文本，以回答关于它们的问题。M4C是TextVQA上最新的SOTA模型，它由多模式转换器架构组成，并带有图像中文本的丰富表示。 要培训其他模型或了解有关MMF的更多信息，请按照本教程底部的下一步操作。</li>
+</ol>
+<ul>
+<li>获取数据<br>MMF会检索对应文件夹，当没有相应数据集时会自动下载对应数据集</li>
+<li>训练<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mmf_run config=projects/m4c/configs/textvqa/defaults.yaml \</span><br><span class="line">    datasets=textvqa \</span><br><span class="line">    model=m4c \</span><br><span class="line">    run_type=train_val \</span><br><span class="line">    training.batch_size=32 \</span><br><span class="line">    training.max_updates=44000 \</span><br><span class="line">    training.log_interval=10 \</span><br><span class="line">    training.checkpoint_interval=100 \</span><br><span class="line">    training.evaluation_interval=1000</span><br></pre></td></tr></table></figure>
+注释：参数信息查看官网说明</li>
+<li>验证<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mmf_predict config=projects/m4c/configs/textvqa/defaults.yaml \</span><br><span class="line">    datasets=textvqa \</span><br><span class="line">    model=m4c \</span><br><span class="line">    run_type=<span class="built_in">test</span> \</span><br><span class="line">    checkpoint.resume_zoo=m4c.textvqa.defaults</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>4.FAQS<br>要深入了解MMF，请下一步探索以下主题[MMF][<a target="_blank" rel="noopener" href="https://mmf.sh/docs]%EF%BC%89">https://mmf.sh/docs]）</a></p>
+
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>Natu Matu<br>
+        <strong>本文链接：</strong><a href="http://example.com/2021/09/25/FBAI%E5%A4%9A%E6%A8%A1%E6%80%81%E6%A1%86%E6%9E%B6%EF%BC%9AMMF-for-MMDL/" title="http:&#x2F;&#x2F;example.com&#x2F;2021&#x2F;09&#x2F;25&#x2F;FBAI%E5%A4%9A%E6%A8%A1%E6%80%81%E6%A1%86%E6%9E%B6%EF%BC%9AMMF-for-MMDL&#x2F;" target="_blank" rel="noopener">http:&#x2F;&#x2F;example.com&#x2F;2021&#x2F;09&#x2F;25&#x2F;FBAI%E5%A4%9A%E6%A8%A1%E6%80%81%E6%A1%86%E6%9E%B6%EF%BC%9AMMF-for-MMDL&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
     </div>
-    
-</section>
 
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a>
+    
+</div>
+
+  
+      <div class="nexmoe-post-footer">
+          <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: 'cdc194d30f71cf392fdd',
+        clientSecret: 'b27b4f1ec813cb7eaa115ab184569422b663176a',
+        id: window.location.pathname,
+        repo: '631212502.github.io',
+        owner: '631212502',
+        admin: '631212502'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+      </div>
+  
+</div>
             <div class="nexmoe-post-right">
               <div class="nexmoe-fixed">
                   <div class="nexmoe-tool"> 
@@ -276,7 +344,7 @@
 
  
 
-<script async src="/js/app.js?v=1632658078708"></script>
+<script async src="/js/app.js?v=1632658078693"></script>
 
 
 
