@@ -1,36 +1,20 @@
 <!DOCTYPE html>
 
-<html>
-	<head>
-		<meta charset="utf-8" />
-		<title></title>	
-	<!-- require APlayer -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
-	<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
-	<!-- require MetingJS -->
-	<script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
-	<meta name="generator" content="Hexo 5.4.0"></head>
-	<body>
-<meting-js
-    type="playlist" 
-    server="netease" 
-    id="6976153408" 
-    fixed="true"
-    order="random"
-    loop="all"
-    list-folded="true"
-	list-max-height="500px"
-	lrc-type="0">
-</meting-js>
-	</body>
-</html>
-
 <html lang="zh-CN">
 
 <head>
     
     <title>GitHub+jsDelivr+PicGo:搭建自己的图床 - 幽托匹亚</title>
     <meta charset="UTF-8">
+    <!-- require APlayer -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+
+	<!-- require MetingJS -->
+	<script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+    <!-- require pjax -->
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
     <meta name="description" content="一个用于丈量生命的博客">
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
@@ -58,32 +42,33 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/iyear/blogpics@latest/usr/uploads/2020/02/3803880211.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
-    <link rel="stylesheet" href="/css/style.css?v=1633397698244">
+    <link rel="stylesheet" href="/css/style.css?v=1633429664521">
      
     
         <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
     
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1633397698244">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1633429664521">
     
         <link rel="stylesheet" href="/custom.css">
     
-</head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 <body class="mdui-drawer-body-left">
     
-    <div id="nexmoe-background">
-        <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/hello-world-fondo.jpg)"></div>
-        <div class="mdui-appbar mdui-shadow-0">
-            <div class="mdui-toolbar">
-                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
-                <div class="mdui-toolbar-spacer"></div>
-                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
-                <a href="/" title="Natu Matu" class="mdui-btn mdui-btn-icon"><img src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/avatar.jpg" alt="Natu Matu"></a>
+    <div id="pageContent">
+        <div id="nexmoe-background">
+            <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/hello-world-fondo.jpg)"></div>
+            <div class="mdui-appbar mdui-shadow-0">
+                <div class="mdui-toolbar">
+                    <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                    <div class="mdui-toolbar-spacer"></div>
+                    <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                    <a href="/" title="Natu Matu" class="mdui-btn mdui-btn-icon"><img src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/avatar.jpg" alt="Natu Matu"></a>
+                </div>
             </div>
         </div>
-    </div>
-    <div id="nexmoe-header">
-        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+        <div id="nexmoe-header">
+            <div class="nexmoe-drawer mdui-drawer" id="drawer">
     <div class="nexmoe-avatar mdui-ripple">
         <a href="/" title="Natu Matu">
             <img src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/avatar.jpg" alt="Natu Matu" alt="Natu Matu">
@@ -259,10 +244,10 @@
     本站访客数<a id="busuanzi_value_site_uv"></a>人次
 </div>
 
-    </div>
-    <div id="nexmoe-content">
-        <div class="nexmoe-primary">
-            <div class="nexmoe-post">
+        </div>
+        <div id="nexmoe-content">
+            <div class="nexmoe-primary">
+                <div class="nexmoe-post">
 
   <article>
       
@@ -357,30 +342,50 @@
       </div>
   
 </div>
-            <div class="nexmoe-post-right">
-              <div class="nexmoe-fixed">
-                  <div class="nexmoe-tool"> 
-                    
-                      
+                <div class="nexmoe-post-right">
+                <div class="nexmoe-fixed">
+                    <div class="nexmoe-tool"> 
                         
-                          
-                          
-                              <button class="mdui-fab catalog" style="overflow:unset;">
-                                  <i class="nexmoefont icon-i-catalog"></i>
-                                  <div class="nexmoe-toc">
-                                      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%8B%E9%9A%86jsDelivr%E7%9A%84Github%E4%BB%93%E5%BA%93"><span class="toc-number">2.</span> <span class="toc-text">克隆jsDelivr的Github仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90Access-token%EF%BC%8C%E7%94%A8%E4%BA%8E%E9%93%BE%E6%8E%A5PicGo"><span class="toc-number">3.</span> <span class="toc-text">生成Access token，用于链接PicGo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEPicGo%EF%BC%8C%E4%BD%BF%E7%94%A8jsDelivr%E7%9A%84CDN"><span class="toc-number">4.</span> <span class="toc-text">配置PicGo，使用jsDelivr的CDN</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A"><span class="toc-number">5.</span> <span class="toc-text">使用免费图床</span></a></li></ol>
-                                  </div>
-                              </button>
-                          
-                          
-                      
-                    
-                      <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
-                  </div>
-              </div>
+                        
+                            
+                            
+                            
+                                <button class="mdui-fab catalog" style="overflow:unset;">
+                                    <i class="nexmoefont icon-i-catalog"></i>
+                                    <div class="nexmoe-toc">
+                                        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%8B%E9%9A%86jsDelivr%E7%9A%84Github%E4%BB%93%E5%BA%93"><span class="toc-number">2.</span> <span class="toc-text">克隆jsDelivr的Github仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90Access-token%EF%BC%8C%E7%94%A8%E4%BA%8E%E9%93%BE%E6%8E%A5PicGo"><span class="toc-number">3.</span> <span class="toc-text">生成Access token，用于链接PicGo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEPicGo%EF%BC%8C%E4%BD%BF%E7%94%A8jsDelivr%E7%9A%84CDN"><span class="toc-number">4.</span> <span class="toc-text">配置PicGo，使用jsDelivr的CDN</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A"><span class="toc-number">5.</span> <span class="toc-text">使用免费图床</span></a></li></ol>
+                                    </div>
+                                </button>
+                            
+                            
+                        
+                        
+                        <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                    </div>
+                </div>
+                </div>
             </div>
         </div>
     </div>
+    <div id="aplayerContent">
+    <meting-js
+    style="position:absolute; z-index:99999" 
+    type="playlist" 
+    server="netease" 
+    id="6976153408" 
+    fixed="true"
+    order="random"
+    loop="all"
+    list-folded="true"
+    preload="auto"
+	list-max-height="1000px"
+	lrc-type="1">
+    </meting-js>
+    </div>
+    <script>
+        // 对所有链接跳转事件绑定pjax容器container
+        $(document).pjax('a[target!=_blank]', '#pageContent', {fragment: '#pageContent', timeout:8000})
+    </script>
      
     <div id="nexmoe-search-space">
         <div class="search-container">
@@ -400,7 +405,7 @@
 
  
 
-<script async src="/js/app.js?v=1633397698246"></script>
+<script async src="/js/app.js?v=1633429664523"></script>
 
 
 
@@ -427,8 +432,6 @@
 <script type="text/javascript" src="/js/firework.js"></script>
 <!--单击显示文字-->
 <script type="text/javascript" src="/js/click_show_text.js"></script>
-
-</meting-js>
 </html>
 
 
