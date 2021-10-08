@@ -35,12 +35,12 @@
 <meta property="article:tag" content="编程">
 <meta name="twitter:card" content="summary">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
-    <link rel="stylesheet" href="/css/style.css?v=1633693998656">
+    <link rel="stylesheet" href="/css/style.css?v=1633697538771">
      
     
         <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
     
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1633693998656">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1633697538771">
     
         <link rel="stylesheet" href="/custom.css">
     
@@ -99,6 +99,13 @@
             <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
             <div class="mdui-list-item-content">
                 关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/album.html" title="相册瀑布">
+            <i class="mdui-list-item-icon nexmoefont icon-calendar-fill"></i>
+            <div class="mdui-list-item-content">
+                相册瀑布
             </div>
         </a>
         
@@ -289,11 +296,11 @@
 <li>数据集：该框架支持多种数据集，包括VQA，VizWiz，TextVQA，Visual Dialog和COCO Caption等。运行特定的脚本文件可以自动为用户下载并设置数据集的格式。但是在实际使用过程中，数据下载过程中需要访问国外站点，由于网络的原因很容易发生自动下载失败。笔者采用了先于本地下载成功（…）后，再将其上传到服务器（winscp等）进行实验的方法</li>
 <li>网络层模块化：MMF提供许多视觉&amp;语言模型常用网络层的实现。</li>
 <li>分布式：MMF支持使用DistributedDataParallel进行分布式训练。<h3 id="MMF安装"><a href="#MMF安装" class="headerlink" title="MMF安装"></a>MMF安装</h3>MMF has been tested on Python 3.7+ and PyTorch 1.6. We recommend using a conda environment to install MMF.<br>环境准备：python3.7+以及Pytorch1.6+并且建议使用conda环境配置</li>
-<li>创建环境<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda create -n mmf python=3.7</span><br><span class="line">conda activate mmf</span><br></pre></td></tr></table></figure></li>
+<li>创建环境<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">conda create -n mmf python=3.7<br>conda activate mmf<br></code></pre></td></tr></table></figure></li>
 <li>MMF安装<ul>
-<li>源文件安装<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/facebookresearch/mmf.git</span><br><span class="line"><span class="built_in">cd</span> mmf</span><br><span class="line">pip install --editable .</span><br></pre></td></tr></table></figure>
-如果遇到文件夹权限问题<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install --editable . --user --no-build-isolation</span><br></pre></td></tr></table></figure></li>
-<li>pip安装mmf<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install --upgrade --pre mmf</span><br></pre></td></tr></table></figure>
+<li>源文件安装<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://github.com/facebookresearch/mmf.git<br><span class="hljs-built_in">cd</span> mmf<br>pip install --editable .<br></code></pre></td></tr></table></figure>
+如果遇到文件夹权限问题<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install --editable . --user --no-build-isolation<br></code></pre></td></tr></table></figure></li>
+<li>pip安装mmf<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install --upgrade --pre mmf<br></code></pre></td></tr></table></figure>
 注释：如果只想安装mmf作为库函数，不考虑模型更新，可以采用pip方式安装，其他情况建议采用源码安装<br>（仅针对Linux Window安装自行查阅官网[MMF][<a target="_blank" rel="noopener" href="https://mmf.sh/docs]%EF%BC%89">https://mmf.sh/docs]）</a></li>
 </ul>
 </li>
@@ -301,9 +308,9 @@
 </ol>
 <ul>
 <li>获取数据<br>MMF会检索对应文件夹，当没有相应数据集时会自动下载对应数据集</li>
-<li>训练<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mmf_run config=projects/m4c/configs/textvqa/defaults.yaml \</span><br><span class="line">    datasets=textvqa \</span><br><span class="line">    model=m4c \</span><br><span class="line">    run_type=train_val \</span><br><span class="line">    training.batch_size=32 \</span><br><span class="line">    training.max_updates=44000 \</span><br><span class="line">    training.log_interval=10 \</span><br><span class="line">    training.checkpoint_interval=100 \</span><br><span class="line">    training.evaluation_interval=1000</span><br></pre></td></tr></table></figure>
+<li>训练<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">mmf_run config=projects/m4c/configs/textvqa/defaults.yaml \<br>    datasets=textvqa \<br>    model=m4c \<br>    run_type=train_val \<br>    training.batch_size=32 \<br>    training.max_updates=44000 \<br>    training.log_interval=10 \<br>    training.checkpoint_interval=100 \<br>    training.evaluation_interval=1000<br></code></pre></td></tr></table></figure>
 注释：参数信息查看官网说明</li>
-<li>验证<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mmf_predict config=projects/m4c/configs/textvqa/defaults.yaml \</span><br><span class="line">    datasets=textvqa \</span><br><span class="line">    model=m4c \</span><br><span class="line">    run_type=<span class="built_in">test</span> \</span><br><span class="line">    checkpoint.resume_zoo=m4c.textvqa.defaults</span><br></pre></td></tr></table></figure></li>
+<li>验证<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">mmf_predict config=projects/m4c/configs/textvqa/defaults.yaml \<br>    datasets=textvqa \<br>    model=m4c \<br>    run_type=<span class="hljs-built_in">test</span> \<br>    checkpoint.resume_zoo=m4c.textvqa.defaults<br></code></pre></td></tr></table></figure></li>
 </ul>
 <p>4.FAQS<br>要深入了解MMF，请下一步探索以下主题[MMF][<a target="_blank" rel="noopener" href="https://mmf.sh/docs]%EF%BC%89">https://mmf.sh/docs]）</a></p>
 
@@ -412,7 +419,7 @@
 
  
 
-<script async src="/js/app.js?v=1633693998659"></script>
+<script async src="/js/app.js?v=1633697538774"></script>
 
 
 
