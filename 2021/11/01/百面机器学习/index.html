@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    
+    <title>《百面机器学习》 - 幽托匹亚</title>
+    <meta charset="UTF-8">
+    <!-- require APlayer -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+	<!-- require MetingJS -->
+	<script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+    <!-- require pjax -->
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+    <meta name="description" content="一个用于丈量生命的博客">
+    <meta name="keywords" content="null">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
+
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/logo.png" type="image/png" />
+    <meta name="description" content="缘得此书,闲来一叙">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《百面机器学习》">
+<meta property="og:url" content="https://631212502.github.io/2021/11/01/%E7%99%BE%E9%9D%A2%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="幽托匹亚">
+<meta property="og:description" content="缘得此书,闲来一叙">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-11-01T07:19:43.000Z">
+<meta property="article:modified_time" content="2021-11-01T07:34:56.552Z">
+<meta property="article:author" content="Natu Matu">
+<meta property="article:tag" content="笔记">
+<meta name="twitter:card" content="summary">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
+    <link rel="stylesheet" href="/css/style.css?v=1635754758372">
+     
+    
+        <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
+    
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1635754758372">
+    
+        <link rel="stylesheet" href="/custom.css">
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="mdui-drawer-body-left">
+    
+    <div id="pageContent">
+        <div id="nexmoe-background">
+            <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/hello-world-fondo.jpg)"></div>
+            <div class="mdui-appbar mdui-shadow-0">
+                <div class="mdui-toolbar">
+                    <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                    <div class="mdui-toolbar-spacer"></div>
+                    <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                    <a href="/" title="Natu Matu" class="mdui-btn mdui-btn-icon"><img src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/avatar.jpg" alt="Natu Matu"></a>
+                </div>
+            </div>
+        </div>
+        <div id="nexmoe-header">
+            <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="Natu Matu">
+            <img src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/avatar.jpg" alt="Natu Matu" alt="Natu Matu">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>22</div>
+        <div><span>标签</span>6</div>
+        <div><span>分类</span>4</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/gate.html" title="午间小憩">
+            <i class="mdui-list-item-icon nexmoefont icon-coffee"></i>
+            <div class="mdui-list-item-content">
+                午间小憩
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/album.html" title="时间光影">
+            <i class="mdui-list-item-icon nexmoefont icon-calendar-fill"></i>
+            <div class="mdui-list-item-content">
+                时间光影
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/PY.html" title="左邻右舍">
+            <i class="mdui-list-item-icon nexmoefont icon-wechat-fill"></i>
+            <div class="mdui-list-item-content">
+                左邻右舍
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+         
+            <form id="search_form" action_e="https://cn.bing.com/search?q=" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder="搜索"></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://qm.qq.com/cgi-bin/qm/qr?k=QriGs7GcXMPd6scnWXeO-IJ5TP8Qm8sd&noverify=0" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="https://space.bilibili.com/10580381" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/631212502" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="/null" target="_blank" mdui-tooltip="{content: 'steam'}" style="color: ;background-color: ;">
+            <i class="nexmoefont icon-steam"></i>
+        </a><a class="mdui-ripple" href="/null" target="_blank" mdui-tooltip="{content: '知乎'}" style="color: ;background-color: ;">
+            <i class="nexmoefont icon-zhihu"></i>
+        </a><a class="mdui-ripple" href="/null" target="_blank" mdui-tooltip="{content: '推特'}" style="color: ;background-color: ;">
+            <i class="nexmoefont icon-twitter"></i>
+        </a><a class="mdui-ripple" href="/null" target="_blank" mdui-tooltip="{content: '邮箱'}" style="color: ;background-color: ;">
+            <i class="nexmoefont icon-mail-fill"></i>
+        </a>
+    </div>
+</div>
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/%E5%AD%A6%E6%9C%AF/" style="font-size: 10px;">学术</a> <a href="/tags/%E6%AD%8C%E3%81%86/" style="font-size: 15px;">歌う</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 15px;">笔记</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 20px;">编程</a> <a href="/tags/%E8%A8%80%E8%91%89/" style="font-size: 15px;">言葉</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 15px;">随笔</a>
+    </div>
+    
+  </div>
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/小さな考え/">小さな考え</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/无情の勉強マシン/">无情の勉強マシン</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/言えない言葉/">言えない言葉</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/音楽が辞めよう/">音楽が辞めよう</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/">2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/">2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/">2010</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+
+    
+    <span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt = new Date("08/31/2021 17:38:00"); //在此处修改你的建站时间
+        now.setTime(now.getTime() + 250);
+        days = (now - grt) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt) / 1000 / 60 / 60 - 24 * dnum;
+        hnum = Math.floor(hours);
+        if (String(hnum).length == 1) {
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt) / 1000 / 60 - 24 * 60 * dnum - 60 * hnum;
+        mnum = Math.floor(minutes);
+        if (String(mnum).length == 1) {
+            mnum = "0" + mnum;
+        }
+        seconds = (now - grt) / 1000 - 24 * 60 * 60 * dnum - 60 * 60 * hnum - 60 * mnum;
+        snum = Math.round(seconds);
+        if (String(snum).length == 1) {
+            snum = "0" + snum;
+        }
+        document.getElementById("timeDate").innerHTML = 
+            " 风雨中度过了 " + dnum + " 天 ";
+        document.getElementById("times").innerHTML =
+            hnum + " 小时 " + mnum + " 分 " + snum + " 秒 ";
+    }
+    setInterval("createtime()", 250);
+</script>
+
+    
+</aside>
+
+
+    <div class="nexmoe-copyright">
+        &copy; 2021 Natu Matu
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        
+    </div>
+</div><!-- .nexmoe-drawer -->
+<div style="font-size: 13px">
+    <link rel="stylesheet" href="https://widget.heweather.net/standard/static/css/he-standard.css?v=1.4.0"><script src="https://widget.heweather.net/standard/static/js/he-standard.js?v=1.4.0"></script><script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    本站总访问量  <a id="busuanzi_value_site_pv"></a> 次<br>
+    本站访客数<a id="busuanzi_value_site_uv"></a>人次
+</div>
+
+        </div>
+        <div id="nexmoe-content">
+            <div class="nexmoe-primary">
+                <div class="nexmoe-post">
+
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: NaN%;"> 
+              <img data-src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/R-C.eaa1731ac8ba27d0ad3cbefc695248d7" data-sizes="auto" alt="《百面机器学习》" class="lazyload">
+              <h1>《百面机器学习》</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2021年11月01日</a>
+    <a><i class="nexmoefont icon-areachart"></i>1.2k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 4 分钟</a>
+</div>
+
+      
+
+      <p><strong>缘得此书,闲来一叙</strong></p>
+<span id="more"></span>
+<h2 id="前言-总而言之"><a href="#前言-总而言之" class="headerlink" title="前言/总而言之"></a>前言/总而言之</h2><p>这两本书是我研究生期间攻读深度学习研究相关问题的重要工具书，虽然概念和公式理解起来不容易，但里面的描述十分具体和生动，学习的境界就是把知识先读厚再读薄~</p>
+<h2 id="特征工程"><a href="#特征工程" class="headerlink" title="特征工程"></a>特征工程</h2><h3 id="归一化"><a href="#归一化" class="headerlink" title="归一化"></a>归一化</h3><h2 id="模型评估"><a href="#模型评估" class="headerlink" title="模型评估"></a>模型评估</h2><h3 id="评估指标的局限性"><a href="#评估指标的局限性" class="headerlink" title="评估指标的局限性"></a>评估指标的局限性</h3><ol>
+<li>准确率的局限性<br>$Accurancy=\frac{n_{correct}}{n_{total}}$</li>
+</ol>
+<h3 id="误差估计"><a href="#误差估计" class="headerlink" title="误差估计"></a>误差估计</h3><ol>
+<li>经验最小化误差<br>机器学习的目的就是根据一些训练样本，寻找一个最优的函数，使得函数对输入X的估计Y’与实际输出Y之间的期望风险（可以暂时理解为误差）最小化。</li>
+</ol>
+<p>期望风险最小化依赖于样本的输入X与其输出Y之间的函数映射关系F(x,y)，而这个映射关系，在机器视觉和模式识别系统中，一般指代先验概率和类条件概率。</p>
+<p><strong>然而，这两者在实际的应用中，都是无法准确获取的，唯一能够利用的就只有训练样本的输入X及其对应的观测输出Y。</strong></p>
+<p>而机器学习的目的又必须要求使得期望风险最小化，从而得到需要的目标函数。不难想象，可以利用样本的算术平均来代替式理想的期望，于是就定义了下面的式子来作为实际的目标风险函数是利用已知的经验数据（训练样本）来计算，因此被称之为经验风险。</p>
+<p><strong>用对参数求经验风险来逐渐逼近理想的期望风险的最小值，就是我们常说的经验风险最小化（ERM）原则。</strong></p>
+<p>显然，利用经验风险来代替真实的期望风险是有代价的。首先，经验风险并不完全等于期望风险；其次，用经验风险来近似代替期望风险在理论上并没有完善的依据；最后，用经验风险来代替期望风险计算得到的误差属于经验误差，而并非真实期望误差；尽管有这样那样的问题存在，在先验概率和类条件概率无法准确获取的情况下，用经验风险来“想当然”的代替期望风险从而解决模式识别等机器学习问题的思路在这一领域依然大量存在。</p>
+<h2 id="经典算法"><a href="#经典算法" class="headerlink" title="经典算法"></a>经典算法</h2><h3 id="SVM"><a href="#SVM" class="headerlink" title="SVM"></a>SVM</h3><p>SVM是一种根据支持向量举例寻找最优（最大间隔）分类超平面的方式，举一个例子，当一堆不同重量的红白小球在同一水平面中混杂放置的时候，如何将他们分开，答案是核映射（相当于拍一下桌子让小球飞起来，根据W=-mgh，m不同会导致h的不同，此时飞起来的小球间就有一个可以去们他们类别的超平面）<br>__凸优化理论：超平面分离定理__：两个凸集合样本最近两点的中垂线为超平面（SVM）<br>问题一：空间线性可分的两类点，分别向SVM分类超平面投影，这些投影仍然线性可分吗？（p52）<br>不一定，通过超平面分开的两类点有可能是通过核函数映射后区分开的，如果原本就线性可分，也就不再需要到核函数映射（超平面方法），因为超平面为支持向量间间隔最大分类面，如果样本在其上的投影依然线性可分，显然应存在更优的超平面，故与假设矛盾，反之可推出映射到超平面的样本一定是线性不可分的两类点。<br>问题二：是否存在一组参数使得SVM训练误差为0？</p>
+<p>问题三：训练误差为0的SVM分类器一定存在么？加入松弛变量呢？</p>
+<h3 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h3><p>问题一：逻辑回归与线性回归有什么不同？<br>问题二：如何处理多分类问题，有哪些常见的做法？应用于什么场景</p>
+<h3 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h3><p>问题一：什么是启发函数？</p>
+<h2 id="降维"><a href="#降维" class="headerlink" title="降维"></a>降维</h2><h2 id="非监督学习"><a href="#非监督学习" class="headerlink" title="非监督学习"></a>非监督学习</h2><h2 id="概率图模型"><a href="#概率图模型" class="headerlink" title="概率图模型"></a>概率图模型</h2><h2 id="优化算法"><a href="#优化算法" class="headerlink" title="优化算法"></a>优化算法</h2><h2 id="采样"><a href="#采样" class="headerlink" title="采样"></a>采样</h2><h2 id="前向神经网络"><a href="#前向神经网络" class="headerlink" title="前向神经网络"></a>前向神经网络</h2><h2 id="循环神经网络"><a href="#循环神经网络" class="headerlink" title="循环神经网络"></a>循环神经网络</h2><h2 id="强化学习"><a href="#强化学习" class="headerlink" title="强化学习"></a>强化学习</h2><h2 id="集成学习"><a href="#集成学习" class="headerlink" title="集成学习"></a>集成学习</h2><h2 id="生成对抗网络"><a href="#生成对抗网络" class="headerlink" title="生成对抗网络"></a>生成对抗网络</h2><p>生成对抗本质上是一种minimax游戏（两个网络分别博弈和优化）：存在生成器和判别器两大通道，不断切换通道缩减各自的目标误差并进行对抗。<br>GANs的值函数：</p>
+<h2 id="热门应用"><a href="#热门应用" class="headerlink" title="热门应用"></a>热门应用</h2><h2 id="后记-言而总之"><a href="#后记-言而总之" class="headerlink" title="后记/言而总之"></a>后记/言而总之</h2>
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>Natu Matu<br>
+        <strong>本文链接：</strong><a href="https://631212502.github.io/2021/11/01/%E7%99%BE%E9%9D%A2%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" title="https:&#x2F;&#x2F;631212502.github.io&#x2F;2021&#x2F;11&#x2F;01&#x2F;%E7%99%BE%E9%9D%A2%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;631212502.github.io&#x2F;2021&#x2F;11&#x2F;01&#x2F;%E7%99%BE%E9%9D%A2%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a>
+    
+</div>
+
+  
+      <div class="nexmoe-post-footer">
+          <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: 'cdc194d30f71cf392fdd',
+        clientSecret: 'b27b4f1ec813cb7eaa115ab184569422b663176a',
+        id: window.location.pathname,
+        repo: '631212502.github.io',
+        owner: '631212502',
+        admin: '631212502'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+      </div>
+  
+</div>
+                <div class="nexmoe-post-right">
+                <div class="nexmoe-fixed">
+                    <div class="nexmoe-tool"> 
+                        
+                            
+                            
+                                <button class="mdui-fab catalog" style="overflow:unset;">
+                                    <i class="nexmoefont icon-i-catalog"></i>
+                                    <div class="nexmoe-toc">
+                                        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80-%E6%80%BB%E8%80%8C%E8%A8%80%E4%B9%8B"><span class="toc-number">1.</span> <span class="toc-text">前言&#x2F;总而言之</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">特征工程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%92%E4%B8%80%E5%8C%96"><span class="toc-number">2.1.</span> <span class="toc-text">归一化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0"><span class="toc-number">3.</span> <span class="toc-text">模型评估</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7"><span class="toc-number">3.1.</span> <span class="toc-text">评估指标的局限性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AF%E5%B7%AE%E4%BC%B0%E8%AE%A1"><span class="toc-number">3.2.</span> <span class="toc-text">误差估计</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95"><span class="toc-number">4.</span> <span class="toc-text">经典算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SVM"><span class="toc-number">4.1.</span> <span class="toc-text">SVM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92"><span class="toc-number">4.2.</span> <span class="toc-text">逻辑回归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91"><span class="toc-number">4.3.</span> <span class="toc-text">决策树</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%8D%E7%BB%B4"><span class="toc-number">5.</span> <span class="toc-text">降维</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="toc-number">6.</span> <span class="toc-text">非监督学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E7%8E%87%E5%9B%BE%E6%A8%A1%E5%9E%8B"><span class="toc-number">7.</span> <span class="toc-text">概率图模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95"><span class="toc-number">8.</span> <span class="toc-text">优化算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%87%E6%A0%B7"><span class="toc-number">9.</span> <span class="toc-text">采样</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E5%90%91%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-number">10.</span> <span class="toc-text">前向神经网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-number">11.</span> <span class="toc-text">循环神经网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0"><span class="toc-number">12.</span> <span class="toc-text">强化学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0"><span class="toc-number">13.</span> <span class="toc-text">集成学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C"><span class="toc-number">14.</span> <span class="toc-text">生成对抗网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%83%AD%E9%97%A8%E5%BA%94%E7%94%A8"><span class="toc-number">15.</span> <span class="toc-text">热门应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E8%AE%B0-%E8%A8%80%E8%80%8C%E6%80%BB%E4%B9%8B"><span class="toc-number">16.</span> <span class="toc-text">后记&#x2F;言而总之</span></a></li></ol>
+                                    </div>
+                                </button>
+                            
+                        
+                        <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="aplayerContent">
+        <meting-js
+        style="position:absolute; z-index:99999" 
+        type="playlist" 
+        server="netease" 
+        id="6976153408" 
+        fixed="true"
+        autoplay="true"
+        order="random"
+        loop="all"
+        list-folded="false"
+        preload="auto"
+        list-max-height="500px"
+        lrc-type="1">
+        </meting-js>
+    </div>
+    <script>
+        // 对所有链接跳转事件绑定pjax容器container
+        $(document).pjax('a[target!=_blank]', '#pageContent', {fragment: '#pageContent', timeout:8000})
+    </script>
+     
+    <div id="nexmoe-search-space">
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <input class="search-input" type="text" placeholder="搜索" oninput="sinput();">
+                </div>
+                <a class="search-close" onclick="sclose();">×</a>
+            </div>
+            <div class="search-body"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+ 
+
+<script async src="/js/app.js?v=1635754758375"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+
+
+    
+
+
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<!--烟花爆炸-->
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script type="text/javascript" src="/js/firework.js"></script>
+<!--单击显示文字-->
+<script type="text/javascript" src="/js/click_show_text.js"></script>
+</html>
+
+
