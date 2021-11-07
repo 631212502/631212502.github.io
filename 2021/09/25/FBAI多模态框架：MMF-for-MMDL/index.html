@@ -4,7 +4,7 @@
 
 <head>
     
-    <title>FAIR多模态框架：MMF for MMDL - 幽托匹亚</title>
+    <title>FAIR：MMF for MMDL VQA - 幽托匹亚</title>
     <meta charset="UTF-8">
     <!-- require APlayer -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
@@ -23,23 +23,23 @@
     <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/logo.png" type="image/png" />
     <meta name="description" content="一文搭建多模态深度学习框架MMF">
 <meta property="og:type" content="article">
-<meta property="og:title" content="FAIR多模态框架：MMF for MMDL">
+<meta property="og:title" content="FAIR：MMF for MMDL VQA">
 <meta property="og:url" content="https://631212502.github.io/2021/09/25/FBAI%E5%A4%9A%E6%A8%A1%E6%80%81%E6%A1%86%E6%9E%B6%EF%BC%9AMMF-for-MMDL/index.html">
 <meta property="og:site_name" content="幽托匹亚">
 <meta property="og:description" content="一文搭建多模态深度学习框架MMF">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-09-25T03:35:52.000Z">
-<meta property="article:modified_time" content="2021-10-08T10:26:29.083Z">
+<meta property="article:modified_time" content="2021-11-06T08:28:08.843Z">
 <meta property="article:author" content="Natu Matu">
 <meta property="article:tag" content="编程">
 <meta name="twitter:card" content="summary">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
-    <link rel="stylesheet" href="/css/style.css?v=1636114375146">
+    <link rel="stylesheet" href="/css/style.css?v=1636282536391">
      
     
         <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
     
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1636114375146">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1636282536391">
     
         <link rel="stylesheet" href="/custom.css">
     
@@ -273,14 +273,14 @@
   <article>
       
           <div class="nexmoe-post-cover" style="padding-bottom: NaN%;"> 
-              <img data-src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/541a7aee05e363f2f2b4782f5f89971c4a754bd4.jpg@942w_530h_progressive.webp" data-sizes="auto" alt="FAIR多模态框架：MMF for MMDL" class="lazyload">
-              <h1>FAIR多模态框架：MMF for MMDL</h1>
+              <img data-src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/541a7aee05e363f2f2b4782f5f89971c4a754bd4.jpg@942w_530h_progressive.webp" data-sizes="auto" alt="FAIR：MMF for MMDL VQA" class="lazyload">
+              <h1>FAIR：MMF for MMDL VQA</h1>
           </div>
       
       
       <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
     <a><i class="nexmoefont icon-calendar-fill"></i>2021年09月25日</a>
-    <a><i class="nexmoefont icon-areachart"></i>734 字</a>
+    <a><i class="nexmoefont icon-areachart"></i>835 字</a>
     <a><i class="nexmoefont icon-time-circle-fill"></i>大概 3 分钟</a>
 </div>
 
@@ -319,6 +319,16 @@
 <li>验证<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">mmf_predict config=projects/m4c/configs/textvqa/defaults.yaml \<br>    datasets=textvqa \<br>    model=m4c \<br>    run_type=<span class="hljs-built_in">test</span> \<br>    checkpoint.resume_zoo=m4c.textvqa.defaults<br></code></pre></td></tr></table></figure></li>
 </ul>
 <p>4.FAQS<br>要深入了解MMF，请下一步探索以下主题[MMF][<a target="_blank" rel="noopener" href="https://mmf.sh/docs]%EF%BC%89">https://mmf.sh/docs]）</a></p>
+<h2 id="VQA-Visual-Question-Answering"><a href="#VQA-Visual-Question-Answering" class="headerlink" title="VQA(Visual Question Answering)"></a>VQA(Visual Question Answering)</h2><h3 id="入门干货"><a href="#入门干货" class="headerlink" title="入门干货:"></a>入门干货:</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/22530291">基于深度学习的VQA（视觉问答）技术</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/dyor9bv2y0VyX7woMDVLkA">VQA全景概述：从数据集到技术方法</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/5bf03d1fadfa">【note】Multimodal Compact Bilinear Pooling for Visual Question Answering and Visual Grounding</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.leiphone.com/news/201711/4B9cNlCINsVyPdTw.html">Facebook与视觉对话</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/ranjiewen/p/7604468.html">图像问答Image Question Answering</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/20899091">深度学习之图像问答实战</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/29688475">2017 VQA Challenge 第一名技术报告</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.msra.cn/zh-cn/news/features/vision-and-language-20170713">深度学习为视觉和语言之间搭建了一座桥梁</a></li>
+</ul>
 
   </article>
 
@@ -374,7 +384,7 @@
                                 <button class="mdui-fab catalog" style="overflow:unset;">
                                     <i class="nexmoefont icon-i-catalog"></i>
                                     <div class="nexmoe-toc">
-                                        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-modular-framework-for-vision-amp-language-multimodal-research-from-Facebook-AI-Research-FAIR"><span class="toc-number">1.</span> <span class="toc-text">A modular framework for vision &amp; language multimodal research from Facebook AI Research (FAIR).</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0%E6%A1%86%E6%9E%B6"><span class="toc-number">1.1.</span> <span class="toc-text">文章框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9"><span class="toc-number">1.2.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MMF%E5%AE%89%E8%A3%85"><span class="toc-number">1.3.</span> <span class="toc-text">MMF安装</span></a></li></ol></li></ol>
+                                        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-modular-framework-for-vision-amp-language-multimodal-research-from-Facebook-AI-Research-FAIR"><span class="toc-number">1.</span> <span class="toc-text">A modular framework for vision &amp; language multimodal research from Facebook AI Research (FAIR).</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0%E6%A1%86%E6%9E%B6"><span class="toc-number">1.1.</span> <span class="toc-text">文章框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9"><span class="toc-number">1.2.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MMF%E5%AE%89%E8%A3%85"><span class="toc-number">1.3.</span> <span class="toc-text">MMF安装</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VQA-Visual-Question-Answering"><span class="toc-number">2.</span> <span class="toc-text">VQA(Visual Question Answering)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A5%E9%97%A8%E5%B9%B2%E8%B4%A7"><span class="toc-number">2.1.</span> <span class="toc-text">入门干货:</span></a></li></ol></li></ol>
                                     </div>
                                 </button>
                             
@@ -425,7 +435,7 @@
 
  
 
-<script async src="/js/app.js?v=1636114375149"></script>
+<script async src="/js/app.js?v=1636282536396"></script>
 
 
 

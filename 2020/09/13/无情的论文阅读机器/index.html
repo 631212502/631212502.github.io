@@ -4,7 +4,7 @@
 
 <head>
     
-    <title>MMDL for VQA - 幽托匹亚</title>
+    <title>MMDL入坑（土） - 幽托匹亚</title>
     <meta charset="UTF-8">
     <!-- require APlayer -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
@@ -23,23 +23,23 @@
     <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/logo.png" type="image/png" />
     <meta name="description" content="MMDL综述篇：三句话从入门到劝退">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MMDL for VQA">
+<meta property="og:title" content="MMDL入坑（土）">
 <meta property="og:url" content="https://631212502.github.io/2020/09/13/%E6%97%A0%E6%83%85%E7%9A%84%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E6%9C%BA%E5%99%A8/index.html">
 <meta property="og:site_name" content="幽托匹亚">
 <meta property="og:description" content="MMDL综述篇：三句话从入门到劝退">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-13T01:33:06.000Z">
-<meta property="article:modified_time" content="2021-10-22T13:44:05.402Z">
+<meta property="article:modified_time" content="2021-11-06T07:53:28.311Z">
 <meta property="article:author" content="Natu Matu">
 <meta property="article:tag" content="学术">
 <meta name="twitter:card" content="summary">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
-    <link rel="stylesheet" href="/css/style.css?v=1636114375170">
+    <link rel="stylesheet" href="/css/style.css?v=1636282536415">
      
     
         <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
     
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1636114375170">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1636282536415">
     
         <link rel="stylesheet" href="/custom.css">
     
@@ -273,25 +273,35 @@
   <article>
       
           <div class="nexmoe-post-cover" style="padding-bottom: NaN%;"> 
-              <img data-src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/1.jpg" data-sizes="auto" alt="MMDL for VQA" class="lazyload">
-              <h1>MMDL for VQA</h1>
+              <img data-src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/1.jpg" data-sizes="auto" alt="MMDL入坑（土）" class="lazyload">
+              <h1>MMDL入坑（土）</h1>
           </div>
       
       
       <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
     <a><i class="nexmoefont icon-calendar-fill"></i>2020年09月13日</a>
-    <a><i class="nexmoefont icon-areachart"></i>608 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
+    <a><i class="nexmoefont icon-areachart"></i>754 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 3 分钟</a>
 </div>
 
       
 
       <p><strong>MMDL综述篇：三句话从入门到劝退</strong></p>
 <span id="more"></span>
-<h2 id="段子"><a href="#段子" class="headerlink" title="段子"></a>段子</h2><p>导师：CV太卷，NLP太难，小伙子，不如来搞搞多模态吧~<br>我：多模态是干什么滴啊，能当饭吃？<br>导师：可以~~东拼一点CV西凑一点NLP，再往锅里一炖，香得亚匹！<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/53511144">知乎一文读懂</a><br><a href="pytorch%E5%A4%9A%E6%A8%A1%E6%80%81%E5%AE%9E%E8%B7%B5%E5%9F%BA%E7%A1%80">pytorch多模态实践基础</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/tozhangning/article/details/82802164?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_title~default-0.no_search_link&spm=1001.2101.3001.4242">视觉问答VQA知识资料全集</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/liupeng19970119/article/details/106504992">音视频融合</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/152234745">常见的fusion</a></p>
-<h3 id="文献1-《Multimodal-Machine-Learning-A-Survey-and-Taxonomy》"><a href="#文献1-《Multimodal-Machine-Learning-A-Survey-and-Taxonomy》" class="headerlink" title="文献1:《Multimodal Machine Learning: A Survey and Taxonomy》"></a>文献1:<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/63143789">《Multimodal Machine Learning: A Survey and Taxonomy》</a></h3><p>Abstract—Our experience of the world is multimodal - we see objects, hear sounds, feel texture, smell odors, and taste flavors.<br>Modality refers to the way in which something happens or is experienced and a research problem is characterized as multimodal when<br>it includes multiple such modalities. In order for Artificial Intelligence to make progress in understanding the world around us, it needs<br>to be able to interpret such multimodal signals together. Multimodal machine learning aims to build models that can process and relate<br>information from multiple modalities. It is a vibrant multi-disciplinary field of increasing importance and with extraordinary potential.<br>Instead of focusing on specific multimodal applications, this paper surveys the recent advances in multimodal machine learning itself<br>and presents them in a common taxonomy. We go beyond the typical early and late fusion categorization and identify broader<br>challenges that are faced by multimodal machine learning, namely: representation, translation, alignment, fusion, and co-learning. This<br>new taxonomy will enable researchers to better understand the state of the field and identify directions for futur</p>
-<p>翻译：【摘要】我们对世界的体验是多模式的 - 我们看到物体，听到声音，感觉到纹理，闻到气味和尝到味道。模态是指某种事物发生或经历的方式，并且当研究问题包括多种这样的形式时，研究问题被描述为多模态。<br>为了使人工智能在理解我们周围的世界方面取得进展，它需要能够一起解释这种多模信号。多模式机器学习旨在构建可以处理和关联来自多种模态信息的模型。这是一个充满活力的多学科领域，具有越来越重要的意义和非凡的潜力。<br>本文不是关注特定的多模态应用，而是研究多模态机器学习本身的最新进展。我们超越了典型的早期和晚期融合分类，并确定了多模式机器学习所面临的更广泛的挑战，即：表示，翻译，对齐，融合和共同学习。<br>这种新的分类法将使研究人员能够更好地了解该领域的状况，并确定未来研究的方向。</p>
-<p><strong>要点整理：知道现在多模态有5大task：representation, translation, alignment, fusion, and co-learning</strong></p>
+<h2 id="来个段子"><a href="#来个段子" class="headerlink" title="来个段子"></a>来个段子</h2><center>导师：CV太卷，NLP太难，小伙子，不如来搞搞多模态往池子里灌灌水吧~</center>
+<center>我：多模态是干什么滴啊，能当饭吃？</center>
+<center>导师：当然可以~~东拼一点CV西凑一点NLP，再往锅里一炖，香得亚匹！</center>
+<center>我：我明白了，这就立马去炼丹！</center>
+
+<p><strong>由于近几年深度学习火热的原因，很多单一领域任务的模型性能难以提升，所以才有了混合模态灌水大法</strong><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/53511144">知乎一文读懂</a><br><a href="pytorch%E5%A4%9A%E6%A8%A1%E6%80%81%E5%AE%9E%E8%B7%B5%E5%9F%BA%E7%A1%80">pytorch多模态实践基础</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/tozhangning/article/details/82802164?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_title~default-0.no_search_link&spm=1001.2101.3001.4242">视觉问答VQA知识资料全集</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/liupeng19970119/article/details/106504992">音视频融合</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/152234745">常见的fusion</a></p>
+<h3 id="文献1-《Multimodal-Machine-Learning-A-Survey-and-Taxonomy》"><a href="#文献1-《Multimodal-Machine-Learning-A-Survey-and-Taxonomy》" class="headerlink" title="文献1:《Multimodal Machine Learning: A Survey and Taxonomy》"></a>文献1:<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/63143789">《Multimodal Machine Learning: A Survey and Taxonomy》</a></h3><h4 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h4><p>Abstract—Our experience of the world is <strong>multimodal</strong> - we see objects, hear sounds, feel texture, smell odors, and taste flavors.<br>Modality refers to the way in which something happens or is experienced and a research problem is characterized as multimodal when<br>it includes multiple such modalities. In order for Artificial Intelligence to make progress in understanding the world around us, it needs<br>to be able to interpret such multimodal signals together. Multimodal machine learning aims to build models that can process and relate<br>information from multiple modalities. It is a vibrant multi-disciplinary field of increasing importance and with extraordinary potential.<br>Instead of focusing on specific multimodal applications, this paper surveys the recent advances in multimodal machine learning itself<br>and presents them in a common taxonomy. We go beyond the typical early and late fusion categorization and identify broader<br>challenges that are faced by multimodal machine learning, namely: representation, translation, alignment, fusion, and co-learning. This<br>new taxonomy will enable researchers to better understand the state of the field and identify directions for futur</p>
+<p>【摘要】我们对世界的体验是多模式的 - 我们看到物体，听到声音，感觉到纹理，闻到气味和尝到味道。模态是指某种事物发生或经历的方式，并且当研究问题包括多种这样的形式时，研究问题被描述为多模态。<br>为了使人工智能在理解我们周围的世界方面取得进展，它需要能够一起解释这种多模信号。多模式机器学习旨在构建可以处理和关联来自多种模态信息的模型。这是一个充满活力的多学科领域，具有越来越重要的意义和非凡的潜力。<br>本文不是关注特定的多模态应用，而是研究多模态机器学习本身的最新进展。我们超越了典型的早期和晚期融合分类，并确定了多模式机器学习所面临的更广泛的挑战，即：表示，翻译，对齐，融合和共同学习。<br>这种新的分类法将使研究人员能够更好地了解该领域的状况，并确定未来研究的方向。</p>
+<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><ul>
+<li>解决问题：是一篇行业大牛所写的综述，总结过去展望了未来，嗯，很好~</li>
+<li>论文动机：多模态领域内容杂乱，坑数不胜数，江湖分久必合</li>
+<li>研究方法：无情论文阅读法</li>
+<li>其他内容：总结了多模态信息融合过程中的表示（联合/嵌入），映射，融合，协同等学习方法</li>
+</ul>
 <hr>
 <h3 id="文献2"><a href="#文献2" class="headerlink" title="文献2:"></a>文献2:</h3>
   </article>
@@ -348,7 +358,7 @@
                                 <button class="mdui-fab catalog" style="overflow:unset;">
                                     <i class="nexmoefont icon-i-catalog"></i>
                                     <div class="nexmoe-toc">
-                                        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AE%B5%E5%AD%90"><span class="toc-number">1.</span> <span class="toc-text">段子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%8C%AE1-%E3%80%8AMultimodal-Machine-Learning-A-Survey-and-Taxonomy%E3%80%8B"><span class="toc-number">1.1.</span> <span class="toc-text">文献1:《Multimodal Machine Learning: A Survey and Taxonomy》</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%8C%AE2"><span class="toc-number">1.2.</span> <span class="toc-text">文献2:</span></a></li></ol></li></ol>
+                                        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%A5%E4%B8%AA%E6%AE%B5%E5%AD%90"><span class="toc-number">1.</span> <span class="toc-text">来个段子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%8C%AE1-%E3%80%8AMultimodal-Machine-Learning-A-Survey-and-Taxonomy%E3%80%8B"><span class="toc-number">1.1.</span> <span class="toc-text">文献1:《Multimodal Machine Learning: A Survey and Taxonomy》</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">1.1.1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E6%9E%90"><span class="toc-number">1.1.2.</span> <span class="toc-text">分析</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%8C%AE2"><span class="toc-number">1.2.</span> <span class="toc-text">文献2:</span></a></li></ol></li></ol>
                                     </div>
                                 </button>
                             
@@ -399,7 +409,7 @@
 
  
 
-<script async src="/js/app.js?v=1636114375173"></script>
+<script async src="/js/app.js?v=1636282536417"></script>
 
 
 
