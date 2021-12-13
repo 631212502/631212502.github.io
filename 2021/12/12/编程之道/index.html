@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     
-    <title>编程之道 - Eutupia by 夏夢</title>
+    <title>Coding Learning - Eutupia by 夏夢</title>
     <meta charset="UTF-8">
     <meta name="description" content="願いが叶う場所">
     <meta name="keywords" content="null">
@@ -11,15 +11,15 @@
     
 
     <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/logo.png" type="image/png" />
-    <meta name="description" content="剑指offer">
+    <meta name="description" content="XXXXXXXXX">
 <meta property="og:type" content="article">
-<meta property="og:title" content="编程之道">
+<meta property="og:title" content="Coding Learning">
 <meta property="og:url" content="https://631212502.github.io/2021/12/12/%E7%BC%96%E7%A8%8B%E4%B9%8B%E9%81%93/index.html">
 <meta property="og:site_name" content="Eutupia by 夏夢">
-<meta property="og:description" content="剑指offer">
+<meta property="og:description" content="XXXXXXXXX">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-12-12T10:47:55.000Z">
-<meta property="article:modified_time" content="2021-12-12T10:49:49.777Z">
+<meta property="article:modified_time" content="2021-12-13T12:23:54.205Z">
 <meta property="article:author" content="Natu Matu">
 <meta property="article:tag" content="编程">
 <meta name="twitter:card" content="summary">
@@ -35,12 +35,12 @@
     <!-- DPlayer -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.css">
     <script src="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.js"></script>
-    <link rel="stylesheet" href="/css/style.css?v=1639314532171">
+    <link rel="stylesheet" href="/css/style.css?v=1639398834891">
      
     
         <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
     
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1639314532171">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1639398834891">
     
         <link rel="stylesheet" href="/custom.css">
     
@@ -280,25 +280,36 @@
   <article>
       
           <div class="nexmoe-post-cover" style="padding-bottom: NaN%;"> 
-              <img data-src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/t015d4f327880dddb26.jpg" data-sizes="auto" alt="编程之道" class="lazyload">
-              <h1>编程之道</h1>
+              <img data-src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/t015d4f327880dddb26.jpg" data-sizes="auto" alt="Coding Learning" class="lazyload">
+              <h1>Coding Learning</h1>
           </div>
       
       
       <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
     <a><i class="nexmoefont icon-calendar-fill"></i>2021年12月12日</a>
-    <a><i class="nexmoefont icon-areachart"></i>289 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
+    <a><i class="nexmoefont icon-areachart"></i>640 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
 </div>
 
       
 
-      <p><strong>剑指offer</strong></p>
+      <p><strong>XXXXXXXXX</strong></p>
 <span id="more"></span>
-<h1 id="Leetcode每日一题"><a href="#Leetcode每日一题" class="headerlink" title="Leetcode每日一题"></a>Leetcode每日一题</h1><h2 id="2021-12-12：数组里的重复元素问题"><a href="#2021-12-12：数组里的重复元素问题" class="headerlink" title="2021.12.12：数组里的重复元素问题"></a>2021.12.12：数组里的重复元素问题</h2><ol>
-<li>拿到这道题直接就想到了双循环遍历，是很显然的方法，但问题就是复杂度太高了，吃满数组内存运行起来又是N的平方，数据量一大就是指数型爆炸的运算量，其实最好的方法有排序法和哈希表法！<ul>
+<h1 id="Leetcode学习日历"><a href="#Leetcode学习日历" class="headerlink" title="Leetcode学习日历"></a>Leetcode学习日历</h1><h2 id="2021-12-12：数组里的重复元素问题"><a href="#2021-12-12：数组里的重复元素问题" class="headerlink" title="2021.12.12：数组里的重复元素问题"></a>2021.12.12：数组里的重复元素问题</h2><h3 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h3><h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><p><strong>概念：连续内存空间上相同数据的集合：内存是挨着的，数据类型是相同的</strong></p>
+<ul>
+<li>基本知识：<ol>
+<li>数组可以通过下标寻址，删除或者插入元素要对整个数组进行连续位移操作</li>
+<li>数组下标都是从0开始，而且在内存空间分配上是连续的<h4 id="二分查找问题"><a href="#二分查找问题" class="headerlink" title="二分查找问题"></a>二分查找问题</h4></li>
+</ol>
+</li>
+<li>使用条件：在一个有序的数组里，直接用二分法判别相当于卡德一下就干掉了一般的数据，极为搞笑，类似于数学里的不断二分求函数在某一个区间上的极值点一样。  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>(<span class="hljs-params"><span class="hljs-built_in">object</span></span>):</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">search</span>(<span class="hljs-params">self, nums, target</span>):</span><br>        <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">        :type nums: List[int]</span><br><span class="hljs-string">        :type target: int</span><br><span class="hljs-string">        :rtype: int</span><br><span class="hljs-string">        &quot;&quot;&quot;</span><br>        left = <span class="hljs-number">0</span><br>        right = <span class="hljs-built_in">len</span>(nums)-<span class="hljs-number">1</span><br>        <span class="hljs-keyword">while</span> left &lt;= right: <span class="hljs-comment">#此处规定区间左右界规则很重要，当二分到左右界会交叉时break，返回-1</span><br>            middel = (right + left) / <span class="hljs-number">2</span> <span class="hljs-comment">#这一步是我的代码</span><br>            <span class="hljs-comment">#middel = ((right - left) // 2) + left #官方代码</span><br>            <span class="hljs-keyword">if</span> nums[middel] == target:<br>                <span class="hljs-keyword">return</span> middel<br>            <span class="hljs-keyword">if</span> nums[middel] &gt; target:<br>                right = middel - <span class="hljs-number">1</span> <span class="hljs-comment">#错因，没有搞清楚二分之后左右边界的选择问题，目标在左应该把右边界往中间偏左缩减一位</span><br>            <span class="hljs-keyword">else</span>:<br>                left = middel + <span class="hljs-number">1</span> <span class="hljs-comment">#目标在右应该把左边界在中位数上往右走一位，确定合适的区间</span><br>        <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+<h4 id="刷题部分"><a href="#刷题部分" class="headerlink" title="刷题部分"></a>刷题部分</h4></li>
+</ul>
+<ol>
+<li>【2021.121.12】拿到这道题直接就想到了双循环遍历然后计数，是很显然的方法，但问题就是复杂度太高了，吃满数组内存运行起来又是N的平方，数据量一大就是指数型爆炸的运算量，其实最好的方法有排序法和哈希表法！<ul>
 <li>排序测邻：优势，排序的复杂度只有logN，要比双循环好，而且有sorted（）、set（）这种直接处理序列的API，实现起来很方便。<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">containsDuplicate</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        <span class="hljs-built_in">sort</span>(nums.<span class="hljs-built_in">begin</span>(), nums.<span class="hljs-built_in">end</span>());<br>        <span class="hljs-keyword">int</span> n = nums.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n - <span class="hljs-number">1</span>; i++) &#123;<br>            <span class="hljs-keyword">if</span> (nums[i] == nums[i + <span class="hljs-number">1</span>]) &#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure></li>
-<li>哈希表：对于数组中每个元素，我们将它插入到哈希表中。如果插入一个元素时发现该元素已经存在于哈希表中，则说明存在重复的元素。<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">containsDuplicate</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        unordered_set&lt;<span class="hljs-keyword">int</span>&gt; s;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> x: nums) &#123;<br>            <span class="hljs-keyword">if</span> (s.<span class="hljs-built_in">find</span>(x) != s.<span class="hljs-built_in">end</span>()) &#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>            &#125;<br>            s.<span class="hljs-built_in">insert</span>(x);<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure></li>
+<li>哈希表：对于数组中每个元素，我们将它插入到哈希表中。如果插入一个元素时发现该元素已经存在于哈希表中，则说明存在重复的元素。<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">containsDuplicate</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        unordered_set&lt;<span class="hljs-keyword">int</span>&gt; s;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> x: nums) &#123;<br>            <span class="hljs-keyword">if</span> (s.<span class="hljs-built_in">find</span>(x) != s.<span class="hljs-built_in">end</span>()) &#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>            &#125;<br>            s.<span class="hljs-built_in">insert</span>(x);<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<h2 id="2021-12-13："><a href="#2021-12-13：" class="headerlink" title="2021.12.13："></a>2021.12.13：</h2></li>
 </ul>
 </li>
 </ol>
@@ -355,7 +366,7 @@
                                 <button class="mdui-fab catalog" style="overflow:unset;">
                                     <i class="nexmoefont icon-i-catalog"></i>
                                     <div class="nexmoe-toc">
-                                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">Leetcode每日一题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2021-12-12%EF%BC%9A%E6%95%B0%E7%BB%84%E9%87%8C%E7%9A%84%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.</span> <span class="toc-text">2021.12.12：数组里的重复元素问题</span></a></li></ol></li></ol>
+                                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Leetcode%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%8E%86"><span class="toc-number">1.</span> <span class="toc-text">Leetcode学习日历</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2021-12-12%EF%BC%9A%E6%95%B0%E7%BB%84%E9%87%8C%E7%9A%84%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.</span> <span class="toc-text">2021.12.12：数组里的重复元素问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-number">1.1.1.</span> <span class="toc-text">基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E7%BB%84"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">二分查找问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%B7%E9%A2%98%E9%83%A8%E5%88%86"><span class="toc-number">1.1.1.3.</span> <span class="toc-text">刷题部分</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2021-12-13%EF%BC%9A"><span class="toc-number">1.2.</span> <span class="toc-text">2021.12.13：</span></a></li></ol></li></ol>
                                     </div>
                                 </button>
                             
@@ -406,7 +417,7 @@
 
  
 
-<script async src="/js/app.js?v=1639314532174"></script>
+<script async src="/js/app.js?v=1639398834898"></script>
 
 
 
