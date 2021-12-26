@@ -6,7 +6,7 @@
     <title>Coding Learning from 代码随想录 - Eutupia by 夏夢</title>
     <meta charset="UTF-8">
     <meta name="description" content="願いが叶う場所">
-    <meta name="keywords" content="">
+    <meta name="keywords" content="null">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     
     
@@ -23,7 +23,7 @@
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEly1gntrds6r59g30du09mnpd.gif">
 <meta property="og:image" content="https://code-thinking.cdn.bcebos.com/gifs/209.%E9%95%BF%E5%BA%A6%E6%9C%80%E5%B0%8F%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84.gif">
 <meta property="article:published_time" content="2021-12-12T10:47:55.000Z">
-<meta property="article:modified_time" content="2021-12-17T08:28:36.802Z">
+<meta property="article:modified_time" content="2021-12-22T11:19:53.375Z">
 <meta property="article:author" content="Natu Matu">
 <meta property="article:tag" content="编程">
 <meta name="twitter:card" content="summary">
@@ -40,12 +40,12 @@
     <!-- DPlayer -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.css">
     <script src="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.js"></script>
-    <link rel="stylesheet" href="/css/style.css?v=1639904665366">
+    <link rel="stylesheet" href="/css/style.css?v=1640510764187">
      
     
         <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
     
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1639904665366">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1640510764187">
     
         <link rel="stylesheet" href="/custom.css">
     
@@ -72,7 +72,7 @@
         </a>
     </div>
     <div class="nexmoe-count">
-        <div><span>文章</span>22</div>
+        <div><span>文章</span>23</div>
         <div><span>标签</span>6</div>
         <div><span>分类</span>4</div>
     </div>
@@ -192,7 +192,7 @@
 
         <li class="category-list-item">
           <a class="category-list-link" href="/categories/无情の勉強マシン/">无情の勉強マシン</a>
-          <span class="category-list-count">3</span>
+          <span class="category-list-count">4</span>
         </li>
 
         
@@ -221,7 +221,7 @@
   <div class="nexmoe-widget-wrap">
     <h3 class="nexmoe-widget-title">文章归档</h3>
     <div class="nexmoe-widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/">2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/">2010</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/">2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/">2010</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -292,8 +292,8 @@
       
       <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
     <a><i class="nexmoefont icon-calendar-fill"></i>2021年12月12日</a>
-    <a><i class="nexmoefont icon-areachart"></i>2.4k 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 10 分钟</a>
+    <a><i class="nexmoefont icon-areachart"></i>2.6k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 12 分钟</a>
 </div>
 
       
@@ -340,11 +340,14 @@
 <li>二分法：二分的难点在于升序/降序（下面以升序为例子）奇偶长度数组的边界处理，边界比较后如何选择新边界十分关键（是左1还是右1，大体逻辑就是，边界值大于目标值，则目标在左边，右边界移动到这，因为此处已经进行过计算，则可再向左移动一位，右边同理）</li>
 <li>双指针法：针对双循环的题目，可以用一快一慢的指针减少时间复杂度(n^2→n)，比如对数组进行删除操作<br><img data-fancybox="gallery" data-sizes="auto" data-src="https://tva1.sinaimg.cn/large/008eGmZEly1gntrds6r59g30du09mnpd.gif" alt="双指针" class="lazyload"></li>
 <li>滑动窗口法：滑动窗口的精妙之处在于根据当前子序列和大小的情况，不断调节子序列的起始位置。从而将O(n^2)的暴力解法降为O(n)。<br><img data-fancybox="gallery" data-sizes="auto" data-src="https://code-thinking.cdn.bcebos.com/gifs/209.%E9%95%BF%E5%BA%A6%E6%9C%80%E5%B0%8F%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84.gif" alt="滑窗" class="lazyload"></li>
-<li>模拟行为法：<br>相信大家又遇到过这种情况： 感觉题目的边界调节超多，一波接着一波的判断，找边界，踩了东墙补西墙，好不容易运行通过了，代码写的十分冗余，毫无章法，其实真正解决题目的代码都是简洁的，或者有原则性的。<h4 id="纯刷题部分"><a href="#纯刷题部分" class="headerlink" title="纯刷题部分"></a>纯刷题部分</h4></li>
+<li>模拟行为法：<br>相信大家又遇到过这种情况： 感觉题目的边界调节超多，一波接着一波的判断，找边界，踩了东墙补西墙，好不容易运行通过了，代码写的十分冗余，毫无章法，其实真正解决题目的代码都是简洁的，或者有原则性的。</li>
 </ul>
 </li>
 </ul>
-<ol>
+<h3 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h3><h4 id="什么是链表？"><a href="#什么是链表？" class="headerlink" title="什么是链表？"></a>什么是链表？</h4><p>链表为一种通过指针串联在一起的线性结构，每一个节点有两部分组成，头和指针/数据域和指针域<br>最后一个节点的指针域指向null（其为空指针），相对应的，入口节点为头指针。<br>链表有单双链表和循环链表，在内存中独立散乱分布（和数组相区别）</p>
+<h4 id="移除节点"><a href="#移除节点" class="headerlink" title="移除节点"></a>移除节点</h4><p>为了操作统一，可以虚拟一个头结点进行操作</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">ListNode* <span class="hljs-title">removeElements</span><span class="hljs-params">(ListNode* head, <span class="hljs-keyword">int</span> val)</span> </span>&#123;<br>        <span class="hljs-comment">// 删除头结点</span><br>        <span class="hljs-keyword">while</span> (head != <span class="hljs-literal">NULL</span> &amp;&amp; head-&gt;val == val) &#123; <span class="hljs-comment">// 注意这里不是if</span><br>            ListNode* tmp = head;<br>            head = head-&gt;next;<br>            <span class="hljs-keyword">delete</span> tmp;<br>        &#125;<br><br>        <span class="hljs-comment">// 删除非头结点</span><br>        ListNode* cur = head;<br>        <span class="hljs-keyword">while</span> (cur != <span class="hljs-literal">NULL</span> &amp;&amp; cur-&gt;next!= <span class="hljs-literal">NULL</span>) &#123;<br>            <span class="hljs-keyword">if</span> (cur-&gt;next-&gt;val == val) &#123;<br>                ListNode* tmp = cur-&gt;next;<br>                cur-&gt;next = cur-&gt;next-&gt;next;<br>                <span class="hljs-keyword">delete</span> tmp;<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                cur = cur-&gt;next;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> head;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<h4 id="设计链表"><a href="#设计链表" class="headerlink" title="设计链表"></a>设计链表</h4><h4 id="纯刷题部分"><a href="#纯刷题部分" class="headerlink" title="纯刷题部分"></a>纯刷题部分</h4><ol>
 <li>【2021.121.12】拿到这道题直接就想到了双循环遍历然后计数，是很显然的方法，但问题就是复杂度太高了，吃满数组内存运行起来又是N的平方，数据量一大就是指数型爆炸的运算量，其实最好的方法有排序法和哈希表法！<ul>
 <li>排序测邻：优势，排序的复杂度只有logN，要比双循环好，而且有sorted（）、set（）这种直接处理序列的API，实现起来很方便。<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">containsDuplicate</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        <span class="hljs-built_in">sort</span>(nums.<span class="hljs-built_in">begin</span>(), nums.<span class="hljs-built_in">end</span>());<br>        <span class="hljs-keyword">int</span> n = nums.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n - <span class="hljs-number">1</span>; i++) &#123;<br>            <span class="hljs-keyword">if</span> (nums[i] == nums[i + <span class="hljs-number">1</span>]) &#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure></li>
 <li>哈希表：对于数组中每个元素，我们将它插入到哈希表中。如果插入一个元素时发现该元素已经存在于哈希表中，则说明存在重复的元素。<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">containsDuplicate</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        unordered_set&lt;<span class="hljs-keyword">int</span>&gt; s;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> x: nums) &#123;<br>            <span class="hljs-keyword">if</span> (s.<span class="hljs-built_in">find</span>(x) != s.<span class="hljs-built_in">end</span>()) &#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>            &#125;<br>            s.<span class="hljs-built_in">insert</span>(x);<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure></li>
@@ -404,7 +407,7 @@
                                 <button class="mdui-fab catalog" style="overflow:unset;">
                                     <i class="nexmoefont icon-i-catalog"></i>
                                     <div class="nexmoe-toc">
-                                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Leetcode%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%8E%86"><span class="toc-number">1.</span> <span class="toc-text">Leetcode学习日历</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2021-12-12%EF%BC%9A%E6%95%B0%E7%BB%84%E9%87%8C%E7%9A%84%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.</span> <span class="toc-text">2021.12.12：数组里的重复元素问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-number">1.1.1.</span> <span class="toc-text">基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E7%BB%84"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">二分查找问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%83%E7%B4%A0%E7%A7%BB%E9%99%A4%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.1.3.</span> <span class="toc-text">元素移除问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E5%B9%B3%E6%96%B9%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.1.4.</span> <span class="toc-text">有序数组的平方问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%95%BF%E5%BA%A6%E6%9C%80%E5%B0%8F%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.1.5.</span> <span class="toc-text">长度最小的子数组问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.1.6.</span> <span class="toc-text">螺旋矩阵问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E9%83%A8%E5%88%86%E6%80%BB%E7%BB%93"><span class="toc-number">1.1.1.7.</span> <span class="toc-text">数组部分总结</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%AF%E5%88%B7%E9%A2%98%E9%83%A8%E5%88%86"><span class="toc-number">1.1.1.8.</span> <span class="toc-text">纯刷题部分</span></a></li></ol></li></ol></li></ol></li></ol>
+                                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Leetcode%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%8E%86"><span class="toc-number">1.</span> <span class="toc-text">Leetcode学习日历</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2021-12-12%EF%BC%9A%E6%95%B0%E7%BB%84%E9%87%8C%E7%9A%84%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.</span> <span class="toc-text">2021.12.12：数组里的重复元素问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-number">1.1.1.</span> <span class="toc-text">基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E7%BB%84"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">二分查找问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%83%E7%B4%A0%E7%A7%BB%E9%99%A4%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.1.3.</span> <span class="toc-text">元素移除问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E5%B9%B3%E6%96%B9%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.1.4.</span> <span class="toc-text">有序数组的平方问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%95%BF%E5%BA%A6%E6%9C%80%E5%B0%8F%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.1.5.</span> <span class="toc-text">长度最小的子数组问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.1.6.</span> <span class="toc-text">螺旋矩阵问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E9%83%A8%E5%88%86%E6%80%BB%E7%BB%93"><span class="toc-number">1.1.1.7.</span> <span class="toc-text">数组部分总结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%93%BE%E8%A1%A8"><span class="toc-number">1.1.2.</span> <span class="toc-text">链表</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E9%93%BE%E8%A1%A8%EF%BC%9F"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">什么是链表？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A7%BB%E9%99%A4%E8%8A%82%E7%82%B9"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">移除节点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E9%93%BE%E8%A1%A8"><span class="toc-number">1.1.2.3.</span> <span class="toc-text">设计链表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%AF%E5%88%B7%E9%A2%98%E9%83%A8%E5%88%86"><span class="toc-number">1.1.2.4.</span> <span class="toc-text">纯刷题部分</span></a></li></ol></li></ol></li></ol></li></ol>
                                     </div>
                                 </button>
                             
@@ -455,7 +458,7 @@
 
  
 
-<script async src="/js/app.js?v=1639904665376"></script>
+<script async src="/js/app.js?v=1640510764200"></script>
 
 
 
@@ -475,6 +478,21 @@
 
 
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 <!--烟花爆炸-->
 <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
