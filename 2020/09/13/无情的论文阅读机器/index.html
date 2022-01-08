@@ -27,7 +27,7 @@
 <meta property="og:image" content="https://pdf.cdn.readpaper.com/parsed/fetch_target/610d2a8ecee7531cae89da46d39e66a7_6_Table_3.png">
 <meta property="og:image" content="https://pdf.cdn.readpaper.com/parsed/fetch_target/610d2a8ecee7531cae89da46d39e66a7_6_Table_4.png">
 <meta property="article:published_time" content="2020-09-13T01:33:06.000Z">
-<meta property="article:modified_time" content="2021-12-26T09:06:56.244Z">
+<meta property="article:modified_time" content="2022-01-04T08:30:19.779Z">
 <meta property="article:author" content="Natu Matu">
 <meta property="article:tag" content="学术">
 <meta name="twitter:card" content="summary">
@@ -44,12 +44,12 @@
     <!-- DPlayer -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.css">
     <script src="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.js"></script>
-    <link rel="stylesheet" href="/css/style.css?v=1640510764285">
+    <link rel="stylesheet" href="/css/style.css?v=1641611714462">
      
     
         <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
     
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1640510764285">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1641611714462">
     
         <link rel="stylesheet" href="/custom.css">
     
@@ -269,7 +269,7 @@
 
 
     <div class="nexmoe-copyright">
-        &copy; 2021 Natu Matu
+        &copy; 2022 Natu Matu
         Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
         & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
         
@@ -296,15 +296,15 @@
       
       <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
     <a><i class="nexmoefont icon-calendar-fill"></i>2020年09月13日</a>
-    <a><i class="nexmoefont icon-areachart"></i>1.3k 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 6 分钟</a>
+    <a><i class="nexmoefont icon-areachart"></i>2.1k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 9 分钟</a>
 </div>
 
       
 
       <p><strong>MMDL综述篇：三句话从入门到劝退</strong></p>
 <span id="more"></span>
-<p><strong>PS：在此之前，需要提到的是：无论是论文笔记，还是总结性的读物，都包含了作者自己的理解和二次加工，想要做出好的工作必定需要自己看论文和总结。</strong></p>
+<p><strong>PS：在此之前，需要提到的是：无论是论文笔记，还是总结性的读物，都包含了作者自己的理解和二次加工，想要做出好的工作必定需要自己看论文和总结。这里推荐一套来自卡内基梅隆大学的<a target="_blank" rel="noopener" href="https://cmu-multicomp-lab.github.io/mmml-course/fall2020/schedule/">网课</a></strong></p>
 <h2 id="来个段子"><a href="#来个段子" class="headerlink" title="来个段子"></a>来个段子</h2><center>导师：CV太卷，NLP太难，小伙子，不如来搞搞多模态往池子里灌灌水吧~</center>
 <center>我：多模态是干什么滴啊，能当饭吃？</center>
 <center>导师：当然可以~~东拼一点CV西凑一点NLP，再往锅里一炖，香得亚匹！</center>
@@ -318,8 +318,55 @@
 <li>研究方法：无情论文阅读法</li>
 <li>其他内容：总结了多模态信息融合过程中的表示（联合/嵌入），映射，融合，协同等学习方法</li>
 </ul>
+<h4 id="研究内容和应用领域"><a href="#研究内容和应用领域" class="headerlink" title="研究内容和应用领域"></a>研究内容和应用领域</h4><ul>
+<li>五大类：表示：多模态表征，对齐：跨模态对齐，映射（翻译），融合（多模态融合），协同</li>
+<li>如今的主要任务：<ul>
+<li>跨模态的预训练模型：Vision-Language Model</li>
+<li>跨任务预训练</li>
+</ul>
+</li>
+<li>Language-Audio<ul>
+<li>ext-to-Speech Synthesis: 给定文本，生成一段对应的声音。</li>
+<li>Audio Captioning：给定一段语音，生成一句话总结并描述主要内容。(不是语音识别)</li>
+</ul>
+</li>
+<li>Vision-Audio<ul>
+<li>Audio-Visual Speech Recognition(视听语音识别)：给定某人的视频及语音进行语音识别。</li>
+<li>Video Sound Separation(视频声源分离)：给定视频和声音信号(包含多个声源)，进行声源定位与分离。</li>
+<li>Image Generation from Audio: 给定声音，生成与其相关的图像。</li>
+<li>Speech-conditioned Face generation：给定一段话，生成说话人的视频。</li>
+<li>Audio-Driven 3D Facial Animation：给定一段话与3D人脸模版，生成说话的人脸3D动画。</li>
+</ul>
+</li>
+<li>Vision-Language<ul>
+<li>Image/Video-Text Retrieval (图(视频)文检索): 图像/视频&lt;–&gt;文本的相互检索。</li>
+<li>Image/Video Captioning(图像/视频描述)：给定一个图像/视频，生成文本描述其主要内容。</li>
+<li>Visual Question Answering(视觉问答)：给定一个图像/视频与一个问题，预测答案。</li>
+<li>Image/Video Generation from Text：给定文本，生成相应的图像或视频。</li>
+<li>Multimodal Machine Translation：给定一种语言的文本与该文本对应的图像，翻译为另外一种语言。</li>
+<li>Vision-and-Language Navigation(视觉-语言导航)： 给定自然语言进行指导，使得智能体根据视觉传感器导航到特定的目标。</li>
+<li>Multimodal Dialog(多模态对话)： 给定图像，历史对话，以及与图像相关的问题，预测该问题的回答。</li>
+</ul>
+</li>
+<li>定位相关的任务<ul>
+<li>Visual Grounding：给定一个图像与一段文本，定位到文本所描述的物体。</li>
+<li>Temporal Language Localization: 给定一个视频即一段文本，定位到文本所描述的动作(预测起止时间)。</li>
+<li>Video Summarization from text query：给定一段话(query)与一个视频，根据这段话的内容进行视频摘要，预测视频关键帧(或关键片段)组合为一个短的摘要视频。</li>
+<li>Video Segmentation from Natural Language Query: 给定一段话(query)与一个视频，分割得到query所指示的物体。</li>
+<li>ideo-Language Inference: 给定视频(包括视频的一些字幕信息)，还有一段文本假设(hypothesis)，判断二者是否存在语义蕴含(二分类)，即判断视频内容是否包含这段文本的语义。</li>
+<li>Object Tracking from Natural Language Query: 给定一段视频和一些文本，进行</li>
+<li>Language-guided Image/Video Editing: 一句话自动修图。给定一段指令(文本)，自动进行图像/视频的编辑。</li>
+</ul>
+</li>
+<li>更多模态<ul>
+<li>Affect Computing (情感计算)：使用语音、视觉(人脸表情)、文本信息、心电、脑电等模态进行情感识别。</li>
+<li>Medical Image：不同医疗图像模态如CT、MRI、PET</li>
+<li>RGB-D模态：RGB图与深度图</li>
+</ul>
+</li>
+</ul>
 <hr>
-<h2 id="文献2-《ViLT-Vision-and-Language-Transformer-Without-Convolution-or-Region-Supervision》"><a href="#文献2-《ViLT-Vision-and-Language-Transformer-Without-Convolution-or-Region-Supervision》" class="headerlink" title="文献2:《ViLT: Vision-and-Language Transformer Without Convolution or Region Supervision》"></a>文献2:《ViLT: Vision-and-Language Transformer Without Convolution or Region Supervision》</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>注：这是2021最轻量级的多模态融合模型（目前计算资源下仅有能跑得动的多模态模型）</p>
+<h2 id="文献2-《ViLT-Vision-and-Language-Transformer-Without-Convolution-or-Region-Supervision》"><a href="#文献2-《ViLT-Vision-and-Language-Transformer-Without-Convolution-or-Region-Supervision》" class="headerlink" title="文献2:《ViLT: Vision-and-Language Transformer Without Convolution or Region Supervision》"></a>文献2:<a target="_blank" rel="noopener" href="https://readpaper.com/pdf-annotate/note?noteId=633812503618015232&pdfId=4545248231012589569">《ViLT: Vision-and-Language Transformer Without Convolution or Region Supervision》</a></h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>注：这是2021最轻量级的多模态融合模型（目前计算资源下仅有能跑得动的多模态模型）</p>
 <h4 id="摘要-1"><a href="#摘要-1" class="headerlink" title="摘要"></a>摘要</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://pdf.cdn.readpaper.com/parsed/fetch_target/610d2a8ecee7531cae89da46d39e66a7_0_Figure_1.png" alt="ideas" class="lazyload"></p>
 <h4 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h4><ul>
 <li>当今多模态领域（2019年以后），VLP（vision-and-language pre—training）模型已经成为了主流，面对大型网络的应用都是pre-traing+final tune的模式。</li>
@@ -343,10 +390,11 @@
 <li><p>架构上，引入片面投影而不是区域网格特征。</p>
 </li>
 <li><p>目标检测不可能比程序主干或者单层卷积要快，冻结视觉模块主要是为了减小训练时间而不是为了进行推理预测。更不说其有可能影响性能。</p>
-<h4 id="VilT-model-mudle"><a href="#VilT-model-mudle" class="headerlink" title="VilT model/mudle"></a>VilT model/mudle</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://pdf.cdn.readpaper.com/parsed/fetch_target/610d2a8ecee7531cae89da46d39e66a7_3_Figure_3.png" alt="model structuer" class="lazyload"><br>（待进行代码研究）<br>实现计算原理：<br>$$<br>\begin{aligned}<br>\bar{t} &amp;=\left[t_{\text {class }} ; t_{1} T ; \cdots ; t_{L} T\right]+T^{\text {pos }} &amp; &amp; \<br>\bar{v} &amp;=\left[v_{\text {class }} ; v_{1} V ; \cdots ; v_{N} V\right]+V^{\text {pos }} &amp; &amp; \<br>z^{0} &amp;=\left[\bar{t}+t^{\text {type }} ; \bar{v}+v^{\text {type }}\right] &amp; &amp; \<br>\hat{z}^{d} &amp;=\operatorname{MSA}\left(\operatorname{LN}\left(z^{d-1}\right)\right)+z^{d-1}, &amp; &amp; d=1 \ldots D \<br>z^{d} &amp;=\operatorname{MLP}\left(\operatorname{LN}\left(\hat{z}^{d}\right)\right)+\hat{z}^{d}, &amp; &amp; d=1 \ldots D \<br>p &amp;=\tanh \left(z_{0}^{D} W_{\text {pool }}\right) &amp; &amp;<br>\end{aligned}<br>$$</p>
-<h4 id="experiments"><a href="#experiments" class="headerlink" title="experiments"></a>experiments</h4></li>
+<h4 id="VilT-model-mudle"><a href="#VilT-model-mudle" class="headerlink" title="VilT model/mudle"></a>VilT model/mudle</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://pdf.cdn.readpaper.com/parsed/fetch_target/610d2a8ecee7531cae89da46d39e66a7_3_Figure_3.png" alt="model structuer" class="lazyload"><br>（待进行代码研究）</p>
+</li>
 </ol>
-<ul>
+<p>实现计算原理：<br>$$<br>\begin{aligned}<br>\bar{t} &amp;=\left[t_{\text {class }} ; t_{1} T ; \cdots ; t_{L} T\right]+T^{\text {pos }} &amp; &amp; \<br>\bar{v} &amp;=\left[v_{\text {class }} ; v_{1} V ; \cdots ; v_{N} V\right]+V^{\text {pos }} &amp; &amp; \<br>z^{0} &amp;=\left[\bar{t}+t^{\text {type }} ; \bar{v}+v^{\text {type }}\right] &amp; &amp; \<br>\hat{z}^{d} &amp;=\operatorname{MSA}\left(\operatorname{LN}\left(z^{d-1}\right)\right)+z^{d-1}, &amp; &amp; d=1 \ldots D \<br>z^{d} &amp;=\operatorname{MLP}\left(\operatorname{LN}\left(\hat{z}^{d}\right)\right)+\hat{z}^{d}, &amp; &amp; d=1 \ldots D \<br>p &amp;=\tanh \left(z_{0}^{D} W_{\text {pool }}\right) &amp; &amp;<br>\end{aligned}<br>$$</p>
+<h4 id="experiments"><a href="#experiments" class="headerlink" title="experiments"></a>experiments</h4><ul>
 <li>采用了四个数据集：MSCOCO\VG\GCC\SBU<br><img data-fancybox="gallery" data-sizes="auto" data-src="https://pdf.cdn.readpaper.com/parsed/fetch_target/610d2a8ecee7531cae89da46d39e66a7_5_Table_1.png" alt="使用的数据集table 1" class="lazyload"></li>
 <li>VQA和NLVR任务下的性能表现：<br><img data-fancybox="gallery" data-sizes="auto" data-src="https://pdf.cdn.readpaper.com/parsed/fetch_target/610d2a8ecee7531cae89da46d39e66a7_5_Table_2.png" alt="模型对比" class="lazyload"></li>
 <li>Text Retrieval and Image Retrieval<ul>
@@ -361,7 +409,7 @@
 <li>Vilt is competent competitors </li>
 <li>future work on VLP </li>
 </ol>
-
+<h2 id="文献3：《多模态预训练综述》"><a href="#文献3：《多模态预训练综述》" class="headerlink" title="文献3：《多模态预训练综述》"></a>文献3：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/r95blN2q9OAr7wUfJBxTNQ">《多模态预训练综述》</a></h2>
   </article>
 
   
@@ -416,7 +464,7 @@
                                 <button class="mdui-fab catalog" style="overflow:unset;">
                                     <i class="nexmoefont icon-i-catalog"></i>
                                     <div class="nexmoe-toc">
-                                        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%A5%E4%B8%AA%E6%AE%B5%E5%AD%90"><span class="toc-number">1.</span> <span class="toc-text">来个段子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E7%8C%AE1-%E3%80%8AMultimodal-Machine-Learning-A-Survey-and-Taxonomy%E3%80%8B"><span class="toc-number">2.</span> <span class="toc-text">文献1:《Multimodal Machine Learning: A Survey and Taxonomy》</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">2.0.1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E6%9E%90-%E7%BB%BC%E8%BF%B0%E5%A4%AA%E7%AC%BC%E7%BB%9F%EF%BC%8C%E4%B8%80%E4%B8%8B%E5%B0%B1%E4%B8%8D%E5%B1%95%E5%BC%80%E4%BA%86"><span class="toc-number">2.0.2.</span> <span class="toc-text">分析:综述太笼统，一下就不展开了</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E7%8C%AE2-%E3%80%8AViLT-Vision-and-Language-Transformer-Without-Convolution-or-Region-Supervision%E3%80%8B"><span class="toc-number">3.</span> <span class="toc-text">文献2:《ViLT: Vision-and-Language Transformer Without Convolution or Region Supervision》</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%9E%90"><span class="toc-number">3.1.</span> <span class="toc-text">分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%91%98%E8%A6%81-1"><span class="toc-number">3.1.1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Introduction"><span class="toc-number">3.1.2.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Background"><span class="toc-number">3.1.3.</span> <span class="toc-text">Background</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#VilT-model-mudle"><span class="toc-number">3.1.4.</span> <span class="toc-text">VilT model&#x2F;mudle</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#experiments"><span class="toc-number">3.1.5.</span> <span class="toc-text">experiments</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Conclusion-and-Future-work"><span class="toc-number">3.1.6.</span> <span class="toc-text">Conclusion and Future work</span></a></li></ol></li></ol></li></ol>
+                                        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%A5%E4%B8%AA%E6%AE%B5%E5%AD%90"><span class="toc-number">1.</span> <span class="toc-text">来个段子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E7%8C%AE1-%E3%80%8AMultimodal-Machine-Learning-A-Survey-and-Taxonomy%E3%80%8B"><span class="toc-number">2.</span> <span class="toc-text">文献1:《Multimodal Machine Learning: A Survey and Taxonomy》</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">2.0.1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E6%9E%90-%E7%BB%BC%E8%BF%B0%E5%A4%AA%E7%AC%BC%E7%BB%9F%EF%BC%8C%E4%B8%80%E4%B8%8B%E5%B0%B1%E4%B8%8D%E5%B1%95%E5%BC%80%E4%BA%86"><span class="toc-number">2.0.2.</span> <span class="toc-text">分析:综述太笼统，一下就不展开了</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A0%94%E7%A9%B6%E5%86%85%E5%AE%B9%E5%92%8C%E5%BA%94%E7%94%A8%E9%A2%86%E5%9F%9F"><span class="toc-number">2.0.3.</span> <span class="toc-text">研究内容和应用领域</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E7%8C%AE2-%E3%80%8AViLT-Vision-and-Language-Transformer-Without-Convolution-or-Region-Supervision%E3%80%8B"><span class="toc-number">3.</span> <span class="toc-text">文献2:《ViLT: Vision-and-Language Transformer Without Convolution or Region Supervision》</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%9E%90"><span class="toc-number">3.1.</span> <span class="toc-text">分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%91%98%E8%A6%81-1"><span class="toc-number">3.1.1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Introduction"><span class="toc-number">3.1.2.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Background"><span class="toc-number">3.1.3.</span> <span class="toc-text">Background</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#VilT-model-mudle"><span class="toc-number">3.1.4.</span> <span class="toc-text">VilT model&#x2F;mudle</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#experiments"><span class="toc-number">3.1.5.</span> <span class="toc-text">experiments</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Conclusion-and-Future-work"><span class="toc-number">3.1.6.</span> <span class="toc-text">Conclusion and Future work</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E7%8C%AE3%EF%BC%9A%E3%80%8A%E5%A4%9A%E6%A8%A1%E6%80%81%E9%A2%84%E8%AE%AD%E7%BB%83%E7%BB%BC%E8%BF%B0%E3%80%8B"><span class="toc-number">4.</span> <span class="toc-text">文献3：《多模态预训练综述》</span></a></li></ol>
                                     </div>
                                 </button>
                             
@@ -467,7 +515,7 @@
 
  
 
-<script async src="/js/app.js?v=1640510764288"></script>
+<script async src="/js/app.js?v=1641611714465"></script>
 
 
 
