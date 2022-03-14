@@ -24,7 +24,7 @@
 <meta property="og:image" content="https://631212502.github.io/2021/10/05/Aplayer-MetingJS-Pjax-%E7%BD%91%E2%80%9C%E9%A1%B5%E2%80%9D%E4%BA%91%E9%9F%B3%E4%B9%90/%E7%BD%91%E6%98%93%E4%BA%91%E6%96%B9%E6%B3%95.png">
 <meta property="og:image" content="https://631212502.github.io/2021/10/05/Aplayer-MetingJS-Pjax-%E7%BD%91%E2%80%9C%E9%A1%B5%E2%80%9D%E4%BA%91%E9%9F%B3%E4%B9%90/meting%E5%8F%82%E6%95%B0.png">
 <meta property="article:published_time" content="2021-10-05T11:00:13.000Z">
-<meta property="article:modified_time" content="2022-02-21T02:04:03.195Z">
+<meta property="article:modified_time" content="2022-03-09T12:38:16.884Z">
 <meta property="article:author" content="Natu Matu">
 <meta property="article:tag" content="page_building">
 <meta property="article:tag" content="博客">
@@ -42,12 +42,12 @@
     <!-- DPlayer -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.css">
     <script src="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.js"></script>
-    <link rel="stylesheet" href="/css/style.css?v=1646792431202">
+    <link rel="stylesheet" href="/css/style.css?v=1647252355653">
      
     
         <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
     
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1646792431202">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1647252355653">
     
         <link rel="stylesheet" href="/custom.css">
     
@@ -332,11 +332,9 @@
 <li><p>Pjax 又是啥？别急，听在下说说新的麻烦：<br>沉浸中欢乐的歌声中，随便点了一个页内跳转，网页开始刷新，但是！但是！但是！音乐播放器也跟着刷新了，从头开始播放？！Excuse Me？这也太傻了吧…</p>
 </li>
 </ol>
-<p>转念细想，其实按上面的教程，是在每个 html 页面上都加上了 APlayer 的加载代码，页面刷新的时候，上个页面自然的就被替换成了新的页面，APlayer 就相当于重新加载了一次。所以，讲道理，这段代码应该只用加载一次，并且不能随着网页跳转而改变，就像被我埋没多年的 QQ 空间那样（每次翻看太多黑历史了，但音乐播放器是优秀的）。</p>
-<p>网上有人说可以用框架做，就是一个框架中嵌入 APlayer，另一个用于页面跳转；也有人说用 Pjax，它可以做到无刷新 ajax 加载。考虑再三（也就几秒钟），肯定抛弃前者这种过时的方法，积极拥抱 jQuery-Pjax 。原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/PingXiaoGai/article/details/113448237">https://blog.csdn.net/PingXiaoGai/article/details/113448237</a></p>
-<ol start="3">
-<li>从我这个java新手的角度来看，每一次点击网页或者博客内的链接，网页都会重新加载一次，这不免会导致有些操作是重复多余的，如果可以使用某个容器把要更新的body框起来，其他的部分不受影响，这样就可以既浏览博客内的网页，又不会影响播放器全局的播放（nice）。<br>注明：我使用的主题是Noemoe，全改动都在layout.ejs中配置<br><strong>一不做二不休,开干！</strong></li>
-</ol>
+<p>&emsp;&emsp;转念细想，其实按上面的教程，是在每个 html 页面上都加上了 APlayer 的加载代码，页面刷新的时候，上个页面自然的就被替换成了新的页面，APlayer 就相当于重新加载了一次。所以，讲道理，这段代码应该只用加载一次，并且不能随着网页跳转而改变，就像被我埋没多年的 QQ 空间那样（每次翻看太多黑历史了，但音乐播放器是优秀的）。</p>
+<p>&emsp;&emsp;网上有人说可以用框架做，就是一个框架中嵌入 APlayer，另一个用于页面跳转；也有人说用 Pjax，它可以做到无刷新 ajax 加载。考虑再三（也就几秒钟），肯定抛弃前者这种过时的方法，积极拥抱 jQuery-Pjax 。原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/PingXiaoGai/article/details/113448237">https://blog.csdn.net/PingXiaoGai/article/details/113448237</a></p>
+<p>&emsp;&emsp;从我这个js新手的角度来看，每一次点击网页或者博客内的链接，网页都会重新加载一次，这不免会导致有些操作是重复多余的，如果可以使用某个容器把要更新的body框起来，其他的部分不受影响，这样就可以既浏览博客内的网页，又不会影响播放器全局的播放（nice）。<br>注明：我使用的主题是Noemoe，全改动都在layout.ejs中配置<br><strong>一不做二不休,开干！</strong></p>
 <h3 id="head引入Pjax"><a href="#head引入Pjax" class="headerlink" title="head引入Pjax"></a>head引入Pjax</h3><ol>
 <li>老样子，从CDN下发中引入插件（head部分插入如下代码）<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- require pjax --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
 <li>然后在body中将要替换（局部更新）的内容用 div 圈起来，id自定义，另外播放器也圈起来类似如下：<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    ...<br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;pageContent&quot;</span>&gt;</span><br>        <span class="hljs-comment">&lt;!--include content.html--&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;aplayerContent&quot;</span>&gt;</span><br>        <span class="hljs-comment">&lt;!--include aplayer.html--&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span> <br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"></span><br><span class="javascript">        <span class="hljs-comment">// 对所有链接跳转事件绑定pjax容器container</span></span><br><span class="javascript">        $(<span class="hljs-built_in">document</span>).pjax(<span class="hljs-string">&#x27;a[target!=_blank]&#x27;</span>, <span class="hljs-string">&#x27;#pageContent&#x27;</span>, &#123;<span class="hljs-attr">fragment</span>: <span class="hljs-string">&#x27;#pageContent&#x27;</span>, <span class="hljs-attr">timeout</span>:<span class="hljs-number">8000</span>&#125;)</span><br><span class="javascript">    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>    ...<br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br></code></pre></td></tr></table></figure>
@@ -450,7 +448,7 @@
 
  
 
-<script async src="/js/app.js?v=1646792431209"></script>
+<script async src="/js/app.js?v=1647252355660"></script>
 
 
 
