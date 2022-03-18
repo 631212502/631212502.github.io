@@ -6,7 +6,7 @@
     <title>融合：一个MMDL算法工程师的修养之道 - Eutupia by 夏夢</title>
     <meta charset="UTF-8">
     <meta name="description" content="願いが叶う場所">
-    <meta name="keywords" content="null">
+    <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     
     
@@ -20,7 +20,7 @@
 <meta property="og:description" content="缘得此书：《百面机器学习》,闲来一叙">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-10-24T07:19:43.000Z">
-<meta property="article:modified_time" content="2022-03-14T10:05:32.147Z">
+<meta property="article:modified_time" content="2022-03-18T00:48:00.813Z">
 <meta property="article:author" content="Natu Matu">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="mmdl">
@@ -37,12 +37,12 @@
     <!-- DPlayer -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.css">
     <script src="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.js"></script>
-    <link rel="stylesheet" href="/css/style.css?v=1647252355631">
+    <link rel="stylesheet" href="/css/style.css?v=1647595667645">
      
     
         <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
     
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1647252355631">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1647595667645">
     
         <link rel="stylesheet" href="/custom.css">
     
@@ -289,8 +289,8 @@
       
       <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
     <a><i class="nexmoefont icon-calendar-fill"></i>2021年10月24日</a>
-    <a><i class="nexmoefont icon-areachart"></i>3.3k 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 13 分钟</a>
+    <a><i class="nexmoefont icon-areachart"></i>9.7k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 39 分钟</a>
 </div>
 
       
@@ -304,31 +304,17 @@
 <center>3. 知识广度深度</center>
 <center>4. 面试表达之道</center>
 
-<h1 id="认知体系搭建："><a href="#认知体系搭建：" class="headerlink" title="认知体系搭建："></a>认知体系搭建：</h1><ul>
-<li><p>多模态学习</p>
-<ul>
-<li>NLP自然语言处理</li>
-<li>CV计算机视觉</li>
-<li>ASRM语音识别</li>
-<li>其他模态信息</li>
-</ul>
-</li>
-<li><p>深度学习</p>
-<ul>
+<h1 id="认知体系搭建："><a href="#认知体系搭建：" class="headerlink" title="认知体系搭建："></a>认知体系搭建：</h1><h2 id="多模态学习"><a href="#多模态学习" class="headerlink" title="多模态学习"></a>多模态学习</h2><h3 id="NLP自然语言处理"><a href="#NLP自然语言处理" class="headerlink" title="NLP自然语言处理"></a>NLP自然语言处理</h3><h3 id="CV计算机视觉"><a href="#CV计算机视觉" class="headerlink" title="CV计算机视觉"></a>CV计算机视觉</h3><h3 id="ASRM语音识别"><a href="#ASRM语音识别" class="headerlink" title="ASRM语音识别"></a>ASRM语音识别</h3><h3 id="其他模态信息"><a href="#其他模态信息" class="headerlink" title="其他模态信息"></a>其他模态信息</h3><h2 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h2><ul>
 <li>模型训练</li>
 </ul>
-</li>
-<li><p>机器学习</p>
-<ul>
-<li><p>机器学习里一些不可或缺的思想</p>
-<ul>
+<h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h2><h3 id="ML里的一点哲学问题"><a href="#ML里的一点哲学问题" class="headerlink" title="ML里的一点哲学问题"></a>ML里的一点哲学问题</h3><ul>
 <li><p>NFL:No Free Lunch</p>
 <p>这个思想讲的不是模型代价的问题，而是进行<strong>优化和评估的问题</strong>“：假设所有数据的分布可能性相等，当我们用任一分类做法来预测未观测到的新数据时，对于误分的预期是相同的。” 简而言之，NFL的定律指明，如果我们对要解决的问题一无所知且并假设其分布完全随机且平等，那么任何算法的预期性能都是相似的。</p>
 </li>
 <li><p>最简化的艺术：奥卡姆剃刀</p>
 <p>核心可以概括为一句话：“如无必要，勿增实体”。用通俗的语言来说，<strong>如果两个模型A和B对数据的解释能力完全相同，那么选择较为简单的那个模型。</strong>在统计学和数学领域，我们偏好优先选择最简单的那个假设，如果与其他假设相比，其对于观察的描述度一致。</p>
 </li>
-<li><p>集成学习：三个臭皮匠</p>
+<li><p>集成学习：三个臭皮匠原理（追求通用，不求最优）</p>
 <p>集成学习的思想无处不在，比较著名的有随机森林等。从某种意义上说，神经网络也是一种集成学习，每个单独的神经元都可以看做某种意义上的学习器。这种方法的精髓在于其假设“子分类器”的错误互相独立，随着子分类器的数目上升，木分类器的误差将会以指数级下降，直到为0。<br>然而，这样的假设是过分乐观的，因为我们无法保证”子分类器”的错误是相互独立的。以最简单的Bagging为例，如果为了使k个子分类器的错误互相独立，那么我们将训练数据N分为k份。显然，随着k值上升，每个分类器用于训练的数据量都会降低，每个子训练器的准确性也随之下降。即使我们允许训练数据间有重采样，也还是无法避免子分类器数量和准确性之间的矛盾。周志华老师曾这样说：”个体学习的准确性和多样性本身就存在冲突，一般的，准确性很高后，想要增加多样性，就得要牺牲准确性。事实上，如何产生并结合好而不同个体学习器，恰是集合学习的研究核心。”</p>
 <p>那么，集成学习似乎和前面提到的奥卡姆剃刀定理相违背。明明一个分类模型就够麻烦了，现在为什么要做更多？这其实说到了一个很重要观点，就是奥卡姆剃刀定理并非不可辩驳的真理，而只是一种选择方法。从事科学研究，切勿相信有普遍真理。人大的周孝正教授曾说：”若一件事情不能证实，也不能证伪，就要存疑。” 恰巧，奥卡姆定理就是这样一种不能证实也不能证伪的定理。</p>
 </li>
@@ -349,23 +335,115 @@
 <p>因此，当面对纷杂的信息，各种似是而非的解释与结论时。最重要的不是急着发表观点，而是静下来慢下来，不要放弃思考。只有独立的思考，才能最终帮助我们摆脱重重迷雾，达到所追寻的真理。</p>
 </li>
 </ul>
+<h3 id="三要素：模型、策略、算法"><a href="#三要素：模型、策略、算法" class="headerlink" title="三要素：模型、策略、算法"></a>三要素：模型、策略、算法</h3><ul>
+<li><p>模型<br>在统计学中，模型就是要求学习一个问题的条件概率分布（最优种瓜模型：模型学习土地肥沃程度分布数据，当一批瓜种输入进来，就可以得到对应的最优配瓜位置，刘华强直呼内行）、或者是决策函数，模型的假设空间包含所有可能的条件概率分布或决策函数。例如，假设决策函数是输入变量的线性函数，那么模型的假设空间就是所有这些线性函数构成的函数集合。假设空间中的模型一般有无穷多个。$F={f \mid Y=f(X)}$</p>
 </li>
-<li><p>三要素：模型、策略、算法</p>
-<p>在统计学中，模型就是要求学习一个问题的条件概率分布（最优种瓜模型：模型学习土地肥沃程度分布数据，当一批瓜种输入进来，就可以得到对应的最优配瓜位置，刘华强直呼内行）、或者是决策函数，模型的假设空间包含所有可能的条件概率分布或决策函数。例如，假设决策函数是输入变量的线性函数，那么模型的假设空间就是所有这些线性函数构成的函数集合。假设空间中的模型一般有无穷多个。<br>$F={f \mid Y=f(X)}$</p>
-</li>
-</ul>
-</li>
-</ul>
+<li><p>策略<br>有了模型的假设空间，统计学习接着需要考虑的是如何识别最优以及学习的准则是什么？考虑到什么才是学习完成的标志，这里就是用了自动化方法，损失函数loss以及风险期望损失（人为定义），学习的目标也就是求风险最小模型（模型loss趋近于0），其中，模型关于训练数据集的平均损失成为经验风险或者经验损失，根据大数定律，当样本趋近无穷时，经验风险趋近于期望风险，所以二者是估计的关系，用经验风险估计期望风险。</p>
 <ul>
-<li>XXXXX</li>
+<li>经验风险与结构风险<br>当样本很小时，采用经验风险容易overfitting，这时候要给予结构上的纠偏，也叫正则化，得到结构风险。根据模型的负责度（假设空间上的泛函）指定正则项，从而约束某些变量在学习过程中取到的误差点</li>
+</ul>
+</li>
+<li><p>算法<br>算法是指机器学习模型的具体计算方法。<br>机器学习基于训练数据集，根据学习策略，从假设空间中选择最优模型，最后需要考虑用什么样的计算方法求解最优模型。<br>这时，机器学习问题归结为最优化问题，机器学习的算法成为求解最优化问题的算法。如果最优化问题有显式的解析解，这个最优化问题就比较简单。但通常解析解不存在，这就需要用数值计算的方法求解。如何保证找到全局最优解，并使求解的过程非常高效，就成为一个重要问题。机器学习可以利用已有的最优化算法，有时也需要开发独自的最优化算法。<br>机器学习方法之间的不同，主要来自其模型、策略、算法的不同。确定了模型、策略、算法，机器学习的方法也就确定了。这也就是将其称为机器学习三要素的原因。</p>
+</li>
+</ul>
+<h3 id="过拟合与欠拟合"><a href="#过拟合与欠拟合" class="headerlink" title="过拟合与欠拟合"></a>过拟合与欠拟合</h3><p>  在数据科学学科中，过拟合（overfit）模型被解释为一个从训练集（training set）中得到了高方差（variance）和低偏差（bias），导致其在测试数据中得到低泛化的模型。</p>
+<p>  偏差作为与方差相对的一个概念，表示了我们基于数据所做出的假设的强度（有效性）。在前文我们尝试学习英语的例子中，我们基于一个没有初始化的模型 ，并把作家的作品当作学习语言的教科书。低偏差看似是一个正向的东西，因为我们可能会有这样的想法：我们并不需要去带着倾向性思维看待我们的数据。然而我们却需要对数据表达的完整性持怀疑态度。因为任何自然处理流程都会生成噪点，并且我们无法自信地保证我们的训练数据涵盖了所有这些噪点。</p>
+<p>  刚才我们了解到了过拟合的模型具有高方差、低偏差的特点。那么相反的情况：低方差、高偏差的模型被称作欠拟合。相较于之前与训练数据紧密贴合的模型，一个欠拟合模型忽视了从训练数据中获得的信息，进而使其无法找到输入和输出数据之间的内在联系。</p>
+<p>  <strong>验证集的作用（val）：</strong><br>  在数据科学中，有一个很好的解决方案，叫作“验证（Validation）”。一般训练我们只使用了一个训练集和一个测试集。这意味着我们无法在实战前知道我们的模型的好坏。最理想的情况是，我们能够用一个模拟测试集去对模型进行评估，并在真实测试之前对模型进行改进。这个模拟测试集被称作验证集（validation set），是模型研发工作中非常关键的部分。</p>
+<h3 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h3><p>  正则化技术广泛应用在机器学习和深度学习算法中，其本质作用是防止过拟合、提高模型泛化能力。过拟合简单理解就是训练的算法模型太过复杂了，过分考虑了当前样本结构。其是防止过拟合的其中一种技术手段。在早期的机器学习领域一般只是将范数惩罚叫做正则化技术，而在深度学习领域认为：能够显著减少方差，而不过度增加偏差的策略都可以认为是正则化技术，故推广的正则化技术还有：扩增样本集、早停止、Dropout、集成学习、多任务学习、对抗训练、参数共享等</p>
+<p>  过拟合的时候，拟合函数的系数往往非常大，而正则化是通过约束参数的范数使其不要太大，所以可以在一定程度上减少过拟合情况。</p>
+<p>  为什么过拟合的时候系数会很大？ 如下图所示，过拟合，就是拟合函数需要顾忌每一个点，最终形成的拟合函数波动很大。在某些很小的区间里，函数值的变化很剧烈。这就意味着函数在某些小区间里的导数值（绝对值）非常大，由于自变量值可大可小，所以只有系数足够大，才能保证导数值很大。</p>
+<ul>
+<li>正则项对应约束条件的最优化<br>对于模型权重系数w求解是通过最小化目标函数实现的，既求解： </li>
+</ul>
+<h3 id="模型性能度量"><a href="#模型性能度量" class="headerlink" title="模型性能度量"></a>模型性能度量</h3><p>  对学习器的泛化性能进行评估，不仅需要有效可行的实验估计方法，还需要有衡量模型泛化能力的评价标准，这就是性能度量<br>  出了最常用的均方误差用于回归任务之外，还可以用错误率与召回率作为指标</p>
+<ul>
+<li><p>错误率与精度<br>错误率和精度是分类任务中最常见的两种性能度量，适用于多分类任务，错误率是分类错误的样本数占样本总数的比例，精度则是分类正确的样本数占样本总数的比例。</p>
+</li>
+<li><p>查准率P、查全率R与PR曲线<br>错误率和精度虽常用，但并不能满足所有任务需求。以西瓜问题为例，假定瓜农拉来一车西瓜，我们用训练好的模型对这些西瓜进行判别，显然，错误率衡量了有多少比例的瓜被判别错误。但是若我们关心的是”挑出的西瓜中有多少比例是好瓜”，或者”所有好瓜中有多少比例被挑了出来”，那么错误率显然就不够用了，这时需要使用其他的性能度量。</p>
+<p>类似的需求在信息检索、Web搜索等应用中经常出现，例如在信息检索中，我们经常会关心”检索出的信息中有多少比例是用户感兴趣的”，“用户感兴趣的信息中有多少被检索出来了”。“查准率（precision）”与“查全率（recall）”是更为适用于此类需求的性能度量。</p>
+</li>
+<li><p>ROC与AUC<br>ROC全称是”受试者工作特征”（Receiver Operating Characteristic）曲线，它源于”二战”中用于敌机检测的雷达信号分析技术，二十世纪六七十年代开始被用于一些心理学、医学检测应用中，此后被引入机器学习领域[Spackman, 1989]。与上节中介绍的P-R曲线相似。我们根据学习器的预测结果对样例进行排序，按此顺序逐个把样本作为正例进行预测（正例阈值从100%到0%），每次计算出两个重要量的值，分别以它们为横、纵坐标作图，就得到了”ROC曲线”。与P-R曲线使用查准率、查全率为纵、横轴不同，ROC曲线的纵轴是”真正例率”（True Positive Rate，简称TPR），横轴是”假正例率”（False PositiveRate，简称FPR），基于前面的混淆矩阵中的符号，</p>
+</li>
+</ul>
+<h3 id="样本维度与稀疏"><a href="#样本维度与稀疏" class="headerlink" title="样本维度与稀疏"></a>样本维度与稀疏</h3><p>  当我们想要寻找区分样本的超平面，理应会想到增加样本的特征维度，但是，在样本量过少时（每增加一个维度就要求样本以指数级增长），极容易造成过拟合，这就是维度灾难。在高维特征空间中， 样本是及其稀疏的，模型也很容易学习到一些噪声，而且维度越高，所需要的样本分布要求也就越高（尽量在每个单元内都有分布），维数灾难造成的另外一个影响是：数据的稀疏性致使数据的分布在空间上不同(实际上，数据在高维空间的中心比在边缘区域具备更大的稀疏性，数据更倾向于分布在空间的边缘区域</p>
+<h3 id="不同维数样本空间的形状"><a href="#不同维数样本空间的形状" class="headerlink" title="不同维数样本空间的形状"></a>不同维数样本空间的形状</h3><p>  俗话说的好，点动成线，线动成面，面动成体，这是对基本三维以及以下维的空间认知，但是根据内接球-维度递推公式，随着维度增大，内接球体体积较小直道没有，也就是，超球体倾向于去中心话，形成各种边角。</p>
+<h3 id="监督中的生成与判别"><a href="#监督中的生成与判别" class="headerlink" title="监督中的生成与判别"></a>监督中的生成与判别</h3><p>  监督学习方法又可以分为生成方法（generative approach）和判别方法（discriminative approach）。所学到的模型分别称为生成模型（generative model）和判别模型（discriminative model）。</p>
+<ul>
+<li>生成模型<br>生成的方法就是已知输入变量x和输出标签y，先对他们的联合概率分布建模，然后去计算每一类的条件(后验)概率，按照这个值来完成分类，如将样本分到概率p(y|x)</li>
+</ul>
+<p>  对上面这种做法的直观解释是：我们已知某一个样本具有某种特征x，现在要确定它输入哪个类，而自然的因果关系是，样本之所以具有这种特征x，是因为它属于某一类。例如，我们要根据体重，脚的尺寸这两个特征x来判断一个人是男性还是女性，我们都知道，男性的体重总体来说比女性大，脚的尺寸也更大，因此从逻辑上来说，是因为一个人是男性，因此才有这种大的体重和脚尺寸。而在分类任务中要做的却相反，是给了你这样个特征的样本，让你反推这人是男性还是女性。</p>
+<ul>
+<li>判别模型<br>第二种做法称为判别模型。已知输入变量x，它直接对目标变量y的条件概率p(y|x)建模。即计算样本x属于 每一类的概率。注意，这里和生成模型有一个本质的区别，那就是每一假设x服从何种概率分布，而是直接估计出条件概率p(y|x)。</li>
+</ul>
+<p>  <strong>特点</strong><br>  在监督学习中，生成方法和判别方法各有优缺点，适合于不同条件下的学习问题。<br>  生成方法的特点：<br>    - 生成方法可以还原出联合概率分布P(X, Y)，而判别方法则不能<br>    - 生成方法的学习收敛速度更快，即当样本容量增加的时候，学到的模型可以更快地收敛于真实模型<br>    - 当存在隐变量时，仍可以用生成方法学习，此时判别方法就不能用<br>  判别方法的特点：<br>    - 判别方法直接学习的是条件概率P(Y|X)或决策函数f(X)，直接面对预测，往往学习的准确率更高；<br>    - 由于直接学习P(Y|X)或f(X)，可以对数据进行各种程度上的抽象、定义特征并使用特征，因此可以简化学习问题</p>
+<h3 id="机器学习模型分类体系"><a href="#机器学习模型分类体系" class="headerlink" title="机器学习模型分类体系"></a>机器学习模型分类体系</h3><ul>
+<li>监督学习<ul>
+<li>感知机(MLP)</li>
+<li>KNN</li>
+<li>概率方法<ul>
+<li>贝叶斯(NB)</li>
+<li>Logistic Regression（LR）</li>
+<li>最大熵MEM（与LR同属于对数线性分类模型）</li>
+</ul>
+</li>
+<li>支持向量机(SVM)</li>
+<li>决策树(ID3、CART、C4.5)</li>
+<li>assembly learning<ul>
+<li>Boosting<ul>
+<li>Gradient Boosting<ul>
+<li>GBDT</li>
+<li>xgboost</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Bagging<ul>
+<li>Random forest</li>
+</ul>
+</li>
+<li>Stacking</li>
+</ul>
+</li>
+<li>概率图模型<ul>
+<li>HMM</li>
+<li>MEMM</li>
+<li>CRF</li>
+</ul>
+</li>
+<li>回归预测</li>
+</ul>
+</li>
+<li>非监督<ul>
+<li>聚类<ul>
+<li>基础聚类<ul>
+<li>K-mean</li>
+<li>二分k-mean</li>
+<li>中值聚类</li>
+</ul>
+</li>
+<li>层次聚类</li>
+<li>密度聚类</li>
+<li>谱聚类</li>
+</ul>
+</li>
+<li>主题模型</li>
+<li>关联分析</li>
+<li>降维</li>
+</ul>
+</li>
+<li>半监督</li>
+<li>强化学习</li>
 <li>数理基础<ul>
 <li>概率统计</li>
 <li>线性代数</li>
-<li>微积分</li>
+<li>微积分<h3 id="机器学习算法一图总结"><a href="#机器学习算法一图总结" class="headerlink" title="机器学习算法一图总结"></a>机器学习算法一图总结</h3><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzU4MjQ3MDkwNA==&mid=2247484859&idx=1&sn=2c4db22fb538953a62a90983e3e1f99d&chksm=fdb6982ccac1113a82e92be325bb07a947d54090274654375f3b50e11e1abd809fb7358bde16&scene=0#rd">wx</a></li>
 </ul>
 </li>
 </ul>
-<h1 id="编程应用能力：机器学习深度学习基本实战"><a href="#编程应用能力：机器学习深度学习基本实战" class="headerlink" title="编程应用能力：机器学习深度学习基本实战"></a>编程应用能力：机器学习深度学习基本实战</h1><h1 id="知识面：我需要知道哪些模型，哪些方法，有什么特点，怎么调整修改，怎么应用"><a href="#知识面：我需要知道哪些模型，哪些方法，有什么特点，怎么调整修改，怎么应用" class="headerlink" title="知识面：我需要知道哪些模型，哪些方法，有什么特点，怎么调整修改，怎么应用"></a>知识面：我需要知道哪些模型，哪些方法，有什么特点，怎么调整修改，怎么应用</h1><h1 id="面试表达之道：百面问题详解"><a href="#面试表达之道：百面问题详解" class="headerlink" title="面试表达之道：百面问题详解"></a>面试表达之道：百面问题详解</h1><h2 id="前言-总而言之"><a href="#前言-总而言之" class="headerlink" title="前言/总而言之"></a>前言/总而言之</h2><p>这两本书是我研究生期间攻读深度学习研究相关问题的重要工具书，虽然概念和公式理解起来不容易，但里面的描述十分具体和生动，学习的境界就是把知识先读厚再读薄~</p>
+<h1 id="编程应用能力"><a href="#编程应用能力" class="headerlink" title="编程应用能力"></a>编程应用能力</h1><p>coding is all</p>
+<h1 id="知识面："><a href="#知识面：" class="headerlink" title="知识面："></a>知识面：</h1><p><strong>需要知道哪些模型，哪些方法，有什么特点，怎么调整修改，怎么应用</strong></p>
+<h1 id="面试表达之道：百面问题详解"><a href="#面试表达之道：百面问题详解" class="headerlink" title="面试表达之道：百面问题详解"></a>面试表达之道：百面问题详解</h1><h2 id="前言-总而言之"><a href="#前言-总而言之" class="headerlink" title="前言/总而言之"></a>前言/总而言之</h2><p>这两本书是我研究生期间攻读深度学习研究相关问题的重要工具书，虽然概念和公式理解起来不容易，但里面的描述十分具体和生动，学习的境界就是把知识先读厚再读薄~</p>
 <h2 id="特征工程"><a href="#特征工程" class="headerlink" title="特征工程"></a>特征工程</h2><p>特征：事件或者事物发生或者变化的规律</p>
 <h3 id="归一化"><a href="#归一化" class="headerlink" title="归一化"></a>归一化</h3><h2 id="模型评估"><a href="#模型评估" class="headerlink" title="模型评估"></a>模型评估</h2><h3 id="评估指标的局限性"><a href="#评估指标的局限性" class="headerlink" title="评估指标的局限性"></a>评估指标的局限性</h3><ol>
 <li>准确率的局限性<br>$$Accurancy=\frac{n_{correct}}{n_{total}}$$<h3 id="误差估计"><a href="#误差估计" class="headerlink" title="误差估计"></a>误差估计</h3></li>
@@ -379,9 +457,42 @@
 <h2 id="经典算法"><a href="#经典算法" class="headerlink" title="经典算法"></a>经典算法</h2><h3 id="SVM"><a href="#SVM" class="headerlink" title="SVM"></a>SVM</h3><p>SVM是一种根据支持向量举例寻找最优（最大间隔）分类超平面的方式，举一个例子，当一堆不同重量的红白小球在同一水平面中混杂放置的时候，如何将他们分开，答案是核映射（相当于拍一下桌子让小球飞起来，根据W=-mgh，m不同会导致h的不同，此时飞起来的小球间就有一个可以去们他们类别的超平面）<br>__凸优化理论：超平面分离定理__：两个凸集合样本最近两点的中垂线为超平面（SVM）<br>问题一：空间线性可分的两类点，分别向SVM分类超平面投影，这些投影仍然线性可分吗？（p52）<br>不一定，通过超平面分开的两类点有可能是通过核函数映射后区分开的，如果原本就线性可分，也就不再需要到核函数映射（超平面方法），因为超平面为支持向量间间隔最大分类面，如果样本在其上的投影依然线性可分，显然应存在更优的超平面，故与假设矛盾，反之可推出映射到超平面的样本一定是线性不可分的两类点。<br>问题二：是否存在一组参数使得SVM训练误差为0？</p>
 <p>问题三：训练误差为0的SVM分类器一定存在么？加入松弛变量呢？</p>
 <h3 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h3><p>问题一：逻辑回归与线性回归有什么不同？<br>问题二：如何处理多分类问题，有哪些常见的做法？应用于什么场景</p>
-<h3 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h3><p>问题一：什么是启发函数？</p>
-<h2 id="降维"><a href="#降维" class="headerlink" title="降维"></a>降维</h2><h2 id="非监督学习"><a href="#非监督学习" class="headerlink" title="非监督学习"></a>非监督学习</h2><h2 id="概率图模型"><a href="#概率图模型" class="headerlink" title="概率图模型"></a>概率图模型</h2><h2 id="优化算法"><a href="#优化算法" class="headerlink" title="优化算法"></a>优化算法</h2><h2 id="采样"><a href="#采样" class="headerlink" title="采样"></a>采样</h2><h2 id="前向神经网络"><a href="#前向神经网络" class="headerlink" title="前向神经网络"></a>前向神经网络</h2><h2 id="循环神经网络"><a href="#循环神经网络" class="headerlink" title="循环神经网络"></a>循环神经网络</h2><h2 id="强化学习"><a href="#强化学习" class="headerlink" title="强化学习"></a>强化学习</h2><h2 id="集成学习"><a href="#集成学习" class="headerlink" title="集成学习"></a>集成学习</h2><h2 id="生成对抗网络"><a href="#生成对抗网络" class="headerlink" title="生成对抗网络"></a>生成对抗网络</h2><p>生成对抗本质上是一种minimax游戏（两个网络分别博弈和优化）：存在生成器和判别器两大通道，不断切换通道缩减各自的目标误差并进行对抗。<br>GANs的值函数：</p>
-<h2 id="热门应用"><a href="#热门应用" class="headerlink" title="热门应用"></a>热门应用</h2><h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><h2 id="实战详解"><a href="#实战详解" class="headerlink" title="实战详解"></a>实战详解</h2><h1 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h1><p><a target="_blank" rel="noopener" href="https://luweikxy.gitbook.io/machine-learning-notes/">ML note</a></p>
+<h3 id="决策树与随机森林"><a href="#决策树与随机森林" class="headerlink" title="决策树与随机森林"></a>决策树与随机森林</h3><h4 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h4><p>决策是广泛使用的分类算法，相比贝叶斯，决策树的优势在于不需要提供先验参数，所以在学习未知的知识这一情况下更加适用</p>
+<p>当一条记录有若干不同的方式划分为目标类的一部分时，适合用单条线来发现类别之间边界的统计学方法是无力的。而决策树能够成功地达到这一目标。</p>
+<h4 id="决策规则"><a href="#决策规则" class="headerlink" title="决策规则"></a>决策规则</h4><p>决策树可以认为是if-then的集合，也可以认为是点贵在特征空间与类空间上的条件概率分布。其主要有点事模型具有很好的可解释性，分类速度快。</p>
+<h4 id="决策树的学习"><a href="#决策树的学习" class="headerlink" title="决策树的学习"></a>决策树的学习</h4><p>决策树的学习与预测过程：学习时，利用训练数据，根据损失函数最小化的原则简历决策树模型；预测时，对新的数据，利用决策树模型进行分类。决策树学习通常包括3个步骤：特征选择、树生成、树修剪。<br>以下是决策树学习伪代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> **<br>data = []<br>target = []<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">dectree</span>():</span><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">TreeGenerate</span>(<span class="hljs-params">D,A</span>):</span><br>    ***<br>    <span class="hljs-comment">#数生成函数</span><br><span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&quot;__main__&quot;</span>:<br>  <span class="hljs-comment">#生成节点node</span><br>  node = dectree<br>  <span class="hljs-keyword">if</span> D中样本全属于同一类别C then<br>    将node标记为C类叶节点；<span class="hljs-keyword">return</span><br>  end <span class="hljs-keyword">if</span><br>  <span class="hljs-keyword">if</span> A = 空集 <span class="hljs-keyword">or</span> D中样本在A上取值相同then<br>    将node标记为叶节点，其类别标记为D重样本数最多的类；<span class="hljs-keyword">return</span><br>  end <span class="hljs-keyword">if</span><br>  从A中选择最优划分属性a*<br>  <span class="hljs-keyword">for</span> a* <span class="hljs-keyword">in</span> 它的集合：<br>    <span class="hljs-comment">#为node生成一个分支；令D表示D中在a*上取值为a*的样本子集</span><br>    <span class="hljs-keyword">if</span> Dv 为空 then<br>      将分支节点标记为叶节点，其类别标记为D重样本最多的类；<span class="hljs-keyword">return</span><br>    <span class="hljs-keyword">else</span><br>      以TreeGenerate()为分支节点<br>    end <span class="hljs-keyword">if</span><br>  end <span class="hljs-keyword">for</span><br>  <span class="hljs-keyword">return</span> 以node为根节点的一棵决策树<br></code></pre></td></tr></table></figure>
+<p>显然，决策树的生成是一个递归的过程。在决策树的基本算法中，有三种递归返回的情况：<br>  (1) 当前节点包涵的样本全属于同一类别，无需划分<br>  (2) 当前属性集为空，或是所有样本在所有属性上取值相同，无法划分<br>  (3) 当前结点包含的样本集为空，不能划分<br>在第(2)中情况下，我们把当前节点标记为叶结点，但把其类别设定为该节点所含样本最多的类别；<br>在第(3)中情况下，同样把当前节点标记为叶结点，但把其类别设定为父节点所含样本最多的类别；</p>
+<h4 id="特征选择：信息增益-率与基尼指数"><a href="#特征选择：信息增益-率与基尼指数" class="headerlink" title="特征选择：信息增益/率与基尼指数"></a>特征选择：信息增益/率与基尼指数</h4><p>信息增益表示得知特征X的信息而使类Y的信息的不确定性减少的程度。<br>基尼指数Gini(D)表示集合D的不确定性，基尼指数Gini(D,A)表示经A=a分割后，集合的不确定性。尼基指数越大，样本的集合不确定性越大，这一点与熵类似。</p>
+<h4 id="决策树剪枝"><a href="#决策树剪枝" class="headerlink" title="决策树剪枝"></a>决策树剪枝</h4><p>决策树生成算法递归地产生决策树，直到不能继续下去为止。这样产生的树往往对训练数据的分类很准确，但对未知的测试数据的分类却没有那么准确，即出现过拟合现象。解决这个问题的办法是考虑决策树的复杂度，对已经生成的决策树进行简化。</p>
+<h4 id="预剪枝"><a href="#预剪枝" class="headerlink" title="预剪枝"></a>预剪枝</h4><p>预剪枝的本质就是用验证集对分支节点的预测或者下一预测进行评估，如果分类错误的话，则直接去掉这一分支的展开，这就是预剪枝</p>
+<p>对比上面的未剪枝决策树和上图（预剪枝决策树），可以看出，预剪枝决策树使得决策树的很多分支都没有“展开”，这不仅降低了过拟合的风险，还显著少了决策树的训练时间开销和测试时间开销。但另一方面，有些分支的当前划分虽不能提升泛化性能、甚至可能导致泛化性能暂时下降，但在其基础上进行的后续划分，却有可能导致性能显著提高；预剪枝基于“贪心”本质禁止这些分支展开，给预剪枝决策树带来了欠拟合的风险。</p>
+<h4 id="后剪枝"><a href="#后剪枝" class="headerlink" title="后剪枝"></a>后剪枝</h4><p>后剪枝过程描述<br>后剪枝先从训练集生成一棵完整决策树,把在验证集上表现不良的子树分支减掉</p>
+<h4 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h4><ul>
+<li>优点<br>可解释性强<br>可处理混合类型特征<br>具体伸缩不变性（不用归一化特征）<br>有特征组合的作用<br>可自然地处理缺失值<br>对异常点鲁棒<br>有特征选择作用<br>可扩展性强， 容易并行</li>
+<li>缺点<br>缺乏平滑性（回归预测时输出值只能输出有限的若干种数值）<br>不适合处理高维稀疏数据 <h3 id="EM算法"><a href="#EM算法" class="headerlink" title="EM算法"></a>EM算法</h3>EM（expectation maximization）期望极大算法<br>使用场景：高斯混合模型，抛硬币模型<h3 id="HMM隐马尔科夫模型"><a href="#HMM隐马尔科夫模型" class="headerlink" title="HMM隐马尔科夫模型"></a>HMM隐马尔科夫模型</h3><a target="_blank" rel="noopener" href="https://luweikxy.gitbook.io/machine-learning-notes/hidden-markov-model">讲的真的太好了</a><br>本质：隐藏状态+马尔科夫链条<br>隐马尔可夫模型（hidden Markov model，HMM）是可用于标注问题的统计学习模型，描述由隐藏的马尔可夫链随机生成观测序列的过程，属于生成模型。本章首先介绍隐马尔可夫模型的基本概念，然后分别叙述隐马尔可夫模型的概率计算算法、学习算法以及预测算法。隐马尔可夫模型在语音识别、自然语言处理、生物信息、模式识别等领域有着广泛的应用。<br>隐马尔科夫模型是生成模型，表示状态序列和观测序列的联和分布，但状态序列是隐藏的，不可观测的。隐马尔科夫模型可以用于标注，这是状态对应着标记。标注问题是给定观测序列预测其对应的标记序列。<h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4></li>
+</ul>
+<h4 id="概率计算方法"><a href="#概率计算方法" class="headerlink" title="概率计算方法"></a>概率计算方法</h4><h4 id="学习算法"><a href="#学习算法" class="headerlink" title="学习算法"></a>学习算法</h4><h4 id="预测算法"><a href="#预测算法" class="headerlink" title="预测算法"></a>预测算法</h4><h3 id="CRF条件随机场"><a href="#CRF条件随机场" class="headerlink" title="CRF条件随机场"></a>CRF条件随机场</h3><p>条件随机场是给定随机变量X的条件下，随机变量Y的马尔科夫随机场</p>
+<h2 id="降维"><a href="#降维" class="headerlink" title="降维"></a>降维</h2><ul>
+<li>PCA主成分分析<br>主成分分析（Principal Component Analysis）：一种统计方法，它对多变量表示数据点集合寻找尽可能少的正交矢量表征数据信息特征。</li>
+<li>流形学习<br>流形学习（manifold learning）是机器学习、模式识别中的一种方法，在维数约简方面具有广泛的应用。它的主要思想是将高维的数据映射到低维，使该低维的数据能够反映原高维数据的某些本质结构特征。流形学习的前提是有一种假设，即某些高维数据，实际是一种低维的流形结构嵌入在高维空间中。流形学习的目的是将其映射回低维空间中，揭示其本质。</li>
+</ul>
+<h2 id="非监督学习"><a href="#非监督学习" class="headerlink" title="非监督学习"></a>非监督学习</h2><h3 id="聚类-kmeans"><a href="#聚类-kmeans" class="headerlink" title="聚类-kmeans"></a>聚类-kmeans</h3><p>k均值聚类的算法是一个迭代的过程，每次迭代包括两个步骤：</p>
+<ol>
+<li>首先选择个类的中心，将样本逐个指派到与其最近的中心的类中，得到一个聚类的结果；</li>
+<li>然后更新每个类的样本的均值，作为类的新的中心<br>重复以上步骤，知道收敛为止。<h3 id="高斯混合模型"><a href="#高斯混合模型" class="headerlink" title="高斯混合模型"></a>高斯混合模型</h3>高斯混合模型（Gaussian Mixture Model）通常简称GMM，是一种业界广泛使用的聚类算法，该方法使用了高斯分布作为参数模型，并使用了期望最大（Expectation Maximization，简称EM）算法进行训练。<h4 id="高斯分布与使用"><a href="#高斯分布与使用" class="headerlink" title="高斯分布与使用"></a>高斯分布与使用</h4>高斯分布有时候（一些条件下）又称为正态分布，是一种在自然界大量的存在的，最为常见的分布形式。<h4 id="EM算法训练"><a href="#EM算法训练" class="headerlink" title="EM算法训练"></a>EM算法训练</h4>模型的EM训练过程，直观的来讲是这样：我们通过观察采样的概率值和模型概率值的接近程度，来判断一个模型是否拟合良好。然后我们通过调整模型以让新模型更适配采样的概率值。反复迭代这个过程很多次，直到两个概率值非常接近时，我们停止更新并完成模型训练。</li>
+</ol>
+<p>现在我们要将这个过程用算法来实现，所使用的方法是模型生成的数据来决定似然值，即通过模型来计算数据的期望值。通过更新参数μ和σ来让期望值最大化。这个过程可以不断迭代直到两次迭代中生成的参数变化非常小为止。该过程和k-means的算法训练过程很相似（k-means不断更新类中心来让结果最大化），只不过在这里的高斯模型中，我们需要同时更新两个参数：分布的均值和标准差</p>
+<h4 id="高斯混合（GMM）"><a href="#高斯混合（GMM）" class="headerlink" title="高斯混合（GMM）"></a>高斯混合（GMM）</h4><p>高斯混合模型是对高斯模型进行简单的扩展，GMM使用多个高斯分布的组合来刻画数据分布。</p>
+<p>举例来说：想象下现在咱们不再考察全部用户的身高，而是要在模型中同时考虑男性和女性的身高。假定之前的样本里男女都有，那么之前所画的高斯分布其实是两个高斯分布的叠加的结果。相比只使用一个高斯来建模，现在我们可以用两个（或多个）高斯分布。</p>
+<p>该公式和之前的公式非常相似，细节上有几点差异。首先分布概率是K个高斯分布的和，每个高斯分布有属于自己的μ和σ 参数，以及对应的权重参数，权重值必须为正数，所有权重的和必须等于1，以确保公式给出数值是合理的概率密度值。换句话说如果我们把该公式对应的输入空间合并起来，结果将等于1。</p>
+<h4 id="kmeans思想与GMM"><a href="#kmeans思想与GMM" class="headerlink" title="kmeans思想与GMM"></a>kmeans思想与GMM</h4><p>在特定条件下，k-means和GMM方法可以互相用对方的思想来表达。在k-means中根据距离每个点最接近的类中心来标记该点的类别，这里存在的假设是每个类簇的尺度接近且特征的分布不存在不均匀性。这也解释了为什么在使用k-means前对数据进行归一会有效果。高斯混合模型则不会受到这个约束，因为它对每个类簇分别考察特征的协方差模型。</p>
+<p>K-means算法可以被视为高斯混合模型（GMM）的一种特殊形式。整体上看，高斯混合模型能提供更强的描述能力，因为聚类时数据点的从属关系不仅与近邻相关，还会依赖于类簇的形状。n维高斯分布的形状由每个类簇的协方差来决定。在协方差矩阵上添加特定的约束条件后，可能会通过GMM和k-means得到相同的结果。</p>
+<p>实践中如果每个类簇的协方差矩阵绑定在一起（就是说它们完全相同），并且矩阵对角线上的协方差数值保持相同，其他数值则全部为0，这样能够生成具有相同尺寸且形状为圆形类簇。在此条件下，每个点都始终属于最近的中间点对应的类。（达观数据 陈运文）</p>
+<p>在k-means方法中使用EM来训练高斯混合模型时对初始值的设置非常敏感。而对比k-means，GMM方法有更多的初始条件要设置。实践中不仅初始类中心要指定，而且协方差矩阵和混合权重也要设置。可以运行k-means来生成类中心，并以此作为高斯混合模型的初始条件。由此可见并两个算法有相似的处理过程，主要区别在于模型的复杂度不同。</p>
+<p>整体来看，所有无监督机器学习算法都遵循一条简单的模式：给定一系列数据，训练出一个能描述这些数据规律的模型（并期望潜在过程能生成数据）。训练过程通常要反复迭代，直到无法再优化参数获得更贴合数据的模型为止。</p>
+<h2 id="概率图模型"><a href="#概率图模型" class="headerlink" title="概率图模型"></a>概率图模型</h2><h2 id="优化算法"><a href="#优化算法" class="headerlink" title="优化算法"></a>优化算法</h2><h2 id="采样"><a href="#采样" class="headerlink" title="采样"></a>采样</h2><h2 id="前向神经网络"><a href="#前向神经网络" class="headerlink" title="前向神经网络"></a>前向神经网络</h2><h2 id="循环神经网络"><a href="#循环神经网络" class="headerlink" title="循环神经网络"></a>循环神经网络</h2><h2 id="强化学习"><a href="#强化学习" class="headerlink" title="强化学习"></a>强化学习</h2><h2 id="集成学习"><a href="#集成学习" class="headerlink" title="集成学习"></a>集成学习</h2><h2 id="生成对抗网络"><a href="#生成对抗网络" class="headerlink" title="生成对抗网络"></a>生成对抗网络</h2><p>生成对抗本质上是一种minimax游戏（两个网络分别博弈和优化）：存在生成器和判别器两大通道，不断切换通道缩减各自的目标误差并进行对抗。<br>GANs的值函数：</p>
+<h2 id="热门应用"><a href="#热门应用" class="headerlink" title="热门应用"></a>热门应用</h2><h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><h2 id="实战详解"><a href="#实战详解" class="headerlink" title="实战详解"></a>实战详解</h2><h1 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h1><p><a target="_blank" rel="noopener" href="https://luweikxy.gitbook.io/machine-learning-notes/">ML note</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/25327755">算法集锦</a><br><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/26726794/answer/151282052">应用场景</a></p>
 
   </article>
 
@@ -435,7 +546,7 @@
                                 <button class="mdui-fab catalog" style="overflow:unset;">
                                     <i class="nexmoefont icon-i-catalog"></i>
                                     <div class="nexmoe-toc">
-                                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A4%E7%9F%A5%E4%BD%93%E7%B3%BB%E6%90%AD%E5%BB%BA%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">认知体系搭建：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BC%96%E7%A8%8B%E5%BA%94%E7%94%A8%E8%83%BD%E5%8A%9B%EF%BC%9A%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E5%AE%9E%E6%88%98"><span class="toc-number">2.</span> <span class="toc-text">编程应用能力：机器学习深度学习基本实战</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86%E9%9D%A2%EF%BC%9A%E6%88%91%E9%9C%80%E8%A6%81%E7%9F%A5%E9%81%93%E5%93%AA%E4%BA%9B%E6%A8%A1%E5%9E%8B%EF%BC%8C%E5%93%AA%E4%BA%9B%E6%96%B9%E6%B3%95%EF%BC%8C%E6%9C%89%E4%BB%80%E4%B9%88%E7%89%B9%E7%82%B9%EF%BC%8C%E6%80%8E%E4%B9%88%E8%B0%83%E6%95%B4%E4%BF%AE%E6%94%B9%EF%BC%8C%E6%80%8E%E4%B9%88%E5%BA%94%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">知识面：我需要知道哪些模型，哪些方法，有什么特点，怎么调整修改，怎么应用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9D%A2%E8%AF%95%E8%A1%A8%E8%BE%BE%E4%B9%8B%E9%81%93%EF%BC%9A%E7%99%BE%E9%9D%A2%E9%97%AE%E9%A2%98%E8%AF%A6%E8%A7%A3"><span class="toc-number">4.</span> <span class="toc-text">面试表达之道：百面问题详解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80-%E6%80%BB%E8%80%8C%E8%A8%80%E4%B9%8B"><span class="toc-number">4.1.</span> <span class="toc-text">前言&#x2F;总而言之</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B"><span class="toc-number">4.2.</span> <span class="toc-text">特征工程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%92%E4%B8%80%E5%8C%96"><span class="toc-number">4.2.1.</span> <span class="toc-text">归一化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0"><span class="toc-number">4.3.</span> <span class="toc-text">模型评估</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7"><span class="toc-number">4.3.1.</span> <span class="toc-text">评估指标的局限性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AF%E5%B7%AE%E4%BC%B0%E8%AE%A1"><span class="toc-number">4.3.2.</span> <span class="toc-text">误差估计</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95"><span class="toc-number">4.4.</span> <span class="toc-text">经典算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SVM"><span class="toc-number">4.4.1.</span> <span class="toc-text">SVM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92"><span class="toc-number">4.4.2.</span> <span class="toc-text">逻辑回归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91"><span class="toc-number">4.4.3.</span> <span class="toc-text">决策树</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%8D%E7%BB%B4"><span class="toc-number">4.5.</span> <span class="toc-text">降维</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="toc-number">4.6.</span> <span class="toc-text">非监督学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E7%8E%87%E5%9B%BE%E6%A8%A1%E5%9E%8B"><span class="toc-number">4.7.</span> <span class="toc-text">概率图模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95"><span class="toc-number">4.8.</span> <span class="toc-text">优化算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%87%E6%A0%B7"><span class="toc-number">4.9.</span> <span class="toc-text">采样</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E5%90%91%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-number">4.10.</span> <span class="toc-text">前向神经网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-number">4.11.</span> <span class="toc-text">循环神经网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0"><span class="toc-number">4.12.</span> <span class="toc-text">强化学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0"><span class="toc-number">4.13.</span> <span class="toc-text">集成学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C"><span class="toc-number">4.14.</span> <span class="toc-text">生成对抗网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%83%AD%E9%97%A8%E5%BA%94%E7%94%A8"><span class="toc-number">4.15.</span> <span class="toc-text">热门应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E8%AE%B0"><span class="toc-number">4.16.</span> <span class="toc-text">后记</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E6%88%98%E8%AF%A6%E8%A7%A3"><span class="toc-number">4.17.</span> <span class="toc-text">实战详解</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99%EF%BC%9A"><span class="toc-number">5.</span> <span class="toc-text">参考资料：</span></a></li></ol>
+                                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A4%E7%9F%A5%E4%BD%93%E7%B3%BB%E6%90%AD%E5%BB%BA%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">认知体系搭建：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E6%A8%A1%E6%80%81%E5%AD%A6%E4%B9%A0"><span class="toc-number">1.1.</span> <span class="toc-text">多模态学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#NLP%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86"><span class="toc-number">1.1.1.</span> <span class="toc-text">NLP自然语言处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CV%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89"><span class="toc-number">1.1.2.</span> <span class="toc-text">CV计算机视觉</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ASRM%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB"><span class="toc-number">1.1.3.</span> <span class="toc-text">ASRM语音识别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E6%A8%A1%E6%80%81%E4%BF%A1%E6%81%AF"><span class="toc-number">1.1.4.</span> <span class="toc-text">其他模态信息</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0"><span class="toc-number">1.2.</span> <span class="toc-text">深度学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0"><span class="toc-number">1.3.</span> <span class="toc-text">机器学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ML%E9%87%8C%E7%9A%84%E4%B8%80%E7%82%B9%E5%93%B2%E5%AD%A6%E9%97%AE%E9%A2%98"><span class="toc-number">1.3.1.</span> <span class="toc-text">ML里的一点哲学问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E8%A6%81%E7%B4%A0%EF%BC%9A%E6%A8%A1%E5%9E%8B%E3%80%81%E7%AD%96%E7%95%A5%E3%80%81%E7%AE%97%E6%B3%95"><span class="toc-number">1.3.2.</span> <span class="toc-text">三要素：模型、策略、算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%87%E6%8B%9F%E5%90%88%E4%B8%8E%E6%AC%A0%E6%8B%9F%E5%90%88"><span class="toc-number">1.3.3.</span> <span class="toc-text">过拟合与欠拟合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E5%8C%96"><span class="toc-number">1.3.4.</span> <span class="toc-text">正则化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%80%A7%E8%83%BD%E5%BA%A6%E9%87%8F"><span class="toc-number">1.3.5.</span> <span class="toc-text">模型性能度量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B7%E6%9C%AC%E7%BB%B4%E5%BA%A6%E4%B8%8E%E7%A8%80%E7%96%8F"><span class="toc-number">1.3.6.</span> <span class="toc-text">样本维度与稀疏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E5%90%8C%E7%BB%B4%E6%95%B0%E6%A0%B7%E6%9C%AC%E7%A9%BA%E9%97%B4%E7%9A%84%E5%BD%A2%E7%8A%B6"><span class="toc-number">1.3.7.</span> <span class="toc-text">不同维数样本空间的形状</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%91%E7%9D%A3%E4%B8%AD%E7%9A%84%E7%94%9F%E6%88%90%E4%B8%8E%E5%88%A4%E5%88%AB"><span class="toc-number">1.3.8.</span> <span class="toc-text">监督中的生成与判别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9E%8B%E5%88%86%E7%B1%BB%E4%BD%93%E7%B3%BB"><span class="toc-number">1.3.9.</span> <span class="toc-text">机器学习模型分类体系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95%E4%B8%80%E5%9B%BE%E6%80%BB%E7%BB%93"><span class="toc-number">1.3.10.</span> <span class="toc-text">机器学习算法一图总结</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BC%96%E7%A8%8B%E5%BA%94%E7%94%A8%E8%83%BD%E5%8A%9B"><span class="toc-number">2.</span> <span class="toc-text">编程应用能力</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86%E9%9D%A2%EF%BC%9A"><span class="toc-number">3.</span> <span class="toc-text">知识面：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9D%A2%E8%AF%95%E8%A1%A8%E8%BE%BE%E4%B9%8B%E9%81%93%EF%BC%9A%E7%99%BE%E9%9D%A2%E9%97%AE%E9%A2%98%E8%AF%A6%E8%A7%A3"><span class="toc-number">4.</span> <span class="toc-text">面试表达之道：百面问题详解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80-%E6%80%BB%E8%80%8C%E8%A8%80%E4%B9%8B"><span class="toc-number">4.1.</span> <span class="toc-text">前言&#x2F;总而言之</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B"><span class="toc-number">4.2.</span> <span class="toc-text">特征工程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%92%E4%B8%80%E5%8C%96"><span class="toc-number">4.2.1.</span> <span class="toc-text">归一化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0"><span class="toc-number">4.3.</span> <span class="toc-text">模型评估</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7"><span class="toc-number">4.3.1.</span> <span class="toc-text">评估指标的局限性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AF%E5%B7%AE%E4%BC%B0%E8%AE%A1"><span class="toc-number">4.3.2.</span> <span class="toc-text">误差估计</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95"><span class="toc-number">4.4.</span> <span class="toc-text">经典算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SVM"><span class="toc-number">4.4.1.</span> <span class="toc-text">SVM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92"><span class="toc-number">4.4.2.</span> <span class="toc-text">逻辑回归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E4%B8%8E%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97"><span class="toc-number">4.4.3.</span> <span class="toc-text">决策树与随机森林</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91"><span class="toc-number">4.4.3.1.</span> <span class="toc-text">决策树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E8%A7%84%E5%88%99"><span class="toc-number">4.4.3.2.</span> <span class="toc-text">决策规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E7%9A%84%E5%AD%A6%E4%B9%A0"><span class="toc-number">4.4.3.3.</span> <span class="toc-text">决策树的学习</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9%EF%BC%9A%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A-%E7%8E%87%E4%B8%8E%E5%9F%BA%E5%B0%BC%E6%8C%87%E6%95%B0"><span class="toc-number">4.4.3.4.</span> <span class="toc-text">特征选择：信息增益&#x2F;率与基尼指数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E5%89%AA%E6%9E%9D"><span class="toc-number">4.4.3.5.</span> <span class="toc-text">决策树剪枝</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%84%E5%89%AA%E6%9E%9D"><span class="toc-number">4.4.3.6.</span> <span class="toc-text">预剪枝</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8E%E5%89%AA%E6%9E%9D"><span class="toc-number">4.4.3.7.</span> <span class="toc-text">后剪枝</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-number">4.4.3.8.</span> <span class="toc-text">优缺点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EM%E7%AE%97%E6%B3%95"><span class="toc-number">4.4.4.</span> <span class="toc-text">EM算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HMM%E9%9A%90%E9%A9%AC%E5%B0%94%E7%A7%91%E5%A4%AB%E6%A8%A1%E5%9E%8B"><span class="toc-number">4.4.5.</span> <span class="toc-text">HMM隐马尔科夫模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">4.4.5.1.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95"><span class="toc-number">4.4.5.2.</span> <span class="toc-text">概率计算方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95"><span class="toc-number">4.4.5.3.</span> <span class="toc-text">学习算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%84%E6%B5%8B%E7%AE%97%E6%B3%95"><span class="toc-number">4.4.5.4.</span> <span class="toc-text">预测算法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CRF%E6%9D%A1%E4%BB%B6%E9%9A%8F%E6%9C%BA%E5%9C%BA"><span class="toc-number">4.4.6.</span> <span class="toc-text">CRF条件随机场</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%8D%E7%BB%B4"><span class="toc-number">4.5.</span> <span class="toc-text">降维</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="toc-number">4.6.</span> <span class="toc-text">非监督学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%9A%E7%B1%BB-kmeans"><span class="toc-number">4.6.1.</span> <span class="toc-text">聚类-kmeans</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E6%96%AF%E6%B7%B7%E5%90%88%E6%A8%A1%E5%9E%8B"><span class="toc-number">4.6.2.</span> <span class="toc-text">高斯混合模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%AB%98%E6%96%AF%E5%88%86%E5%B8%83%E4%B8%8E%E4%BD%BF%E7%94%A8"><span class="toc-number">4.6.2.1.</span> <span class="toc-text">高斯分布与使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#EM%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83"><span class="toc-number">4.6.2.2.</span> <span class="toc-text">EM算法训练</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%AB%98%E6%96%AF%E6%B7%B7%E5%90%88%EF%BC%88GMM%EF%BC%89"><span class="toc-number">4.6.2.3.</span> <span class="toc-text">高斯混合（GMM）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#kmeans%E6%80%9D%E6%83%B3%E4%B8%8EGMM"><span class="toc-number">4.6.2.4.</span> <span class="toc-text">kmeans思想与GMM</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E7%8E%87%E5%9B%BE%E6%A8%A1%E5%9E%8B"><span class="toc-number">4.7.</span> <span class="toc-text">概率图模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95"><span class="toc-number">4.8.</span> <span class="toc-text">优化算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%87%E6%A0%B7"><span class="toc-number">4.9.</span> <span class="toc-text">采样</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E5%90%91%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-number">4.10.</span> <span class="toc-text">前向神经网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-number">4.11.</span> <span class="toc-text">循环神经网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0"><span class="toc-number">4.12.</span> <span class="toc-text">强化学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0"><span class="toc-number">4.13.</span> <span class="toc-text">集成学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C"><span class="toc-number">4.14.</span> <span class="toc-text">生成对抗网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%83%AD%E9%97%A8%E5%BA%94%E7%94%A8"><span class="toc-number">4.15.</span> <span class="toc-text">热门应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E8%AE%B0"><span class="toc-number">4.16.</span> <span class="toc-text">后记</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E6%88%98%E8%AF%A6%E8%A7%A3"><span class="toc-number">4.17.</span> <span class="toc-text">实战详解</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99%EF%BC%9A"><span class="toc-number">5.</span> <span class="toc-text">参考资料：</span></a></li></ol>
                                     </div>
                                 </button>
                             
@@ -486,7 +597,7 @@
 
  
 
-<script async src="/js/app.js?v=1647252355634"></script>
+<script async src="/js/app.js?v=1647595667651"></script>
 
 
 
@@ -506,21 +617,6 @@
 
 
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 <!--烟花爆炸-->
 <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 

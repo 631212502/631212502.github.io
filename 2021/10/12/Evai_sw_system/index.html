@@ -6,7 +6,7 @@
     <title>Evaiの基于Interactive Learning的智能交互AI系统 - Eutupia by 夏夢</title>
     <meta charset="UTF-8">
     <meta name="description" content="願いが叶う場所">
-    <meta name="keywords" content="null">
+    <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     
     
@@ -47,7 +47,7 @@
 <meta property="og:image" content="https://631212502.github.io/2021/10/12/Evai_sw_system/code.png">
 <meta property="og:image" content="https://631212502.github.io/2021/10/12/Evai_sw_system/zl.jpg">
 <meta property="article:published_time" content="2021-10-12T13:41:51.000Z">
-<meta property="article:modified_time" content="2022-03-11T09:00:26.017Z">
+<meta property="article:modified_time" content="2022-03-17T00:58:59.498Z">
 <meta property="article:author" content="Natu Matu">
 <meta property="article:tag" content="编程">
 <meta property="article:tag" content="项目DIY">
@@ -65,12 +65,12 @@
     <!-- DPlayer -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.css">
     <script src="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.js"></script>
-    <link rel="stylesheet" href="/css/style.css?v=1647252355635">
+    <link rel="stylesheet" href="/css/style.css?v=1647595667652">
      
     
         <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
     
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1647252355635">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1647595667652">
     
         <link rel="stylesheet" href="/custom.css">
     
@@ -447,12 +447,12 @@
 <ul>
 <li>轮回复匹配</li>
 </ul>
-<p> &emsp;&emsp;检索聊天机器人的早期研究主要集中在反应选择单轮的谈话,只有消息用于选择一个合适的回复。<br> 目前比较新的方法如下图，利用深度卷积神经网络体系结构改进模型，学习消息和响应的表示，或直接学习两个句子的相互作用表示，然后用多层感知器来计算匹配的分数。</p>
+<p> &emsp;&emsp;检索聊天机器人的早期研究主要集中在反应选择单轮的谈话,只有消息用于选择一个合适的回复。目前比较新的方法如下图，利用深度卷积神经网络体系结构改进模型，学习消息和响应的表示，或直接学习两个句子的相互作用表示，然后用多层感知器来计算匹配的分数。</p>
  <img src="/2021/10/12/Evai_sw_system/5.jpg" class title="This is the image of setting-logic">
 <ul>
 <li>轮回复匹配机制</li>
 </ul>
-<p> &emsp;&emsp;近年来，基于检索的多轮会话越来越受到人们的关注，在多轮回答选择中，将当前的消息和先前的话语作为输入。<br> 模型选择一个自然的、与整个上下文相关的响应。重要的是要在之前的话语中找出重要的信息，并恰当地模仿话语的关系，以确保谈话的连贯性。多轮对话的难点在于不仅要考虑当前的问题，也要考虑前几轮的对话情景。多轮对话的难点主要有两点：a.如何明确上下文的关键信息（关键词，关键短语或关键句）；b.上下文中如何模拟多轮对话间的关系。</p>
+<p> &emsp;&emsp;近年来，基于检索的多轮会话越来越受到人们的关注，在多轮回答选择中，将当前的消息和先前的话语作为输入。<br> &emsp;&emsp;模型选择一个自然的、与整个上下文相关的响应。重要的是要在之前的话语中找出重要的信息，并恰当地模仿话语的关系，以确保谈话的连贯性。多轮对话的难点在于不仅要考虑当前的问题，也要考虑前几轮的对话情景。多轮对话的难点主要有两点：a.如何明确上下文的关键信息（关键词，关键短语或关键句）；b.上下文中如何模拟多轮对话间的关系。</p>
 <p> &emsp;&emsp;现有检索模型的缺陷：在上下文中容易丢失重要信息，因为它们首先将整个上下文表示为向量，然后将该上下文向量与响应sentence向量进行匹配。下图的方法通过RNN/LSTM的结构将上下文(所有之前的话语和当前消息的连接)和候选响应分别编码到上下文向量和回复向量中，然后根据这两个向量计算出匹配度分数。</p>
  <img src="/2021/10/12/Evai_sw_system/6.jpg" class title="This is the image of setting-logic">
 
@@ -494,8 +494,8 @@
 <h4 id="类人情感交互模型"><a href="#类人情感交互模型" class="headerlink" title="类人情感交互模型"></a>类人情感交互模型</h4><ol>
 <li><p>交互设计</p>
 <p> &emsp;&emsp;在对话框架的训练设计上，我们设计了不同的交互模型。项目在能通过对话交互的基础上尝试进一步延伸人工智能的“智能”。通过情绪分析、数据拟合、强化学习和概率的方式，让机器可以根据交互者的情绪状态智能地选择交互人更希望的交互模型。如果识别到的语音内容相同，但交互人所处的情绪状态不同，那么模型给出的答复也不同，这使得AI更加具有针对性，也更加拟人化，尽可能自然随机而不是单一死板地回复。</p>
-<p> &emsp;&emsp;在模型设计上，我们以心理学理论为指导进行自然交互的场景建模。进一步还原和带给交互者最真实的AI谈话交互体验。用智能的方法控制智能的模型是本项目的独特之处。<br> 在与模型对话过程中，我们不断改进模型训练方法，探索反馈式学习机制，让模型在对话中不断学习改进，以达到优化模型效果的目的。再配合业务代码层的数据分析和机器学习技术，让AI模型具有信息预处理和初步的辅助决策的能力，而现有的AI产品很多属于跟随代码“思考”的伪人工智能产品，难以做到泛化理解和反馈学习。而本作品的思路很有可能是目前AI应用产品中的一类创新形式。</p>
-<p> &emsp;&emsp;模型的训练采用了像人类一样理解与学习的Interactive Learning机制、机器学习以及微表情识别技术，最后为了统筹和利用好这些技术和能力而尝试自主开发的交互智能控制算法属更为先进的一种技术。<br> 项目是以NLP（自然语言处理）相关理论为支撑，以UNIT为对话核心框架搭建而成的对话交互系统，能深入分析多种对话场景并智能匹配语料。基于大数据和深度学习，自动学习词义及词序关系，具备较强的泛化能力，情绪识别精度高。在大数据训练模型的支持下，可以使系统具有较好的对自然语言的处理和解析理解的能力。</p>
+<p> &emsp;&emsp;在模型设计上，我们以心理学理论为指导进行自然交互的场景建模。进一步还原和带给交互者最真实的AI谈话交互体验。用智能的方法控制智能的模型是本项目的独特之处。<br> &emsp;&emsp;在与模型对话过程中，我们不断改进模型训练方法，探索反馈式学习机制，让模型在对话中不断学习改进，以达到优化模型效果的目的。再配合业务代码层的数据分析和机器学习技术，让AI模型具有信息预处理和初步的辅助决策的能力，而现有的AI产品很多属于跟随代码“思考”的伪人工智能产品，难以做到泛化理解和反馈学习。而本作品的思路很有可能是目前AI应用产品中的一类创新形式。</p>
+<p> &emsp;&emsp;模型的训练采用了像人类一样理解与学习的Interactive Learning机制、机器学习以及微表情识别技术，最后为了统筹和利用好这些技术和能力而尝试自主开发的交互智能控制算法属更为先进的一种技术。<br> &emsp;&emsp;项目是以NLP（自然语言处理）相关理论为支撑，以UNIT为对话核心框架搭建而成的对话交互系统，能深入分析多种对话场景并智能匹配语料。基于大数据和深度学习，自动学习词义及词序关系，具备较强的泛化能力，情绪识别精度高。在大数据训练模型的支持下，可以使系统具有较好的对自然语言的处理和解析理解的能力。</p>
  <img src="/2021/10/12/Evai_sw_system/11.png" class title="This is the image of setting-logic"></li>
 <li><p>“双闭环”学习框架设计</p>
  <img src="/2021/10/12/Evai_sw_system/12.jpg" class title="This is the image of setting-logic">
@@ -658,7 +658,7 @@
 
  
 
-<script async src="/js/app.js?v=1647252355641"></script>
+<script async src="/js/app.js?v=1647595667660"></script>
 
 
 
@@ -678,21 +678,6 @@
 
 
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 <!--烟花爆炸-->
 <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
