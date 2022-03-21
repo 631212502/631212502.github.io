@@ -22,23 +22,23 @@
 <meta property="article:author" content="Natu Matu">
 <meta name="twitter:card" content="summary">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
-     <!-- require APlayer -->
+    <!-- require APlayer -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
 	<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
-	<!-- require MetingJS -->
-	<script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+	<!-- require MetingJS : 未解决歌单播放问题-->
+	<script src="https://cdn.jsdelivr.net/npm/meting@latest/dist/Meting.min.js"></script>
     <!-- require pjax -->
     <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
     <!-- DPlayer -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.css">
     <script src="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.js"></script>
-    <link rel="stylesheet" href="/css/style.css?v=1647787074900">
+    <link rel="stylesheet" href="/css/style.css?v=1647868640869">
      
     
         <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
     
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1647787074900">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1647868640869">
     
         <link rel="stylesheet" href="/custom.css">
     
@@ -46,6 +46,21 @@
 <body class="mdui-drawer-body-left">
     
     <div id="pageContent">
+        <div id="aplayerContent">
+            <meting-js
+            style="position:absolute; z-index:99999" 
+            type="playlist" 
+            server="netease" 
+            id="6976153408" 
+            fixed="true"
+            autoplay="true"
+            order="random"
+            loop="all"
+            listFolded="false"
+            preload="auto"
+            lrc-type="1">
+            </meting-js> 
+        </div>
         <div id="nexmoe-background">
             <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/background.webp)"></div>
             <div class="mdui-appbar mdui-shadow-0">
@@ -65,7 +80,7 @@
         </a>
     </div>
     <div class="nexmoe-count">
-        <div><span>文章</span>26</div>
+        <div><span>文章</span>28</div>
         <div><span>标签</span>10</div>
         <div><span>分类</span>4</div>
     </div>
@@ -141,14 +156,14 @@
             <i class="nexmoefont icon-bilibili"></i>
         </a><a class="mdui-ripple" href="https://github.com/631212502" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
             <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=631212502@qq.com" target="_blank" mdui-tooltip="{content: '邮箱'}" style="color: ;background-color: ;">
+            <i class="nexmoefont icon-mail-fill"></i>
         </a><a class="mdui-ripple" href="/null" target="_blank" mdui-tooltip="{content: 'steam'}" style="color: ;background-color: ;">
             <i class="nexmoefont icon-steam"></i>
         </a><a class="mdui-ripple" href="/null" target="_blank" mdui-tooltip="{content: '知乎'}" style="color: ;background-color: ;">
             <i class="nexmoefont icon-zhihu"></i>
         </a><a class="mdui-ripple" href="/null" target="_blank" mdui-tooltip="{content: '推特'}" style="color: ;background-color: ;">
             <i class="nexmoefont icon-twitter"></i>
-        </a><a class="mdui-ripple" href="/null" target="_blank" mdui-tooltip="{content: '邮箱'}" style="color: ;background-color: ;">
-            <i class="nexmoefont icon-mail-fill"></i>
         </a>
     </div>
 </div>
@@ -156,7 +171,7 @@
     
   <div class="nexmoe-widget-wrap">
     <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
-      <a href="/tags/mmdl/" style="font-size: 12px;">mmdl</a> <a href="/tags/page-building/" style="font-size: 14px;">page_building</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 16px;">博客</a> <a href="/tags/%E5%AD%A6%E6%9C%AF/" style="font-size: 10px;">学术</a> <a href="/tags/%E6%AD%8C%E3%81%86/" style="font-size: 12px;">歌う</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 14px;">笔记</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 20px;">编程</a> <a href="/tags/%E8%A8%80%E8%91%89/" style="font-size: 18px;">言葉</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 12px;">随笔</a> <a href="/tags/%E9%A1%B9%E7%9B%AEDIY/" style="font-size: 10px;">项目DIY</a>
+      <a href="/tags/mmdl/" style="font-size: 15px;">mmdl</a> <a href="/tags/page-building/" style="font-size: 13.33px;">page_building</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 16.67px;">博客</a> <a href="/tags/%E5%AD%A6%E6%9C%AF/" style="font-size: 10px;">学术</a> <a href="/tags/%E6%AD%8C%E3%81%86/" style="font-size: 11.67px;">歌う</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 16.67px;">笔记</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 20px;">编程</a> <a href="/tags/%E8%A8%80%E8%91%89/" style="font-size: 18.33px;">言葉</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 11.67px;">随笔</a> <a href="/tags/%E9%A1%B9%E7%9B%AEDIY/" style="font-size: 10px;">项目DIY</a>
     </div>
     
   </div>
@@ -214,7 +229,7 @@
   <div class="nexmoe-widget-wrap">
     <h3 class="nexmoe-widget-title">文章归档</h3>
     <div class="nexmoe-widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/">2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/">2010</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/">2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/">2010</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -360,22 +375,6 @@
             </div>
         </div>
     </div>
-    <div id="aplayerContent">
-        <meting-js
-        style="position:absolute; z-index:99999" 
-        type="playlist" 
-        server="netease" 
-        id="6976153408" 
-        fixed="true"
-        autoplay="true"
-        order="random"
-        loop="all"
-        list-folded="false"
-        preload="auto"
-        list-max-height="500px"
-        lrc-type="1">
-        </meting-js>
-    </div>
     <script>
         // 对所有链接跳转事件绑定pjax容器container
         $(document).pjax('a[target!=_blank]', '#pageContent', {fragment: '#pageContent', timeout:8000})
@@ -399,7 +398,7 @@
 
  
 
-<script async src="/js/app.js?v=1647787074903"></script>
+<script async src="/js/app.js?v=1647868640871"></script>
 
 
 
