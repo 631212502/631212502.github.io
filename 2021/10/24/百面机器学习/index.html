@@ -19,17 +19,18 @@
 <meta property="og:site_name" content="Eutupia by 夏夢">
 <meta property="og:description" content="缘得此书：《百面机器学习》,闲来一叙">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://4143056590-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-LpO5sn2FY1C9esHFJmo%2F-M1kYo3MEe_6r_DfWYhK%2F-M1kYpkhI2J2cyDCpRkJ%2FRNN-structures.png?generation=1583510158033117&alt=media">
 <meta property="og:image" content="https://4143056590-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-LpO5sn2FY1C9esHFJmo%2F-LpO5t6XJGnSXrbsZ_UC%2F-LpO60eOc5g6Myg5Qdum%2Fdimension-curse.png?generation=1569158084607914&alt=media">
 <meta property="og:image" content="https://img-blog.csdn.net/20180608215827629?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3liZGVzaXJl/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
 <meta property="og:image" content="https://pic2.zhimg.com/v2-9d4402602d941eb00acd2cae715c4d05_1440w.jpg?source=172ae18b">
 <meta property="og:image" content="https://vdn1.vzuu.com/SD/3bb38dfe-236a-11eb-8039-a6caf32b14c9.mp4?disable_local_cache=1&auth_key=1647742778-0-0-bfef4e3de4968e56b61f07a6d7fc5cc7&f=mp4&bu=pico&expiration=1647742778&v=hw">
 <meta property="article:published_time" content="2021-10-24T07:19:43.000Z">
-<meta property="article:modified_time" content="2022-03-21T09:27:19.424Z">
+<meta property="article:modified_time" content="2022-03-22T08:56:30.906Z">
 <meta property="article:author" content="Natu Matu">
-<meta property="article:tag" content="mmdl">
 <meta property="article:tag" content="笔记">
+<meta property="article:tag" content="mmdl">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://4143056590-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-LpO5sn2FY1C9esHFJmo%2F-LpO5t6XJGnSXrbsZ_UC%2F-LpO60eOc5g6Myg5Qdum%2Fdimension-curse.png?generation=1569158084607914&alt=media">
+<meta name="twitter:image" content="https://4143056590-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-LpO5sn2FY1C9esHFJmo%2F-M1kYo3MEe_6r_DfWYhK%2F-M1kYpkhI2J2cyDCpRkJ%2FRNN-structures.png?generation=1583510158033117&alt=media">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
     <!-- require APlayer -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
@@ -42,12 +43,12 @@
     <!-- DPlayer -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.css">
     <script src="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.js"></script>
-    <link rel="stylesheet" href="/css/style.css?v=1647868640767">
+    <link rel="stylesheet" href="/css/style.css?v=1647941148273">
      
     
         <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
     
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1647868640767">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1647941148273">
     
         <link rel="stylesheet" href="/custom.css">
     
@@ -55,21 +56,6 @@
 <body class="mdui-drawer-body-left">
     
     <div id="pageContent">
-        <div id="aplayerContent">
-            <meting-js
-            style="position:absolute; z-index:99999" 
-            type="playlist" 
-            server="netease" 
-            id="6976153408" 
-            fixed="true"
-            autoplay="true"
-            order="random"
-            loop="all"
-            listFolded="false"
-            preload="auto"
-            lrc-type="1">
-            </meting-js> 
-        </div>
         <div id="nexmoe-background">
             <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/background.webp)"></div>
             <div class="mdui-appbar mdui-shadow-0">
@@ -327,7 +313,13 @@
 <li><p>基本结构</p>
 <ul>
 <li>conv</li>
-<li>RNN/lstm</li>
+<li>RNN/lstm<br><img src="https://4143056590-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-LpO5sn2FY1C9esHFJmo%2F-M1kYo3MEe_6r_DfWYhK%2F-M1kYpkhI2J2cyDCpRkJ%2FRNN-structures.png?generation=1583510158033117&alt=media"><ul>
+<li>one to one:单输入单输出，例如图像分类</li>
+<li>one to many:给一个输入得到一系列的输出，这种可用于生产图片</li>
+<li>many to one：给一列输入得到一个输出，用于文本分析，情感倾向分析</li>
+<li>many to many：对话机器人</li>
+</ul>
+</li>
 <li>Pooling<br>其实这东西就是为了防止过拟合用的，cnn卷出来的数据太复杂了，容易overfit，所以取个有代表性的数字即可，这就是pooling</li>
 <li>Relu、Sigmoid</li>
 <li>dropout<br>以一定的概率（一般是0.5）盖住某些隐藏层神经元，使其无法输入和输出参与前向传播和反向传播，减弱模型的复杂度（正则）</li>
@@ -504,8 +496,24 @@
             </div>
         </div>
     </div>
+    <div id="aplayerContent">
+        <meting-js
+        style="position:absolute; z-index:99999" 
+        type="playlist" 
+        server="netease" 
+        id="6976153408" 
+        fixed="true"
+        autoplay="true"
+        order="random"
+        loop="all"
+        list-folded="false"
+        preload="auto"
+        list-max-height="500px"
+        lrc-type="1">
+        </meting-js> 
+    </div>
     <script>
-        // 对所有链接跳转事件绑定pjax容器container
+        // 对所有链接跳转事件绑定pjax容器container,只在容器中跳转
         $(document).pjax('a[target!=_blank]', '#pageContent', {fragment: '#pageContent', timeout:8000})
     </script>
      
@@ -527,7 +535,7 @@
 
  
 
-<script async src="/js/app.js?v=1647868640779"></script>
+<script async src="/js/app.js?v=1647941148282"></script>
 
 
 

@@ -21,11 +21,14 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://4143056590-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-LpO5sn2FY1C9esHFJmo%2F-LpO5t6XJGnSXrbsZ_UC%2F-LpO62fhnKx0k5roiMi3%2Fevolution-of-semantics-apple.png?generation=1569158086328327&alt=media">
 <meta property="og:image" content="https://4143056590-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-LpO5sn2FY1C9esHFJmo%2F-LpO5t6XJGnSXrbsZ_UC%2F-LpO62fnOjk0z7LuU_Jj%2Fbag-of-words.png?generation=1569158086313371&alt=media">
+<meta property="og:image" content="https://4143056590-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-LpO5sn2FY1C9esHFJmo%2F-M1kYo3MEe_6r_DfWYhK%2F-M1kYpkpNaaFpYYCFguE%2Fencoder-decoder.jpeg?generation=1583510164188807&alt=media">
+<meta property="og:image" content="https://4143056590-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-LpO5sn2FY1C9esHFJmo%2F-M1kYo3MEe_6r_DfWYhK%2F-M1kYpl4eRdF4hLeNYy8%2Fattention.png?generation=1583510153122442&alt=media">
+<meta property="og:image" content="https://luweikxy.gitbook.io/machine-learning-notes/self-attention-and-transformer">
 <meta property="article:published_time" content="2022-03-21T13:12:42.000Z">
-<meta property="article:modified_time" content="2022-03-21T13:16:40.609Z">
+<meta property="article:modified_time" content="2022-03-22T09:24:36.401Z">
 <meta property="article:author" content="Natu Matu">
-<meta property="article:tag" content="mmdl">
 <meta property="article:tag" content="笔记">
+<meta property="article:tag" content="mmdl">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://4143056590-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-LpO5sn2FY1C9esHFJmo%2F-LpO5t6XJGnSXrbsZ_UC%2F-LpO62fhnKx0k5roiMi3%2Fevolution-of-semantics-apple.png?generation=1569158086328327&alt=media">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
@@ -40,12 +43,12 @@
     <!-- DPlayer -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.css">
     <script src="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.js"></script>
-    <link rel="stylesheet" href="/css/style.css?v=1647868640702">
+    <link rel="stylesheet" href="/css/style.css?v=1647941148203">
      
     
         <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
     
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1647868640702">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1647941148203">
     
         <link rel="stylesheet" href="/custom.css">
     
@@ -53,21 +56,6 @@
 <body class="mdui-drawer-body-left">
     
     <div id="pageContent">
-        <div id="aplayerContent">
-            <meting-js
-            style="position:absolute; z-index:99999" 
-            type="playlist" 
-            server="netease" 
-            id="6976153408" 
-            fixed="true"
-            autoplay="true"
-            order="random"
-            loop="all"
-            listFolded="false"
-            preload="auto"
-            lrc-type="1">
-            </meting-js> 
-        </div>
         <div id="nexmoe-background">
             <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/background.webp)"></div>
             <div class="mdui-appbar mdui-shadow-0">
@@ -307,8 +295,8 @@
       
       <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
     <a><i class="nexmoefont icon-calendar-fill"></i>2022年03月21日</a>
-    <a><i class="nexmoefont icon-areachart"></i>453 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
+    <a><i class="nexmoefont icon-areachart"></i>1.9k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 7 分钟</a>
 </div>
 
       
@@ -321,7 +309,29 @@
 <h3 id="语义的进化"><a href="#语义的进化" class="headerlink" title="语义的进化"></a>语义的进化</h3><p><img src="https://4143056590-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-LpO5sn2FY1C9esHFJmo%2F-LpO5t6XJGnSXrbsZ_UC%2F-LpO62fhnKx0k5roiMi3%2Fevolution-of-semantics-apple.png?generation=1569158086328327&alt=media"></p>
 <h3 id="词袋模型"><a href="#词袋模型" class="headerlink" title="词袋模型"></a>词袋模型</h3><p>词袋模型是一种出现概率计算，它的概率就是，在全部语料库中，这个句子出现的次数，除以所有六个单词组成的句子的次数，即：<br>$$<br>P\left(x_{1}, x_{2}, \ldots, x_{n}\right)=\frac{c\left(x_{1}, x_{2}, \ldots, x_{n}\right)}{N}<br>$$<br>N是所有n个词组成的句子（N元组）出现的概率。<br>这就是一个非常简单的语言模型，就是通过统计次数得到的。<br>但是这种模型每个单词之间的关系太强了，我们假设每个字的出现概率独立，即：<br>$$<br>P(\text { I love China })=P(I) P(\text { love }) P(\text { China })<br>$$<br>如下图所示：<br><img src="https://4143056590-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-LpO5sn2FY1C9esHFJmo%2F-LpO5t6XJGnSXrbsZ_UC%2F-LpO62fnOjk0z7LuU_Jj%2Fbag-of-words.png?generation=1569158086313371&alt=media"><br>但是这显然是不符合实际的，相邻的两个词之间往往是有关联的，比如I love后面出现you的概率就很大，出现txt的概率就很小。即有一个条件概率的关系,这也是采用词袋模型最具有局限性的地方。</p>
 <h4 id="二元语言模型：CR情感分析"><a href="#二元语言模型：CR情感分析" class="headerlink" title="二元语言模型：CR情感分析"></a>二元语言模型：CR情感分析</h4><p>词袋模型真的有用吗？<br>我们用LR模型统计出每个词的正负情感趋势，如下：<br>$$<br>P(y=1 \mid x)=\frac{1}{1+\exp \left(W^{T} x\right)}<br>$$</p>
-<h3 id="向量化：word2vec"><a href="#向量化：word2vec" class="headerlink" title="向量化：word2vec"></a>向量化：word2vec</h3>
+<h3 id="向量化：word2vec"><a href="#向量化：word2vec" class="headerlink" title="向量化：word2vec"></a>向量化：word2vec</h3><p>word2vec全程叫 word to vector:也就是将词汇转化成对应的向量的一种转化方法</p>
+<h3 id="Seq2Seq任务：序列对其任务"><a href="#Seq2Seq任务：序列对其任务" class="headerlink" title="Seq2Seq任务：序列对其任务"></a>Seq2Seq任务：序列对其任务</h3><p>eq2Seq是2014年Google提出的一个模型Sequence to Sequence Learning with Neural Networks。论文中提出的 Seq2Seq 模型可简单理解为由三部分组成：Encoder、Decoder 和连接两者的 State Vector (中间状态向量) C 。</p>
+<p>在上图many to many的两种模型中，可以看到第四和第五种是有差异的，经典的RNN结构的输入和输出序列必须要是等长，它的应用场景也比较有限。而第四种它可以是输入和输出序列不等长，这种模型便是Seq2Seq模型，即Sequence to Sequence。</p>
+<p>Seq2Seq实现了从一个序列到另外一个序列的转换，比如google曾用Seq2Seq模型加attention模型来实现了翻译功能，类似的还可以实现聊天机器人对话模型。经典的RNN模型固定了输入序列和输出序列的大小，而Seq2Seq模型则突破了该限制。</p>
+<p>这种结构最重要的地方在于输入序列和输出序列的长度是可变的。</p>
+<h3 id="Encoder-Decoder结构"><a href="#Encoder-Decoder结构" class="headerlink" title="Encoder-Decoder结构"></a>Encoder-Decoder结构</h3><p>所谓的Sequence2Sequence任务主要是泛指一些Sequence到Sequence的映射问题，Sequence在这里可以理解为一个字符串序列，当我们在给定一个字符串序列后，希望得到与之对应的另一个字符串序列（如 翻译后的、如语义上对应的）时，这个任务就可以称为Sequence2Sequence了。<br>在现在的深度学习领域当中，通常的做法是将输入的源Sequence编码到一个中间的context当中，这个context是一个特定长度的编码（可以理解为一个向量），然后再通过这个context还原成一个输出的目标Sequence。</p>
+<p>如果用人的思维来看，就是我们先看到源Sequence，将其读一遍，然后在我们大脑当中就记住了这个源Sequence，并且存在大脑的某一个位置上，形成我们自己的记忆（对应Context），然后我们再经过思考，将这个大脑里的东西转变成输出，然后写下来。</p>
+<p>那么我们大脑读入的过程叫做Encoder，即将输入的东西变成我们自己的记忆，放在大脑当中，而这个记忆可以叫做Context，然后我们再根据这个Context，转化成答案写下来，这个写的过程叫做Decoder。其实就是编码-存储-解码的过程。</p>
+<p>而对应的，大脑怎么读入（Encoder怎么工作）有一个特定的方式，怎么记忆（Context）有一种特定的形式，怎么转变成答案（Decoder怎么工作）又有一种特定的工作方式。<br>好了，现在我们大体了解了一个工作的流程Encoder-Decoder后，我们来介绍一个深度学习当中，最经典的Encoder-Decoder实现方式，即用RNN来实现。<br><img src="https://4143056590-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-LpO5sn2FY1C9esHFJmo%2F-M1kYo3MEe_6r_DfWYhK%2F-M1kYpkpNaaFpYYCFguE%2Fencoder-decoder.jpeg?generation=1583510164188807&alt=media"></p>
+<p>在RNN Encoder-Decoder的工作当中，我们用一个RNN去模拟大脑的读入动作，用一个特定长度的特征向量去模拟我们的记忆，然后再用另外一个RNN去模拟大脑思考得到答案的动作，将三者组织起来利用就成了一个可以实现Sequence2Sequence工作的“模拟大脑”了。 而我们剩下的工作也就是如何正确的利用RNN去实现，以及如何正确且合理的组织这三个部分了。</p>
+<p>获取语义向量C最简单的方式就是直接将最后一个输入的隐状态作为语义向量C。也可以对最后一个隐含状态做一个变换得到语义向量，还可以将输入序列的所有隐含状态做一个变换得到语义变量。</p>
+<h3 id="Attention的由来和诞生"><a href="#Attention的由来和诞生" class="headerlink" title="Attention的由来和诞生"></a>Attention的由来和诞生</h3><h4 id="原因：Encoder-Decoder结构的局限性"><a href="#原因：Encoder-Decoder结构的局限性" class="headerlink" title="原因：Encoder-Decoder结构的局限性"></a>原因：Encoder-Decoder结构的局限性</h4><ol>
+<li>Encoder和Decoder的唯一联系只有语义编码，即将整个输入序列的信息编码成一个固定大小的状态向量再解码，相当于将信息”有损压缩”。很明显这样做有两个缺点：</li>
+</ol>
+<ul>
+<li>中间语义向量无法完全表达整个输入序列的信息。</li>
+<li>随着输入信息长度的增加，由于向量长度固定，先前编码好的信息会被后来的信息覆盖，丢失很多 信息。（不可控的遗忘现象）</li>
+</ul>
+<ol start="2">
+<li>不同位置的单词的贡献都是一样的<br>Decoder过程，其输出的产生如下：<br>$$<br>\begin{aligned}<br>&amp;y_{1}=g\left(C, h_{0}^{\prime}\right) \<br>&amp;y_{2}=g\left(C, y_{1}\right) \<br>&amp;y_{3}=g\left(C, y_{1}, y_{2}\right)<br>\end{aligned}<br>$$<br>明显可以发现在生成、、时，语义编码对它们所产生的贡献都是一样的。例如翻译：Cat chase mouse，Encoder-Decoder模型逐字生成：“猫”、“捉”、“老鼠”。在翻译mouse单词时，每一个英语单词对“老鼠”的贡献都是相同的。如果引入了Attention模型，那么mouse对于它的影响应该是最大的。<h4 id="Attention原理"><a href="#Attention原理" class="headerlink" title="Attention原理"></a>Attention原理</h4>为了解决中间变量C无法理解整个输入的问题（所以由单连接改为了多连接，还是带权重就是Attention）<br>Attention模型的特点是Decoder不再将整个输入序列编码为固定长度的中间语义向量 ，而是根据当前生成的新单词计算新的，使得每个时刻输入不同的，这样就解决了单词信息丢失的问题。引入了Attention的Encoder-Decoder模型如下图：<br><img src="https://4143056590-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-LpO5sn2FY1C9esHFJmo%2F-M1kYo3MEe_6r_DfWYhK%2F-M1kYpl4eRdF4hLeNYy8%2Fattention.png?generation=1583510153122442&alt=media"></li>
+</ol>
+<h4 id="self-attention-transformer"><a href="#self-attention-transformer" class="headerlink" title="self-attention/transformer"></a>self-attention/transformer</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://luweikxy.gitbook.io/machine-learning-notes/self-attention-and-transformer" alt="精华" class="lazyload"></p>
+<h2 id="知识图谱"><a href="#知识图谱" class="headerlink" title="知识图谱"></a>知识图谱</h2>
   </article>
 
   
@@ -374,7 +384,7 @@
                                 <button class="mdui-fab catalog" style="overflow:unset;">
                                     <i class="nexmoefont icon-i-catalog"></i>
                                     <div class="nexmoe-toc">
-                                        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E7%9A%84%E6%9C%AC%E8%B4%A8"><span class="toc-number">1.</span> <span class="toc-text">自然语言的本质</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E8%A8%80%E4%B8%8E%E6%99%BA%E8%83%BD"><span class="toc-number">1.1.</span> <span class="toc-text">语言与智能</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E7%86%B5"><span class="toc-number">1.1.1.</span> <span class="toc-text">信息熵</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%A4%E5%8F%89%E7%86%B5%EF%BC%88KL%E6%95%A3%E5%BA%A6%EF%BC%89"><span class="toc-number">1.1.2.</span> <span class="toc-text">交叉熵（KL散度）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E4%B9%89%E7%9A%84%E8%BF%9B%E5%8C%96"><span class="toc-number">1.2.</span> <span class="toc-text">语义的进化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%8D%E8%A2%8B%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.3.</span> <span class="toc-text">词袋模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E5%85%83%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%EF%BC%9ACR%E6%83%85%E6%84%9F%E5%88%86%E6%9E%90"><span class="toc-number">1.3.1.</span> <span class="toc-text">二元语言模型：CR情感分析</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%91%E9%87%8F%E5%8C%96%EF%BC%9Aword2vec"><span class="toc-number">1.4.</span> <span class="toc-text">向量化：word2vec</span></a></li></ol></li></ol>
+                                        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E7%9A%84%E6%9C%AC%E8%B4%A8"><span class="toc-number">1.</span> <span class="toc-text">自然语言的本质</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E8%A8%80%E4%B8%8E%E6%99%BA%E8%83%BD"><span class="toc-number">1.1.</span> <span class="toc-text">语言与智能</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E7%86%B5"><span class="toc-number">1.1.1.</span> <span class="toc-text">信息熵</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%A4%E5%8F%89%E7%86%B5%EF%BC%88KL%E6%95%A3%E5%BA%A6%EF%BC%89"><span class="toc-number">1.1.2.</span> <span class="toc-text">交叉熵（KL散度）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E4%B9%89%E7%9A%84%E8%BF%9B%E5%8C%96"><span class="toc-number">1.2.</span> <span class="toc-text">语义的进化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%8D%E8%A2%8B%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.3.</span> <span class="toc-text">词袋模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E5%85%83%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%EF%BC%9ACR%E6%83%85%E6%84%9F%E5%88%86%E6%9E%90"><span class="toc-number">1.3.1.</span> <span class="toc-text">二元语言模型：CR情感分析</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%91%E9%87%8F%E5%8C%96%EF%BC%9Aword2vec"><span class="toc-number">1.4.</span> <span class="toc-text">向量化：word2vec</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Seq2Seq%E4%BB%BB%E5%8A%A1%EF%BC%9A%E5%BA%8F%E5%88%97%E5%AF%B9%E5%85%B6%E4%BB%BB%E5%8A%A1"><span class="toc-number">1.5.</span> <span class="toc-text">Seq2Seq任务：序列对其任务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Encoder-Decoder%E7%BB%93%E6%9E%84"><span class="toc-number">1.6.</span> <span class="toc-text">Encoder-Decoder结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Attention%E7%9A%84%E7%94%B1%E6%9D%A5%E5%92%8C%E8%AF%9E%E7%94%9F"><span class="toc-number">1.7.</span> <span class="toc-text">Attention的由来和诞生</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E5%9B%A0%EF%BC%9AEncoder-Decoder%E7%BB%93%E6%9E%84%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7"><span class="toc-number">1.7.1.</span> <span class="toc-text">原因：Encoder-Decoder结构的局限性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Attention%E5%8E%9F%E7%90%86"><span class="toc-number">1.7.2.</span> <span class="toc-text">Attention原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#self-attention-transformer"><span class="toc-number">1.7.3.</span> <span class="toc-text">self-attention&#x2F;transformer</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1"><span class="toc-number">2.</span> <span class="toc-text">知识图谱</span></a></li></ol>
                                     </div>
                                 </button>
                             
@@ -386,8 +396,24 @@
             </div>
         </div>
     </div>
+    <div id="aplayerContent">
+        <meting-js
+        style="position:absolute; z-index:99999" 
+        type="playlist" 
+        server="netease" 
+        id="6976153408" 
+        fixed="true"
+        autoplay="true"
+        order="random"
+        loop="all"
+        list-folded="false"
+        preload="auto"
+        list-max-height="500px"
+        lrc-type="1">
+        </meting-js> 
+    </div>
     <script>
-        // 对所有链接跳转事件绑定pjax容器container
+        // 对所有链接跳转事件绑定pjax容器container,只在容器中跳转
         $(document).pjax('a[target!=_blank]', '#pageContent', {fragment: '#pageContent', timeout:8000})
     </script>
      
@@ -409,7 +435,7 @@
 
  
 
-<script async src="/js/app.js?v=1647868640705"></script>
+<script async src="/js/app.js?v=1647941148209"></script>
 
 
 

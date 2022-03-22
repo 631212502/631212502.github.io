@@ -33,12 +33,12 @@
     <!-- DPlayer -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.css">
     <script src="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.js"></script>
-    <link rel="stylesheet" href="/css/style.css?v=1647868640933">
+    <link rel="stylesheet" href="/css/style.css?v=1647941148435">
      
     
         <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
     
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1647868640933">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1647941148435">
     
         <link rel="stylesheet" href="/custom.css">
     
@@ -46,21 +46,6 @@
 <body class="mdui-drawer-body-left">
     
     <div id="pageContent">
-        <div id="aplayerContent">
-            <meting-js
-            style="position:absolute; z-index:99999" 
-            type="playlist" 
-            server="netease" 
-            id="6976153408" 
-            fixed="true"
-            autoplay="true"
-            order="random"
-            loop="all"
-            listFolded="false"
-            preload="auto"
-            lrc-type="1">
-            </meting-js> 
-        </div>
         <div id="nexmoe-background">
             <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/background.webp)"></div>
             <div class="mdui-appbar mdui-shadow-0">
@@ -329,8 +314,24 @@
             </div>
         </div>
     </div>
+    <div id="aplayerContent">
+        <meting-js
+        style="position:absolute; z-index:99999" 
+        type="playlist" 
+        server="netease" 
+        id="6976153408" 
+        fixed="true"
+        autoplay="true"
+        order="random"
+        loop="all"
+        list-folded="false"
+        preload="auto"
+        list-max-height="500px"
+        lrc-type="1">
+        </meting-js> 
+    </div>
     <script>
-        // 对所有链接跳转事件绑定pjax容器container
+        // 对所有链接跳转事件绑定pjax容器container,只在容器中跳转
         $(document).pjax('a[target!=_blank]', '#pageContent', {fragment: '#pageContent', timeout:8000})
     </script>
      
@@ -352,7 +353,7 @@
 
  
 
-<script async src="/js/app.js?v=1647868640935"></script>
+<script async src="/js/app.js?v=1647941148437"></script>
 
 
 
