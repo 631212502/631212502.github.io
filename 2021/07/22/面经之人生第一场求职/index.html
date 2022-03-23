@@ -21,7 +21,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pic2.zhimg.com/v2-9d4402602d941eb00acd2cae715c4d05_1440w.jpg?source=172ae18b">
 <meta property="article:published_time" content="2021-07-22T15:17:19.000Z">
-<meta property="article:modified_time" content="2022-03-22T15:18:16.808Z">
+<meta property="article:modified_time" content="2022-03-23T09:49:06.835Z">
 <meta property="article:author" content="Natu Matu">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="mmdl">
@@ -39,12 +39,12 @@
     <!-- DPlayer -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.css">
     <script src="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.js"></script>
-    <link rel="stylesheet" href="/css/style.css?v=1647962330350">
+    <link rel="stylesheet" href="/css/style.css?v=1648029120354">
      
     
         <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
     
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1647962330350">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1648029120354">
     
         <link rel="stylesheet" href="/custom.css">
     
@@ -291,8 +291,8 @@
       
       <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
     <a><i class="nexmoefont icon-calendar-fill"></i>2021年07月22日</a>
-    <a><i class="nexmoefont icon-areachart"></i>4.4k 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 18 分钟</a>
+    <a><i class="nexmoefont icon-areachart"></i>5.9k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 24 分钟</a>
 </div>
 
       
@@ -319,7 +319,7 @@
 <p>  我是谁谁谁（气氛和谐的话可以展开一点，大多时候其实没必要），来自哪里，毕业于什么什么大学，想应聘贵公司的暑期实习。</p>
 </li>
 <li><p>第二式：我做了什么，做成了什么</p>
-<p>  大学期间，因为学科的关系，我很早就接触到了人工智能。伴随着浓厚的兴趣，大二暑假就和同学组队参加了广东省的电子设计大赛(偶数年没有电设国赛)，当时纯手工DIY了一台可以和人对话的智能小车，评审时连评委也很惊讶，最后拿了那届比赛中为数不多的一等奖。大三后在学院智能科学系老师的鼓励和支持下，给我的作品立了一个重点项目，让我放手干继续开发。后来，我就在原有的基础上，加入了视觉开始搞起了多模态人机交互，期间拉上几个对Ai也很感兴趣的师弟成立了自己的课题小组，专注于做相关项目的立项和研发，几年来一直都有着不错的成果产出。我读研后在和导师交流沟通后继续开展自己的多模态研究工作，参与在线数字签名认证研究，到现在，在一边学习的同时也一边实现自己的一些idea。</p>
+<p>  大学期间，因为学的是自动化专业，很早就接触到了人工智能。伴随着浓厚的兴趣，大二暑假就和同学组队参加了广东省的电子设计大赛(偶数年没有电设国赛)，当时纯手工DIY了一台可以和人对话的智能小车，评审时连评委也很惊讶，最后拿了那届比赛中为数不多的一等奖。大三后在学院智能科学系老师的鼓励和支持下，给我的作品立了一个重点项目，让我放手干继续开发。后来，我就在原有的基础上，加入了视觉开始搞起了多模态人机交互，期间拉上几个对Ai也很感兴趣的师弟成立了自己的课题小组，专注于做相关项目的立项和研发，几年来一直都有着不错的成果产出。我读研后在和导师交流沟通后继续开展自己的多模态研究工作，参与在线数字签名认证研究，到现在，在一边学习的同时也一边实现自己的一些idea。</p>
 </li>
 <li><p>第三式：我想要做什么</p>
 <p>  在以后的工作中，我十分希望也渴望能够继续从事多模态人机交互的研究工作。</p>
@@ -358,7 +358,16 @@
 <li><strong>重点</strong>为什么这个问题能够采用一维升到二维的方法，你当初是怎么想到的？<br>  在一维相似度上有很多算法可以计算。比如求余弦相似度，求欧式距离等等。大部分都是先用序列将笔画特征连接起来，然后丢给分类器做分类学习，每一个组合序列组合对于计算机来讲是高维特征，不可避免会造成模型计算上的浪费。所以既然要去拼接多个局部特征，为什么不直接用二维矩阵的去表达笔画整体的特征，然后conve出来比较关键的一些局部细节从而得知特征是否相似，二维的矩阵匹配也相比一维上计算相似度有着更好的效果，而且还免去了手工分割的麻烦。</li>
 <li>数据集上的表现怎么样，论文怎么样了<br>  基准数据集的T1级别特征上EER都略低于其他算法，T5、T10级则体现出了明显的优势。</li>
 <li>我看你用了attention ，有想到过transformer或者是bert么？<br>  有在了解和学习，transformer影响力很大，已经sota了整个NLP，同时在CV攻城略地，多模态又与transformer的统一计算能力十分亲和，bert只用了transformer的一部分，就是encoder结构，在任务型序列或者对话，如机器翻译，知识问答方面一骑绝尘，但生成力略显逊色。</li>
-<li>什么是融合路径签名PSS<br>  就是一个前面不单只有他的二维特征，还有起路径-时间特征，这个也是很具有相似度区分能力的特征。</li>
+<li>什么是融合路径签名PSS（二维矩阵+局部路径）<br>  就是一个前面不单只有他的二维特征，还有起路径-时间特征，这个也是很具有相似度区分能力的特征。</li>
+<li>用了那些数据集，数据是怎么样的，怎么处理的,达到了什么样的效果<ul>
+<li>MCYT-100:100个用户，25组正样本和25个熟练伪样本，带有时序标注以及压力、夹角的标注。</li>
+<li>BiosecureID：由 132 个用户组成，每个用户有 16 个真实样本和 12 个熟练的伪造样本，在四个不同的会话中捕获。所有签名均由 Wacom Intuos 数位板以 100 Hz 的采样率采集。</li>
+<li>SUSIG-Visual：SUSIG-Visual 数据集由 100 个用户组成，在两个单独的会话中收集了 20 个真实样本，每个用户有 10 个熟练的伪造样本。</li>
+<li>MOBISIG：MOBISIG 由 83 个用户组成，每个用户有 45 个正品样本和 20 个熟练的伪造样本，使用 ANexus 9 平板电脑以 60 Hz 的采样率在三个不同的会话中捕获。</li>
+</ul>
+</li>
+<li>数据集上表现出来的效果，为什么是你说的SOTA的性能：<br>  对于这些实验，我们首先在 MCYT-100 数据集上训练我们的模型，然后分别在 SUSIG、BiosecureID 和 MOBISIG 数据集的测试集上对其进行评估。由于 MDB-DTW [13] 不适合 T1 场景下的实验，因此我们在 T5 和 T10 场景下进行 CST。结果示于表VI。可以观察到，MDB-DTW 对跨域数据高度敏感，在 T5 和 T10 场景下，三个数据集的平均性能差距分别为 6.02% 和 5.91%。相反，我们的 F2FM 在 T5 和 T10 情景下的平均性能差距分别仅为 1.39% 和 1.31%。这比 MDB-DTW [13] 低五倍。此外，F2FM 的 CST 结果接近甚至优于 SOTA，这证明了我们提出的方法的高泛化能力。</li>
+<li>什么是T1，什么是T5、T10等场景</li>
 </ul>
 </li>
 </ol>
@@ -374,15 +383,29 @@
 </li>
 </ul>
 </li>
-<li><p>组织</p>
+<li><p>毕设</p>
 <ul>
+<li>Imagecaption<ol>
+<li>结构：CNN+LSTM+Inception层，也就是CNN作为编码器，LSTM作为解码器，Inception可以作为序列长度转换使用。</li>
+<li>评价指标：<ul>
+<li>CIDEr：这个指标将每个句子都看成是文档，将其表示成Term Frequency Inverse Document Frequency的向量形式，通过对每个n元组进行TF-IDE权值计算，计算参考caption与模型生成的caption的余弦相似度，来衡量</li>
+<li>SPICE：使用基于图的语义表示来编码caption中的objects, attributes 和 relationships。它先将待评价 caption 和参考 captions 用 Probabilistic Context-Free Grammar (PCFG) dependency parser parse 成 syntactic dependencies trees，然后用基于规则的方法把 dependency tree 映射成 scene graphs。最后计算待评价的 caption 中 objects, attributes 和 relationships 的 F-score 值。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<p>作者：阿o醒<br>链接：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/60deff0f64e1">https://www.jianshu.com/p/60deff0f64e1</a><br>来源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<ol start="6">
+<li>组织<ul>
 <li>为什么想着要带团队<br>  一是想找到志同道合的人一起做研究。二是提高研究和开发的效率，更好地实现一下自己的idea。三是刚开始是奔着创业去的，但因为一些不可抗力被迫放弃了。</li>
 <li>从中有什么启发和收获<br>  难和累，感觉要做好一件事并不容易，但收获也很多，团队，成果，友谊，青春</li>
 <li>怎么提高团队/项目的产出速度<br>  这方面感触最深的就是项目甘特图，分工明确的同时也能照顾到各自的进度周期，谁谁谁哪个小组在什么时间内完成什么开发，能够清晰的制定和让成员明确自己的任务就是最好的优化效率的方法。</li>
 </ul>
 </li>
-<li><p>编程</p>
-<ul>
+<li>编程<ul>
 <li>LRU缓存机制</li>
 <li>无重复字符的最长子串</li>
 <li>反转链表</li>
@@ -395,6 +418,26 @@
 </ul>
 </li>
 </ol>
+<h2 id="干货面经（2022年春天）"><a href="#干货面经（2022年春天）" class="headerlink" title="干货面经（2022年春天）"></a>干货面经（2022年春天）</h2><ul>
+<li><p>OPPO：</p>
+<ul>
+<li>总结：面试官给我的总评大概是：以前做的东西很多很不错，但对于NLP最新的一些东西还不算太了解（比如bert、知识蒸馏、知识图谱等等），很多关键的技术梳理得不够清晰，有点一盘散沙拾不起来的感觉，细节技术点不够熟悉还有对技术的描述方面可以再打磨打磨。</li>
+</ul>
+<p>  问的点都是顺腾摸瓜，越问越细。如果没有把握圆回来还是不要讲你做了这个事的好，还有自己对一些技术已经不算太熟悉了，比如这个任务怎么做特征，数据是怎么样的，怎么处理中间的label，是不是端到端等等问题，这个行业的面试官最感兴趣的就是你的任务。怎么样分析任务，怎么样处理数据，怎么样训练特征，怎么样得到或者说是转化成自己想要的输出。你的方法的创新点在哪里，用了什么样的数据集得到什么样的效果，你写了那些地方的代码。都是考察的很关键的问题。</p>
+<p>  还有一个就是熟悉的东西真的都能讲，你之前用的方法虽然有些小的构思不一定很正确（包括做微表情还有文本情感倾向最后得到场景label的这种构思），但你达到了你想要的效果，这对于落地来说也没有什么问题，又不是去刷点写论文。</p>
+<p>  最后，还是要讲好你的项目的“故事”，主体部分用了什么样的构思，用了什么样的方法，怎么样做的训练和测试甚至是验证，最后得到了什么样的效果。有这样一种实现model以及落地的能力才是企业最看重的。</p>
+<p>  总之就是，你要对你做过的事情有比较清晰的认知和最好熟悉到里面的所有技术相关的细节，再用那啥star法则像故事一样讲出来，OVER<br>  把你的闪光点侃侃而谈地说来，就卷过了大部分同龄人。<br>  看下面的具体问题。</p>
+<ul>
+<li>问题：<ol>
+<li>有关我做OSV的：问了为什么笔画是一维的数据，不会直接当二维数据去处理么？没有前人做过么？ 你是怎么做二维上的特征的，和其他人的区别在哪里？</li>
+<li>问我EVAI的：怎么实现这个系统构思的，有什么部分，用了什么相关的技术？ 自己实现的点在哪里</li>
+<li>问毕设的：Image caption结构是怎么样的，怎么评估性能，里面的技术搜索是？</li>
+<li>问前沿的：bert、多模态transformer的、知识图谱、知识蒸馏的等等</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
 <h2 id="团队信息收集"><a href="#团队信息收集" class="headerlink" title="团队信息收集"></a>团队信息收集</h2><h3 id="阿里达摩院智能对话多模态中台团队-阿里达摩院小蜜算法团队"><a href="#阿里达摩院智能对话多模态中台团队-阿里达摩院小蜜算法团队" class="headerlink" title="阿里达摩院智能对话多模态中台团队/阿里达摩院小蜜算法团队"></a>阿里达摩院智能对话多模态中台团队/阿里达摩院小蜜算法团队</h3><p>链接[<a target="_blank" rel="noopener" href="https://www.nowcoder.com/discuss/854107?source_id=profile_create_nctrack&amp;channel=-1%5D">https://www.nowcoder.com/discuss/854107?source_id=profile_create_nctrack&amp;channel=-1]</a><br>来源：牛客网<br>【20220320】<br>长期致力于大规模多模态预训练、多模态内容理解、智能搜索问答、知识挖掘与融合等方向的前沿技术研究和大规模应用，打造了体系化多模态预训练技术体系AliceMind-MMU，团队曾在多模态、知识图谱、阅读理解等方向取得多个国际顶级赛事第一，如在视觉问答权威挑战赛VQA Challenge 2021取得第一，并完成首次超越人类基准的突破，相关技术在MIT Technology Review 2021中国发布的人工智能创新研究报告中被列为核心技术突破；知识融合推理技术近期在常识问答权威榜单CommonsenseQA上取得第一，同时超越人类基准。近几年，团队在ACL/EMNLP/ICLR/CVPR/AAAI/CIKM等顶会发表论文20余篇。</p>
 <p>基于上述技术打造的多模态内容理解体系，也在阿里生态创造核心价值，目前涵盖多模态商品理解、多模态电商搜索和多模态智能问答3个核心方向，在集团多个核心商业场景如小蜜智能客服、淘宝主搜、拍立淘、闲鱼、数字人等落地应用，并取得核心商业化价值。同时，我们也积极关注多模态技术的社会价值和行业应用，推出国内首个老年痴呆症多模态认知筛查产品，希望通过技术创新助力解决大规模早筛难题。</p>
 <p>【20210915】<br>链接：<a target="_blank" rel="noopener" href="https://www.nowcoder.com/discuss/742748?source_id=profile_create_nctrack&amp;channel=-1">https://www.nowcoder.com/discuss/742748?source_id=profile_create_nctrack&amp;channel=-1</a><br>来源：牛客网</p>
@@ -460,7 +503,7 @@
                                 <button class="mdui-fab catalog" style="overflow:unset;">
                                     <i class="nexmoefont icon-i-catalog"></i>
                                     <div class="nexmoe-toc">
-                                        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%94%E8%AF%95"><span class="toc-number">1.</span> <span class="toc-text">笔试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%9B%E5%AE%A2%E9%9D%A2%E7%BB%8F%EF%BC%88NLP%EF%BC%89%EF%BC%9A%E6%88%91%E7%9A%84%E9%9D%A2%E8%AF%95%E5%85%A8%E6%B5%81%E7%A8%8B%E6%A8%A1%E6%8B%9F"><span class="toc-number">2.</span> <span class="toc-text">牛客面经（NLP）：我的面试全流程模拟</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%A2%E9%98%9F%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-number">3.</span> <span class="toc-text">团队信息收集</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%BF%E9%87%8C%E8%BE%BE%E6%91%A9%E9%99%A2%E6%99%BA%E8%83%BD%E5%AF%B9%E8%AF%9D%E5%A4%9A%E6%A8%A1%E6%80%81%E4%B8%AD%E5%8F%B0%E5%9B%A2%E9%98%9F-%E9%98%BF%E9%87%8C%E8%BE%BE%E6%91%A9%E9%99%A2%E5%B0%8F%E8%9C%9C%E7%AE%97%E6%B3%95%E5%9B%A2%E9%98%9F"><span class="toc-number">3.1.</span> <span class="toc-text">阿里达摩院智能对话多模态中台团队&#x2F;阿里达摩院小蜜算法团队</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E8%8A%82%E6%B7%B1%E5%9C%B3%E6%8A%96%E9%9F%B3%E5%86%85%E5%AE%B9%E5%AE%89%E5%85%A8%E7%9B%B8%E5%85%B3%E8%A7%86%E9%A2%91%E7%90%86%E8%A7%A3"><span class="toc-number">3.2.</span> <span class="toc-text">字节深圳抖音内容安全相关视频理解</span></a></li></ol></li></ol>
+                                        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%94%E8%AF%95"><span class="toc-number">1.</span> <span class="toc-text">笔试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%9B%E5%AE%A2%E9%9D%A2%E7%BB%8F%EF%BC%88NLP%EF%BC%89%EF%BC%9A%E6%88%91%E7%9A%84%E9%9D%A2%E8%AF%95%E5%85%A8%E6%B5%81%E7%A8%8B%E6%A8%A1%E6%8B%9F"><span class="toc-number">2.</span> <span class="toc-text">牛客面经（NLP）：我的面试全流程模拟</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B2%E8%B4%A7%E9%9D%A2%E7%BB%8F%EF%BC%882022%E5%B9%B4%E6%98%A5%E5%A4%A9%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">干货面经（2022年春天）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%A2%E9%98%9F%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-number">4.</span> <span class="toc-text">团队信息收集</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%BF%E9%87%8C%E8%BE%BE%E6%91%A9%E9%99%A2%E6%99%BA%E8%83%BD%E5%AF%B9%E8%AF%9D%E5%A4%9A%E6%A8%A1%E6%80%81%E4%B8%AD%E5%8F%B0%E5%9B%A2%E9%98%9F-%E9%98%BF%E9%87%8C%E8%BE%BE%E6%91%A9%E9%99%A2%E5%B0%8F%E8%9C%9C%E7%AE%97%E6%B3%95%E5%9B%A2%E9%98%9F"><span class="toc-number">4.1.</span> <span class="toc-text">阿里达摩院智能对话多模态中台团队&#x2F;阿里达摩院小蜜算法团队</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E8%8A%82%E6%B7%B1%E5%9C%B3%E6%8A%96%E9%9F%B3%E5%86%85%E5%AE%B9%E5%AE%89%E5%85%A8%E7%9B%B8%E5%85%B3%E8%A7%86%E9%A2%91%E7%90%86%E8%A7%A3"><span class="toc-number">4.2.</span> <span class="toc-text">字节深圳抖音内容安全相关视频理解</span></a></li></ol></li></ol>
                                     </div>
                                 </button>
                             
@@ -511,7 +554,7 @@
 
  
 
-<script async src="/js/app.js?v=1647962330352"></script>
+<script async src="/js/app.js?v=1648029120356"></script>
 
 
 
