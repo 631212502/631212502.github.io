@@ -6,7 +6,7 @@
     <title>挂面Note-预言版 - Eutupia by 夏夢</title>
     <meta charset="UTF-8">
     <meta name="description" content="願いが叶う場所">
-    <meta name="keywords" content="null">
+    <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     
     
@@ -21,7 +21,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pic2.zhimg.com/v2-9d4402602d941eb00acd2cae715c4d05_1440w.jpg?source=172ae18b">
 <meta property="article:published_time" content="2021-07-22T15:17:19.000Z">
-<meta property="article:modified_time" content="2022-03-26T03:41:46.176Z">
+<meta property="article:modified_time" content="2022-04-03T12:08:59.870Z">
 <meta property="article:author" content="Natu Matu">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="mmdl">
@@ -39,12 +39,12 @@
     <!-- DPlayer -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.css">
     <script src="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.js"></script>
-    <link rel="stylesheet" href="/css/style.css?v=1648432554315">
+    <link rel="stylesheet" href="/css/style.css?v=1648989439598">
      
     
         <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
     
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1648432554315">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1648989439598">
     
         <link rel="stylesheet" href="/custom.css">
     
@@ -143,11 +143,11 @@
     <div class="nexmoe-widget nexmoe-social">
         <a class="mdui-ripple" href="https://qm.qq.com/cgi-bin/qm/qr?k=QriGs7GcXMPd6scnWXeO-IJ5TP8Qm8sd&noverify=0" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
             <i class="nexmoefont icon-QQ"></i>
-        </a><a class="mdui-ripple" href="https://space.bilibili.com/10580381" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+        </a><a class="mdui-ripple" href="https://space.bilibili.com/10580381" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .1);">
             <i class="nexmoefont icon-bilibili"></i>
-        </a><a class="mdui-ripple" href="https://github.com/631212502" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+        </a><a class="mdui-ripple" href="https://github.com/631212502" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .1);">
             <i class="nexmoefont icon-github"></i>
-        </a><a class="mdui-ripple" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=631212502@qq.com" target="_blank" mdui-tooltip="{content: '邮箱'}" style="color: ;background-color: ;">
+        </a><a class="mdui-ripple" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=631212502@qq.com" target="_blank" mdui-tooltip="{content: '邮箱'}" style="color: rgb(255, 204, 51);background-color: rgba(255, 204, 51, .1);">
             <i class="nexmoefont icon-mail-fill"></i>
         </a><a class="mdui-ripple" href="/null" target="_blank" mdui-tooltip="{content: 'steam'}" style="color: ;background-color: ;">
             <i class="nexmoefont icon-steam"></i>
@@ -291,8 +291,8 @@
       
       <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
     <a><i class="nexmoefont icon-calendar-fill"></i>2021年07月22日</a>
-    <a><i class="nexmoefont icon-areachart"></i>4.8k 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 19 分钟</a>
+    <a><i class="nexmoefont icon-areachart"></i>5.6k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 22 分钟</a>
 </div>
 
       
@@ -349,6 +349,8 @@
 <li><p>讲讲你引入的反馈机制和自优化的由来（感觉很不专业？）</p>
 <p>  反馈有两部分，一部分是内环对语料的反馈记录和模型训练，一部分是外环对于场景交互信息（表情、文本情绪倾向）的反馈，有完整的自我学习回路后模型就可以在交互过程中不断获得样本自优化~</p>
 </li>
+<li><p>你是怎么做NLU的（意图识别、对话管理，对话模型部署）</p>
+</li>
 </ul>
 <p> 研究生课题：</p>
 <ul>
@@ -356,7 +358,7 @@
 <p>  &emsp;&emsp;OSV的目标就是区分出两个签名，真签或者是伪签，本质上是一个求相似度的任务。签名是一种一维时序特征，传统方法就是将其序列化后用孪生神经网络进行模拟和训练，再进行相似度的计算和学习。常用于真伪鉴别，签名鉴定，电子产品的加密保密等领域。</p>
 </li>
 <li><p>还有你研究的多模态深度学习，你是怎么理解的，进展怎么样</p>
-<p>  &emsp;&emsp;在做一些模型轻量化的研究工作，比如参考Vilt还有clip进行模型的pre-train和fine-tune等</p>
+<p>  &emsp;&emsp;除了之前本科做的多模态特征表示以及后来研究生手写数字签名用的多模态+多模型。也有在做一些VLP模型轻量化的研究工作，比如参考Vilt还有clip进行模型的pre-train和fine-tune等</p>
 </li>
 <li><p>你是怎么用字段匹配的</p>
 <p>  &emsp;&emsp;要判断两个事物的相似度，出了整体上的相似度计算以外，还要保证局部明显特征上的相似，字段也就是笔画的局部特征，某一笔和其他部分有着明显不同则可以用Attention标注出来，然后进行字段上的特征匹配。</p>
@@ -371,7 +373,7 @@
 <p>  &emsp;&emsp;有在了解和学习，transformer影响力很大，已经sota了整个NLP，同时在CV攻城略地，多模态又与transformer的统一计算能力十分亲和，bert只用了transformer的一部分，就是encoder结构，在任务型序列或者对话，如机器翻译，知识问答方面一骑绝尘，但生成力略显逊色。</p>
 </li>
 <li><p>什么是融合路径签名PSS（二维矩阵+局部路径）</p>
-<p>  &emsp;&emsp;就是一个前面不单只有他的二维特征，还有起路径-时间特征，这个也是很具有相似度区分能力的特征。</p>
+<p>  &emsp;&emsp;就是一个签名不单只有他的二维特征，还有起路径-时间特征，这个也是很具有相似度区分能力的特征。</p>
 </li>
 <li><p>用了那些数据集，数据是怎么样的，怎么处理的,达到了什么样的效果</p>
 <ul>
@@ -474,13 +476,14 @@
 <ul>
 <li>电话面：整理聊了自己以前做的一些事情，也顺便梳理了一下所用到技术栈，对于对话系统，我不熟悉的点还有很多，比如表情情绪分类，文本分类，倾向分析是怎么做的。对话是基于什么做的（检索，一个是生成），有很多技术点我的理解都不够深入。只能说一些蛮表面普通的东西。</li>
 </ul>
-<p>  一些话术有待提高，比如介绍自己的本科时，怎么样凸显出价值感和优秀比较</p>
+<p>  一些话术有待提高，比如介绍自己的本科时，怎么样凸显出有价值和优秀的地方</p>
 <ul>
 <li>复习的技术点：<ul>
 <li>模型如何做意图理解（词袋模型）</li>
 <li>如何做文本情绪倾向（文本分类问题，向量化索引，训练）</li>
 </ul>
 </li>
+<li>转部门：阿里集团智能互联团队，搞AloT的（机会难得，这次可要好好准备一次过了）</li>
 </ul>
 </li>
 <li><p>字节</p>
@@ -492,9 +495,45 @@
 </li>
 </ul>
 </li>
+<li><p>网易雷火</p>
+<ul>
+<li><p>面试预热：虚拟人方向<br>  包括全栈人脸AI技术、全栈人体AI技术、情感计算、（跨）多模态计算、多信号融合、视频理解、视频合成、自然语言处理、语音信号处理。 工作内容： 负责/参与围绕人脸（人体）图像/视频合成及理解;包括三维重建，表情重建/迁移，换脸，唇语合成，肢体动作视频合成，情感计算，情绪识别，多模态计算；</p>
+<ul>
+<li><a href="https://631212502.github.io/2021/10/12/Evai_sw_system/">我的关键技术栈</a>：人脸微表情、图像视频理解、情感计算（文本）、多模态信号处理(我的label融合)、语音信号处理（CTC普通话）</li>
+<li>薄弱环节：pytorch（动态图神经网络）的一些库和核心原理，计算向量和矩阵，没达到熟练的级别、签名认证的模型fusion问题：(Resnet搭起来的CBAM+GRU(本质上是LSTM))</li>
+</ul>
+</li>
+<li><p>面经：</p>
+<ul>
+<li><p>一面：</p>
+<ul>
+<li>本质问题：自己的算法方面真的理解不深，甚至有点不懂算法的感觉，很多时候只知道是这么个东西，不知道怎么去用，怎么去优化~</li>
+<li>一些技巧，缺少听到一个问题，大概知道面试官要考察我哪里的这根筋</li>
+<li>MISS：剪枝说失误，不太清晰的概念还是最好别提，同时也说明自己有时候看似理解，但并不深入理解这个东西。深入在哪，在有一些独特的见解和成效，理解到其背后根本的数学原理。</li>
+</ul>
+</li>
+<li><p>二面:(有幸进入二面)</p>
+<ul>
+<li>总结：自己的优势是在有很相关的虚拟人项目、而且准确表达出了自己对于多模态交互的理解与优化能力。</li>
+<li>问题：自己对于项目的表达能力、陈述能力还有可以提高的地方，另外有空可以做个PPT去展示我的项目工作。这样清晰易懂一些。</li>
+<li>EVAi项目除了算法可以拓展深入以外，其他方面已经没有太大的问题了</li>
+</ul>
+<p>  已经没有其他技术面了，希望顺利进HR面吧~</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>TME</p>
+<ul>
+<li>优势领域：虚拟人、元宇宙、动作动捕、音频视频识别与合成。</li>
+<li>预热：面试官关注的点，算法理解-有想法，有模式，能够形成自己的世界观和逻辑上实现自洽<br>简历上要是自己做过的东西，最好是一步一步的，有自己的理解在里面，加分项：展示自己的音乐素养</li>
+<li>准备：还是要把自己的项目技术栈和自己的课题过一过，深入的去想一些算法方面的问题</li>
+</ul>
+</li>
 </ul>
 <h2 id="团队信息收集"><a href="#团队信息收集" class="headerlink" title="团队信息收集"></a>团队信息收集</h2><h3 id="阿里达摩院智能对话多模态中台团队-阿里达摩院小蜜算法团队"><a href="#阿里达摩院智能对话多模态中台团队-阿里达摩院小蜜算法团队" class="headerlink" title="阿里达摩院智能对话多模态中台团队/阿里达摩院小蜜算法团队"></a>阿里达摩院智能对话多模态中台团队/阿里达摩院小蜜算法团队</h3><p>链接[<a target="_blank" rel="noopener" href="https://www.nowcoder.com/discuss/854107?source_id=profile_create_nctrack&amp;channel=-1%5D">https://www.nowcoder.com/discuss/854107?source_id=profile_create_nctrack&amp;channel=-1]</a></p>
-<h3 id="字节深圳抖音内容安全相关视频理解"><a href="#字节深圳抖音内容安全相关视频理解" class="headerlink" title="字节深圳抖音内容安全相关视频理解"></a>字节深圳抖音内容安全相关视频理解</h3>
+<h3 id="智能互联团队：产品线-天猫精灵"><a href="#智能互联团队：产品线-天猫精灵" class="headerlink" title="智能互联团队：产品线-天猫精灵"></a>智能互联团队：产品线-天猫精灵</h3><h3 id="字节深圳抖音内容安全相关视频理解"><a href="#字节深圳抖音内容安全相关视频理解" class="headerlink" title="字节深圳抖音内容安全相关视频理解"></a>字节深圳抖音内容安全相关视频理解</h3>
   </article>
 
   
@@ -547,7 +586,7 @@
                                 <button class="mdui-fab catalog" style="overflow:unset;">
                                     <i class="nexmoefont icon-i-catalog"></i>
                                     <div class="nexmoe-toc">
-                                        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%94%E8%AF%95"><span class="toc-number">1.</span> <span class="toc-text">笔试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%9B%E5%AE%A2%E9%9D%A2%E7%BB%8F%EF%BC%88NLP%EF%BC%89%EF%BC%9A%E6%88%91%E7%9A%84%E9%9D%A2%E8%AF%95%E5%85%A8%E6%B5%81%E7%A8%8B%E6%A8%A1%E6%8B%9F"><span class="toc-number">2.</span> <span class="toc-text">牛客面经（NLP）：我的面试全流程模拟</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B2%E8%B4%A7%E9%9D%A2%E7%BB%8F%EF%BC%882022%E5%B9%B4%E6%98%A5%E5%A4%A9%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">干货面经（2022年春天）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%A2%E9%98%9F%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-number">4.</span> <span class="toc-text">团队信息收集</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%BF%E9%87%8C%E8%BE%BE%E6%91%A9%E9%99%A2%E6%99%BA%E8%83%BD%E5%AF%B9%E8%AF%9D%E5%A4%9A%E6%A8%A1%E6%80%81%E4%B8%AD%E5%8F%B0%E5%9B%A2%E9%98%9F-%E9%98%BF%E9%87%8C%E8%BE%BE%E6%91%A9%E9%99%A2%E5%B0%8F%E8%9C%9C%E7%AE%97%E6%B3%95%E5%9B%A2%E9%98%9F"><span class="toc-number">4.1.</span> <span class="toc-text">阿里达摩院智能对话多模态中台团队&#x2F;阿里达摩院小蜜算法团队</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E8%8A%82%E6%B7%B1%E5%9C%B3%E6%8A%96%E9%9F%B3%E5%86%85%E5%AE%B9%E5%AE%89%E5%85%A8%E7%9B%B8%E5%85%B3%E8%A7%86%E9%A2%91%E7%90%86%E8%A7%A3"><span class="toc-number">4.2.</span> <span class="toc-text">字节深圳抖音内容安全相关视频理解</span></a></li></ol></li></ol>
+                                        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%94%E8%AF%95"><span class="toc-number">1.</span> <span class="toc-text">笔试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%9B%E5%AE%A2%E9%9D%A2%E7%BB%8F%EF%BC%88NLP%EF%BC%89%EF%BC%9A%E6%88%91%E7%9A%84%E9%9D%A2%E8%AF%95%E5%85%A8%E6%B5%81%E7%A8%8B%E6%A8%A1%E6%8B%9F"><span class="toc-number">2.</span> <span class="toc-text">牛客面经（NLP）：我的面试全流程模拟</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B2%E8%B4%A7%E9%9D%A2%E7%BB%8F%EF%BC%882022%E5%B9%B4%E6%98%A5%E5%A4%A9%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">干货面经（2022年春天）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%A2%E9%98%9F%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-number">4.</span> <span class="toc-text">团队信息收集</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%BF%E9%87%8C%E8%BE%BE%E6%91%A9%E9%99%A2%E6%99%BA%E8%83%BD%E5%AF%B9%E8%AF%9D%E5%A4%9A%E6%A8%A1%E6%80%81%E4%B8%AD%E5%8F%B0%E5%9B%A2%E9%98%9F-%E9%98%BF%E9%87%8C%E8%BE%BE%E6%91%A9%E9%99%A2%E5%B0%8F%E8%9C%9C%E7%AE%97%E6%B3%95%E5%9B%A2%E9%98%9F"><span class="toc-number">4.1.</span> <span class="toc-text">阿里达摩院智能对话多模态中台团队&#x2F;阿里达摩院小蜜算法团队</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%99%BA%E8%83%BD%E4%BA%92%E8%81%94%E5%9B%A2%E9%98%9F%EF%BC%9A%E4%BA%A7%E5%93%81%E7%BA%BF-%E5%A4%A9%E7%8C%AB%E7%B2%BE%E7%81%B5"><span class="toc-number">4.2.</span> <span class="toc-text">智能互联团队：产品线-天猫精灵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E8%8A%82%E6%B7%B1%E5%9C%B3%E6%8A%96%E9%9F%B3%E5%86%85%E5%AE%B9%E5%AE%89%E5%85%A8%E7%9B%B8%E5%85%B3%E8%A7%86%E9%A2%91%E7%90%86%E8%A7%A3"><span class="toc-number">4.3.</span> <span class="toc-text">字节深圳抖音内容安全相关视频理解</span></a></li></ol></li></ol>
                                     </div>
                                 </button>
                             
@@ -598,7 +637,7 @@
 
  
 
-<script async src="/js/app.js?v=1648432554317"></script>
+<script async src="/js/app.js?v=1648989439599"></script>
 
 
 
@@ -618,21 +657,6 @@
 
 
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 <!--烟花爆炸-->
 <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
