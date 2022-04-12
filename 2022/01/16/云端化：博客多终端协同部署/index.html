@@ -40,12 +40,12 @@
     <!-- DPlayer -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.css">
     <script src="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.js"></script>
-    <link rel="stylesheet" href="/css/style.css?v=1649429796105">
+    <link rel="stylesheet" href="/css/style.css?v=1649727465033">
      
     
         <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
     
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1649429796105">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1649727465033">
     
         <link rel="stylesheet" href="/custom.css">
     
@@ -163,7 +163,7 @@
     
   <div class="nexmoe-widget-wrap">
     <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
-      <a href="/tags/Coding/" style="font-size: 20px;">Coding</a> <a href="/tags/mmdl/" style="font-size: 16px;">mmdl</a> <a href="/tags/page-building/" style="font-size: 14px;">page_building</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 16px;">博客</a> <a href="/tags/%E5%AD%A6%E6%9C%AF/" style="font-size: 10px;">学术</a> <a href="/tags/%E6%AD%8C%E3%81%86/" style="font-size: 12px;">歌う</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 20px;">笔记</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">编程</a> <a href="/tags/%E8%A8%80%E8%91%89/" style="font-size: 18px;">言葉</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 12px;">随笔</a> <a href="/tags/%E9%A1%B9%E7%9B%AEDIY/" style="font-size: 10px;">项目DIY</a>
+      <a href="/tags/Coding/" style="font-size: 18.33px;">Coding</a> <a href="/tags/S-Project/" style="font-size: 10px;">S_Project</a> <a href="/tags/mmdl/" style="font-size: 15px;">mmdl</a> <a href="/tags/page-building/" style="font-size: 13.33px;">page_building</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 16.67px;">博客</a> <a href="/tags/%E5%AD%A6%E6%9C%AF/" style="font-size: 10px;">学术</a> <a href="/tags/%E6%AD%8C%E3%81%86/" style="font-size: 11.67px;">歌う</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 20px;">笔记</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">编程</a> <a href="/tags/%E8%A8%80%E8%91%89/" style="font-size: 18.33px;">言葉</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 13.33px;">随笔</a>
     </div>
     
   </div>
@@ -302,7 +302,7 @@
 <span id="more"></span>
 
 <h2 id="前言-逻辑图解"><a href="#前言-逻辑图解" class="headerlink" title="前言/逻辑图解"></a>前言/逻辑图解</h2><p><strong>&emsp;&emsp;马上就要放假离开实验室了，在这期间虽然也能通过离线写MD来记录自己的所思所想。但长远一想，这里是一辈子的事情，我不可能以后都依赖某一台电脑进行博客的更新，所以便想到了将自己的博客源代码一样也上传到云端保存，这样哪怕随手拿到一台电脑，稍微配置一下也能开始进行写作，于是便有了这一篇笔记</strong></p>
-<h3 id="构思与实现逻辑"><a href="#构思与实现逻辑" class="headerlink" title="构思与实现逻辑"></a>构思与实现逻辑</h3><img src="/2022/01/16/%E4%BA%91%E7%AB%AF%E5%8C%96%EF%BC%9A%E5%8D%9A%E5%AE%A2%E5%A4%9A%E7%BB%88%E7%AB%AF%E5%8D%8F%E5%90%8C%E9%83%A8%E7%BD%B2/1.png" class title="This is the image of setting-logic">
+<h3 id="构思与实现逻辑"><a href="#构思与实现逻辑" class="headerlink" title="构思与实现逻辑"></a>构思与实现逻辑</h3><img src="/2022/01/16/%E4%BA%91%E7%AB%AF%E5%8C%96%EF%BC%9A%E5%8D%9A%E5%AE%A2%E5%A4%9A%E7%BB%88%E7%AB%AF%E5%8D%8F%E5%90%8C%E9%83%A8%E7%BD%B2/1.png" class="" title="This is the image of setting-logic">
 
 <h2 id="上传源码到云端"><a href="#上传源码到云端" class="headerlink" title="上传源码到云端"></a>上传源码到云端</h2><table>
 <thead>
@@ -343,7 +343,7 @@
 <li>将新电脑的生成的ssh key添加到GitHub账户上<ul>
 <li>首先在本地创建 SSH Keys:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ ssh-keygen -t rsa -C “xxxx@xx.com“<br></code></pre></td></tr></table></figure></li>
 <li>成功的话会在 ~/下生成 .ssh文件夹，进去，打开 id_rsa.pub，复制里面的key即可。然后拷贝到 Github 的 SSH Keys(这里要添加一个新的)</li>
-<li>然后在终端中，我们再次测试下公钥有没有添加成功：ssh -T <a href="mailto:&#103;&#105;&#116;&#x40;&#x67;&#105;&#116;&#104;&#x75;&#98;&#46;&#99;&#111;&#x6d;">&#103;&#105;&#116;&#x40;&#x67;&#105;&#116;&#104;&#x75;&#98;&#46;&#99;&#111;&#x6d;</a></li>
+<li>然后在终端中，我们再次测试下公钥有没有添加成功：ssh -T <a href="mailto:&#x67;&#x69;&#x74;&#x40;&#103;&#x69;&#116;&#104;&#x75;&#x62;&#x2e;&#99;&#111;&#109;">&#x67;&#x69;&#x74;&#x40;&#103;&#x69;&#116;&#104;&#x75;&#x62;&#x2e;&#99;&#111;&#109;</a></li>
 <li>会弹出确认命令，输入yes,会弹出Hi,你的名字等等，这就代表成功了<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 克隆博客源码到本地（顺便与相应分支产生了连接）</span><br>git <span class="hljs-built_in">clone</span> git@github.com:631212502/blog_source.git blog<br><br><span class="hljs-comment"># 打开博客根目录</span><br><span class="hljs-built_in">cd</span> blog<br><br><span class="hljs-comment"># 安装对应npm的资源包依赖</span><br>npm install<br><br><span class="hljs-comment"># 安装hexo</span><br>npm install hexo-cli -g //如果出错，<br>npm install -g hexo 或者sudo npm install -g hexo<br></code></pre></td></tr></table></figure></li>
 </ul>
 </li>
@@ -554,7 +554,7 @@
 
  
 
-<script async src="/js/app.js?v=1649429796113"></script>
+<script async src="/js/app.js?v=1649727465042"></script>
 
 
 
