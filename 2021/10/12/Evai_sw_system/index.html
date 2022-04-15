@@ -47,7 +47,7 @@
 <meta property="og:image" content="https://631212502.github.io/2021/10/12/Evai_sw_system/code.png">
 <meta property="og:image" content="https://631212502.github.io/2021/10/12/Evai_sw_system/zl.jpg">
 <meta property="article:published_time" content="2021-10-12T13:41:51.000Z">
-<meta property="article:modified_time" content="2022-04-14T14:30:31.289Z">
+<meta property="article:modified_time" content="2022-04-15T09:47:59.307Z">
 <meta property="article:author" content="Natu Matu">
 <meta property="article:tag" content="S_Project">
 <meta name="twitter:card" content="summary">
@@ -64,12 +64,12 @@
     <!-- DPlayer -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.css">
     <script src="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.js"></script>
-    <link rel="stylesheet" href="/css/style.css?v=1649948510131">
+    <link rel="stylesheet" href="/css/style.css?v=1650016123606">
      
     
         <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
     
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1649948510131">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1650016123606">
     
         <link rel="stylesheet" href="/custom.css">
     
@@ -537,7 +537,8 @@
 <h4 id="安装python机器学习依赖（加入智能交互控制）"><a href="#安装python机器学习依赖（加入智能交互控制）" class="headerlink" title="安装python机器学习依赖（加入智能交互控制）"></a>安装python机器学习依赖（加入智能交互控制）</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs bash">1.安装numpy：<br><br>    sudo pip install numpy<br><br>2.安装scipy：<br><br>    sudo apt-get install libblas-dev liblapack-dev libatlas-base-dev gfortran<br>    <br>    sudo pip install scipy<br><br>3.安装pandas：<br><br>    sudo pip install -i  https://pypi.mirrors.ustc.edu.cn/simple pytz<br>    <br>    sudo pip install -i  https://pypi.mirrors.ustc.edu.cn/simple pandas<br>    <br>4.安装scikit-learn<br><br>    sudo pip install sklearn<br><br></code></pre></td></tr></table></figure>
 <h4 id="安装界面播放动态图交互插件"><a href="#安装界面播放动态图交互插件" class="headerlink" title="安装界面播放动态图交互插件"></a>安装界面播放动态图交互插件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs bash">参考：https://www.jianshu.com/p/d6ff45e983ce<br>使用方法和参数表：https://forum.ubuntu.org.cn/viewtopic.php?t=39270<br><br>xwinwrap + mplayer<br><br>首先安装 mplayer 播放器：<br><br>    sudo apt install mplayer<br><br>然后下载 xwinwrap，我上传到百度云https://pan.baidu.com/s/1eSp8QJo 了，安装包只有 8KB，非常简单的代码。<br>解压提取后，接下来安装 xwinwrap64.deb：<br><br>    sudo dpkg -i xwinwrap64.deb<br><br>我只传 64 位的到百度云，需要 32位程序的去 Google Code 找吧。<br>那个 anibg 的安装包是一个前端界面，需要就装上吧。前端界面真的很多，我随便找一个的，就算不装前端界面也可以用。<br><br>    sudo dpkg -i anibg_v0.2.0.deb<br><br>安装有依赖问题通过 sudo apt install -f 修复即可。<br>因为我没装前端界面，所以我是在终端执行的：<br><br>    xwinwrap -ni -o 1.0 -fs -s -st -sp -b -nf -- mplayer -wid WID -quiet -nosound -loop 0 /视频/路径/文件.mov<br></code></pre></td></tr></table></figure>
 <h4 id="最后在源地址克隆本代码仓库"><a href="#最后在源地址克隆本代码仓库" class="headerlink" title="最后在源地址克隆本代码仓库"></a>最后在源地址克隆本代码仓库</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs git">git clone https://github.com/631212502/Evai_software.git<br></code></pre></td></tr></table></figure>
-<h3 id="代码结构以及解析"><a href="#代码结构以及解析" class="headerlink" title="代码结构以及解析"></a>代码结构以及解析</h3><h4 id="代码逻辑"><a href="#代码逻辑" class="headerlink" title="代码逻辑"></a>代码逻辑</h4><img src="/2021/10/12/Evai_sw_system/code.png" class="" title="This is the image of setting-logic">
+<h3 id="代码结构以及解析"><a href="#代码结构以及解析" class="headerlink" title="代码结构以及解析"></a>代码结构以及解析</h3><p><strong>2019年基于baiduUNIT时的代码结构，后续开发暂未开源</strong></p>
+<h4 id="代码逻辑"><a href="#代码逻辑" class="headerlink" title="代码逻辑"></a>代码逻辑</h4><img src="/2021/10/12/Evai_sw_system/code.png" class="" title="This is the image of setting-logic">
 <p>RFUNITrobot.py 为主函数位置调用后进行循环：</p>
 <ul>
 <li>交互程序大循环：<ol>
@@ -555,7 +556,7 @@
 </li>
 </ul>
 <h2 id="昔日荣光不复：漫漫长征路"><a href="#昔日荣光不复：漫漫长征路" class="headerlink" title="昔日荣光不复：漫漫长征路"></a>昔日荣光不复：漫漫长征路</h2><p>&emsp;&emsp;2021年上半年有一个好消息，申请的发明专利获得授权了(当时要会写英文论文就好了，也不至于等这么久，本科时看同班同学用论文拿一些大额奖学金馋哭了(灬ꈍ ꈍ灬))过程还蛮顺利的，审查员并没有提出技术问题，只是让我修改了一下说明书上的矩阵下标表述。2019年6月申请，2021年3月拿到授权，很知足啦~也算是给我的肝力满满但又稍微显得有点无趣的大学本科时光画上了圆满的句号。</p>
-<p>&emsp;&emsp;或许在将来的某些日子里，我回忆起我的大学，里面没有自由与浪漫，没有花前与月下，没有青涩与爱情，没有分别与重逢。我对世界，对人的领悟相比于同龄人来说实在是少了很多很多。这也是我在遇到蜜柑星之后才如此地恍然大悟……我当场就表了白，但说实话我不知道为什么表白，但唯独知道，我不会后悔！</p>
+<p>&emsp;&emsp;或许在将来的某些日子里，我回忆起我的大学，里面没有自由与浪漫，没有花前与月下，没有青涩与爱情，没有分别与重逢。我对世界，对人的领悟相比于同龄人来说实在是少了很多很多。这也是我在遇到蜜柑星之后才如此地恍然大悟……我当场就表了白，但说实话我不知道为什么表白，却也奇妙地知道，我肯定不会后悔！</p>
 <p>&emsp;&emsp;就像如今的我，依然会不时地想起17年的晚秋、18年的盛夏、19年的早春、20年的凛冬。我开始憧憬未来世界的真实色彩，却也能始终相信着人的可能性~</p>
 <img src="/2021/10/12/Evai_sw_system/zl.jpg" class="" title="This is the image of setting-logic">
 
@@ -664,7 +665,7 @@
 
  
 
-<script async src="/js/app.js?v=1649948510134"></script>
+<script async src="/js/app.js?v=1650016123609"></script>
 
 
 
