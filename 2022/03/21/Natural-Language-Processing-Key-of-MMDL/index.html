@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    
+    <meta name="baidu-site-verification" content="code-NrUjkxdqT5" />
+    <title>Natural Language Processing:Key of MMDL - Eutupia by 夏夢</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="願いが叶う場所">
+    <meta name="keywords" content="null">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
+
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/logo.png" type="image/png" />
+    <meta name="description" content="交際に言葉は全て、人達もマシンも">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Natural Language Processing:Key of MMDL">
+<meta property="og:url" content="https://631212502.github.io/2022/03/21/Natural-Language-Processing-Key-of-MMDL/index.html">
+<meta property="og:site_name" content="Eutupia by 夏夢">
+<meta property="og:description" content="交際に言葉は全て、人達もマシンも">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://4143056590-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-LpO5sn2FY1C9esHFJmo%2F-LpO5t6XJGnSXrbsZ_UC%2F-LpO62fhnKx0k5roiMi3%2Fevolution-of-semantics-apple.png?generation=1569158086328327&alt=media">
+<meta property="og:image" content="https://4143056590-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-LpO5sn2FY1C9esHFJmo%2F-LpO5t6XJGnSXrbsZ_UC%2F-LpO62fnOjk0z7LuU_Jj%2Fbag-of-words.png?generation=1569158086313371&alt=media">
+<meta property="og:image" content="https://4143056590-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-LpO5sn2FY1C9esHFJmo%2F-M1kYo3MEe_6r_DfWYhK%2F-M1kYpkpNaaFpYYCFguE%2Fencoder-decoder.jpeg?generation=1583510164188807&alt=media">
+<meta property="og:image" content="https://4143056590-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-LpO5sn2FY1C9esHFJmo%2F-M1kYo3MEe_6r_DfWYhK%2F-M1kYpl4eRdF4hLeNYy8%2Fattention.png?generation=1583510153122442&alt=media">
+<meta property="og:image" content="https://luweikxy.gitbook.io/machine-learning-notes/self-attention-and-transformer">
+<meta property="og:image" content="https://pic4.zhimg.com/v2-d29865e2dc03cb1d0a6c4e46ec2492b6_1440w.jpg?source=172ae18b">
+<meta property="article:published_time" content="2022-03-21T13:12:42.000Z">
+<meta property="article:modified_time" content="2023-12-02T09:04:08.497Z">
+<meta property="article:author" content="Natu Matu">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="mmdl">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://4143056590-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-LpO5sn2FY1C9esHFJmo%2F-LpO5t6XJGnSXrbsZ_UC%2F-LpO62fhnKx0k5roiMi3%2Fevolution-of-semantics-apple.png?generation=1569158086328327&alt=media">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
+    <!-- require APlayer -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+	<!-- require MetingJS : 未解决歌单播放问题-->
+	<script src="https://cdn.jsdelivr.net/npm/meting@latest/dist/Meting.min.js"></script>
+    <!-- require pjax -->
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+    <!-- DPlayer -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.js"></script>
+    <link rel="stylesheet" href="/css/style.css?v=1704991421184">
+     
+    
+        <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
+    
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1704991421184">
+    
+        <link rel="stylesheet" href="/custom.css">
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body class="mdui-drawer-body-left">
+    
+    <div id="pageContent">
+        <div id="nexmoe-background">
+            <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/202211081936671.jpg)"></div>
+            <div class="mdui-appbar mdui-shadow-0">
+                <div class="mdui-toolbar">
+                    <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                    <div class="mdui-toolbar-spacer"></div>
+                    <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                    <a href="/" title="Natu Matu" class="mdui-btn mdui-btn-icon"><img src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/avatar.jpg" alt="Natu Matu"></a>
+                </div>
+            </div>
+        </div>
+        <div id="nexmoe-header">
+            <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="Natu Matu">
+            <img src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/avatar.jpg" alt="Natu Matu" alt="Natu Matu">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>50</div>
+        <div><span>标签</span>17</div>
+        <div><span>分类</span>4</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/gate.html" title="小憩歌单">
+            <i class="mdui-list-item-icon nexmoefont icon-coffee"></i>
+            <div class="mdui-list-item-content">
+                小憩歌单
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/PY.html" title="左邻右舍">
+            <i class="mdui-list-item-icon nexmoefont icon-wechat-fill"></i>
+            <div class="mdui-list-item-content">
+                左邻右舍
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/album.html" title="时间光影">
+            <i class="mdui-list-item-icon nexmoefont icon-calendar-fill"></i>
+            <div class="mdui-list-item-content">
+                时间光影
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/natunoyume.html" title="拾音纪行">
+            <i class="mdui-list-item-icon nexmoefont icon-telegram"></i>
+            <div class="mdui-list-item-content">
+                拾音纪行
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+         
+            <form id="search_form" action_e="https://cn.bing.com/search?q=" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder="搜索"></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://qm.qq.com/cgi-bin/qm/qr?k=QriGs7GcXMPd6scnWXeO-IJ5TP8Qm8sd&noverify=0" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="https://space.bilibili.com/10580381" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .1);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/631212502" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .1);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=631212502@qq.com" target="_blank" mdui-tooltip="{content: '邮箱'}" style="color: rgb(51, 153, 255);background-color: rgba(51, 153, 255, .1);">
+            <i class="nexmoefont icon-mail-fill"></i>
+        </a><a class="mdui-ripple" href="https://steamcommunity.com/profiles/76561199013116495/" target="_blank" mdui-tooltip="{content: 'steam'}" style="color: rgb(3, 98, 255);background-color: rgba(3, 98, 255, .1);">
+            <i class="nexmoefont icon-steam"></i>
+        </a><a class="mdui-ripple" href="https://www.xiaohongshu.com/user/profile/5fcc10c4000000000100b0b7?xhsshare=CopyLink&appuid=5fcc10c4000000000100b0b7&apptime=1660447872" target="_blank" mdui-tooltip="{content: '小红书'}" style="color: rgb(250, 136, 111);background-color: rgba(250, 136, 111, .1);">
+            <i class="nexmoefont icon-calendar-fill"></i>
+        </a><a class="mdui-ripple" href="/null" target="_blank" mdui-tooltip="{content: '知乎'}" style="color: ;background-color: ;">
+            <i class="nexmoefont icon-zhihu"></i>
+        </a><a class="mdui-ripple" href="/null" target="_blank" mdui-tooltip="{content: '推特'}" style="color: ;background-color: ;">
+            <i class="nexmoefont icon-twitter"></i>
+        </a><a class="mdui-ripple" href="https://chat.openai.com/chat" target="_blank" mdui-tooltip="{content: 'GPT'}" style="color: rgb(45, 13, 73);background-color: rgba(45, 13, 73, .1);">
+            <i class="nexmoefont icon-eye-fill"></i>
+        </a>
+    </div>
+</div>
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/Coding/" style="font-size: 17.14px;">Coding</a> <a href="/tags/Competition/" style="font-size: 11.43px;">Competition</a> <a href="/tags/MMDL/" style="font-size: 10px;">MMDL</a> <a href="/tags/S-Project/" style="font-size: 14.29px;">S_Project</a> <a href="/tags/mmdl/" style="font-size: 18.57px;">mmdl</a> <a href="/tags/page-building/" style="font-size: 12.86px;">page_building</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 15.71px;">博客</a> <a href="/tags/%E5%AD%A6%E6%9C%AF/" style="font-size: 15.71px;">学术</a> <a href="/tags/%E6%91%84%E5%BD%B1/" style="font-size: 14.29px;">摄影</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 11.43px;">旅行</a> <a href="/tags/%E6%AD%8C%E3%81%86/" style="font-size: 11.43px;">歌う</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 17.14px;">笔记</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">编程</a> <a href="/tags/%E8%A8%80%E8%91%89/" style="font-size: 20px;">言葉</a> <a href="/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 14.29px;">记录</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 12.86px;">论文</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 17.14px;">随笔</a>
+    </div>
+    
+  </div>
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/小さな考え/">小さな考え</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/无情の勉強マシン/">无情の勉強マシン</a>
+          <span class="category-list-count">7</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/言けない言葉/">言けない言葉</a>
+          <span class="category-list-count">6</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/音楽が辞めよう/">音楽が辞めよう</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/">2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/">2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/">2010</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+
+    
+    <span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt = new Date("08/31/2021 17:38:00"); //在此处修改你的建站时间
+        now.setTime(now.getTime() + 250);
+        days = (now - grt) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt) / 1000 / 60 / 60 - 24 * dnum;
+        hnum = Math.floor(hours);
+        if (String(hnum).length == 1) {
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt) / 1000 / 60 - 24 * 60 * dnum - 60 * hnum;
+        mnum = Math.floor(minutes);
+        if (String(mnum).length == 1) {
+            mnum = "0" + mnum;
+        }
+        seconds = (now - grt) / 1000 - 24 * 60 * 60 * dnum - 60 * 60 * hnum - 60 * mnum;
+        snum = Math.round(seconds);
+        if (String(snum).length == 1) {
+            snum = "0" + snum;
+        }
+        document.getElementById("timeDate").innerHTML = 
+            " 风雨中度过了 " + dnum + " 天 ";
+        document.getElementById("times").innerHTML =
+            hnum + " 小时 " + mnum + " 分 "; 
+    }
+    setInterval("createtime()", 250);
+</script>
+<!-- + snum + " 秒 "-->
+    
+</aside>
+
+
+    <div class="nexmoe-copyright">
+        &copy; 2024 Natu Matu
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        
+    </div>
+</div><!-- .nexmoe-drawer -->
+<div style="font-size: 13px">
+    <link rel="stylesheet" href="https://widget.heweather.net/standard/static/css/he-standard.css?v=1.4.0"><script src="https://widget.heweather.net/standard/static/js/he-standard.js?v=1.4.0"></script><script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    本站总访问量  <a id="busuanzi_value_site_pv"></a> 次<br>
+    本站访客数<a id="busuanzi_value_site_uv"></a>人次
+</div>
+
+        </div>
+        <div id="nexmoe-content">
+            <div class="nexmoe-primary">
+                <div class="nexmoe-post">
+
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: NaN%;"> 
+              <img data-src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/ChMkJlcPLxuIG1LaAAK8bdqTiIwAAP4dwOHyNUAAryF457.jpg" data-sizes="auto" alt="Natural Language Processing:Key of MMDL" class="lazyload">
+              <h1>Natural Language Processing:Key of MMDL</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2022年03月21日</a>
+    <a><i class="nexmoefont icon-areachart"></i>2.2k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 9 分钟</a>
+</div>
+
+      
+
+      <p><strong>交際に言葉は全て、人達もマシンも</strong></p>
+<span id="more"></span>
+<h2 id="自然语言的本质"><a href="#自然语言的本质" class="headerlink" title="自然语言的本质"></a>自然语言的本质</h2><p>以我之浅见，语言既承载了人类认识世界的方式（encoder），也占据了信息交流之间的通道（transform），语言更是能随着文化文明发展而迭代出新的内涵（decoder），更是作为人类这个族群的长期意识存在着，是信息的承载方式与表达形式，信息转化成语音也是具有无限可能性的抽象化过程。人因学习，经历而进步。语言也因时代发展而成长成熟，当人们打破了语言传递信息的壁垒，百分之百传达。我相信，那个互相理解，没有隔阂的世界才会真正到来。</p>
+<h3 id="语言与智能"><a href="#语言与智能" class="headerlink" title="语言与智能"></a>语言与智能</h3><h4 id="信息熵"><a href="#信息熵" class="headerlink" title="信息熵"></a>信息熵</h4><p>衡量信息量的函数，准确的说是信息量的期望值</p>
+<h4 id="交叉熵（KL散度）"><a href="#交叉熵（KL散度）" class="headerlink" title="交叉熵（KL散度）"></a>交叉熵（KL散度）</h4><p>首先我们定义下KL散度，即Kullback-Leiblev Divergence，描述的是两个分布之间的差别和距离。</p>
+<h3 id="语义的进化"><a href="#语义的进化" class="headerlink" title="语义的进化"></a>语义的进化</h3><p><img src="https://4143056590-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-LpO5sn2FY1C9esHFJmo%2F-LpO5t6XJGnSXrbsZ_UC%2F-LpO62fhnKx0k5roiMi3%2Fevolution-of-semantics-apple.png?generation=1569158086328327&alt=media"></p>
+<h3 id="词袋模型"><a href="#词袋模型" class="headerlink" title="词袋模型"></a>词袋模型</h3><p>词袋模型是一种出现概率计算，它的概率就是，在全部语料库中，这个句子出现的次数，除以所有六个单词组成的句子的次数，即：<br>$$P\left(x_{1}, x_{2}, \ldots, x_{n}\right)=\frac{c\left(x_{1}, x_{2}, \ldots, x_{n}\right)}{N}$$<br>N是所有n个词组成的句子（N元组）出现的概率。<br>这就是一个非常简单的语言模型，就是通过统计次数得到的。<br>但是这种模型每个单词之间的关系太强了，我们假设每个字的出现概率独立，即：<br>$$P(\text { I love China })=P(I) P(\text { love }) P(\text { China })$$<br>如下图所示：<br><img src="https://4143056590-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-LpO5sn2FY1C9esHFJmo%2F-LpO5t6XJGnSXrbsZ_UC%2F-LpO62fnOjk0z7LuU_Jj%2Fbag-of-words.png?generation=1569158086313371&alt=media"><br>但是这显然是不符合实际的，相邻的两个词之间往往是有关联的，比如I love后面出现you的概率就很大，出现txt的概率就很小。即有一个条件概率的关系,这也是采用词袋模型最具有局限性的地方。</p>
+<h4 id="二元语言模型：CR情感分析"><a href="#二元语言模型：CR情感分析" class="headerlink" title="二元语言模型：CR情感分析"></a>二元语言模型：CR情感分析</h4><p>词袋模型真的有用吗？<br>我们用LR模型统计出每个词的正负情感趋势，如下：<br>$$P(y=1 \mid x)=\frac{1}{1+\exp \left(W^{T} x\right)}$$</p>
+<h3 id="向量化：word2vec"><a href="#向量化：word2vec" class="headerlink" title="向量化：word2vec"></a>向量化：word2vec</h3><p>word2vec全程叫 word to vector:也就是将词汇转化成对应的向量的一种转化方法</p>
+<h3 id="Seq2Seq任务：序列对其任务"><a href="#Seq2Seq任务：序列对其任务" class="headerlink" title="Seq2Seq任务：序列对其任务"></a>Seq2Seq任务：序列对其任务</h3><p>eq2Seq是2014年Google提出的一个模型Sequence to Sequence Learning with Neural Networks。论文中提出的 Seq2Seq 模型可简单理解为由三部分组成：Encoder、Decoder 和连接两者的 State Vector (中间状态向量) C 。</p>
+<p>在上图many to many的两种模型中，可以看到第四和第五种是有差异的，经典的RNN结构的输入和输出序列必须要是等长，它的应用场景也比较有限。而第四种它可以是输入和输出序列不等长，这种模型便是Seq2Seq模型，即Sequence to Sequence。</p>
+<p>Seq2Seq实现了从一个序列到另外一个序列的转换，比如google曾用Seq2Seq模型加attention模型来实现了翻译功能，类似的还可以实现聊天机器人对话模型。经典的RNN模型固定了输入序列和输出序列的大小，而Seq2Seq模型则突破了该限制。</p>
+<p>这种结构最重要的地方在于输入序列和输出序列的长度是可变的。</p>
+<h3 id="Encoder-Decoder结构"><a href="#Encoder-Decoder结构" class="headerlink" title="Encoder-Decoder结构"></a>Encoder-Decoder结构</h3><p>所谓的Sequence2Sequence任务主要是泛指一些Sequence到Sequence的映射问题，Sequence在这里可以理解为一个字符串序列，当我们在给定一个字符串序列后，希望得到与之对应的另一个字符串序列（如 翻译后的、如语义上对应的）时，这个任务就可以称为Sequence2Sequence了。<br>在现在的深度学习领域当中，通常的做法是将输入的源Sequence编码到一个中间的context当中，这个context是一个特定长度的编码（可以理解为一个向量），然后再通过这个context还原成一个输出的目标Sequence。</p>
+<p>如果用人的思维来看，就是我们先看到源Sequence，将其读一遍，然后在我们大脑当中就记住了这个源Sequence，并且存在大脑的某一个位置上，形成我们自己的记忆（对应Context），然后我们再经过思考，将这个大脑里的东西转变成输出，然后写下来。</p>
+<p>那么我们大脑读入的过程叫做Encoder，即将输入的东西变成我们自己的记忆，放在大脑当中，而这个记忆可以叫做Context，然后我们再根据这个Context，转化成答案写下来，这个写的过程叫做Decoder。其实就是编码-存储-解码的过程。</p>
+<p>而对应的，大脑怎么读入（Encoder怎么工作）有一个特定的方式，怎么记忆（Context）有一种特定的形式，怎么转变成答案（Decoder怎么工作）又有一种特定的工作方式。<br>好了，现在我们大体了解了一个工作的流程Encoder-Decoder后，我们来介绍一个深度学习当中，最经典的Encoder-Decoder实现方式，即用RNN来实现。<br><img src="https://4143056590-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-LpO5sn2FY1C9esHFJmo%2F-M1kYo3MEe_6r_DfWYhK%2F-M1kYpkpNaaFpYYCFguE%2Fencoder-decoder.jpeg?generation=1583510164188807&alt=media"></p>
+<p>在RNN Encoder-Decoder的工作当中，我们用一个RNN去模拟大脑的读入动作，用一个特定长度的特征向量去模拟我们的记忆，然后再用另外一个RNN去模拟大脑思考得到答案的动作，将三者组织起来利用就成了一个可以实现Sequence2Sequence工作的“模拟大脑”了。 而我们剩下的工作也就是如何正确的利用RNN去实现，以及如何正确且合理的组织这三个部分了。</p>
+<p>获取语义向量C最简单的方式就是直接将最后一个输入的隐状态作为语义向量C。也可以对最后一个隐含状态做一个变换得到语义向量，还可以将输入序列的所有隐含状态做一个变换得到语义变量。</p>
+<h3 id="Attention的由来和诞生"><a href="#Attention的由来和诞生" class="headerlink" title="Attention的由来和诞生"></a>Attention的由来和诞生</h3><h4 id="原因：Encoder-Decoder结构的局限性"><a href="#原因：Encoder-Decoder结构的局限性" class="headerlink" title="原因：Encoder-Decoder结构的局限性"></a>原因：Encoder-Decoder结构的局限性</h4><ol>
+<li>Encoder和Decoder的唯一联系只有语义编码，即将整个输入序列的信息编码成一个固定大小的状态向量再解码，相当于将信息”有损压缩”。很明显这样做有两个缺点：</li>
+</ol>
+<ul>
+<li>中间语义向量无法完全表达整个输入序列的信息。</li>
+<li>随着输入信息长度的增加，由于向量长度固定，先前编码好的信息会被后来的信息覆盖，丢失很多 信息。（不可控的遗忘现象）</li>
+</ul>
+<ol start="2">
+<li>不同位置的单词的贡献都是一样的<br>Decoder过程，其输出的产生如下：<br>$$\begin{aligned}<br>&amp;y_{1}=g\left(C, h_{0}^{\prime}\right) \<br>&amp;y_{2}=g\left(C, y_{1}\right) \<br>&amp;y_{3}=g\left(C, y_{1}, y_{2}\right)<br>\end{aligned}$$</li>
+</ol>
+<p>明显可以发现在生成、、时，语义编码对它们所产生的贡献都是一样的。例如翻译：Cat chase mouse，Encoder-Decoder模型逐字生成：“猫”、“捉”、“老鼠”。在翻译mouse单词时，每一个英语单词对“老鼠”的贡献都是相同的。如果引入了Attention模型，那么mouse对于它的影响应该是最大的。</p>
+<h4 id="Attention原理"><a href="#Attention原理" class="headerlink" title="Attention原理"></a>Attention原理</h4><p>为了解决中间变量C无法理解整个输入的问题（所以由单连接改为了多连接，还是带权重就是Attention）<br>Attention模型的特点是Decoder不再将整个输入序列编码为固定长度的中间语义向量 ，而是根据当前生成的新单词计算新的，使得每个时刻输入不同的，这样就解决了单词信息丢失的问题。引入了Attention的Encoder-Decoder模型如下图：<br><img src="https://4143056590-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-LpO5sn2FY1C9esHFJmo%2F-M1kYo3MEe_6r_DfWYhK%2F-M1kYpl4eRdF4hLeNYy8%2Fattention.png?generation=1583510153122442&alt=media"></p>
+<h4 id="self-attention-transformer"><a href="#self-attention-transformer" class="headerlink" title="self-attention/transformer"></a>self-attention/transformer</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://luweikxy.gitbook.io/machine-learning-notes/self-attention-and-transformer" alt="精华" class="lazyload"></p>
+<h2 id="知识图谱"><a href="#知识图谱" class="headerlink" title="知识图谱"></a>知识图谱</h2><h3 id="why？"><a href="#why？" class="headerlink" title="why？"></a>why？</h3><p>在很长的学习里，我们的人工智能走的还都是统计学还有贝叶斯那一套方法论，基于概率运算以及样本试图“推演”出世界的奥秘，不可否认的是，它确实做到了一些人尚且都还未能做到的事情。</p>
+<p>但是那似乎离我们心中的 “人工智能” 还很遥远。我们训练的模型，更像是一个具有统计知识的机器，从关联和概率的角度出发，试图在描述世界背后的 “真理”。</p>
+<p>然而，我们更希望的是，像人一样，具有分析和推理能力的机器智能。如果你问我，哪一种形式最接近我心中的 “人工智能”，我会说：知识图谱。</p>
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>知识图谱，本质上，是一种揭示实体之间关系的语义网络:<br><img src="https://pic4.zhimg.com/v2-d29865e2dc03cb1d0a6c4e46ec2492b6_1440w.jpg?source=172ae18b"></p>
+
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>Natu Matu<br>
+        <strong>本文链接：</strong><a href="https://631212502.github.io/2022/03/21/Natural-Language-Processing-Key-of-MMDL/" title="https:&#x2F;&#x2F;631212502.github.io&#x2F;2022&#x2F;03&#x2F;21&#x2F;Natural-Language-Processing-Key-of-MMDL&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;631212502.github.io&#x2F;2022&#x2F;03&#x2F;21&#x2F;Natural-Language-Processing-Key-of-MMDL&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/mmdl/" rel="tag">mmdl</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a>
+    
+</div>
+
+  
+      <div class="nexmoe-post-footer">
+          <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: 'cdc194d30f71cf392fdd',
+        clientSecret: 'b27b4f1ec813cb7eaa115ab184569422b663176a',
+        id: window.location.pathname,
+        repo: '631212502.github.io',
+        owner: '631212502',
+        admin: '631212502'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+      </div>
+  
+</div>
+                <div class="nexmoe-post-right">
+                <div class="nexmoe-fixed">
+                    <div class="nexmoe-tool"> 
+                        
+                            
+                            
+                                <button class="mdui-fab catalog" style="overflow:unset;">
+                                    <i class="nexmoefont icon-i-catalog"></i>
+                                    <div class="nexmoe-toc">
+                                        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E7%9A%84%E6%9C%AC%E8%B4%A8"><span class="toc-number">1.</span> <span class="toc-text">自然语言的本质</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E8%A8%80%E4%B8%8E%E6%99%BA%E8%83%BD"><span class="toc-number">1.1.</span> <span class="toc-text">语言与智能</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E7%86%B5"><span class="toc-number">1.1.1.</span> <span class="toc-text">信息熵</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%A4%E5%8F%89%E7%86%B5%EF%BC%88KL%E6%95%A3%E5%BA%A6%EF%BC%89"><span class="toc-number">1.1.2.</span> <span class="toc-text">交叉熵（KL散度）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E4%B9%89%E7%9A%84%E8%BF%9B%E5%8C%96"><span class="toc-number">1.2.</span> <span class="toc-text">语义的进化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%8D%E8%A2%8B%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.3.</span> <span class="toc-text">词袋模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E5%85%83%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%EF%BC%9ACR%E6%83%85%E6%84%9F%E5%88%86%E6%9E%90"><span class="toc-number">1.3.1.</span> <span class="toc-text">二元语言模型：CR情感分析</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%91%E9%87%8F%E5%8C%96%EF%BC%9Aword2vec"><span class="toc-number">1.4.</span> <span class="toc-text">向量化：word2vec</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Seq2Seq%E4%BB%BB%E5%8A%A1%EF%BC%9A%E5%BA%8F%E5%88%97%E5%AF%B9%E5%85%B6%E4%BB%BB%E5%8A%A1"><span class="toc-number">1.5.</span> <span class="toc-text">Seq2Seq任务：序列对其任务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Encoder-Decoder%E7%BB%93%E6%9E%84"><span class="toc-number">1.6.</span> <span class="toc-text">Encoder-Decoder结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Attention%E7%9A%84%E7%94%B1%E6%9D%A5%E5%92%8C%E8%AF%9E%E7%94%9F"><span class="toc-number">1.7.</span> <span class="toc-text">Attention的由来和诞生</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E5%9B%A0%EF%BC%9AEncoder-Decoder%E7%BB%93%E6%9E%84%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7"><span class="toc-number">1.7.1.</span> <span class="toc-text">原因：Encoder-Decoder结构的局限性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Attention%E5%8E%9F%E7%90%86"><span class="toc-number">1.7.2.</span> <span class="toc-text">Attention原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#self-attention-transformer"><span class="toc-number">1.7.3.</span> <span class="toc-text">self-attention&#x2F;transformer</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1"><span class="toc-number">2.</span> <span class="toc-text">知识图谱</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#why%EF%BC%9F"><span class="toc-number">2.1.</span> <span class="toc-text">why？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-number">2.2.</span> <span class="toc-text">定义</span></a></li></ol></li></ol>
+                                    </div>
+                                </button>
+                            
+                        
+                        <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="aplayerContent">
+        <meting-js
+        style="position:absolute; z-index:99999" 
+        type="playlist" 
+        server="netease" 
+        id="6976153408" 
+        fixed="true"
+        autoplay="true"
+        order="random"
+        loop="all"
+        list-folded="false"
+        preload="auto"
+        list-max-height="500px"
+        lrc-type="1">
+        </meting-js> 
+    </div>
+    <script>
+        // 对所有链接跳转事件绑定pjax容器container,只在容器中跳转
+        $(document).pjax('a[target!=_blank]', '#pageContent', {fragment: '#pageContent', timeout:8000})
+    </script>
+     
+    <div id="nexmoe-search-space">
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <input class="search-input" type="text" placeholder="搜索" oninput="sinput();">
+                </div>
+                <a class="search-close" onclick="sclose();">×</a>
+            </div>
+            <div class="search-body"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+ 
+
+<script async src="/js/app.js?v=1704991421187"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+
+
+    
+
+
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<!--烟花爆炸-->
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script type="text/javascript" src="/js/firework.js"></script>
+<!--单击显示文字-->
+<script type="text/javascript" src="/js/click_show_text.js"></script>
+</html>
+
+

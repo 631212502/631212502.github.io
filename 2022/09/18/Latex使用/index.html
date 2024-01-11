@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    
+    <meta name="baidu-site-verification" content="code-NrUjkxdqT5" />
+    <title>Latex使用 - Eutupia by 夏夢</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="願いが叶う場所">
+    <meta name="keywords" content="null">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
+
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/logo.png" type="image/png" />
+    <meta name="description" content="本菜的科研写作查表萌屋教程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Latex使用">
+<meta property="og:url" content="https://631212502.github.io/2022/09/18/Latex%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="Eutupia by 夏夢">
+<meta property="og:description" content="本菜的科研写作查表萌屋教程">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic2.zhimg.com/v2-aa97c404b8915f3f0184897c2d2758d9_r.jpg">
+<meta property="og:image" content="https://pic4.zhimg.com/v2-da66f4b2bef2cefebf4a1b99b210b957_r.jpg">
+<meta property="og:image" content="https://pic3.zhimg.com/80/v2-4ec617ea544e00f9abcf9f280c7c23fe_720w.jpg">
+<meta property="og:image" content="https://pic1.zhimg.com/v2-befa971970692855c2843d14d3c38bf4_r.jpg">
+<meta property="og:image" content="https://pic1.zhimg.com/v2-bb102534c1352bd6fc2cc7b2ee5e1d48_r.jpg">
+<meta property="og:image" content="https://pic4.zhimg.com/v2-fd4ca8d82ba2140603703be01e7c8faf_r.jpg">
+<meta property="article:published_time" content="2022-09-18T12:24:47.000Z">
+<meta property="article:modified_time" content="2023-12-02T09:04:08.491Z">
+<meta property="article:author" content="Natu Matu">
+<meta property="article:tag" content="学术">
+<meta property="article:tag" content="论文">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic2.zhimg.com/v2-aa97c404b8915f3f0184897c2d2758d9_r.jpg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
+    <!-- require APlayer -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+	<!-- require MetingJS : 未解决歌单播放问题-->
+	<script src="https://cdn.jsdelivr.net/npm/meting@latest/dist/Meting.min.js"></script>
+    <!-- require pjax -->
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+    <!-- DPlayer -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.js"></script>
+    <link rel="stylesheet" href="/css/style.css?v=1704991421086">
+     
+    
+        <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
+    
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1704991421086">
+    
+        <link rel="stylesheet" href="/custom.css">
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body class="mdui-drawer-body-left">
+    
+    <div id="pageContent">
+        <div id="nexmoe-background">
+            <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/202211081936671.jpg)"></div>
+            <div class="mdui-appbar mdui-shadow-0">
+                <div class="mdui-toolbar">
+                    <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                    <div class="mdui-toolbar-spacer"></div>
+                    <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                    <a href="/" title="Natu Matu" class="mdui-btn mdui-btn-icon"><img src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/avatar.jpg" alt="Natu Matu"></a>
+                </div>
+            </div>
+        </div>
+        <div id="nexmoe-header">
+            <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="Natu Matu">
+            <img src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/avatar.jpg" alt="Natu Matu" alt="Natu Matu">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>50</div>
+        <div><span>标签</span>17</div>
+        <div><span>分类</span>4</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/gate.html" title="小憩歌单">
+            <i class="mdui-list-item-icon nexmoefont icon-coffee"></i>
+            <div class="mdui-list-item-content">
+                小憩歌单
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/PY.html" title="左邻右舍">
+            <i class="mdui-list-item-icon nexmoefont icon-wechat-fill"></i>
+            <div class="mdui-list-item-content">
+                左邻右舍
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/album.html" title="时间光影">
+            <i class="mdui-list-item-icon nexmoefont icon-calendar-fill"></i>
+            <div class="mdui-list-item-content">
+                时间光影
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/natunoyume.html" title="拾音纪行">
+            <i class="mdui-list-item-icon nexmoefont icon-telegram"></i>
+            <div class="mdui-list-item-content">
+                拾音纪行
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+         
+            <form id="search_form" action_e="https://cn.bing.com/search?q=" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder="搜索"></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://qm.qq.com/cgi-bin/qm/qr?k=QriGs7GcXMPd6scnWXeO-IJ5TP8Qm8sd&noverify=0" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="https://space.bilibili.com/10580381" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .1);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/631212502" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .1);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=631212502@qq.com" target="_blank" mdui-tooltip="{content: '邮箱'}" style="color: rgb(51, 153, 255);background-color: rgba(51, 153, 255, .1);">
+            <i class="nexmoefont icon-mail-fill"></i>
+        </a><a class="mdui-ripple" href="https://steamcommunity.com/profiles/76561199013116495/" target="_blank" mdui-tooltip="{content: 'steam'}" style="color: rgb(3, 98, 255);background-color: rgba(3, 98, 255, .1);">
+            <i class="nexmoefont icon-steam"></i>
+        </a><a class="mdui-ripple" href="https://www.xiaohongshu.com/user/profile/5fcc10c4000000000100b0b7?xhsshare=CopyLink&appuid=5fcc10c4000000000100b0b7&apptime=1660447872" target="_blank" mdui-tooltip="{content: '小红书'}" style="color: rgb(250, 136, 111);background-color: rgba(250, 136, 111, .1);">
+            <i class="nexmoefont icon-calendar-fill"></i>
+        </a><a class="mdui-ripple" href="/null" target="_blank" mdui-tooltip="{content: '知乎'}" style="color: ;background-color: ;">
+            <i class="nexmoefont icon-zhihu"></i>
+        </a><a class="mdui-ripple" href="/null" target="_blank" mdui-tooltip="{content: '推特'}" style="color: ;background-color: ;">
+            <i class="nexmoefont icon-twitter"></i>
+        </a><a class="mdui-ripple" href="https://chat.openai.com/chat" target="_blank" mdui-tooltip="{content: 'GPT'}" style="color: rgb(45, 13, 73);background-color: rgba(45, 13, 73, .1);">
+            <i class="nexmoefont icon-eye-fill"></i>
+        </a>
+    </div>
+</div>
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/Coding/" style="font-size: 17.14px;">Coding</a> <a href="/tags/Competition/" style="font-size: 11.43px;">Competition</a> <a href="/tags/MMDL/" style="font-size: 10px;">MMDL</a> <a href="/tags/S-Project/" style="font-size: 14.29px;">S_Project</a> <a href="/tags/mmdl/" style="font-size: 18.57px;">mmdl</a> <a href="/tags/page-building/" style="font-size: 12.86px;">page_building</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 15.71px;">博客</a> <a href="/tags/%E5%AD%A6%E6%9C%AF/" style="font-size: 15.71px;">学术</a> <a href="/tags/%E6%91%84%E5%BD%B1/" style="font-size: 14.29px;">摄影</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 11.43px;">旅行</a> <a href="/tags/%E6%AD%8C%E3%81%86/" style="font-size: 11.43px;">歌う</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 17.14px;">笔记</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">编程</a> <a href="/tags/%E8%A8%80%E8%91%89/" style="font-size: 20px;">言葉</a> <a href="/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 14.29px;">记录</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 12.86px;">论文</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 17.14px;">随笔</a>
+    </div>
+    
+  </div>
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/小さな考え/">小さな考え</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/无情の勉強マシン/">无情の勉強マシン</a>
+          <span class="category-list-count">7</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/言けない言葉/">言けない言葉</a>
+          <span class="category-list-count">6</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/音楽が辞めよう/">音楽が辞めよう</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/">2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/">2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/">2010</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+
+    
+    <span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt = new Date("08/31/2021 17:38:00"); //在此处修改你的建站时间
+        now.setTime(now.getTime() + 250);
+        days = (now - grt) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt) / 1000 / 60 / 60 - 24 * dnum;
+        hnum = Math.floor(hours);
+        if (String(hnum).length == 1) {
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt) / 1000 / 60 - 24 * 60 * dnum - 60 * hnum;
+        mnum = Math.floor(minutes);
+        if (String(mnum).length == 1) {
+            mnum = "0" + mnum;
+        }
+        seconds = (now - grt) / 1000 - 24 * 60 * 60 * dnum - 60 * 60 * hnum - 60 * mnum;
+        snum = Math.round(seconds);
+        if (String(snum).length == 1) {
+            snum = "0" + snum;
+        }
+        document.getElementById("timeDate").innerHTML = 
+            " 风雨中度过了 " + dnum + " 天 ";
+        document.getElementById("times").innerHTML =
+            hnum + " 小时 " + mnum + " 分 "; 
+    }
+    setInterval("createtime()", 250);
+</script>
+<!-- + snum + " 秒 "-->
+    
+</aside>
+
+
+    <div class="nexmoe-copyright">
+        &copy; 2024 Natu Matu
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        
+    </div>
+</div><!-- .nexmoe-drawer -->
+<div style="font-size: 13px">
+    <link rel="stylesheet" href="https://widget.heweather.net/standard/static/css/he-standard.css?v=1.4.0"><script src="https://widget.heweather.net/standard/static/js/he-standard.js?v=1.4.0"></script><script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    本站总访问量  <a id="busuanzi_value_site_pv"></a> 次<br>
+    本站访客数<a id="busuanzi_value_site_uv"></a>人次
+</div>
+
+        </div>
+        <div id="nexmoe-content">
+            <div class="nexmoe-primary">
+                <div class="nexmoe-post">
+
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: NaN%;"> 
+              <img data-src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/202211061906819.jpg" data-sizes="auto" alt="Latex使用" class="lazyload">
+              <h1>Latex使用</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2022年09月18日</a>
+    <a><i class="nexmoefont icon-areachart"></i>12.5k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 57 分钟</a>
+</div>
+
+      
+
+      <p><strong>本菜的科研写作查表</strong><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/1ykqoLWjy3WhczAvb_eOoQ">萌屋教程</a></p>
+<span id="more"></span>
+<h2 id="资料相关"><a href="#资料相关" class="headerlink" title="资料相关"></a>资料相关</h2><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/1ykqoLWjy3WhczAvb_eOoQ">论文写作中注意这些细节，能显著提升成稿质量</a></p>
+<h2 id="一、文本-排版："><a href="#一、文本-排版：" class="headerlink" title="一、文本/排版："></a>一、文本/排版：</h2><ol>
+<li>定版型：</li>
+</ol>
+<p>documentclass [A] {B}</p>
+<p>A:①字体10pt(默认值)，11pt，12pt，例子：\documentclass[11pt]{article}；</p>
+<p>②纸张大小有几个，最常见的就是a4paper，letterpaper(默认值)，例子：\documentclass[a4paper]{article}；</p>
+<p>③单双面oneside(article,report默认值),twoside(book默认值)，例子：\documentclass[twoside]{article}；</p>
+<p>④组合实现：\documentclass[a4paper,twoside,11pt]{article}顺序随意；</p>
+<p>B：①常用：Article（英文科研文章）/report/book；②ctex文档类（支持中文）：ctexart/ctexrep/ctexbook；</p>
+<ol start="2">
+<li>加标题/日期/作者：</li>
+</ol>
+<p>在\begin{document}之前输入：\title{标题}\author{作者}\date{日期} ； %输入空格即为空</p>
+<p>在\begin{document}之前输入：\maketitle ； %输入后，前三者才生效</p>
+<ol start="3">
+<li>修改页边距:</li>
+</ol>
+<p>\Usepackage{ geometry }；</p>
+<p>\Gemometry(left=2.54cm,rught=2.54cm,top=3.09cm,bottom=3.09cm)； %A4版上下为 2.54厘米；左右为 3.09厘米</p>
+<ol start="4">
+<li><p>文本加粗： \textbf{ }；</p>
+</li>
+<li><p>左对齐： \noindent ； %本行左对齐不缩进</p>
+</li>
+<li><p>换行： \newline或者 \；</p>
+</li>
+<li><p>空格： 单格\quad 双格\quad；</p>
+</li>
+<li><p>居中/左对齐/右对齐：</p>
+</li>
+</ol>
+<p>①部分居中：</p>
+<p>\centering； %小范围内(比如表格)居中后面部分内容</p>
+<p>②全部居中/左对齐/右对齐：</p>
+<p>\begin{center/flushleft/flushright}要居中的内容\end{center/flushleft/flushright }；</p>
+<h2 id="二、公式编辑（2-8均是在1的条件下使用）："><a href="#二、公式编辑（2-8均是在1的条件下使用）：" class="headerlink" title="二、公式编辑（2-8均是在1的条件下使用）："></a>二、公式编辑（2-8均是在1的条件下使用）：</h2><ol>
+<li>（1）行中插入公式： $公式$，例子：$\frac{L^4}{2}+\frac{L^3}{6}-\frac{4L}{3}$；</li>
+</ol>
+<p>（2）行间插入公式（自动带上公式标号），\begin{equation}公式\end{equation}，</p>
+<p>例子：\begin{equation}\frac{L^4}{2}+\frac{L^3}{6}-\frac{4L}{3}\end{equation}；</p>
+<ol start="2">
+<li><p>粗体（向量或矩阵）：用\mathbf{}（有时\textbf{}仍然有用）；</p>
+</li>
+<li><p>上标：字母^上标；下标：字母_下标；</p>
+</li>
+<li><p>括号：\left(括号内容\right) 或者直接输入（）；</p>
+</li>
+<li><p>分数：\frac{分子}{分母}；</p>
+</li>
+<li><p>求和：\sum_{下标}^{上标}；</p>
+</li>
+<li><p>符号(求余符号为%)：</p>
+<ul>
+<li>希腊字母<br>  <img data-fancybox="gallery" data-sizes="auto" data-src="https://pic2.zhimg.com/v2-aa97c404b8915f3f0184897c2d2758d9_r.jpg" alt="希腊字母" class="lazyload"></li>
+<li>基本运算符<br>  <img data-fancybox="gallery" data-sizes="auto" data-src="https://pic4.zhimg.com/v2-da66f4b2bef2cefebf4a1b99b210b957_r.jpg" alt="运算" class="lazyload"></li>
+<li>积分运算<br>  <img data-fancybox="gallery" data-sizes="auto" data-src="https://pic3.zhimg.com/80/v2-4ec617ea544e00f9abcf9f280c7c23fe_720w.jpg" alt="积分" class="lazyload"></li>
+<li>其他符号<br>  <img data-fancybox="gallery" data-sizes="auto" data-src="https://pic1.zhimg.com/v2-befa971970692855c2843d14d3c38bf4_r.jpg" alt="其他" class="lazyload"></li>
+</ul>
+</li>
+</ol>
+<h2 id="三、插入图片"><a href="#三、插入图片" class="headerlink" title="三、插入图片"></a>三、插入图片</h2><ol>
+<li>首先将需要插入的图片上传到当前编辑文件的云端库中；<br><img src="https://pic1.zhimg.com/v2-bb102534c1352bd6fc2cc7b2ee5e1d48_r.jpg"><br><img src="https://pic4.zhimg.com/v2-fd4ca8d82ba2140603703be01e7c8faf_r.jpg"></li>
+<li>开始编程<br>\usepackage{graphicx} %加入头文件</li>
+</ol>
+<p>\begin{figure}[！htpb]/[H] %[htbp]是自动排版；[H]固定位置</p>
+<p>\centering %图片居中</p>
+<p>\includegraphics[scale=0.3]/[width=4.5in]{DPBS.png} %设置大小和名称</p>
+<p>\caption{DPBS}\label{1} %图片名称和图片标号</p>
+<p>\end{figure} %结束</p>
+<p>其中，{figure}的可选参数[!htbp]：</p>
+<p>h代表here,将表格排在当前文字位置 ；</p>
+<p>t表示将表格放在下一页的top (页首)；</p>
+<p>p表示p-page-of-its-own；</p>
+<p>b表示将表格放在当前页的 bottom(底部)；!表示忽略美观因素，尽可能按照参数指定的方式来处理图片浮动位置；</p>
+<h2 id="四、插入表格："><a href="#四、插入表格：" class="headerlink" title="四、插入表格："></a>四、插入表格：</h2><ol>
+<li>粗线（表格的第一根线和最后一根线比表格中的横线更粗一些）：</li>
+</ol>
+<p>\usepackage{booktabs}</p>
+<p>\toprule %第一根线</p>
+<p>\midrule %中间的线</p>
+<p>\bottomrule %最后一根线</p>
+<ol start="2">
+<li>调整位置：</li>
+</ol>
+<p>\begin{table}[!htbp]</p>
+<p>\end{table}</p>
+<p>其中，{table}有若干可选参数[!htbp]</p>
+<p>h代表here,将表格排在当前文字位置 ；t表示将表格放在下一页的 top (页首) ；p表示p-page-of-its-own；</p>
+<p>b表示将表格放在当前页的 bottom (底部) ；!表示忽略美观因素，尽可能按照参数指定的方式来处理表格浮动位置；</p>
+<ol start="3">
+<li>居中：</li>
+</ol>
+<p>长度不长时\centering</p>
+<p>长度过长时\centerline{} %把tabular的所有内容放进去</p>
+<ol start="4">
+<li>制表：</li>
+</ol>
+<p>\begin{tabular}{|l |c | r |} %“|”表示竖线，“l/c/r”表示格内居左/中/右，</p>
+<p>A &amp; B &amp; C\ %“&amp;”分隔不同列内的内容，“\”表示换行</p>
+<p>E &amp; F &amp; G\</p>
+<p>\end{tabular}</p>
+<ol start="5">
+<li><p>标签和名称：\label{label}\caption{name}</p>
+</li>
+<li><p>普通线：\hline或\cline{2-5} %后者可以画如下图这种表格：</p>
+</li>
+</ol>
+<ol start="7">
+<li>行高：</li>
+</ol>
+<p>\renewcommand\arraystretch{2} %表格行高设置为默认的2倍</p>
+<h2 id="五、参考文献："><a href="#五、参考文献：" class="headerlink" title="五、参考文献："></a>五、参考文献：</h2><ol>
+<li>格式：</li>
+</ol>
+<p>（1）期刊：作者名.题目.期刊（缩写，斜体）年份（加粗），卷（斜体），页码.</p>
+<p>（2）会议：作者名.题目.会议名称（不缩写，斜体），年份（不加粗）；pp. 页码.</p>
+<ol start="2">
+<li>函数：</li>
+</ol>
+<p>\begin{thebibliography}{}</p>
+<p>\bibitem{ref label}</p>
+<p>内容 %{\em要斜体的内容} {\bf要加粗的内容}</p>
+<p>\end{thebibliography}</p>
+<ol start="3">
+<li>例子：</li>
+</ol>
+<p>（1）效果图：</p>
+<p>（2）代码：</p>
+<p>\begin{thebibliography}{}</p>
+<p>\bibitem{ref 1 }</p>
+<p>Li, J.; Bioucas-Dias, J.M.; Plaza, A. Spectral–spatial hyperspectral image segmentation using subspace multinomial</p>
+<p>logistic regression and Markov random fields. {\em IEEE Trans. Geosci. Remote Sens.} {\bf 2012}, {\em 50}, 809-823.</p>
+<p>\end{thebibliography}</p>
+<h2 id="六、引用：（label是为了方便之后直接引用）："><a href="#六、引用：（label是为了方便之后直接引用）：" class="headerlink" title="六、引用：（label是为了方便之后直接引用）："></a>六、引用：（label是为了方便之后直接引用）：</h2><ol>
+<li>参考文献加label：在命令\bibitem写{ref A }</li>
+</ol>
+<p>引用：\cite{ref A }</p>
+<ol start="2">
+<li>表格/图片加label：\label{ A }</li>
+</ol>
+<p>引用：??????</p>
+<h2 id="七、论文模板的代码框架"><a href="#七、论文模板的代码框架" class="headerlink" title="七、论文模板的代码框架"></a>七、论文模板的代码框架</h2><p>% 与很多外文杂志社不同，大部分中文期刊都不提供\LaTeX{}模板给投稿者使用，也很少有学校给学生提供官方的毕业论文模板。目前github上的大部分模板都是由学生发起的非官方模板。在此感谢Shun Xu以及yecfly等人的工作，他们的无私贡献使得华南理工大学硕博士毕业论文也可以使用\LaTeX{}撰写。</p>
+<p>% 本模板是直接修改前人的模板得到的，更详细的介绍可到\parencite{_,_a}下载。本章仅从用户的角度简要介绍模板的使用，而尽量避免涉及\LaTeX{}的模板制作细节（实际上是因为本人也不会）。正如我们使用手机并不需要了解麦克斯韦方程组，使用\LaTeX{}写作也无需了解模板是如何制作的。</p>
+<p>% \LaTeX{}的源代码保存在后缀名为.tex的文件中。当编写长篇文档时，例如当编写书籍、毕业论文时，单个源文件会使修改、校对变得十分困<br>% 难。将源文件分割成若干个文件，例如将每章内容单独写在一个文件中，会大大简化修改和校对。<br>% 的工作。为方便，本文将scutthesis.tex文件称为主文件，而将abstract.tex、chapter0x.tex、conclusion.tex等文件称为章节文件。</p>
+<p>% 值得注意的是，要每次编译时都更新参考文献著录，TeXstudio软件的选项-&gt;设置中的构建并查看、编译器需要设置成如图\ref{TeXstudio}、\ref{setup}所示。此时只需在任意一个文件中点击构建并查看按钮即可编译文档。每次编译都更新参考文献会使得编译时间很长。<br>% \begin{figure}[htbp]<br>%     \centering<br>%     \includegraphics[scale=0.55]{Fig/TeXstudio.png}<br>%     \caption{\label{TeXstudio}TeXstudio环境}<br>% \end{figure}<br>% \begin{figure}[htbp]<br>%     \centering<br>%     \includegraphics[scale=0.55]{Fig/setup.png}<br>%     \caption{\label{setup}TeXstudio编译选项}<br>% \end{figure}</p>
+<p>% \section{主文件}<br>% scutthesis.tex文件相当于主函数，调用各章的内容。\LaTeX{}源代码以一个\textbackslash{}documentclass 命令作为开头，它指定了文档使用的文档类。文档类规定了\LaTeX{}源代码所要生成的文档的性质——普通文章、书籍、演示文稿、个人简<br>% 历等等。<br>% \begin{lstlisting}<br>% \documentclass[⟨options⟩]{⟨class-name⟩}<br>% \end{lstlisting}<br>% 其中class-name为文档类的名称，如\LaTeX{}提供的article, book, report，可在其基础上派<br>% 生的一些文档类或者有其它功能的一些文档类。\LaTeX{}提供的基础文档类见文献\parencite{_c}。还可以自定义文档类，如华南理工大学硕博士论文文档类scutthesis，其实现保存在后缀名为.cls的文件中。可选参数options 为文档类指定选项。</p>
+<p>% document环境当中的内容是文档正文：<br>% \begin{lstlisting}<br>% \begin{document}<br>% 正文内容<br>% \end{document}<br>% \end{lstlisting}<br>% 正文中包含各章节内容：<br>% \begin{lstlisting}<br>% \include{abstract} % 中英文摘要<br>% \tableofcontents    % 目录<br>% \listoftables    % 表格目录（可选）<br>% \listoffigures    % 插图目录（可选）<br>% \include{symbols}    % 符号对照表(可选)<br>% \include{abbreviation}     % 缩略词<br>% …<br>% \include{chapter01}    % 第一章<br>% \include{chapter02} % 第二章<br>% \include{chapter03} % 第三章<br>% % 自行根据需要添加章节。<br>% …<br>% \include{conclusion} % 结论<br>% …<br>% \printbibliography    % 参考文献著录<br>% \include{appendix} % 附录<br>% \include{pub} % 成果<br>% \include{ack} % 致谢<br>% \end{lstlisting}<br>% 其中$%$之后的内容为注释，…表示省略其他代码，仅保留论文内容主体部分。\textbackslash{}include{xxx}指令用于包含xxx.tex文件的内容，各章节的内容主要在xxx.tex中保存。在\textbackslash{}documentclass 和\textbackslash{}begin{document} 之间的位置称为导言区。在导言区中一般会使用\textbackslash{}usepackage 调用宏包，以及会进行对文档的全局设置。本模板的导言区除调用所需的宏包外，还进行了页眉页脚的设置。有的模板会把所有调用宏包的指令放到一个.sty宏包文件中，页面的设置放在文档类文件.cls文件中。因本人时间有限，就不做整理，欢迎有志之士加入完善。使用本模板并不需要了解导言区的指令，在需要时额外添加即可（要注意宏包冲突）。特别地，\textbackslash{}includeonly{xxx}指令用于使文档仅编译xxx.tex文件的内容，这就是分章节包含（include）的好处，可大大减少编译时间。</p>
+<p>% 将封面打印保存为 thesis_cover.pdf 文件，硕士使用master_cover.docx ，博士使用 doctor_cover.doc 。如果有更新版本的封面，可自行替换。文档类默认是博士论文，下面指令将控制添加封面与否：<br>% \begin{lstlisting}<br>% \documentclass[unicode,master,pdfcover]{scutthesis}    % 使用pdf文件封面的 硕士模板<br>% \documentclass[unicode,master]{scutthesis}    % 不使用pdf文件封面的 硕士模板<br>% \documentclass[unicode,pdfcover]{scutthesis}    % 使用pdf文件封面的博士模板<br>% \documentclass[unicode]{scutthesis}    % 不使用pdf文件封面的博士模板<br>% \end{lstlisting}<br>% 不使用thesis_cover.pdf 文件指定的封面时，将使用草稿封面。草稿封面也可以减少编译时间，因此可以在最终提交论文时再使用论文封面。草稿封面用以下指令设置：<br>% \begin{lstlisting}<br>% %%%%%%%%%%%%%草稿封面设置%%%%%%%%%%%%%<br>% \title{LaTeX模板}<br>% \author{蒙超恒}<br>% \supervisor{指导教师：裴海龙\ 教授}<br>% \institute{华南理工大学}<br>% \date{2020年5月20日}<br>% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%<br>% \end{lstlisting}</p>
+<p>% \section{章节文件}<br>% 章节文件如chapter0x.tex等，其内容由\textbackslash{}chapter{章名}开头。新建一章可新建一个文件并由\textbackslash{}chapter{新建章名}开头填写内容即可。节及小节分别用\textbackslash{}section{新建节名}、\textbackslash{}subsection{新建小节名}命令。</p>
+<p>% 正文的的书写和txt文本文件的书写类似。\LaTeX{} 源代码中，空格键和Tab键输入的空白字符视为“空格”。连续的若干个空白字符视为一个空格。一行开头的空格忽略不计。行末的回车视为一个空格；但连续两个回车，也就是空行，会将文字分段。多个空行被视为一个空行。也可以在行末使用\textbackslash{}par 命令分段。在本模板中，英文之间的空格被保留，中文之间的空格被忽略。特别地，摘要，附录，结论等两个字的大纲级别为章的章名，中间使用空格隔开。对此论文撰写规范并没有明文要求，只是为了美观。也可以全部不加空格。一般情况下，在文本文字中添加空格使用\textbackslash{}quad命令，但由于文献\parencite{_d}所述原因，直接使用\textbackslash{}quad命令会报警，因而使用\textbackslash{}texorpdfstring{\textbackslash{}quad}{}，其中最后一个{}里面可以加一个空格，不影响使用。目录二字之间添加空格在scutthesis.cls文件317行设置。</p>
+<p>% 正文本环境中使用公式，即行内公式，需要用两个$包围，如源码：$a+b=c$ 显示为$a+b=c$。使用其他字符可自行百度或阅读参考文献。再次提醒，使用\LaTeX{}撰写论文不需要研究其原理，在达到某种效果（图文显示、公式显示效果）时百度或查书寻找其代码即可。</p>
+<p>% 综上，论文撰写只需要将自己的文本（包含行内公式）放到相应的章节处，并添加行间公式、图表环境并填写图表即可。行间公式、图表将在下一章介绍。</p>
+<h2 id="八、代码示例"><a href="#八、代码示例" class="headerlink" title="八、代码示例"></a>八、代码示例</h2><ol>
+<li>写（1）、（2）项：<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs tex"><span class="hljs-keyword">\begin</span>&#123;enumerate&#125;[topsep = 0 pt, itemsep= 0 pt, parsep=0pt, partopsep=0pt, leftmargin=44pt, itemindent=0pt, labelsep=6pt, label=(<span class="hljs-keyword">\arabic</span>*)]<br>	<span class="hljs-keyword">\item</span> 	参考文献管理软件zotero<span class="hljs-keyword">\cite</span>&#123;<span class="hljs-built_in">_</span>m&#125;。很多人使用过endnote，但其实zotero也非常强大，强烈推荐。可到b站观看Struggle with Me出品的视频教程<span class="hljs-keyword">\cite</span>&#123;<span class="hljs-built_in">_</span>k&#125;入门。zotero不自带pdf阅读器，使用Adobe Acrobat pro DC即可（最新版已经内置pdf阅读器）。在Adobe中点击文件-&gt;属性-&gt;位置，即可打开文件所在位置，故亦不推荐更改zotero的文件系统。2021年9月实测endnote导出的bib文件也可以使用此模板，原本以为zetero导出biblatex和导出bibtex不一样，实际上是一样的，endnote用户或不使用参考文献管理软件的用户可以忽略本文zotero部分的讲解。<br>	<span class="hljs-keyword">\item</span>	可截图获取文献中公式的软件mathpix<span class="hljs-keyword">\cite</span>&#123;<span class="hljs-built_in">_</span>h&#125;。在阅读别人的论文时，很可能需要把文章中的公式抄下来放到自己的笔记中，方便以后组会报告甚至论文中使用，这时使用mathpix可直接截图获取<span class="hljs-keyword">\LaTeX</span>&#123;&#125;源码，非常方便。该软件普通邮箱注册可每月50次免费，学校邮箱可100次，若信用卡注册可1000次（最新情况是只能500次了，还要收费20美元，世界变化太快了）。	<br>	<span class="hljs-keyword">\item</span>	TeXlive2020、TeXstudio，相当于开发环境和IDE。本模板是基于TeX的发行版TeXlive2020和编辑器TeXstudio进行的，百度这两个关键字分别安装。关于TeXstudio的使用（快捷键等）可另行查找资料。编译时可以使用该软件，也可以运行文件目录的all.bat。若在其他窗口打开了编译生成的pdf文件，记得关掉再编译，否则报错。TeXstudio的设置见第二章。<br><span class="hljs-keyword">\end</span>&#123;enumerate&#125;<br></code></pre></td></tr></table></figure></li>
+<li>插入图片<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br></pre></td><td class="code"><pre><code class="hljs tex">图的导入需要提前准备好图片文件，最好是.png、.eps、.pdf或.jpg文件。另外，如果是从matlab导出图片文件，可使用print函数或手动导出，print函数的使用可参考ICGNC2020plot.m以及PlotToFileColorPDF.m文件等。手动导出（matlab的figure界面的“文件”-&gt;“导出设置”设置好大小、分辨率和线宽等然后点击“应用于图窗”）主要用于观察效果，可设置某种样式名称后保存该样式，下次使用时加载，具体可百度“matlab导出高清图片”。需要特别注意的是一定要1:1导入matlab生成的图片，并且图中文字设置好字体字号。否则缩放之后，图片的字号就变了，盲审老师一眼就能看出来字号不对，就很麻烦。这就是为什么要在matlab点击“应用于图窗“进行预览，观测效果后再1:1使用图片。<br><br>使用如下代码放置独立成行的图片，效果如图<span class="hljs-keyword">\ref</span>&#123;one<span class="hljs-built_in">_</span>DFUAV&#125;所示<br><span class="hljs-keyword">\begin</span>&#123;lstlisting&#125;<br><span class="hljs-keyword">\begin</span>&#123;figure&#125;[htbp]<br>	<span class="hljs-comment">% 图片居中（列居中对齐）</span><br>	<span class="hljs-keyword">\centering</span>	<br>	<span class="hljs-comment">% 包含当前路径下的Fig文件夹的图片文件DFUAV_f31.png</span><br>	<span class="hljs-keyword">\includegraphics</span>[scale=1]&#123;Fig/DFUAV<span class="hljs-built_in">_</span>f31.png&#125; <br>	<span class="hljs-comment">% 添加标签one_DFUAV以及图标题“涵道风扇式无人机”，引用某图时使用\ref&#123;xxx&#125;，其中xxx就是标签，图编号是自动生成的。</span><br>	<span class="hljs-keyword">\caption</span>&#123;<span class="hljs-keyword">\label</span>&#123;one<span class="hljs-built_in">_</span>DFUAV&#125;涵道风扇式无人机&#125; <br><span class="hljs-keyword">\end</span>&#123;figure&#125;<br><span class="hljs-keyword">\end</span>&#123;lstlisting&#125;<br>其中figure为环境名，[htbp]表示将图片设置为浮动体，实际上这在.cls文件已经设置过，因而可以省略。[scale=1]表示安装1:1的比例导入图片，还可以按其他方式导入，需要时可自行百度。<br><span class="hljs-keyword">\begin</span>&#123;figure&#125;[htbp]<br>	<span class="hljs-keyword">\centering</span><br>	<span class="hljs-keyword">\includegraphics</span>[scale=1]&#123;Fig/DFUAV<span class="hljs-built_in">_</span>f31.png&#125;<br>	<span class="hljs-keyword">\caption</span>&#123;<span class="hljs-keyword">\label</span>&#123;one<span class="hljs-built_in">_</span>DFUAV&#125;涵道风扇式无人机&#125;<br><span class="hljs-keyword">\end</span>&#123;figure&#125;<br><br>使用如下代码划分页面并排放置图<span class="hljs-keyword">\ref</span>&#123;Hawk&#125;、图<span class="hljs-keyword">\ref</span>&#123;GTSpy&#125;<br><span class="hljs-keyword">\begin</span>&#123;lstlisting&#125;<br><span class="hljs-keyword">\begin</span>&#123;figure&#125;[htbp]<br>	<span class="hljs-keyword">\centering</span><br>	<span class="hljs-keyword">\begin</span>&#123;minipage&#125;[c]&#123;0.5<span class="hljs-keyword">\textwidth</span>&#125; <span class="hljs-comment">% minipage将页面划分为0.5\textwidth</span><br>		<span class="hljs-keyword">\centering</span><br>		<span class="hljs-keyword">\includegraphics</span>[width=6cm,height=6cm]&#123;Fig/honeywell<span class="hljs-built_in">_</span>t-hawk.jpg&#125;<br>		<span class="hljs-keyword">\caption</span>&#123;<span class="hljs-keyword">\label</span>&#123;Hawk&#125;T-Hawk&#125;<br>	<span class="hljs-keyword">\end</span>&#123;minipage&#125;<span class="hljs-comment">%</span><br>	<span class="hljs-keyword">\begin</span>&#123;minipage&#125;[c]&#123;0.5<span class="hljs-keyword">\textwidth</span>&#125;<br>		<span class="hljs-keyword">\centering</span><br>		<span class="hljs-keyword">\includegraphics</span>[width=6cm,height=6cm]&#123;Fig/GTSpy.jpg&#125;<br>		<span class="hljs-keyword">\caption</span>&#123;<span class="hljs-keyword">\label</span>&#123;GTSpy&#125;GTSpy&#125;<br>	<span class="hljs-keyword">\end</span>&#123;minipage&#125;<br><span class="hljs-keyword">\end</span>&#123;figure&#125;<br><span class="hljs-keyword">\end</span>&#123;lstlisting&#125;<br>其中[c]表示行居中对齐。当图片大小不一但又需要1:1导入时，图标题可能行不对齐，因此可以改为如下指令：<br><span class="hljs-keyword">\begin</span>&#123;lstlisting&#125;<br><span class="hljs-keyword">\begin</span>&#123;figure&#125;[htbp]<br>	<span class="hljs-keyword">\centering</span><br>	<span class="hljs-keyword">\begin</span>&#123;minipage&#125;[c]&#123;0.5<span class="hljs-keyword">\textwidth</span>&#125;<br>		<span class="hljs-keyword">\centering</span><br>		<span class="hljs-keyword">\includegraphics</span>[scale=1]&#123;Fig/honeywell<span class="hljs-built_in">_</span>t-hawk.jpg&#125; <span class="hljs-comment">%1:1导入</span><br>	<span class="hljs-keyword">\end</span>&#123;minipage&#125;<span class="hljs-comment">%</span><br>	<span class="hljs-keyword">\begin</span>&#123;minipage&#125;[c]&#123;0.5<span class="hljs-keyword">\textwidth</span>&#125;<br>		<span class="hljs-keyword">\centering</span><br>		<span class="hljs-keyword">\includegraphics</span>[scale=1]&#123;Fig/GTSpy.jpg&#125;<br>	<span class="hljs-keyword">\end</span>&#123;minipage&#125;<span class="hljs-keyword">\\</span>[1pt]<br>	<span class="hljs-keyword">\begin</span>&#123;minipage&#125;[t]&#123;0.5<span class="hljs-keyword">\textwidth</span>&#125;	<span class="hljs-comment">% 以下为新添加页面划分，[t]表示行顶部对齐</span><br>		<span class="hljs-keyword">\caption</span>&#123;<span class="hljs-keyword">\label</span>&#123;Hawk&#125;T-Hawk&#125;<br>	<span class="hljs-keyword">\end</span>&#123;minipage&#125;<span class="hljs-comment">%</span><br>	<span class="hljs-keyword">\begin</span>&#123;minipage&#125;[t]&#123;0.5<span class="hljs-keyword">\textwidth</span>&#125;<br>		<span class="hljs-keyword">\caption</span>&#123;<span class="hljs-keyword">\label</span>&#123;GTSpy&#125;GTSpy&#125;<br>	<span class="hljs-keyword">\end</span>&#123;minipage&#125;<span class="hljs-comment">%</span><br><span class="hljs-keyword">\end</span>&#123;figure&#125;<br><span class="hljs-keyword">\end</span>&#123;lstlisting&#125;<br><br><span class="hljs-keyword">\begin</span>&#123;figure&#125;[htbp]<br>	<span class="hljs-keyword">\centering</span><br>	<span class="hljs-keyword">\begin</span>&#123;minipage&#125;[c]&#123;0.5<span class="hljs-keyword">\textwidth</span>&#125;<br>		<span class="hljs-keyword">\centering</span><br>		<span class="hljs-keyword">\includegraphics</span>[width=6cm,height=6cm]&#123;Fig/honeywell<span class="hljs-built_in">_</span>t-hawk.jpg&#125;<br>		<span class="hljs-keyword">\caption</span>&#123;<span class="hljs-keyword">\label</span>&#123;Hawk&#125;T-Hawk&#125;<br>	<span class="hljs-keyword">\end</span>&#123;minipage&#125;<span class="hljs-comment">%</span><br>	<span class="hljs-keyword">\begin</span>&#123;minipage&#125;[c]&#123;0.5<span class="hljs-keyword">\textwidth</span>&#125;<br>		<span class="hljs-keyword">\centering</span><br>		<span class="hljs-keyword">\includegraphics</span>[width=6cm,height=6cm]&#123;Fig/GTSpy.jpg&#125;<br>		<span class="hljs-keyword">\caption</span>&#123;<span class="hljs-keyword">\label</span>&#123;GTSpy&#125;GTSpy&#125;<br>	<span class="hljs-keyword">\end</span>&#123;minipage&#125;<br><span class="hljs-keyword">\end</span>&#123;figure&#125;<br><br><br>通常一个figure内含有其他小的figure,可以使用一些宏包，但最初本着简单的原则，本模板并没有使用这些子图包。后来应同学们要求在，把子图的功能加上，主要是修改了模板文件（scutthesis.cls文件）的功能包参数。注意，很多网上拿到的代码不一定可以精确的调子图标题字体字号，因为此模板的子图标题字体字号是利用subfig宏包的选项进行设置的（在scutthesis.cls文件的“图表环境”中），而有些教程使用subcaption进行同样的设置，还需进一步验证可行性。另外图的排版方法很多，有些宏包已经被弃用，所以尽量使用本文给出的案例的格式进行排版图片。<br><br>常见的子图包有subfigure和subfig。subfigure是比较老的了，这里使用subfig包。两个包在使用的时候用法不同，千万不要混淆了，不然可能会报错。subfig包的命令是<span class="hljs-keyword">\textbackslash</span>&#123;&#125;subfloat。这里给出一种使用subfig包的常用排版，如图<span class="hljs-keyword">\ref</span>&#123;Fig:1&#125;的子图<span class="hljs-keyword">\subref</span>&#123;Fig:1:b&#125;，其中<span class="hljs-keyword">\subref</span>*&#123;Fig:1:a&#125;的试验并不好（这里测试了交叉引用<span class="hljs-keyword">\textbackslash</span>&#123;&#125;subref<span class="hljs-keyword">\&#123;</span>xxx<span class="hljs-keyword">\&#125;</span>和<span class="hljs-keyword">\textbackslash</span>&#123;&#125;subref*<span class="hljs-keyword">\&#123;</span>xxx<span class="hljs-keyword">\&#125;</span>）。必要时也可以排版多行多列的图、调整图之间的间距，具体可百度。<br><br><span class="hljs-keyword">\begin</span>&#123;lstlisting&#125;<br><span class="hljs-keyword">\begin</span>&#123;figure&#125;[!h]<br>	<span class="hljs-keyword">\centering</span><br>	<span class="hljs-keyword">\subfloat</span>[不合理的轨迹]&#123;<span class="hljs-keyword">\includegraphics</span>[width=6cm,height=6cm]&#123;Fig/Figure<span class="hljs-built_in">_</span>1.png&#125;<span class="hljs-comment">%</span><br>		<span class="hljs-keyword">\label</span>&#123;Fig:1:a&#125;&#125;<br>	<span class="hljs-keyword">\subfloat</span>[优化的轨迹]&#123;<span class="hljs-keyword">\includegraphics</span>[width=6cm,height=6cm]&#123;Fig/Figure<span class="hljs-built_in">_</span>2.png&#125;<br>		<span class="hljs-keyword">\label</span>&#123;Fig:1:b&#125;&#125;<br>	<span class="hljs-keyword">\\</span> <span class="hljs-comment">% 用 \\ 换行，也可以此处空一行进行换行，只有两个图的话下面就不需要了。</span><br>	<span class="hljs-keyword">\subfloat</span>[不合理的轨迹]&#123;<span class="hljs-keyword">\includegraphics</span>[width=6cm,height=6cm]&#123;Fig/Figure<span class="hljs-built_in">_</span>1.png&#125;<span class="hljs-comment">%</span><br>		<span class="hljs-keyword">\label</span>&#123;Fig:1:c&#125;&#125;<br>	<span class="hljs-keyword">\subfloat</span>[优化的轨迹]&#123;<span class="hljs-keyword">\includegraphics</span>[width=6cm,height=6cm]&#123;Fig/Figure<span class="hljs-built_in">_</span>2.png&#125;<span class="hljs-comment">%</span><br>		<span class="hljs-keyword">\label</span>&#123;Fig:1:d&#125;&#125;<br>	<span class="hljs-keyword">\caption</span>&#123;子图包使用测试&#125;<span class="hljs-keyword">\label</span>&#123;Fig:1&#125;<br><span class="hljs-keyword">\end</span>&#123;figure&#125;<br>----------------------------------------------------------<br><span class="hljs-comment">% 引用某子图时使用\subref&#123;xxx&#125;，其中xxx就是标签Fig:1:a</span><br>子图的引用比较特殊，命令有：<span class="hljs-keyword">\subref</span>&#123;xxx&#125;和<span class="hljs-keyword">\subref</span>*&#123;xxx&#125;<br>注：在subfig包使用说明中，<span class="hljs-keyword">\subref</span>&#123;xxx&#125;和<span class="hljs-keyword">\subref</span>*&#123;xxx&#125;分别由参数listofformat和subrefformat控制，<br>并由如下定义，根据撰写规范需要定义为：<br><span class="hljs-keyword">\DeclareSubrefFormat</span>&#123;empty&#125;&#123;&#125;<br><span class="hljs-keyword">\DeclareSubrefFormat</span>&#123;simple&#125;&#123;<span class="hljs-params">#1</span><span class="hljs-params">#2</span>&#125;<br><span class="hljs-keyword">\DeclareSubrefFormat</span>&#123;parens&#125;&#123;<span class="hljs-params">#1</span> <span class="hljs-params">#2</span>)&#125;<br><span class="hljs-keyword">\DeclareSubrefFormat</span>&#123;subsimple&#125;&#123;<span class="hljs-params">#2</span>&#125;<br><span class="hljs-keyword">\DeclareSubrefFormat</span>&#123;subparens&#125;&#123; <span class="hljs-params">#2</span>)&#125;<br>和<br><span class="hljs-keyword">\DeclareCaptionListOfFormat</span>&#123;empty&#125;&#123;&#125;<br><span class="hljs-keyword">\DeclareCaptionListOfFormat</span>&#123;simple&#125;&#123;<span class="hljs-params">#1</span><span class="hljs-params">#2</span>&#125;<br><span class="hljs-keyword">\DeclareCaptionListOfFormat</span>&#123;parens&#125;&#123;<span class="hljs-params">#1</span> <span class="hljs-params">#2</span>)&#125;<br><span class="hljs-keyword">\DeclareCaptionListOfFormat</span>&#123;subsimple&#125;&#123;<span class="hljs-params">#2</span>&#125;<br><span class="hljs-keyword">\DeclareCaptionListOfFormat</span>&#123;subparens&#125;&#123; <span class="hljs-params">#2</span>)&#125;<br><span class="hljs-keyword">\end</span>&#123;lstlisting&#125;<br><span class="hljs-keyword">\begin</span>&#123;figure&#125;[!h]<br>	<span class="hljs-keyword">\centering</span><br>	<span class="hljs-keyword">\subfloat</span>[不合理的轨迹]&#123;<span class="hljs-keyword">\includegraphics</span>[width=6cm,height=6cm]&#123;Fig/Figure<span class="hljs-built_in">_</span>1.png&#125;<span class="hljs-comment">%</span><br>		<span class="hljs-keyword">\label</span>&#123;Fig:1:a&#125;&#125;<br>	<span class="hljs-keyword">\subfloat</span>[优化的轨迹]&#123;<span class="hljs-keyword">\includegraphics</span>[width=6cm,height=6cm]&#123;Fig/Figure<span class="hljs-built_in">_</span>2.png&#125;<br> 		<span class="hljs-keyword">\label</span>&#123;Fig:1:b&#125;&#125;<br>	<span class="hljs-keyword">\\</span> <span class="hljs-comment">% 用 \\ 换行，也可以此处空一行进行换行</span><br>	<span class="hljs-keyword">\subfloat</span>[不合理的轨迹]&#123;<span class="hljs-keyword">\includegraphics</span>[width=6cm,height=6cm]&#123;Fig/Figure<span class="hljs-built_in">_</span>1.png&#125;<span class="hljs-comment">%</span><br>		<span class="hljs-keyword">\label</span>&#123;Fig:1:c&#125;&#125;<br>	<span class="hljs-keyword">\subfloat</span>[优化的轨迹]&#123;<span class="hljs-keyword">\includegraphics</span>[width=6cm,height=6cm]&#123;Fig/Figure<span class="hljs-built_in">_</span>2.png&#125;<span class="hljs-comment">%</span><br>		<span class="hljs-keyword">\label</span>&#123;Fig:1:d&#125;&#125;<br>	<span class="hljs-keyword">\caption</span>&#123;子图包使用测试&#125;<span class="hljs-keyword">\label</span>&#123;Fig:1&#125;<br><span class="hljs-keyword">\end</span>&#123;figure&#125;<br></code></pre></td></tr></table></figure></li>
+<li>表格三线表<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs tex">本节仅展示使用常见的三线表<br><span class="hljs-keyword">\begin</span>&#123;lstlisting&#125;<br><span class="hljs-keyword">\begin</span>&#123;table&#125;<br>	<span class="hljs-keyword">\caption</span>&#123;<span class="hljs-keyword">\label</span>&#123;TDF<span class="hljs-built_in">_</span>para&#125;涵道模型参数&#125;	<span class="hljs-comment">%表题在上</span><br>	<span class="hljs-keyword">\centering</span>	<span class="hljs-comment">% 表居中</span><br>	<span class="hljs-keyword">\small</span>	<span class="hljs-comment">% 表内字体小一号（即设置成和表题字号一致）</span><br>	<span class="hljs-keyword">\begin</span>&#123;tabular&#125;&#123;cccc&#125;	<span class="hljs-comment">% cccc表示4列并居中，若列之间需要分隔符则设置为|c|c|c|c|</span><br>		<span class="hljs-keyword">\hline</span>	<span class="hljs-comment">% \hline表示横线。列之间的元素用&amp;分隔，\tabularnewline表示换行</span><br>		参数符号 <span class="hljs-built_in">&amp;</span> 数值 <span class="hljs-built_in">&amp;</span> 参数符号 <span class="hljs-built_in">&amp;</span> 数值 <span class="hljs-keyword">\tabularnewline</span> <br>		<span class="hljs-keyword">\hline</span> <br>		<span class="hljs-built_in">$</span>I<span class="hljs-built_in">_</span>x<span class="hljs-built_in">$</span> <span class="hljs-built_in">&amp;</span> <span class="hljs-built_in">$</span>054593<span class="hljs-built_in">$</span> 		   <span class="hljs-built_in">&amp;</span> <span class="hljs-built_in">$</span>I<span class="hljs-built_in">_</span>y<span class="hljs-built_in">$</span> <span class="hljs-built_in">&amp;</span> <span class="hljs-built_in">$</span>0.017045         <span class="hljs-built_in">$</span> <span class="hljs-keyword">\tabularnewline</span><br>		<span class="hljs-built_in">$</span>l<span class="hljs-built_in">_</span>1<span class="hljs-built_in">$</span> <span class="hljs-built_in">&amp;</span> <span class="hljs-built_in">$</span>0.0808<span class="hljs-keyword">\,</span><span class="hljs-keyword">\text</span>&#123;m&#125;<span class="hljs-built_in">$</span> <span class="hljs-built_in">&amp;</span> <span class="hljs-built_in">$</span>l<span class="hljs-built_in">_</span>2<span class="hljs-built_in">$</span> <span class="hljs-built_in">&amp;</span> <span class="hljs-built_in">$</span>0.175<span class="hljs-keyword">\,</span><span class="hljs-keyword">\text</span>&#123;m&#125;  <span class="hljs-built_in">$</span> <span class="hljs-keyword">\tabularnewline</span> <br>		<span class="hljs-built_in">$</span>l<span class="hljs-built_in">_</span>4<span class="hljs-built_in">$</span> <span class="hljs-built_in">&amp;</span> <span class="hljs-built_in">$</span>0.2415<span class="hljs-keyword">\,</span><span class="hljs-keyword">\text</span>&#123;m&#125;<span class="hljs-built_in">$</span> <span class="hljs-built_in">&amp;</span> <span class="hljs-built_in">$</span>l<span class="hljs-built_in">_</span>5<span class="hljs-built_in">$</span> <span class="hljs-built_in">&amp;</span> <span class="hljs-built_in">$</span>0.1085<span class="hljs-keyword">\,</span><span class="hljs-keyword">\text</span>&#123;m&#125; <span class="hljs-built_in">$</span> <span class="hljs-keyword">\tabularnewline</span><br>		<span class="hljs-keyword">\hline</span> <br>	<span class="hljs-keyword">\end</span>&#123;tabular&#125;<br><span class="hljs-keyword">\end</span>&#123;table&#125;<br><span class="hljs-keyword">\end</span>&#123;lstlisting&#125;<br><span class="hljs-keyword">\begin</span>&#123;table&#125;<br>	<span class="hljs-keyword">\caption</span>&#123;<span class="hljs-keyword">\label</span>&#123;TDF<span class="hljs-built_in">_</span>para&#125;涵道模型参数&#125;<br>	<span class="hljs-keyword">\centering</span><br>	<span class="hljs-keyword">\small</span> <br>	<span class="hljs-keyword">\begin</span>&#123;tabular&#125;&#123;cccc&#125;<br>		<span class="hljs-keyword">\hline</span> <br>		参数符号 <span class="hljs-built_in">&amp;</span> 数值                <span class="hljs-built_in">&amp;</span> 参数符号 <span class="hljs-built_in">&amp;</span> 数值                 <span class="hljs-keyword">\tabularnewline</span><br>		<span class="hljs-keyword">\hline</span> <br>		<span class="hljs-built_in">$</span>I<span class="hljs-built_in">_</span>x<span class="hljs-built_in">$</span>   <span class="hljs-built_in">&amp;</span> <span class="hljs-built_in">$</span>054593<span class="hljs-built_in">$</span> 		     <span class="hljs-built_in">&amp;</span> <span class="hljs-built_in">$</span>I<span class="hljs-built_in">_</span>y<span class="hljs-built_in">$</span>   <span class="hljs-built_in">&amp;</span> <span class="hljs-built_in">$</span>0.017045         <span class="hljs-built_in">$</span> <span class="hljs-keyword">\tabularnewline</span><br>		<span class="hljs-built_in">$</span>l<span class="hljs-built_in">_</span>1<span class="hljs-built_in">$</span>   <span class="hljs-built_in">&amp;</span> <span class="hljs-built_in">$</span>0.0808<span class="hljs-keyword">\,</span><span class="hljs-keyword">\text</span>&#123;m&#125;<span class="hljs-built_in">$</span> <span class="hljs-built_in">&amp;</span> <span class="hljs-built_in">$</span>l<span class="hljs-built_in">_</span>2<span class="hljs-built_in">$</span>   <span class="hljs-built_in">&amp;</span> <span class="hljs-built_in">$</span>0.175<span class="hljs-keyword">\,</span><span class="hljs-keyword">\text</span>&#123;m&#125;  <span class="hljs-built_in">$</span> <span class="hljs-keyword">\tabularnewline</span> <br>		<span class="hljs-built_in">$</span>l<span class="hljs-built_in">_</span>4<span class="hljs-built_in">$</span>   <span class="hljs-built_in">&amp;</span> <span class="hljs-built_in">$</span>0.2415<span class="hljs-keyword">\,</span><span class="hljs-keyword">\text</span>&#123;m&#125;<span class="hljs-built_in">$</span> <span class="hljs-built_in">&amp;</span> <span class="hljs-built_in">$</span>l<span class="hljs-built_in">_</span>5<span class="hljs-built_in">$</span>   <span class="hljs-built_in">&amp;</span> <span class="hljs-built_in">$</span>0.1085<span class="hljs-keyword">\,</span><span class="hljs-keyword">\text</span>&#123;m&#125; <span class="hljs-built_in">$</span> <span class="hljs-keyword">\tabularnewline</span><br>		<span class="hljs-keyword">\hline</span> <br>	<span class="hljs-keyword">\end</span>&#123;tabular&#125;<br><span class="hljs-keyword">\end</span>&#123;table&#125;<br></code></pre></td></tr></table></figure></li>
+<li>公式输入，数学输入<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></td><td class="code"><pre><code class="hljs tex">除了前面讲行内公式，常用的还有行间公式。公式中的数学符号可自行百度，本章仅介绍常用的几种公式环境。<br><br>单独成行的行间公式在 <span class="hljs-keyword">\LaTeX</span>&#123;&#125; 里由equation 环境包裹。equation 环境为公式自动生成一个编号，这个编号可以用<span class="hljs-keyword">\textbackslash</span>&#123;&#125;label 和<span class="hljs-keyword">\textbackslash</span>&#123;&#125;ref 生成交叉引用，amsmath 宏包的<span class="hljs-keyword">\textbackslash</span>&#123;&#125;eqref 可为引用自动加上圆括号；如式<span class="hljs-keyword">\eqref</span>&#123;eq<span class="hljs-built_in">_</span>1&#125;所示。<br><span class="hljs-keyword">\begin</span>&#123;lstlisting&#125;<br><span class="hljs-keyword">\begin</span>&#123;equation&#125;<br>	a+b=c	<span class="hljs-keyword">\label</span>&#123;eq<span class="hljs-built_in">_</span>1&#125;<br><span class="hljs-keyword">\end</span>&#123;equation&#125;<br><span class="hljs-keyword">\end</span>&#123;lstlisting&#125;<br><span class="hljs-keyword">\begin</span>&#123;equation&#125;<br>	a+b=c	<span class="hljs-keyword">\label</span>&#123;eq<span class="hljs-built_in">_</span>1&#125;<br><span class="hljs-keyword">\end</span>&#123;equation&#125;<br>若不需要编号则加星号，改为<br><span class="hljs-keyword">\begin</span>&#123;lstlisting&#125;<br><span class="hljs-keyword">\begin</span>&#123;equation*&#125;<br>	a+b=c<br><span class="hljs-keyword">\end</span>&#123;equation*&#125;<br><span class="hljs-keyword">\end</span>&#123;lstlisting&#125;<br>其他环境类似。当使用 <span class="hljs-keyword">\texttt</span><span class="hljs-keyword">\$</span> 开启行内公式输入，或是使用&#123;equation&#125; 环境时，<span class="hljs-keyword">\LaTeX</span><span class="hljs-keyword">\ </span>就进入了数学模式。<br>数学模式相比于文本模式有以下特点：<br><span class="hljs-keyword">\begin</span>&#123;enumerate&#125;<br>	<span class="hljs-keyword">\item</span> 数学模式中输入的空格被忽略。数学符号的间距默认由符号的性质（关系符号、运算符等）决定。<br>	需要人为引入间距时，使用 <span class="hljs-keyword">\textbackslash</span>&#123;&#125;&#123;quad&#125; 和 <span class="hljs-keyword">\textbackslash</span>&#123;&#125;&#123;qquad&#125; 等命令。<br>	<span class="hljs-keyword">\item</span> &#123;不允许有空行（分段）&#125;。行间公式中也无法用 <span class="hljs-built_in">$</span> <span class="hljs-keyword">\verb</span>|<span class="hljs-string">\\</span>|<span class="hljs-built_in">$</span>命令手动换行。排版多行公式需要用到 其他各种环境。<br>	<span class="hljs-keyword">\item</span> 所有的字母被当作数学公式中的变量处理，字母间距与文本模式不一致，也无法生成单词之间的空格。<br>	如果想在数学公式中输入正体的文本，简单情况下可用 <span class="hljs-keyword">\textbackslash</span>&#123;&#125;&#123;mathrm&#125; 命令。<br>	或者用 &#123;amsmath&#125; 提供的 <span class="hljs-keyword">\textbackslash</span>&#123;&#125;&#123;text&#125; 命令（仅适合在公式中穿插少量文字。如果你的情况正好相反，需要在许多文字中穿插使用公式，则应该像正常的行内公式那样用，而不是滥用 <span class="hljs-keyword">\textbackslash</span>&#123;&#125;&#123;text&#125; 命令）。<br><span class="hljs-keyword">\end</span>&#123;enumerate&#125;	<br><br>实际上更常用的的是多行公式，不需要对齐的公式组可以使用gather环境，需要对齐的公式组用align 环境。<br>长公式内可用<span class="hljs-built_in">$</span> <span class="hljs-keyword">\verb</span>|<span class="hljs-string">\\</span>|<span class="hljs-built_in">$</span> 换行。<br><br>如果需要罗列一系列公式，并令其按照等号对齐，可用align 环境，它将公式用<span class="hljs-keyword">\&amp;</span> 隔为两部分并对齐。分隔符通常放在等号左边：<br><span class="hljs-keyword">\begin</span>&#123;lstlisting&#125;<br><span class="hljs-keyword">\begin</span>&#123;align&#125;<br>	a <span class="hljs-built_in">&amp;</span> = b + c <span class="hljs-keyword">\\</span><br>	<span class="hljs-built_in">&amp;</span> = d + e<br><span class="hljs-keyword">\end</span>&#123;align&#125;<br><span class="hljs-keyword">\end</span>&#123;lstlisting&#125;<br><span class="hljs-keyword">\begin</span>&#123;align&#125;<br>a <span class="hljs-built_in">&amp;</span> = b + c <span class="hljs-keyword">\\</span><br><span class="hljs-built_in">&amp;</span> = d + e<br><span class="hljs-keyword">\end</span>&#123;align&#125;<br>align 环境会给每行公式都编号。<br><br>如果不需要按等号对齐，只需罗列数个公式，可用gather环境：<br><span class="hljs-keyword">\begin</span>&#123;lstlisting&#125;<br><span class="hljs-keyword">\begin</span>&#123;gather&#125;<br>	a  = b + c <span class="hljs-keyword">\notag</span> <span class="hljs-keyword">\\</span><br>	f = d + e <br><span class="hljs-keyword">\end</span>&#123;gather&#125;<br><span class="hljs-keyword">\end</span>&#123;lstlisting&#125;<br><span class="hljs-keyword">\begin</span>&#123;gather&#125;<br>	a  = b + c <span class="hljs-keyword">\notag</span>  <span class="hljs-keyword">\\</span><br>	f = d + e <br><span class="hljs-keyword">\end</span>&#123;gather&#125;<br>gather 环境同样会给每行公式都编号，如果某行不需要编号可在行末用<span class="hljs-keyword">\textbackslash</span>&#123;&#125;notag 仅去掉某行的编号。<br><br>align 和gather 有对应的不带编号的版本align* 和gather*。<br><br>另一个常见的需求是将多个公式组在一起公用一个编号，编号位于公式的居中位置。为此，<br>amsmath 宏包提供了诸如aligned、gathered 等环境，与equation 环境套用。以-ed 结尾的<br>环境用法与前一节不以-ed 结尾的环境用法一一对应。我们仅以aligned 举例：<br><span class="hljs-keyword">\begin</span>&#123;lstlisting&#125;<br><span class="hljs-keyword">\begin</span>&#123;equation&#125;<br>	<span class="hljs-keyword">\begin</span>&#123;aligned&#125;<br>		a <span class="hljs-built_in">&amp;</span>= b + c <span class="hljs-keyword">\\</span><br>		d <span class="hljs-built_in">&amp;</span>= e + f + g <span class="hljs-keyword">\\</span><br>		h + i <span class="hljs-built_in">&amp;</span>= j + k <span class="hljs-keyword">\\</span><br>		l + m <span class="hljs-built_in">&amp;</span>= n<br>	<span class="hljs-keyword">\end</span>&#123;aligned&#125;<br><span class="hljs-keyword">\end</span>&#123;equation&#125;<br><span class="hljs-keyword">\end</span>&#123;lstlisting&#125;<br><span class="hljs-keyword">\begin</span>&#123;equation&#125;<br>	<span class="hljs-keyword">\begin</span>&#123;aligned&#125;<br>		a <span class="hljs-built_in">&amp;</span>= b + c <span class="hljs-keyword">\\</span><br>		d <span class="hljs-built_in">&amp;</span>= e + f + g <span class="hljs-keyword">\\</span><br>		h + i <span class="hljs-built_in">&amp;</span>= j + k <span class="hljs-keyword">\\</span><br>		l + m <span class="hljs-built_in">&amp;</span>= n<br>	<span class="hljs-keyword">\end</span>&#123;aligned&#125;<br><span class="hljs-keyword">\end</span>&#123;equation&#125;<br>split 环境和aligned 环境用法类似，也用于和equation 环境套用，区别是split 只能<br>将每行的一个公式分两栏，aligned 允许每行多个公式多栏。<br><br>分段函数通常用amsmath 宏包提供的cases 环境，可参考文献<span class="hljs-keyword">\parencite</span>&#123;<span class="hljs-built_in">_</span>c&#125;<br><br>amsmath 宏包还直接提供了多种排版矩阵的环境，包括不带定界符的matrix，以及带各种定界符的矩阵pmatrix、bmatrix、Bmatrix、vmatrix、Vmatrix。<br>其中中括号版的bmatrix最常用。这些矩阵环境需要在公式中使用，比如 gather 环境。<br><span class="hljs-keyword">\begin</span>&#123;lstlisting&#125;<br><span class="hljs-keyword">\begin</span>&#123;gather&#125;<br>	A= <span class="hljs-keyword">\begin</span>&#123;bmatrix&#125;<br>		x<span class="hljs-built_in">_</span>&#123;11&#125; <span class="hljs-built_in">&amp;</span> x<span class="hljs-built_in">_</span>&#123;12&#125; <span class="hljs-built_in">&amp;</span> <span class="hljs-keyword">\ldots</span> <span class="hljs-built_in">&amp;</span> x<span class="hljs-built_in">_</span>&#123;1n&#125; <span class="hljs-keyword">\\</span><br>		x<span class="hljs-built_in">_</span>&#123;21&#125; <span class="hljs-built_in">&amp;</span> x<span class="hljs-built_in">_</span>&#123;22&#125; <span class="hljs-built_in">&amp;</span> <span class="hljs-keyword">\ldots</span> <span class="hljs-built_in">&amp;</span> x<span class="hljs-built_in">_</span>&#123;2n&#125; <span class="hljs-keyword">\\</span><br>		<span class="hljs-keyword">\vdots</span> <span class="hljs-built_in">&amp;</span> <span class="hljs-keyword">\vdots</span> <span class="hljs-built_in">&amp;</span> <span class="hljs-keyword">\ddots</span> <span class="hljs-built_in">&amp;</span> <span class="hljs-keyword">\vdots</span> <span class="hljs-keyword">\\</span><br>		x<span class="hljs-built_in">_</span>&#123;n1&#125; <span class="hljs-built_in">&amp;</span> x<span class="hljs-built_in">_</span>&#123;n2&#125; <span class="hljs-built_in">&amp;</span> <span class="hljs-keyword">\ldots</span> <span class="hljs-built_in">&amp;</span> x<span class="hljs-built_in">_</span>&#123;nn&#125;<br>	<span class="hljs-keyword">\end</span>&#123;bmatrix&#125;<br><span class="hljs-keyword">\end</span>&#123;gather&#125;<br><span class="hljs-keyword">\end</span>&#123;lstlisting&#125;<br><span class="hljs-keyword">\begin</span>&#123;gather&#125;<br><span class="hljs-keyword">\bm</span>&#123;A&#125;= <span class="hljs-keyword">\begin</span>&#123;bmatrix&#125;<br>	x<span class="hljs-built_in">_</span>&#123;11&#125; <span class="hljs-built_in">&amp;</span> x<span class="hljs-built_in">_</span>&#123;12&#125; <span class="hljs-built_in">&amp;</span> <span class="hljs-keyword">\ldots</span> <span class="hljs-built_in">&amp;</span> x<span class="hljs-built_in">_</span>&#123;1n&#125; <span class="hljs-keyword">\\</span><br>	x<span class="hljs-built_in">_</span>&#123;21&#125; <span class="hljs-built_in">&amp;</span> x<span class="hljs-built_in">_</span>&#123;22&#125; <span class="hljs-built_in">&amp;</span> <span class="hljs-keyword">\ldots</span> <span class="hljs-built_in">&amp;</span> x<span class="hljs-built_in">_</span>&#123;2n&#125; <span class="hljs-keyword">\\</span><br>	<span class="hljs-keyword">\vdots</span> <span class="hljs-built_in">&amp;</span> <span class="hljs-keyword">\vdots</span> <span class="hljs-built_in">&amp;</span> <span class="hljs-keyword">\ddots</span> <span class="hljs-built_in">&amp;</span> <span class="hljs-keyword">\vdots</span> <span class="hljs-keyword">\\</span><br>	x<span class="hljs-built_in">_</span>&#123;n1&#125; <span class="hljs-built_in">&amp;</span> x<span class="hljs-built_in">_</span>&#123;n2&#125; <span class="hljs-built_in">&amp;</span> <span class="hljs-keyword">\ldots</span> <span class="hljs-built_in">&amp;</span> x<span class="hljs-built_in">_</span>&#123;nn&#125;<br>   <span class="hljs-keyword">\end</span>&#123;bmatrix&#125;<br><span class="hljs-keyword">\end</span>&#123;gather&#125;	<br>其中矩阵/向量加粗使用<span class="hljs-keyword">\textbackslash</span>&#123;&#125;bm<span class="hljs-keyword">\&#123;</span><span class="hljs-keyword">\&#125;</span>命令。另外还可以使用array环境排版矩阵，类似tabular环境，用<span class="hljs-built_in">$</span> <span class="hljs-keyword">\verb</span>|<span class="hljs-string">\\</span>|<span class="hljs-built_in">$</span> 和<span class="hljs-keyword">\&amp;</span> 用来分隔行和列，这里不再赘述。	<br><span class="hljs-keyword">\begin</span>&#123;lstlisting&#125;<br><span class="hljs-keyword">\begin</span>&#123;array &#125;[外部对齐tcb]&#123;列对齐lcr&#125;<br>	行列内容<br><span class="hljs-keyword">\end</span>&#123;array&#125;<br><span class="hljs-keyword">\end</span>&#123;lstlisting&#125;<br><br>另外注意排版分式时，有两种方法：<span class="hljs-keyword">\textbackslash</span>&#123;&#125;frac或者<span class="hljs-keyword">\textbackslash</span>&#123;&#125;dfrac，效果分别为<span class="hljs-built_in">$</span> <span class="hljs-keyword">\frac</span>&#123;1&#125;&#123;2&#125; <span class="hljs-built_in">$</span>和<span class="hljs-built_in">$</span> <span class="hljs-keyword">\dfrac</span>&#123;1&#125;&#123;2&#125; <span class="hljs-built_in">$</span>。以上介绍的数学环境中，空格可参考文献<span class="hljs-keyword">\parencite</span>&#123;<span class="hljs-built_in">_</span>c&#125;，例如常用<span class="hljs-keyword">\textbackslash</span>&#123;&#125;quad。<br><br>需要局部更改字号时，可以使用tutorial文件夹lshort-zh-cn.pdf的5.1节进行更改，如加<span class="hljs-keyword">\textbackslash</span>&#123;&#125;small使得字号小一号。<br></code></pre></td></tr></table></figure></li>
+<li>定理输入<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><code class="hljs tex">在scutthesis.cls文件的最后，已经用<span class="hljs-keyword">\textbackslash</span>&#123;&#125;newtheorem命令定义了几种定理环境，包括：定义、假设、定理、结论、引理、公理、推论、性质等等，统称定理环境，关于<span class="hljs-keyword">\textbackslash</span>&#123;&#125;newtheorem的用法，可参考<span class="hljs-keyword">\cite</span>&#123;<span class="hljs-built_in">_</span>g,<span class="hljs-built_in">_</span>c&#125;或自行百度。要下面提供几个例子，在横线之间的深色区域是代码，效果在相应下方表示：<br><span class="hljs-keyword">\begin</span>&#123;lstlisting&#125;<br><span class="hljs-keyword">\begin</span>&#123;assumption&#125;<br>	加权矩阵<span class="hljs-built_in">$</span>&#123;&#123;<span class="hljs-keyword">\bm</span>&#123;W&#125;&#125;<span class="hljs-built_in">_</span>&#123;1&#125;&#125;<span class="hljs-built_in">$</span>和 <span class="hljs-built_in">$</span>&#123;&#123;<span class="hljs-keyword">\bm</span>&#123;W&#125;&#125;<span class="hljs-built_in">_</span>&#123;2&#125;&#125;<span class="hljs-built_in">$</span> 是对称矩阵，且<span class="hljs-built_in">$</span> &#123;&#123;<span class="hljs-keyword">\bm</span>&#123;W&#125;&#125;<span class="hljs-built_in">_</span>&#123;2&#125;&#125;<span class="hljs-built_in">$</span>非奇异。	<span class="hljs-keyword">\label</span>&#123;assum<span class="hljs-built_in">_</span>dca1&#125;<br><span class="hljs-keyword">\end</span>&#123;assumption&#125;<br><span class="hljs-keyword">\end</span>&#123;lstlisting&#125;<br><span class="hljs-keyword">\begin</span>&#123;assumption&#125;<br>	加权矩阵<span class="hljs-built_in">$</span>&#123;&#123;<span class="hljs-keyword">\bm</span>&#123;W&#125;&#125;<span class="hljs-built_in">_</span>&#123;1&#125;&#125;<span class="hljs-built_in">$</span>和 <span class="hljs-built_in">$</span>&#123;&#123;<span class="hljs-keyword">\bm</span>&#123;W&#125;&#125;<span class="hljs-built_in">_</span>&#123;2&#125;&#125;<span class="hljs-built_in">$</span> 是对称矩阵，且<span class="hljs-built_in">$</span> &#123;&#123;<span class="hljs-keyword">\bm</span>&#123;W&#125;&#125;<span class="hljs-built_in">_</span>&#123;2&#125;&#125;<span class="hljs-built_in">$</span>非奇异。	<span class="hljs-keyword">\label</span>&#123;assum<span class="hljs-built_in">_</span>dca1&#125;<br><span class="hljs-keyword">\end</span>&#123;assumption&#125;<br><br>定理用法和假设类似：<br><span class="hljs-keyword">\begin</span>&#123;lstlisting&#125;<br><span class="hljs-keyword">\begin</span>&#123;theorem&#125;<br>	如果假设<span class="hljs-keyword">\ref</span>&#123;assum<span class="hljs-built_in">_</span>dca1&#125;成立，<span class="hljs-built_in">$</span><span class="hljs-keyword">\bm</span>&#123;F&#125;<span class="hljs-built_in">$</span>满足式<span class="hljs-keyword">\eqref</span>&#123;eq<span class="hljs-built_in">_</span>F&#125;的定义，且<span class="hljs-built_in">$</span>&#123;&#123;<span class="hljs-keyword">\bm</span>&#123;W&#125;&#125;<span class="hljs-built_in">_</span>&#123;1&#125;&#125;<span class="hljs-built_in">$</span>非奇异，则有<span class="hljs-built_in">$</span>0<span class="hljs-keyword">\le</span> e <span class="hljs-keyword">\left</span>( <span class="hljs-keyword">\bm</span>&#123;F&#125; <span class="hljs-keyword">\right</span>) &lt; 1<span class="hljs-built_in">$</span>，其中<span class="hljs-built_in">$</span>e <span class="hljs-keyword">\left</span>( <span class="hljs-keyword">\bm</span>&#123;F&#125; <span class="hljs-keyword">\right</span>)<span class="hljs-built_in">$</span>是 <span class="hljs-built_in">$</span><span class="hljs-keyword">\bm</span>&#123;F&#125;<span class="hljs-built_in">$</span>的特征值。	<span class="hljs-keyword">\label</span>&#123;the<span class="hljs-built_in">_</span>dca2&#125;<br><span class="hljs-keyword">\end</span>&#123;theorem&#125;<br><span class="hljs-keyword">\end</span>&#123;lstlisting&#125;<br><span class="hljs-keyword">\begin</span>&#123;theorem&#125;<br>	如果假设<span class="hljs-keyword">\ref</span>&#123;assum<span class="hljs-built_in">_</span>dca1&#125;成立，<span class="hljs-built_in">$</span><span class="hljs-keyword">\bm</span>&#123;F&#125;<span class="hljs-built_in">$</span>满足上式的定义，且<span class="hljs-built_in">$</span>&#123;&#123;<span class="hljs-keyword">\bm</span>&#123;W&#125;&#125;<span class="hljs-built_in">_</span>&#123;1&#125;&#125;<span class="hljs-built_in">$</span>非奇异，则有<span class="hljs-built_in">$</span>0<span class="hljs-keyword">\le</span> e <span class="hljs-keyword">\left</span>( <span class="hljs-keyword">\bm</span>&#123;F&#125; <span class="hljs-keyword">\right</span>) &lt; 1<span class="hljs-built_in">$</span>，其中<span class="hljs-built_in">$</span>e <span class="hljs-keyword">\left</span>( <span class="hljs-keyword">\bm</span>&#123;F&#125; <span class="hljs-keyword">\right</span>)<span class="hljs-built_in">$</span>是 <span class="hljs-built_in">$</span><span class="hljs-keyword">\bm</span>&#123;F&#125;<span class="hljs-built_in">$</span>的特征值。	<span class="hljs-keyword">\label</span>&#123;the<span class="hljs-built_in">_</span>dca2&#125;<br><span class="hljs-keyword">\end</span>&#123;theorem&#125;<br><br>定理环境的编号可自定义，但通常不需要再进行设置，因为模板文件scutthesis.cls文件已经定义好。<br><br>---------------------------------------------------------<br><br>2022年5月更新：<br><br>根据最新的博士论文送审结果，定理等环境统一把原来的斜体改成正体。在此引用一下参考文献<span class="hljs-keyword">\cite</span>&#123;<span class="hljs-built_in">_</span>g&#125;的内容：<br><br>amsthm 提供了 <span class="hljs-keyword">\textbackslash</span>&#123;&#125;theoremstyle 命令支持定理格式的切换，在用 <span class="hljs-keyword">\textbackslash</span>&#123;&#125;newtheorem 命令定义定 理环境之前使用。amsthm 预定义了三种格式用于 <span class="hljs-keyword">\textbackslash</span>&#123;&#125;theoremstyle:plain 和 LATEX 原始的格式 一致；definition 使用粗体标签、正体内容；remark 使用斜体标签、正体内容。<br><br>以上部分在scutthesis.cls文件最后一部分设置。<br><br>---------------------------------------------------------<br><br>amsthm 还提供了一个 proof 环境用于排版定理的证明过程。proof 环境末尾自动加上一个证毕符号:<br><span class="hljs-keyword">\begin</span>&#123;proof&#125;<br>	显然有<br>	<span class="hljs-keyword">\[</span><br>	E=mc<span class="hljs-built_in">^</span>2<br>	<span class="hljs-keyword">\]</span><br>	证毕<br><span class="hljs-keyword">\end</span>&#123;proof&#125;<br><br>proof的大更多用法见参考文献<span class="hljs-keyword">\cite</span>&#123;<span class="hljs-built_in">_</span>g&#125;。scutthesis.cls文件的最后，跟所有定理环境一样，只是把英文”Proof“改成中文“证明”。<br></code></pre></td></tr></table></figure></li>
+<li>参考文献<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><code class="hljs tex"><br>再次强调，使用其他参考文献管理软件的用户以及不使用任何软件的“裸奔”的用户不需要关注任何关于zetero的东西。<br><span class="hljs-keyword">\begin</span>&#123;lstlisting&#125;<br>	关于参考文献这块，很多同学有疑问。只有记住一点：不管用什么参考文献管理工具，最终目的是生成一个bib文件，bib文件里是特定格式的文献信息。bib文件当作文本打开，里面就是文献的元数据。<br><span class="hljs-keyword">\end</span>&#123;lstlisting&#125;<br><br>通常学位论文参考文献是基于BibTeX进行的，本模板最大的改进就是引入BibLaTeX。关于这部分知识可参考文献<span class="hljs-keyword">\parencite</span>&#123;<span class="hljs-built_in">_</span>c,<span class="hljs-built_in">_</span>g&#125;的第六章，6.1节参考文献和BIBTEX工具。<br><br>参考文献引用和著录是基于ZOTERO这个软件进行的。视频教程见<span class="hljs-keyword">\parencite</span>&#123;<span class="hljs-built_in">_</span>k&#125;。此外，为了符合毕业论文撰写规范，需设置参数。按照视频教程安装完必要的插件（如Better BibTeX）后，在编辑-&gt;首选项进行设置。图<span class="hljs-keyword">\ref</span>&#123;op1&#125;到图<span class="hljs-keyword">\ref</span>&#123;op11&#125;所示的是我的zotero软件设置。其中最重要的是<span class="hljs-keyword">\ref</span>&#123;op10&#125;的设置要排除的选项，多余的显示会让审稿人反感，按照论文撰写规范进行即可。在毕业论文撰写时，在编辑-&gt;首选项-&gt;Better BibLTeX-&gt;Fields中，Fields to omit from export填month,abstract,note,extra,file,keywords,type,url,doi，就是在参考文献著录中排除这些多余的项，避免过于复杂。而在写本模板使用说明时，没有排除url，因为很多参考资料是网页。<br><br><span class="hljs-keyword">\begin</span>&#123;lstlisting&#125;<br>    使用zotero，科学上网很重要，通常我们使用谷歌学术搜索文献并利用chrome的zotero插件直接捕获文献著录信息。但我使用蓝灯，代理服务器均遇到过被谷歌学术封锁的情况。只能不断换科学上网方法。这里我现在用的chrome插件：谷歌上网助手，它可以轻松捕获谷歌学术的著录信息，注册一个账号即可使用。谷歌上网助手有可能和某些代理冲突。这些都是科学上网的问题，已经超出了本项目的范围，听说百度一下 v2ray 可发现新大陆，可惜我试了Vultr的服务器依然被谷歌封。知网捕获中文参考文献著录信息的话不需要考虑这个问题，直接在知网首页搜索文献然后点击插件既可以选想捕获的著录了。<br><span class="hljs-keyword">\end</span>&#123;lstlisting&#125;<br><br>在zotero软件点击文件-&gt;导出文献库，如图<span class="hljs-keyword">\ref</span>&#123;output&#125;所示，再在导出对话框图<span class="hljs-keyword">\ref</span>&#123;output<span class="hljs-built_in">_</span>format&#125;选择导出格式为Better BibLaTeX，同时勾选Keep updated选项保持自动更新，再点击ok，在弹出的对话框图<span class="hljs-keyword">\ref</span>&#123;output<span class="hljs-built_in">_</span>name&#125;确定保存路径和文件名，例如我的是MyLibrary.bib，这也是我整个读书生涯的文献库bib文件。如果写小论文的话通常导出格式是BibTeX或者Better BibTeX（这里按照期刊的要求来即可，文献管理软件的好处就是快速自动生成一个文件库）。关于BibTeX和BibLaTeX的区别这里不做展开。<br><br>得到文献库后，在scutthesis.tex文件第九行使用<span class="hljs-keyword">\textbackslash</span>&#123;&#125;addbibresource命令，添加文献库。引用某文献时秩序在zotero选中某文献条目，然后按Ctrl+Shift+C，复制引用关键字（Citation Key）到剪切板（快捷键可自定义）。然后在tex文件编辑界面直接粘贴，默认的时上标形式，若需要非上标形式，可以改为<span class="hljs-keyword">\textbackslash</span>&#123;&#125;parencite<span class="hljs-keyword">\&#123;</span>xxx<span class="hljs-keyword">\&#125;</span>，其中xxx是Citation Key。这里的操作和认为设置的首选项参数有关，需要在编辑-&gt;首选项-&gt;导出界面的默认格式一栏选中相应的项，同时在编辑-&gt;首选项-&gt;高级-&gt;快捷键设置为默认值。<br><br>---------------------------------------------------------------------------------<br><br>2020年12月2日测试：<br>下载最新zotero，从知网和谷歌捕获文献（刚打开网页最好稍等一会再点击插件，谷歌可能需要现人机验证），对文献<span class="hljs-keyword">\parencite</span>&#123;Renduchintala<span class="hljs-built_in">_</span>2019&#125;、<span class="hljs-keyword">\parencite</span>&#123;Meng<span class="hljs-built_in">_</span>2020&#125;进行引用。<br><br>---------------------------------------------------------------------------------<br><br>---------------------------------------------------------------------------------<br><br>2021年9月14日测试：<br>使用endnote的用户也可以利用导出的bib文件生成参考文献著录信息，导出选项是bibTeX，貌似没有更多导出设置选项。导出设置没有zotero那么灵活丰富，得到bib文件后要引用某论文需要自行查找标签（label，也有软件叫引用关键字Citation Key）<span class="hljs-keyword">\&#123;</span>xxx<span class="hljs-keyword">\&#125;</span>然后手打<span class="hljs-keyword">\textbackslash</span>&#123;&#125;cite<span class="hljs-keyword">\&#123;</span>xxx<span class="hljs-keyword">\&#125;</span>。欢迎熟悉endnote的同学来信告诉我更好的办法。<br><br>---------------------------------------------------------------------------------<br><br><span class="hljs-keyword">\begin</span>&#123;lstlisting&#125;<br>    另外有同学反映，换了电脑后重新导出的bib文件Citation Key值不同，记得设置好Better BibTeX之后，在著录条目界面全选著录（或仅选想更新的著录）然后右键选Better BibTeX更新refresh一下。然后在Automatic export选项点击Export now立即更新bib文件（按理说勾选了自动更新选项他会自动更新，但为了确保万无一失还是点一下）。<br><span class="hljs-keyword">\end</span>&#123;lstlisting&#125;<br><span class="hljs-keyword">\begin</span>&#123;figure&#125;<br>	<span class="hljs-keyword">\centering</span><br>	<span class="hljs-keyword">\includegraphics</span>[scale=0.8]&#123;Fig/zotero1.png&#125;<br>	<span class="hljs-keyword">\caption</span>&#123;<span class="hljs-keyword">\label</span>&#123;op1&#125;常规&#125;<br><span class="hljs-keyword">\end</span>&#123;figure&#125;<br><span class="hljs-keyword">\begin</span>&#123;figure&#125;<br>	<span class="hljs-keyword">\centering</span><br>	<span class="hljs-keyword">\includegraphics</span>[scale=0.8]&#123;Fig/zotero2.png&#125;<br>	<span class="hljs-keyword">\caption</span>&#123;<span class="hljs-keyword">\label</span>&#123;op2&#125;同步1&#125;<br><span class="hljs-keyword">\end</span>&#123;figure&#125;<br><span class="hljs-keyword">\begin</span>&#123;figure&#125;<br>	<span class="hljs-keyword">\centering</span><br>	<span class="hljs-keyword">\includegraphics</span>[scale=0.8]&#123;Fig/zotero3.png&#125;<br>	<span class="hljs-keyword">\caption</span>&#123;<span class="hljs-keyword">\label</span>&#123;op3&#125;同步2&#125;<br><span class="hljs-keyword">\end</span>&#123;figure&#125;<br><span class="hljs-keyword">\begin</span>&#123;figure&#125;<br>	<span class="hljs-keyword">\centering</span><br>	<span class="hljs-keyword">\includegraphics</span>[scale=0.8]&#123;Fig/zotero4.png&#125;<br>	<span class="hljs-keyword">\caption</span>&#123;<span class="hljs-keyword">\label</span>&#123;op4&#125;搜索&#125;<br><span class="hljs-keyword">\end</span>&#123;figure&#125;<br><span class="hljs-keyword">\begin</span>&#123;figure&#125;<br>	<span class="hljs-keyword">\centering</span><br>	<span class="hljs-keyword">\includegraphics</span>[scale=0.8]&#123;Fig/zotero5.png&#125;<br>	<span class="hljs-keyword">\caption</span>&#123;<span class="hljs-keyword">\label</span>&#123;op5&#125;导出&#125;<br><span class="hljs-keyword">\end</span>&#123;figure&#125;<br><span class="hljs-keyword">\begin</span>&#123;figure&#125;<br>	<span class="hljs-keyword">\centering</span><br>	<span class="hljs-keyword">\includegraphics</span>[scale=0.8]&#123;Fig/zotero6.png&#125;<br>	<span class="hljs-keyword">\caption</span>&#123;<span class="hljs-keyword">\label</span>&#123;op6&#125;引用&#125;<br><span class="hljs-keyword">\end</span>&#123;figure&#125;<br><span class="hljs-keyword">\begin</span>&#123;figure&#125;<br>	<span class="hljs-keyword">\centering</span><br>	<span class="hljs-keyword">\includegraphics</span>[scale=0.8]&#123;Fig/zotero7.png&#125;<br>	<span class="hljs-keyword">\caption</span>&#123;<span class="hljs-keyword">\label</span>&#123;op7&#125;高级1&#125;<br><span class="hljs-keyword">\end</span>&#123;figure&#125;<br><span class="hljs-keyword">\begin</span>&#123;figure&#125;<br>	<span class="hljs-keyword">\centering</span><br>	<span class="hljs-keyword">\includegraphics</span>[scale=0.8]&#123;Fig/zotero8.png&#125;<br>	<span class="hljs-keyword">\caption</span>&#123;<span class="hljs-keyword">\label</span>&#123;op8&#125;高级2&#125;<br><span class="hljs-keyword">\end</span>&#123;figure&#125;<br><span class="hljs-keyword">\begin</span>&#123;figure&#125;<br>	<span class="hljs-keyword">\centering</span><br>	<span class="hljs-keyword">\includegraphics</span>[scale=0.8]&#123;Fig/zotero9.png&#125;<br>	<span class="hljs-keyword">\caption</span>&#123;<span class="hljs-keyword">\label</span>&#123;op9&#125;Better BibTeX1&#125;<br><span class="hljs-keyword">\end</span>&#123;figure&#125;<br><span class="hljs-keyword">\begin</span>&#123;figure&#125;<br>	<span class="hljs-keyword">\centering</span><br>	<span class="hljs-keyword">\includegraphics</span>[scale=0.8]&#123;Fig/zotero10.png&#125;<br>	<span class="hljs-keyword">\caption</span>&#123;<span class="hljs-keyword">\label</span>&#123;op10&#125;Better BibTeX2&#125;<br><span class="hljs-keyword">\end</span>&#123;figure&#125;<br><span class="hljs-keyword">\begin</span>&#123;figure&#125;<br>	<span class="hljs-keyword">\centering</span><br>	<span class="hljs-keyword">\includegraphics</span>[scale=0.8]&#123;Fig/zotero11.png&#125;<br>	<span class="hljs-keyword">\caption</span>&#123;<span class="hljs-keyword">\label</span>&#123;op11&#125;Better BibTeX3&#125;<br><span class="hljs-keyword">\end</span>&#123;figure&#125;<br><br><span class="hljs-keyword">\begin</span>&#123;figure&#125;[htbp]<br>	<span class="hljs-keyword">\centering</span><br>	<span class="hljs-keyword">\includegraphics</span>[scale=0.42]&#123;Fig/zotero12.png&#125;<br>	<span class="hljs-keyword">\caption</span>&#123;<span class="hljs-keyword">\label</span>&#123;output&#125;导出文献库&#125;<br><span class="hljs-keyword">\end</span>&#123;figure&#125;<br><br><span class="hljs-keyword">\begin</span>&#123;figure&#125;[htbp]<br>	<span class="hljs-keyword">\centering</span><br>	<span class="hljs-keyword">\includegraphics</span>[scale=0.42]&#123;Fig/zotero13.png&#125;<br>	<span class="hljs-keyword">\caption</span>&#123;<span class="hljs-keyword">\label</span>&#123;output<span class="hljs-built_in">_</span>format&#125;导出格式&#125;<br><span class="hljs-keyword">\end</span>&#123;figure&#125;<br><br><span class="hljs-keyword">\begin</span>&#123;figure&#125;[htbp]<br>	<span class="hljs-keyword">\centering</span><br>	<span class="hljs-keyword">\includegraphics</span>[scale=0.42]&#123;Fig/zotero14.png&#125;<br>	<span class="hljs-keyword">\caption</span>&#123;<span class="hljs-keyword">\label</span>&#123;output<span class="hljs-built_in">_</span>name&#125;导出文件名&#125;<br><span class="hljs-keyword">\end</span>&#123;figure&#125;<br></code></pre></td></tr></table></figure></li>
+<li>调整Latex列举环境，间距<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br></pre></td><td class="code"><pre><code class="hljs tex">在LaTeX中有三种基本的列举(列表)环境，即enumerate(编号)、itemize(分条目)和description(描述)环境。调整latex的列表环境时，使用 enumitem 宏包可以方便的调整间距（注意区分包名和环境名）和自定义编号样式。<br><br><span class="hljs-keyword">\section</span>&#123;调整间距&#125;<br>三种基本环境无论哪一种，间距的调整都是一样的。调整间距的参数命令包括两类：垂直间距和水平间距。各种距离的定义如图<span class="hljs-keyword">\ref</span>&#123;enumitem&#125;所示。下图的来源一直找不到，可能是旧版本的宏包说明，新版已经删掉了下面的注释了。<br><span class="hljs-keyword">\begin</span>&#123;figure&#125;[htbp]<br>	<span class="hljs-keyword">\centering</span><br>	<span class="hljs-keyword">\includegraphics</span>[scale=0.6]&#123;Fig/enumitem1.png&#125;<br>	<span class="hljs-keyword">\caption</span>&#123;<span class="hljs-keyword">\label</span>&#123;enumitem&#125;enumitem包对各种间距的定义&#125;<br><span class="hljs-keyword">\end</span>&#123;figure&#125;<br><br>现先总结出所推荐的间距设置，无编号的：<br><span class="hljs-keyword">\begin</span>&#123;lstlisting&#125;<br><span class="hljs-keyword">\begin</span>&#123;itemize&#125;[topsep = 0 pt, itemsep= 0 pt, parsep=0pt, partopsep=0pt, leftmargin=36pt, itemindent=0pt, labelsep=6pt, listparindent=24pt]<br>	<span class="hljs-keyword">\item</span> 第一项。内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br><br>	<span class="hljs-keyword">\item</span> 第二项。内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br>	<br><span class="hljs-keyword">\end</span>&#123;itemize&#125;<br><span class="hljs-keyword">\end</span>&#123;lstlisting&#125;<br>效果：<br><span class="hljs-keyword">\begin</span>&#123;itemize&#125;[topsep = 0 pt, itemsep= 0 pt, parsep=0pt, partopsep=0pt, leftmargin=36pt, itemindent=0pt, labelsep=6pt, listparindent=24pt]<br>	<span class="hljs-keyword">\item</span> 第一项。内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br><br>	<span class="hljs-keyword">\item</span> 第二项。内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br>	<br><span class="hljs-keyword">\end</span>&#123;itemize&#125;<br><br>有编号的：<br><span class="hljs-keyword">\begin</span>&#123;lstlisting&#125;<br><span class="hljs-keyword">\begin</span>&#123;enumerate&#125;[topsep = 0 pt, itemsep= 0 pt, parsep=0pt, partopsep=0pt, leftmargin=44pt, itemindent=0pt, labelsep=6pt, label=(<span class="hljs-keyword">\arabic</span>*)]<br>	<span class="hljs-keyword">\item</span> 第一项。内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br><br>	<span class="hljs-keyword">\item</span> 第二项。内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br>	<br><span class="hljs-keyword">\end</span>&#123;enumerate&#125;<br><span class="hljs-keyword">\end</span>&#123;lstlisting&#125;<br>效果：<br><span class="hljs-keyword">\begin</span>&#123;enumerate&#125;[topsep = 0 pt, itemsep= 0 pt, parsep=0pt, partopsep=0pt, leftmargin=44pt, itemindent=0pt, labelsep=6pt, label=(<span class="hljs-keyword">\arabic</span>*)]<br>	<span class="hljs-keyword">\item</span> 第一项。内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br><br>	<span class="hljs-keyword">\item</span> 第二项。内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br>	<br><span class="hljs-keyword">\end</span>&#123;enumerate&#125;<br><br>下面两节分别讨论参数设置规则。<br><span class="hljs-keyword">\subsection</span>&#123;垂直间距&#125;<br>摘抄宏包说明：<br><span class="hljs-keyword">\begin</span>&#123;itemize&#125;[topsep = 0 pt, itemsep= 0 pt, parsep=0pt, partopsep=0pt, leftmargin=36pt, itemindent=0pt, labelsep=6pt, listparindent=24pt]<br>	<span class="hljs-keyword">\item</span> topsep控制列表环境与上文之间的距离。第一项和前一段之间的空间。<br><br>	<span class="hljs-keyword">\item</span> itemsep 条目之间的距离<br><br>	<span class="hljs-keyword">\item</span> parsep 条目里面段落之间的距离<br> <br>	<span class="hljs-keyword">\item</span> partopsep 条目与下面段落的距离。当环境开始一个新段落时，额外的空间被添加到 <span class="hljs-keyword">\textbackslash</span>&#123;&#125;topsep。<br><span class="hljs-keyword">\end</span>&#123;itemize&#125;<br><br>论文中希望上述距离都为0pt，如：<br><span class="hljs-keyword">\begin</span>&#123;lstlisting&#125;<br>	<span class="hljs-keyword">\begin</span>&#123;itemize&#125;[topsep = 0 pt, itemsep= 0 pt, parsep=0pt, partopsep=0pt]<br>		<span class="hljs-keyword">\item</span> 第一项。<br>		<span class="hljs-keyword">\item</span> 第二项<br>		<span class="hljs-keyword">\item</span> 第三项。<br>	<span class="hljs-keyword">\end</span>&#123;itemize&#125;<br><span class="hljs-keyword">\end</span>&#123;lstlisting&#125;<br>效果为：<br><span class="hljs-keyword">\begin</span>&#123;itemize&#125;[topsep = 0 pt, itemsep= 0 pt, parsep=0pt, partopsep=0pt]<br>	<span class="hljs-keyword">\item</span> 第一项。<br>	<span class="hljs-keyword">\item</span> 第二项<br>	<span class="hljs-keyword">\item</span> 第三项。<br><span class="hljs-keyword">\end</span>&#123;itemize&#125;<br><br><br><span class="hljs-keyword">\subsection</span>&#123;水平间距&#125;<br><span class="hljs-comment">% 正文12pt</span><br>水平间距调整比较复杂，对照宏包说明给出的图，下面内容参考了宏包原文和网络资料：<br><span class="hljs-keyword">\begin</span>&#123;itemize&#125;[topsep = 0 pt, itemsep= 0 pt, parsep=0pt, partopsep=0pt, leftmargin=36pt, itemindent=0pt, labelsep=6pt, listparindent=24pt]<br>	<span class="hljs-keyword">\item</span> 为页面的左边距）和该列表的左边距之间的空间。 必须是非负数。 它的值取决于表，则为页面的左边距）和该列表的左边距之间的空间。 必须是非负数。 它的值取决于列表级别。<br>	<span class="hljs-keyword">\item</span> rightmargin       列表环境右边的空白长度。类似于 <span class="hljs-keyword">\textbackslash</span>&#123;&#125;leftmargin 但用于右边距。 它的值通常是 0pt。<br>	<span class="hljs-keyword">\item</span> labelsep       标号与列表第一项文本左侧的距离。标签框的末尾和第一项的文本之间的空间。 它的默认值为 0.5 em。<br>	<span class="hljs-keyword">\item</span> itemindent       条目的缩进距离。添加到项目第一行文本部分的水平缩进的额外缩进。 通过减去 labelsep 和 labelwidth 的值，相对于该参考点计算标签的起始位置。 它的值通常是 0pt。注：理解这个变量时，查看图<span class="hljs-keyword">\ref</span>&#123;enumitem&#125;的顺序应该按照箭头从左到右，先leftmargin再itemindent，然后再labelsep，最后labelwidth。即箭头的起始点是基准点。若itemindent=0pt，则leftmargin-labelsep-编号长度的结果就是编号起始位置。<br>	<span class="hljs-keyword">\item</span> labelwidth       包含标签的框的标称宽度。 如果标签的自然宽度为 &lt; labelwidth，则默认情况下，标签在宽度为 (labelwidth) 的框内右对齐排版。否则，使用自然宽度的框，这会导致该行上的文本缩进。 可以通过为 <span class="hljs-keyword">\textbackslash</span>&#123;&#125;makelabel 命令提供定义来修改标签的排版方式。<br>	<span class="hljs-keyword">\item</span> listparindent       条目下面段落的缩进距离。除了以 litem 开头的段落之外，列表的每个段落的开头都有额外的缩进。 可以为负数，但通常为 0pt。<br><span class="hljs-keyword">\end</span>&#123;itemize&#125;<br><br>无编号的水平间距，给出两张方案<br> <br>第一种：<br><span class="hljs-keyword">\begin</span>&#123;itemize&#125;[topsep = 0 pt, itemsep= 0 pt, parsep=0pt, partopsep=0pt, leftmargin=36pt, itemindent=0pt, labelsep=6pt, listparindent=24pt]<br>	<span class="hljs-keyword">\item</span> 第一项。内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br><br>	<span class="hljs-comment">% 第一项的第二段。内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</span><br>	<span class="hljs-keyword">\item</span> 第二项。内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br>	<br><span class="hljs-keyword">\end</span>&#123;itemize&#125;<br><br><br>第二种：<br><span class="hljs-keyword">\begin</span>&#123;itemize&#125;[topsep = 0 pt, itemsep= 0 pt, parsep=0pt, partopsep=0pt, leftmargin=0pt, itemindent=36pt, labelsep=6pt, listparindent=24pt]<br>	<span class="hljs-keyword">\item</span> 第一项。内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br><br>	<span class="hljs-comment">% 第一项的第二段。内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</span><br>	<span class="hljs-keyword">\item</span> 第二项。内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br>	<br><span class="hljs-keyword">\end</span>&#123;itemize&#125;<br><br>推荐第一种。<br><br>有编号的水平间距，下面给出三种方案：<br>注：labelsep是某一项文字和编号框的距离，一般就设为一个空格6pt，要使编号左侧缩进两格，itemindent-labelsep要等于编号长度。注意编号是右对齐，向左扩展的。<br><br>第一种方案是整体右移两格，文字距离编号一个空格，然后第二行文字和第一行对齐：<br><span class="hljs-keyword">\begin</span>&#123;enumerate&#125;[topsep = 0 pt, itemsep= 0 pt, parsep=0pt, partopsep=0pt, leftmargin=44pt, itemindent=0pt, labelsep=6pt, label=(<span class="hljs-keyword">\arabic</span>*)]<br>	<span class="hljs-keyword">\item</span> 第一项。内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br><br>	<span class="hljs-comment">% 第一项的第二段。内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</span><br>	<span class="hljs-keyword">\item</span> 第二项。内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br>	<br><span class="hljs-keyword">\end</span>&#123;enumerate&#125;<br><br>第二种方案是和论文撰写规范的格式一样，注意不是论文撰写规范规定的格式，规范里没有规定这些格式。如：<br><span class="hljs-keyword">\begin</span>&#123;enumerate&#125;[topsep = 0 pt, itemsep= 0 pt, parsep=0pt, partopsep=0pt, leftmargin=0pt, itemindent=44pt, labelsep=6pt, listparindent=24pt, label=(<span class="hljs-keyword">\arabic</span>*)]<br>	<span class="hljs-keyword">\item</span> 第一项。内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br><br>	<span class="hljs-comment">% 第一项的第二段。内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</span><br>	<span class="hljs-keyword">\item</span> 第二项。内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br>	<br><span class="hljs-keyword">\end</span>&#123;enumerate&#125;<br><br>第三种方案是整体右移两格，文字距离编号一个空格，第二行文字不再右移：<br><span class="hljs-keyword">\begin</span>&#123;enumerate&#125;[topsep = 0 pt, itemsep= 0 pt, parsep=0pt, partopsep=0pt, leftmargin=24pt, itemindent=20pt, labelsep=6pt, listparindent=20pt, label=(<span class="hljs-keyword">\arabic</span>*)]<br>	<span class="hljs-keyword">\item</span> 第一项。内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br><br>	<span class="hljs-comment">% 第一项的第二段。内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</span><br>	<span class="hljs-keyword">\item</span> 第二项。内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br>	<br><span class="hljs-keyword">\end</span>&#123;enumerate&#125;<br><br>推荐第一种。<br><br><span class="hljs-keyword">\section</span>&#123;enumerate标签样式&#125;<br>除上述小括号数字的编号方法外，还有斜体字母等。在使用enumerate的时候，label的问题就是使用计数的字符，是阿拉伯数字、罗马、中文、还是希腊字符的问题。<br><br><span class="hljs-keyword">\subsection</span>&#123;小括号阿拉伯数字&#125;<br><span class="hljs-comment">% 小括号阿拉伯数字，用 label=\arabic*)</span><br><span class="hljs-keyword">\begin</span>&#123;enumerate&#125;[topsep = 0 pt, itemsep= 0 pt, parsep=0pt, partopsep=0pt, leftmargin=0pt, itemindent=44pt, labelsep=6pt, listparindent=24pt, label=<span class="hljs-keyword">\arabic</span>*)]<br>	<span class="hljs-keyword">\item</span> 第一项。<br><br>	<span class="hljs-comment">% 第一项的第二段。</span><br>	<span class="hljs-keyword">\item</span> 第二项<br>	<br>	<span class="hljs-comment">% 第二项的第二段。</span><br>	<span class="hljs-keyword">\item</span> 第三项。<br>	<br>	<span class="hljs-comment">% 第三项的第二段。</span><br><span class="hljs-keyword">\end</span>&#123;enumerate&#125;<br><br><br><br><span class="hljs-keyword">\subsection</span>&#123;斜体字母&#125;<br><span class="hljs-comment">% 斜体字母，用 label=\emph&#123;\alph*&#125;</span><br><span class="hljs-keyword">\begin</span>&#123;enumerate&#125;[topsep = 0 pt, itemsep= 0 pt, parsep=0pt, partopsep=0pt, leftmargin=0pt, itemindent=44pt, labelsep=6pt, listparindent=24pt, label=<span class="hljs-keyword">\emph</span>&#123;<span class="hljs-keyword">\alph</span>*&#125;.]<br>	<span class="hljs-keyword">\item</span> 第一项。<br><br>	<span class="hljs-comment">% 第一项的第二段。</span><br>	<span class="hljs-keyword">\item</span> 第二项<br>	<br>	<span class="hljs-comment">% 第二项的第二段。</span><br>	<span class="hljs-keyword">\item</span> 第三项。<br>	<br>	<span class="hljs-comment">% 第三项的第二段。</span><br><span class="hljs-keyword">\end</span>&#123;enumerate&#125;<br><br><span class="hljs-keyword">\subsection</span>&#123;大写罗马字母&#125;<br><span class="hljs-comment">% 大写罗马字母，用 label=(\Roman*)</span><br><span class="hljs-keyword">\begin</span>&#123;enumerate&#125;[topsep = 0 pt, itemsep= 0 pt, parsep=0pt, partopsep=0pt, leftmargin=0pt, itemindent=44pt, labelsep=6pt, listparindent=24pt, label=(<span class="hljs-keyword">\Roman</span>*)]<br>	<span class="hljs-keyword">\item</span> 第一项。<br><br>	<span class="hljs-comment">% 第一项的第二段。</span><br>	<span class="hljs-keyword">\item</span> 第二项<br>	<br>	<span class="hljs-comment">% 第二项的第二段。</span><br>	<span class="hljs-keyword">\item</span> 第三项。<br>	<br>	<span class="hljs-comment">% 第三项的第二段。</span><br><span class="hljs-keyword">\end</span>&#123;enumerate&#125;<br></code></pre></td></tr></table></figure></li>
+</ol>
+
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>Natu Matu<br>
+        <strong>本文链接：</strong><a href="https://631212502.github.io/2022/09/18/Latex%E4%BD%BF%E7%94%A8/" title="https:&#x2F;&#x2F;631212502.github.io&#x2F;2022&#x2F;09&#x2F;18&#x2F;Latex%E4%BD%BF%E7%94%A8&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;631212502.github.io&#x2F;2022&#x2F;09&#x2F;18&#x2F;Latex%E4%BD%BF%E7%94%A8&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E5%AD%A6%E6%9C%AF/" rel="tag">学术</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E8%AE%BA%E6%96%87/" rel="tag">论文</a>
+    
+</div>
+
+  
+      <div class="nexmoe-post-footer">
+          <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: 'cdc194d30f71cf392fdd',
+        clientSecret: 'b27b4f1ec813cb7eaa115ab184569422b663176a',
+        id: window.location.pathname,
+        repo: '631212502.github.io',
+        owner: '631212502',
+        admin: '631212502'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+      </div>
+  
+</div>
+                <div class="nexmoe-post-right">
+                <div class="nexmoe-fixed">
+                    <div class="nexmoe-tool"> 
+                        
+                            
+                            
+                                <button class="mdui-fab catalog" style="overflow:unset;">
+                                    <i class="nexmoefont icon-i-catalog"></i>
+                                    <div class="nexmoe-toc">
+                                        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%84%E6%96%99%E7%9B%B8%E5%85%B3"><span class="toc-number">1.</span> <span class="toc-text">资料相关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%96%87%E6%9C%AC-%E6%8E%92%E7%89%88%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">一、文本&#x2F;排版：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%85%AC%E5%BC%8F%E7%BC%96%E8%BE%91%EF%BC%882-8%E5%9D%87%E6%98%AF%E5%9C%A81%E7%9A%84%E6%9D%A1%E4%BB%B6%E4%B8%8B%E4%BD%BF%E7%94%A8%EF%BC%89%EF%BC%9A"><span class="toc-number">3.</span> <span class="toc-text">二、公式编辑（2-8均是在1的条件下使用）：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87"><span class="toc-number">4.</span> <span class="toc-text">三、插入图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%8F%92%E5%85%A5%E8%A1%A8%E6%A0%BC%EF%BC%9A"><span class="toc-number">5.</span> <span class="toc-text">四、插入表格：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE%EF%BC%9A"><span class="toc-number">6.</span> <span class="toc-text">五、参考文献：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E5%BC%95%E7%94%A8%EF%BC%9A%EF%BC%88label%E6%98%AF%E4%B8%BA%E4%BA%86%E6%96%B9%E4%BE%BF%E4%B9%8B%E5%90%8E%E7%9B%B4%E6%8E%A5%E5%BC%95%E7%94%A8%EF%BC%89%EF%BC%9A"><span class="toc-number">7.</span> <span class="toc-text">六、引用：（label是为了方便之后直接引用）：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E8%AE%BA%E6%96%87%E6%A8%A1%E6%9D%BF%E7%9A%84%E4%BB%A3%E7%A0%81%E6%A1%86%E6%9E%B6"><span class="toc-number">8.</span> <span class="toc-text">七、论文模板的代码框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B"><span class="toc-number">9.</span> <span class="toc-text">八、代码示例</span></a></li></ol>
+                                    </div>
+                                </button>
+                            
+                        
+                        <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="aplayerContent">
+        <meting-js
+        style="position:absolute; z-index:99999" 
+        type="playlist" 
+        server="netease" 
+        id="6976153408" 
+        fixed="true"
+        autoplay="true"
+        order="random"
+        loop="all"
+        list-folded="false"
+        preload="auto"
+        list-max-height="500px"
+        lrc-type="1">
+        </meting-js> 
+    </div>
+    <script>
+        // 对所有链接跳转事件绑定pjax容器container,只在容器中跳转
+        $(document).pjax('a[target!=_blank]', '#pageContent', {fragment: '#pageContent', timeout:8000})
+    </script>
+     
+    <div id="nexmoe-search-space">
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <input class="search-input" type="text" placeholder="搜索" oninput="sinput();">
+                </div>
+                <a class="search-close" onclick="sclose();">×</a>
+            </div>
+            <div class="search-body"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+ 
+
+<script async src="/js/app.js?v=1704991421111"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+
+
+    
+
+
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<!--烟花爆炸-->
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script type="text/javascript" src="/js/firework.js"></script>
+<!--单击显示文字-->
+<script type="text/javascript" src="/js/click_show_text.js"></script>
+</html>
+
+

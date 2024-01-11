@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    
+    <meta name="baidu-site-verification" content="code-NrUjkxdqT5" />
+    <title>云端化：博客多终端协同部署 - Eutupia by 夏夢</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="願いが叶う場所">
+    <meta name="keywords" content="null">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
+
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/logo.png" type="image/png" />
+    <meta name="description" content="全流程将一个本地博客变成一个云端博客">
+<meta property="og:type" content="article">
+<meta property="og:title" content="云端化：博客多终端协同部署">
+<meta property="og:url" content="https://631212502.github.io/2022/01/16/%E4%BA%91%E7%AB%AF%E5%8C%96%EF%BC%9A%E5%8D%9A%E5%AE%A2%E5%A4%9A%E7%BB%88%E7%AB%AF%E5%8D%8F%E5%90%8C%E9%83%A8%E7%BD%B2/index.html">
+<meta property="og:site_name" content="Eutupia by 夏夢">
+<meta property="og:description" content="全流程将一个本地博客变成一个云端博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://631212502.github.io/2022/01/16/%E4%BA%91%E7%AB%AF%E5%8C%96%EF%BC%9A%E5%8D%9A%E5%AE%A2%E5%A4%9A%E7%BB%88%E7%AB%AF%E5%8D%8F%E5%90%8C%E9%83%A8%E7%BD%B2/01/16/%E4%BA%91%E7%AB%AF%E5%8C%96%EF%BC%9A%E5%8D%9A%E5%AE%A2%E5%A4%9A%E7%BB%88%E7%AB%AF%E5%8D%8F%E5%90%8C%E9%83%A8%E7%BD%B2/1.png">
+<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9jZG4uanNkZWxpdnIubmV0L2doL25pbmV5YS9ibG9nX2ZpbGUvaW1hZ2VzL3AvOGRmYzhhODUvMjAxOTEyMTQwMTA0MDUucG5n?x-oss-process=image/format,png">
+<meta property="article:published_time" content="2022-01-16T02:57:52.000Z">
+<meta property="article:modified_time" content="2023-12-02T09:04:09.800Z">
+<meta property="article:author" content="Natu Matu">
+<meta property="article:tag" content="page_building">
+<meta property="article:tag" content="博客">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://631212502.github.io/2022/01/16/%E4%BA%91%E7%AB%AF%E5%8C%96%EF%BC%9A%E5%8D%9A%E5%AE%A2%E5%A4%9A%E7%BB%88%E7%AB%AF%E5%8D%8F%E5%90%8C%E9%83%A8%E7%BD%B2/01/16/%E4%BA%91%E7%AB%AF%E5%8C%96%EF%BC%9A%E5%8D%9A%E5%AE%A2%E5%A4%9A%E7%BB%88%E7%AB%AF%E5%8D%8F%E5%90%8C%E9%83%A8%E7%BD%B2/1.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
+    <!-- require APlayer -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+	<!-- require MetingJS : 未解决歌单播放问题-->
+	<script src="https://cdn.jsdelivr.net/npm/meting@latest/dist/Meting.min.js"></script>
+    <!-- require pjax -->
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+    <!-- DPlayer -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.js"></script>
+    <link rel="stylesheet" href="/css/style.css?v=1704991421192">
+     
+    
+        <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
+    
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1704991421192">
+    
+        <link rel="stylesheet" href="/custom.css">
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body class="mdui-drawer-body-left">
+    
+    <div id="pageContent">
+        <div id="nexmoe-background">
+            <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/202211081936671.jpg)"></div>
+            <div class="mdui-appbar mdui-shadow-0">
+                <div class="mdui-toolbar">
+                    <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                    <div class="mdui-toolbar-spacer"></div>
+                    <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                    <a href="/" title="Natu Matu" class="mdui-btn mdui-btn-icon"><img src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/avatar.jpg" alt="Natu Matu"></a>
+                </div>
+            </div>
+        </div>
+        <div id="nexmoe-header">
+            <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="Natu Matu">
+            <img src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/avatar.jpg" alt="Natu Matu" alt="Natu Matu">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>50</div>
+        <div><span>标签</span>17</div>
+        <div><span>分类</span>4</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/gate.html" title="小憩歌单">
+            <i class="mdui-list-item-icon nexmoefont icon-coffee"></i>
+            <div class="mdui-list-item-content">
+                小憩歌单
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/PY.html" title="左邻右舍">
+            <i class="mdui-list-item-icon nexmoefont icon-wechat-fill"></i>
+            <div class="mdui-list-item-content">
+                左邻右舍
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/album.html" title="时间光影">
+            <i class="mdui-list-item-icon nexmoefont icon-calendar-fill"></i>
+            <div class="mdui-list-item-content">
+                时间光影
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/natunoyume.html" title="拾音纪行">
+            <i class="mdui-list-item-icon nexmoefont icon-telegram"></i>
+            <div class="mdui-list-item-content">
+                拾音纪行
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+         
+            <form id="search_form" action_e="https://cn.bing.com/search?q=" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder="搜索"></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://qm.qq.com/cgi-bin/qm/qr?k=QriGs7GcXMPd6scnWXeO-IJ5TP8Qm8sd&noverify=0" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="https://space.bilibili.com/10580381" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .1);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/631212502" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .1);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=631212502@qq.com" target="_blank" mdui-tooltip="{content: '邮箱'}" style="color: rgb(51, 153, 255);background-color: rgba(51, 153, 255, .1);">
+            <i class="nexmoefont icon-mail-fill"></i>
+        </a><a class="mdui-ripple" href="https://steamcommunity.com/profiles/76561199013116495/" target="_blank" mdui-tooltip="{content: 'steam'}" style="color: rgb(3, 98, 255);background-color: rgba(3, 98, 255, .1);">
+            <i class="nexmoefont icon-steam"></i>
+        </a><a class="mdui-ripple" href="https://www.xiaohongshu.com/user/profile/5fcc10c4000000000100b0b7?xhsshare=CopyLink&appuid=5fcc10c4000000000100b0b7&apptime=1660447872" target="_blank" mdui-tooltip="{content: '小红书'}" style="color: rgb(250, 136, 111);background-color: rgba(250, 136, 111, .1);">
+            <i class="nexmoefont icon-calendar-fill"></i>
+        </a><a class="mdui-ripple" href="/null" target="_blank" mdui-tooltip="{content: '知乎'}" style="color: ;background-color: ;">
+            <i class="nexmoefont icon-zhihu"></i>
+        </a><a class="mdui-ripple" href="/null" target="_blank" mdui-tooltip="{content: '推特'}" style="color: ;background-color: ;">
+            <i class="nexmoefont icon-twitter"></i>
+        </a><a class="mdui-ripple" href="https://chat.openai.com/chat" target="_blank" mdui-tooltip="{content: 'GPT'}" style="color: rgb(45, 13, 73);background-color: rgba(45, 13, 73, .1);">
+            <i class="nexmoefont icon-eye-fill"></i>
+        </a>
+    </div>
+</div>
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/Coding/" style="font-size: 17.14px;">Coding</a> <a href="/tags/Competition/" style="font-size: 11.43px;">Competition</a> <a href="/tags/MMDL/" style="font-size: 10px;">MMDL</a> <a href="/tags/S-Project/" style="font-size: 14.29px;">S_Project</a> <a href="/tags/mmdl/" style="font-size: 18.57px;">mmdl</a> <a href="/tags/page-building/" style="font-size: 12.86px;">page_building</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 15.71px;">博客</a> <a href="/tags/%E5%AD%A6%E6%9C%AF/" style="font-size: 15.71px;">学术</a> <a href="/tags/%E6%91%84%E5%BD%B1/" style="font-size: 14.29px;">摄影</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 11.43px;">旅行</a> <a href="/tags/%E6%AD%8C%E3%81%86/" style="font-size: 11.43px;">歌う</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 17.14px;">笔记</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">编程</a> <a href="/tags/%E8%A8%80%E8%91%89/" style="font-size: 20px;">言葉</a> <a href="/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 14.29px;">记录</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 12.86px;">论文</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 17.14px;">随笔</a>
+    </div>
+    
+  </div>
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/小さな考え/">小さな考え</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/无情の勉強マシン/">无情の勉強マシン</a>
+          <span class="category-list-count">7</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/言けない言葉/">言けない言葉</a>
+          <span class="category-list-count">6</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/音楽が辞めよう/">音楽が辞めよう</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/">2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/">2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/">2010</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+
+    
+    <span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt = new Date("08/31/2021 17:38:00"); //在此处修改你的建站时间
+        now.setTime(now.getTime() + 250);
+        days = (now - grt) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt) / 1000 / 60 / 60 - 24 * dnum;
+        hnum = Math.floor(hours);
+        if (String(hnum).length == 1) {
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt) / 1000 / 60 - 24 * 60 * dnum - 60 * hnum;
+        mnum = Math.floor(minutes);
+        if (String(mnum).length == 1) {
+            mnum = "0" + mnum;
+        }
+        seconds = (now - grt) / 1000 - 24 * 60 * 60 * dnum - 60 * 60 * hnum - 60 * mnum;
+        snum = Math.round(seconds);
+        if (String(snum).length == 1) {
+            snum = "0" + snum;
+        }
+        document.getElementById("timeDate").innerHTML = 
+            " 风雨中度过了 " + dnum + " 天 ";
+        document.getElementById("times").innerHTML =
+            hnum + " 小时 " + mnum + " 分 "; 
+    }
+    setInterval("createtime()", 250);
+</script>
+<!-- + snum + " 秒 "-->
+    
+</aside>
+
+
+    <div class="nexmoe-copyright">
+        &copy; 2024 Natu Matu
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        
+    </div>
+</div><!-- .nexmoe-drawer -->
+<div style="font-size: 13px">
+    <link rel="stylesheet" href="https://widget.heweather.net/standard/static/css/he-standard.css?v=1.4.0"><script src="https://widget.heweather.net/standard/static/js/he-standard.js?v=1.4.0"></script><script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    本站总访问量  <a id="busuanzi_value_site_pv"></a> 次<br>
+    本站访客数<a id="busuanzi_value_site_uv"></a>人次
+</div>
+
+        </div>
+        <div id="nexmoe-content">
+            <div class="nexmoe-primary">
+                <div class="nexmoe-post">
+
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: NaN%;"> 
+              <img data-src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/X4csdfxt.webp" data-sizes="auto" alt="云端化：博客多终端协同部署" class="lazyload">
+              <h1>云端化：博客多终端协同部署</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2022年01月16日</a>
+    <a><i class="nexmoefont icon-areachart"></i>2.4k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 10 分钟</a>
+</div>
+
+      
+
+      <p><strong>全流程将一个本地博客变成一个云端博客</strong></p>
+<span id="more"></span>
+
+<h2 id="前言-逻辑图解"><a href="#前言-逻辑图解" class="headerlink" title="前言/逻辑图解"></a>前言/逻辑图解</h2><p><strong>&emsp;&emsp;马上就要放假离开实验室了，在这期间虽然也能通过离线写MD来记录自己的所思所想。但长远一想，这里是一辈子的事情，我不可能以后都依赖某一台电脑进行博客的更新，所以便想到了将自己的博客源代码一样也上传到云端保存，这样哪怕随手拿到一台电脑，稍微配置一下也能开始进行写作，于是便有了这一篇笔记</strong></p>
+<h3 id="构思与实现逻辑"><a href="#构思与实现逻辑" class="headerlink" title="构思与实现逻辑"></a>构思与实现逻辑</h3><img src="/2022/01/16/%E4%BA%91%E7%AB%AF%E5%8C%96%EF%BC%9A%E5%8D%9A%E5%AE%A2%E5%A4%9A%E7%BB%88%E7%AB%AF%E5%8D%8F%E5%90%8C%E9%83%A8%E7%BD%B2/01/16/%E4%BA%91%E7%AB%AF%E5%8C%96%EF%BC%9A%E5%8D%9A%E5%AE%A2%E5%A4%9A%E7%BB%88%E7%AB%AF%E5%8D%8F%E5%90%8C%E9%83%A8%E7%BD%B2/1.png" class title="This is the image of setting-logic">
+
+<h2 id="上传源码到云端"><a href="#上传源码到云端" class="headerlink" title="上传源码到云端"></a>上传源码到云端</h2><table>
+<thead>
+<tr>
+<th>操作前提</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>本地博客可以通过hexo正确部署到对应web</td>
+</tr>
+<tr>
+<td>正确安装git并配置好环境变量</td>
+</tr>
+</tbody></table>
+<h3 id="方法一：新建仓"><a href="#方法一：新建仓" class="headerlink" title="方法一：新建仓"></a>方法一：新建仓</h3><ol>
+<li>云端：在GitHub上new 一个新的代码仓：需要在GitHub上创建一个用于存储源码的库，建议最好选择 <strong>“private”</strong> 不要公开，除非你博客的所有内容打算完全公开。</li>
+<li>本地：<ul>
+<li>打开你的本地博客目录，目录下有一个 <strong>“.gitignore”</strong> 文件，没有就自己创建一个，该文件用于忽略指定的文件不进行同步，根据你的要求进行配置。一般配置内容如下：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c#">.DS_Store<br>Thumbs.db<br>db.json<br>*.log<br>node_modules/<br>public/<br>.deploy*/<br></code></pre></td></tr></table></figure></li>
+<li>右键打开git，依次输入命令与你的远程仓库连接<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 初始化本地仓库</span><br>git init<br><br><span class="hljs-comment"># 本地仓库和GitHub远程仓库对接</span><br><span class="hljs-comment"># nineya/blog_source.git修改为准备用于存放源码的仓库名</span><br>git remote add origin git@github.com:github use name（Owner）/Repository name.git<br><br><span class="hljs-comment"># 查看远程仓库地址，验证配置是否正确</span><br>git remote -v<br></code></pre></td></tr></table></figure>
+<img data-fancybox="gallery" data-sizes="auto" data-src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9jZG4uanNkZWxpdnIubmV0L2doL25pbmV5YS9ibG9nX2ZpbGUvaW1hZ2VzL3AvOGRmYzhhODUvMjAxOTEyMTQwMTA0MDUucG5n?x-oss-process=image/format,png" alt="result" class="lazyload"></li>
+<li>源码提交<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 下拉同步远程库上的数据，否则无法提交，后缀为无视时间差（无时间bug可不带）</span><br>git pull origin master --allow-unrelated-histories<br><br><span class="hljs-comment"># 将所有文件添加到本地仓库:git add -A（全部放入本地仓库）/git add . （修改放入本地仓库）</span><br>git add -A<br><br><span class="hljs-comment"># 提交到远程仓库</span><br>git commit -m <span class="hljs-string">&quot;博客源文件&quot;</span><br>git push<br></code></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ol>
+<h3 id="方法二：新建分支"><a href="#方法二：新建分支" class="headerlink" title="方法二：新建分支"></a>方法二：新建分支</h3><ol>
+<li>远程分支：maser、hexo存放不同文件内容。<ul>
+<li>hexo分支：存放本地文件，包括建站所需的配置文件、资源文件夹、主题文件夹、模板文件夹等，具体如下：【注】这里没有public文件夹，其实本地执行hexo d -g 发布命令会将由md文件渲染的静态文件放入public中。<br>文件框架如下：<br>├── _config.yml 配置信息，在此配置大部分的参数<br>├── package.json 应用程序的信息。EJS, Stylus 和 Markdown renderer 已默认安装<br>├── scaffolds 模版文件夹<br>├── source 存放用户资源的地方<br>| ├── _drafts<br>| └── _posts<br>└── themes 主题 文件夹</li>
+</ul>
+</li>
+<li>具体步骤<ol>
+<li>旧的设备做好备份本地文件到远程的hexo分支下，假定旧的设备是自己以及搭建hexo博客成功到master上了。做完Github Pages页面了。所以master分支下已有hexo生产的静态文件等。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">git init  //初始化本地仓库<br>git add <span class="hljs-built_in">source</span> //将必要的文件依次添加，有些文件夹如npm install产生的node_modules由于路径过长不好处理，所以这里没有用`git add .`命令了，而是依次添加必要文件，如下图所示.使用git add -A 可以自动把node_modules文件夹忽略。选择依次add或add -A都可以，下面图是add -A提交后的，测试是可以的<br>git commit -m <span class="hljs-string">&quot;Blog Source Hexo&quot;</span><br>git branch hexo  //新建hexo分支<br>git checkout hexo  //切换到hexo分支上<br>git remote add origin git@github.com:yourname/yourname.github.io.git  //将本地与Github项目对接<br>git push origin hexo  //push到Github项目的hexo分支上<br></code></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ol>
+<h2 id="新设备连接云端"><a href="#新设备连接云端" class="headerlink" title="新设备连接云端"></a>新设备连接云端</h2><h3 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h3><ol>
+<li>新设备正确安装git、<a target="_blank" rel="noopener" href="https://nodejs.org/en/download/">nodejs</a></li>
+<li>配置好git npm环境变量</li>
+<li>将新电脑的生成的ssh key添加到GitHub账户上<ul>
+<li>首先在本地创建 SSH Keys:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ ssh-keygen -t rsa -C “xxxx@xx.com“<br></code></pre></td></tr></table></figure></li>
+<li>成功的话会在 ~/下生成 .ssh文件夹，进去，打开 id_rsa.pub，复制里面的key即可。然后拷贝到 Github 的 SSH Keys(这里要添加一个新的)</li>
+<li>然后在终端中，我们再次测试下公钥有没有添加成功：ssh -T <a href="mailto:&#x67;&#x69;&#x74;&#x40;&#103;&#105;&#116;&#x68;&#x75;&#98;&#x2e;&#99;&#x6f;&#109;">&#x67;&#x69;&#x74;&#x40;&#103;&#105;&#116;&#x68;&#x75;&#98;&#x2e;&#99;&#x6f;&#109;</a></li>
+<li>会弹出确认命令，输入yes,会弹出Hi,你的名字等等，这就代表成功了<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 克隆博客源码到本地（顺便与相应分支产生了连接）</span><br>git <span class="hljs-built_in">clone</span> git@github.com:631212502/blog_source.git blog<br><br><span class="hljs-comment"># 打开博客根目录</span><br><span class="hljs-built_in">cd</span> blog<br><br><span class="hljs-comment"># 安装对应npm的资源包依赖</span><br>npm install<br><br><span class="hljs-comment"># 安装hexo</span><br>npm install hexo-cli -g //如果出错，<br>npm install -g hexo 或者sudo npm install -g hexo<br></code></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ol>
+<h2 id="完毕：更新迭代"><a href="#完毕：更新迭代" class="headerlink" title="完毕：更新迭代"></a>完毕：更新迭代</h2><p>设备每次使用或者更新blog 都参照以下流程</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#1.下拉同步仓库分支：注意本地和远程的映射关系</span><br>git pull origin main/master --allow-unrelated-histories <span class="hljs-comment">#在pull之前建议不要改动或者先将改动commit到本地仓库，避免覆盖</span><br><br><span class="hljs-comment">#2.Add提交改动:最好采用合并分支的方式实现提高代码的安全性</span><br>git add -A <span class="hljs-comment"># 简单改动使用：git add . </span><br>git commit -m <span class="hljs-string">&quot;博客源文件&quot;</span><br>    <br><span class="hljs-comment">#3.推动到远程仓库实现源码更新</span><br>git push<br><br><span class="hljs-comment">#4.hexo更新博客</span><br>hexo clean<br>hexo g<br>hexo d<br></code></pre></td></tr></table></figure>
+
+<h2 id="附录：常用的git操作命令"><a href="#附录：常用的git操作命令" class="headerlink" title="附录：常用的git操作命令"></a>附录：常用的git操作命令</h2><p>可视化版可以使用<a target="_blank" rel="noopener" href="https://tortoisegit.org/download/">小乌龟</a></p>
+<h3 id="Git-命令初识"><a href="#Git-命令初识" class="headerlink" title="Git 命令初识"></a>Git 命令初识</h3><p>示例：从Git 版本库的初始化，通常有两种方式：<br><strong>git clone：</strong> 简单的初始化方式，有一个远程的Git版本库，只需要在本地克隆一份就可以完成连接<br>例如：git clone git://github.com/someone/some_project.git some_project<br>上面的命令就是将’git://github.com/someone/some_project.git’这个URL地址的远程版本库，完全克隆到本地some_project目录下</p>
+<p><strong>git init 和 git remote：</strong> 这种方式稍微复杂一些，当你本地创建了一个工作目录，你可以进入这个目录，使用’git init’命令进行初始化；Git以后就会对该目录下的文件进行版本控制，这时候如果你需要将它放到远程服务器上，可以在远程服务器上创建一个目录，并把可访问的URL记录下来，此时你就可以利用’git remote add’命令来增加一个远程服务器端，<br>例如：git remote add origin git://github.com/someone/another_project.git<br>上面的命令就会增加URL地址为’git://github.com/someone/another_project.git’，名称为origin的远程服务器，以后提交代码的时候只需要使用 origin别名即可</p>
+<h3 id="Git-常用命令以及速查表"><a href="#Git-常用命令以及速查表" class="headerlink" title="Git 常用命令以及速查表"></a>Git 常用命令以及速查表</h3><table>
+<thead>
+<tr>
+<th>Git</th>
+<th>Context</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git branch -v/a/vv</td>
+<td>查看本地/远程/所有/映射分支</td>
+</tr>
+<tr>
+<td>git status</td>
+<td>查看当前git控制版本情况，有无提交</td>
+</tr>
+<tr>
+<td>git commit -m””/-v</td>
+<td>提交改动/查看提交差异</td>
+</tr>
+<tr>
+<td>git remote add origin git@</td>
+<td></td>
+</tr>
+<tr>
+<td>git push origin XXXX(分支名称)</td>
+<td>推送到远端服务器</td>
+</tr>
+<tr>
+<td>git remote show origin</td>
+<td>显示远端仓库内容</td>
+</tr>
+<tr>
+<td>git push origin master: dev</td>
+<td>本地与远端连接</td>
+</tr>
+<tr>
+<td>git checkout –track origin/dev</td>
+<td>切换到远程dev分支</td>
+</tr>
+<tr>
+<td>git branch -D master develop</td>
+<td>删除本地库develop</td>
+</tr>
+<tr>
+<td>git checkout -b dev</td>
+<td>切换并建立（-b）一个新的本地分支dev</td>
+</tr>
+<tr>
+<td>git merge origin/dev</td>
+<td>将分支dev与当前分支进行合并</td>
+</tr>
+<tr>
+<td>git config –list</td>
+<td>看所有用户</td>
+</tr>
+<tr>
+<td>git ls-files</td>
+<td>看已经被提交的</td>
+</tr>
+<tr>
+<td>git commit -a</td>
+<td>提交当前repos的所有的改变</td>
+</tr>
+<tr>
+<td>git add [file name]</td>
+<td>添加一个文件到git index</td>
+</tr>
+<tr>
+<td>git log</td>
+<td>看你commit的日志</td>
+</tr>
+<tr>
+<td>git stash push</td>
+<td>将文件给push到一个临时空间中</td>
+</tr>
+<tr>
+<td>git stash pop</td>
+<td>将文件从临时空间pop下来</td>
+</tr>
+<tr>
+<td>git pull</td>
+<td>本地与服务器端同步</td>
+</tr>
+<tr>
+<td>git push origin server fix:awesome branch</td>
+<td>git push (远程仓库名) (分支名) 将本地分支推送到服务器上去</td>
+</tr>
+</tbody></table>
+<h4 id="远程仓库使用"><a href="#远程仓库使用" class="headerlink" title="远程仓库使用"></a>远程仓库使用</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash">检出仓库：$ git <span class="hljs-built_in">clone</span> git://github.com/jquery/jquery.git<br>查看远程仓库：$ git remote -v<br>添加远程仓库：$ git remote add [name] [url]<br>删除远程仓库：$ git remote rm [name]<br>修改远程仓库：$ git remote set-url --push [name] [newUrl]<br>拉取远程仓库：$ git pull [remoteName] [localBranchName]<br>推送远程仓库：$ git push [remoteName] [localBranchName]<br><br>想提交本地的某个分支<span class="hljs-built_in">test</span>到远程仓库，并作为远程仓库的master分支，或者作为另外一个名叫<span class="hljs-built_in">test</span>的分支，如下：<br><br><span class="hljs-variable">$git</span> push origin <span class="hljs-built_in">test</span>:master // 提交本地<span class="hljs-built_in">test</span>分支作为远程的master分支<br><span class="hljs-variable">$git</span> push origin <span class="hljs-built_in">test</span>:<span class="hljs-built_in">test</span> // 提交本地<span class="hljs-built_in">test</span>分支作为远程的<span class="hljs-built_in">test</span>分支<br></code></pre></td></tr></table></figure>
+
+<h4 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs bash">查看本地分支：$ git branch<br>查看远程分支：$ git branch -r<br>创建本地分支：$ git branch [name] ----注意新分支创建后不会自动切换为当前分支<br>切换分支：$ git checkout [name]<br>创建新分支并立即切换到新分支：$ git checkout -b [name]<br>删除分支：$ git branch -d [name] ---- -d选项只能删除已经参与了合并的分支，对于未有合并的分支是无法删除的。如果想强制删除一个分支，可以使用-D选项<br>合并分支：$ git merge [name] ----将名称为[name]的分支与当前分支合并<br>创建远程分支(本地分支push到远程)：$ git push origin [name]<br>删除远程分支：$ git push origin :heads/[name] 或 $ git push origin :[name]<br>创建空的分支：(执行命令之前记得先提交你当前分支的修改，否则会被强制删干净没得后悔)<br><span class="hljs-variable">$git</span> symbolic-ref HEAD refs/heads/[name]<br><br><span class="hljs-variable">$rm</span> .git/index<br><br><span class="hljs-variable">$git</span> clean -fdx<br></code></pre></td></tr></table></figure>
+
+<h4 id="版本命令"><a href="#版本命令" class="headerlink" title="版本命令"></a>版本命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">查看版本：$ git tag<br>创建版本：$ git tag [name]<br>删除版本：$ git tag -d [name]<br>查看远程版本：$ git tag -r<br>创建远程版本(本地版本push到远程)：$ git push origin [name]<br>删除远程版本：$ git push origin :refs/tags/[name]<br>合并远程仓库的tag到本地：$ git pull origin --tags<br>上传本地tag到远程仓库：$ git push origin --tags<br>创建带注释的tag：$ git tag -a [name] -m <span class="hljs-string">&#x27;yourMessage&#x27;</span><br></code></pre></td></tr></table></figure>
+
+
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>Natu Matu<br>
+        <strong>本文链接：</strong><a href="https://631212502.github.io/2022/01/16/%E4%BA%91%E7%AB%AF%E5%8C%96%EF%BC%9A%E5%8D%9A%E5%AE%A2%E5%A4%9A%E7%BB%88%E7%AB%AF%E5%8D%8F%E5%90%8C%E9%83%A8%E7%BD%B2/" title="https:&#x2F;&#x2F;631212502.github.io&#x2F;2022&#x2F;01&#x2F;16&#x2F;%E4%BA%91%E7%AB%AF%E5%8C%96%EF%BC%9A%E5%8D%9A%E5%AE%A2%E5%A4%9A%E7%BB%88%E7%AB%AF%E5%8D%8F%E5%90%8C%E9%83%A8%E7%BD%B2&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;631212502.github.io&#x2F;2022&#x2F;01&#x2F;16&#x2F;%E4%BA%91%E7%AB%AF%E5%8C%96%EF%BC%9A%E5%8D%9A%E5%AE%A2%E5%A4%9A%E7%BB%88%E7%AB%AF%E5%8D%8F%E5%90%8C%E9%83%A8%E7%BD%B2&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/%E6%97%A0%E6%83%85%E3%81%AE%E5%8B%89%E5%BC%B7%E3%83%9E%E3%82%B7%E3%83%B3/">无情の勉強マシン</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/page-building/" rel="tag">page_building</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a>
+    
+</div>
+
+  
+      <div class="nexmoe-post-footer">
+          <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: 'cdc194d30f71cf392fdd',
+        clientSecret: 'b27b4f1ec813cb7eaa115ab184569422b663176a',
+        id: window.location.pathname,
+        repo: '631212502.github.io',
+        owner: '631212502',
+        admin: '631212502'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+      </div>
+  
+</div>
+                <div class="nexmoe-post-right">
+                <div class="nexmoe-fixed">
+                    <div class="nexmoe-tool"> 
+                        
+                            
+                            
+                                <button class="mdui-fab catalog" style="overflow:unset;">
+                                    <i class="nexmoefont icon-i-catalog"></i>
+                                    <div class="nexmoe-toc">
+                                        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80-%E9%80%BB%E8%BE%91%E5%9B%BE%E8%A7%A3"><span class="toc-number">1.</span> <span class="toc-text">前言&#x2F;逻辑图解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E6%80%9D%E4%B8%8E%E5%AE%9E%E7%8E%B0%E9%80%BB%E8%BE%91"><span class="toc-number">1.1.</span> <span class="toc-text">构思与实现逻辑</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8A%E4%BC%A0%E6%BA%90%E7%A0%81%E5%88%B0%E4%BA%91%E7%AB%AF"><span class="toc-number">2.</span> <span class="toc-text">上传源码到云端</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A%E6%96%B0%E5%BB%BA%E4%BB%93"><span class="toc-number">2.1.</span> <span class="toc-text">方法一：新建仓</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A%E6%96%B0%E5%BB%BA%E5%88%86%E6%94%AF"><span class="toc-number">2.2.</span> <span class="toc-text">方法二：新建分支</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E8%AE%BE%E5%A4%87%E8%BF%9E%E6%8E%A5%E4%BA%91%E7%AB%AF"><span class="toc-number">3.</span> <span class="toc-text">新设备连接云端</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E6%8F%90"><span class="toc-number">3.1.</span> <span class="toc-text">前提</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%AF%95%EF%BC%9A%E6%9B%B4%E6%96%B0%E8%BF%AD%E4%BB%A3"><span class="toc-number">4.</span> <span class="toc-text">完毕：更新迭代</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%84%E5%BD%95%EF%BC%9A%E5%B8%B8%E7%94%A8%E7%9A%84git%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4"><span class="toc-number">5.</span> <span class="toc-text">附录：常用的git操作命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Git-%E5%91%BD%E4%BB%A4%E5%88%9D%E8%AF%86"><span class="toc-number">5.1.</span> <span class="toc-text">Git 命令初识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E4%BB%A5%E5%8F%8A%E9%80%9F%E6%9F%A5%E8%A1%A8"><span class="toc-number">5.2.</span> <span class="toc-text">Git 常用命令以及速查表</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%BD%BF%E7%94%A8"><span class="toc-number">5.2.1.</span> <span class="toc-text">远程仓库使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E6%93%8D%E4%BD%9C"><span class="toc-number">5.2.2.</span> <span class="toc-text">分支操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%88%E6%9C%AC%E5%91%BD%E4%BB%A4"><span class="toc-number">5.2.3.</span> <span class="toc-text">版本命令</span></a></li></ol></li></ol></li></ol>
+                                    </div>
+                                </button>
+                            
+                        
+                        <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="aplayerContent">
+        <meting-js
+        style="position:absolute; z-index:99999" 
+        type="playlist" 
+        server="netease" 
+        id="6976153408" 
+        fixed="true"
+        autoplay="true"
+        order="random"
+        loop="all"
+        list-folded="false"
+        preload="auto"
+        list-max-height="500px"
+        lrc-type="1">
+        </meting-js> 
+    </div>
+    <script>
+        // 对所有链接跳转事件绑定pjax容器container,只在容器中跳转
+        $(document).pjax('a[target!=_blank]', '#pageContent', {fragment: '#pageContent', timeout:8000})
+    </script>
+     
+    <div id="nexmoe-search-space">
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <input class="search-input" type="text" placeholder="搜索" oninput="sinput();">
+                </div>
+                <a class="search-close" onclick="sclose();">×</a>
+            </div>
+            <div class="search-body"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+ 
+
+<script async src="/js/app.js?v=1704991421196"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+
+
+    
+
+
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<!--烟花爆炸-->
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script type="text/javascript" src="/js/firework.js"></script>
+<!--单击显示文字-->
+<script type="text/javascript" src="/js/click_show_text.js"></script>
+</html>
+
+

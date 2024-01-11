@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    
+    <meta name="baidu-site-verification" content="code-NrUjkxdqT5" />
+    <title>融合：一个MMDL算法工程师的修养之道 - Eutupia by 夏夢</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="願いが叶う場所">
+    <meta name="keywords" content="null">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
+
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/logo.png" type="image/png" />
+    <meta name="description" content="缘得此书：《百面机器学习》,闲来一叙">
+<meta property="og:type" content="article">
+<meta property="og:title" content="融合：一个MMDL算法工程师的修养之道">
+<meta property="og:url" content="https://631212502.github.io/2021/10/24/%E7%99%BE%E9%9D%A2%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="Eutupia by 夏夢">
+<meta property="og:description" content="缘得此书：《百面机器学习》,闲来一叙">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic2.zhimg.com/v2-9e50e23bd3dff0d91b0198d0e6b6429a_r.jpg">
+<meta property="og:image" content="https://4143056590-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-LpO5sn2FY1C9esHFJmo%2F-LpO5t6XJGnSXrbsZ_UC%2F-LpO60eOc5g6Myg5Qdum%2Fdimension-curse.png?generation=1569158084607914&alt=media">
+<meta property="og:image" content="https://img-blog.csdn.net/20180608215827629?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3liZGVzaXJl/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://pic2.zhimg.com/v2-9d4402602d941eb00acd2cae715c4d05_1440w.jpg?source=172ae18b">
+<meta property="og:image" content="https://vdn1.vzuu.com/SD/3bb38dfe-236a-11eb-8039-a6caf32b14c9.mp4?disable_local_cache=1&auth_key=1647742778-0-0-bfef4e3de4968e56b61f07a6d7fc5cc7&f=mp4&bu=pico&expiration=1647742778&v=hw">
+<meta property="article:published_time" content="2021-10-24T07:19:43.000Z">
+<meta property="article:modified_time" content="2023-12-02T09:04:09.890Z">
+<meta property="article:author" content="Natu Matu">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="mmdl">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic2.zhimg.com/v2-9e50e23bd3dff0d91b0198d0e6b6429a_r.jpg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
+    <!-- require APlayer -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+	<!-- require MetingJS : 未解决歌单播放问题-->
+	<script src="https://cdn.jsdelivr.net/npm/meting@latest/dist/Meting.min.js"></script>
+    <!-- require pjax -->
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+    <!-- DPlayer -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.js"></script>
+    <link rel="stylesheet" href="/css/style.css?v=1704991421219">
+     
+    
+        <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
+    
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1704991421219">
+    
+        <link rel="stylesheet" href="/custom.css">
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body class="mdui-drawer-body-left">
+    
+    <div id="pageContent">
+        <div id="nexmoe-background">
+            <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/202211081936671.jpg)"></div>
+            <div class="mdui-appbar mdui-shadow-0">
+                <div class="mdui-toolbar">
+                    <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                    <div class="mdui-toolbar-spacer"></div>
+                    <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                    <a href="/" title="Natu Matu" class="mdui-btn mdui-btn-icon"><img src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/avatar.jpg" alt="Natu Matu"></a>
+                </div>
+            </div>
+        </div>
+        <div id="nexmoe-header">
+            <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="Natu Matu">
+            <img src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/avatar.jpg" alt="Natu Matu" alt="Natu Matu">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>50</div>
+        <div><span>标签</span>17</div>
+        <div><span>分类</span>4</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/gate.html" title="小憩歌单">
+            <i class="mdui-list-item-icon nexmoefont icon-coffee"></i>
+            <div class="mdui-list-item-content">
+                小憩歌单
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/PY.html" title="左邻右舍">
+            <i class="mdui-list-item-icon nexmoefont icon-wechat-fill"></i>
+            <div class="mdui-list-item-content">
+                左邻右舍
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/album.html" title="时间光影">
+            <i class="mdui-list-item-icon nexmoefont icon-calendar-fill"></i>
+            <div class="mdui-list-item-content">
+                时间光影
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/natunoyume.html" title="拾音纪行">
+            <i class="mdui-list-item-icon nexmoefont icon-telegram"></i>
+            <div class="mdui-list-item-content">
+                拾音纪行
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+         
+            <form id="search_form" action_e="https://cn.bing.com/search?q=" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder="搜索"></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://qm.qq.com/cgi-bin/qm/qr?k=QriGs7GcXMPd6scnWXeO-IJ5TP8Qm8sd&noverify=0" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="https://space.bilibili.com/10580381" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .1);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/631212502" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .1);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=631212502@qq.com" target="_blank" mdui-tooltip="{content: '邮箱'}" style="color: rgb(51, 153, 255);background-color: rgba(51, 153, 255, .1);">
+            <i class="nexmoefont icon-mail-fill"></i>
+        </a><a class="mdui-ripple" href="https://steamcommunity.com/profiles/76561199013116495/" target="_blank" mdui-tooltip="{content: 'steam'}" style="color: rgb(3, 98, 255);background-color: rgba(3, 98, 255, .1);">
+            <i class="nexmoefont icon-steam"></i>
+        </a><a class="mdui-ripple" href="https://www.xiaohongshu.com/user/profile/5fcc10c4000000000100b0b7?xhsshare=CopyLink&appuid=5fcc10c4000000000100b0b7&apptime=1660447872" target="_blank" mdui-tooltip="{content: '小红书'}" style="color: rgb(250, 136, 111);background-color: rgba(250, 136, 111, .1);">
+            <i class="nexmoefont icon-calendar-fill"></i>
+        </a><a class="mdui-ripple" href="/null" target="_blank" mdui-tooltip="{content: '知乎'}" style="color: ;background-color: ;">
+            <i class="nexmoefont icon-zhihu"></i>
+        </a><a class="mdui-ripple" href="/null" target="_blank" mdui-tooltip="{content: '推特'}" style="color: ;background-color: ;">
+            <i class="nexmoefont icon-twitter"></i>
+        </a><a class="mdui-ripple" href="https://chat.openai.com/chat" target="_blank" mdui-tooltip="{content: 'GPT'}" style="color: rgb(45, 13, 73);background-color: rgba(45, 13, 73, .1);">
+            <i class="nexmoefont icon-eye-fill"></i>
+        </a>
+    </div>
+</div>
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/Coding/" style="font-size: 17.14px;">Coding</a> <a href="/tags/Competition/" style="font-size: 11.43px;">Competition</a> <a href="/tags/MMDL/" style="font-size: 10px;">MMDL</a> <a href="/tags/S-Project/" style="font-size: 14.29px;">S_Project</a> <a href="/tags/mmdl/" style="font-size: 18.57px;">mmdl</a> <a href="/tags/page-building/" style="font-size: 12.86px;">page_building</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 15.71px;">博客</a> <a href="/tags/%E5%AD%A6%E6%9C%AF/" style="font-size: 15.71px;">学术</a> <a href="/tags/%E6%91%84%E5%BD%B1/" style="font-size: 14.29px;">摄影</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 11.43px;">旅行</a> <a href="/tags/%E6%AD%8C%E3%81%86/" style="font-size: 11.43px;">歌う</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 17.14px;">笔记</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">编程</a> <a href="/tags/%E8%A8%80%E8%91%89/" style="font-size: 20px;">言葉</a> <a href="/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 14.29px;">记录</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 12.86px;">论文</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 17.14px;">随笔</a>
+    </div>
+    
+  </div>
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/小さな考え/">小さな考え</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/无情の勉強マシン/">无情の勉強マシン</a>
+          <span class="category-list-count">7</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/言けない言葉/">言けない言葉</a>
+          <span class="category-list-count">6</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/音楽が辞めよう/">音楽が辞めよう</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/">2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/">2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/">2010</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+
+    
+    <span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt = new Date("08/31/2021 17:38:00"); //在此处修改你的建站时间
+        now.setTime(now.getTime() + 250);
+        days = (now - grt) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt) / 1000 / 60 / 60 - 24 * dnum;
+        hnum = Math.floor(hours);
+        if (String(hnum).length == 1) {
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt) / 1000 / 60 - 24 * 60 * dnum - 60 * hnum;
+        mnum = Math.floor(minutes);
+        if (String(mnum).length == 1) {
+            mnum = "0" + mnum;
+        }
+        seconds = (now - grt) / 1000 - 24 * 60 * 60 * dnum - 60 * 60 * hnum - 60 * mnum;
+        snum = Math.round(seconds);
+        if (String(snum).length == 1) {
+            snum = "0" + snum;
+        }
+        document.getElementById("timeDate").innerHTML = 
+            " 风雨中度过了 " + dnum + " 天 ";
+        document.getElementById("times").innerHTML =
+            hnum + " 小时 " + mnum + " 分 "; 
+    }
+    setInterval("createtime()", 250);
+</script>
+<!-- + snum + " 秒 "-->
+    
+</aside>
+
+
+    <div class="nexmoe-copyright">
+        &copy; 2024 Natu Matu
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        
+    </div>
+</div><!-- .nexmoe-drawer -->
+<div style="font-size: 13px">
+    <link rel="stylesheet" href="https://widget.heweather.net/standard/static/css/he-standard.css?v=1.4.0"><script src="https://widget.heweather.net/standard/static/js/he-standard.js?v=1.4.0"></script><script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    本站总访问量  <a id="busuanzi_value_site_pv"></a> 次<br>
+    本站访客数<a id="busuanzi_value_site_uv"></a>人次
+</div>
+
+        </div>
+        <div id="nexmoe-content">
+            <div class="nexmoe-primary">
+                <div class="nexmoe-post">
+
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: NaN%;"> 
+              <img data-src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/a6t7c-f7vcv.webp" data-sizes="auto" alt="融合：一个MMDL算法工程师的修养之道" class="lazyload">
+              <h1>融合：一个MMDL算法工程师的修养之道</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2021年10月24日</a>
+    <a><i class="nexmoefont icon-areachart"></i>8.1k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 33 分钟</a>
+</div>
+
+      
+
+      <p><strong>缘得此书：《百面机器学习》,闲来一叙</strong></p>
+<span id="more"></span>
+<center>1. 认知体系搭建</center>
+<center>2. 编程应用能力</center>
+<center>3. 知识广度深度</center>
+<center>4. 面试表达之道</center>
+
+<h1 id="认知体系搭建："><a href="#认知体系搭建：" class="headerlink" title="认知体系搭建："></a>认知体系搭建：</h1><p><strong>前言小叙：</strong><br>在这篇文章中，我会从上述四个维度记录自己作为一个MMDL算法工程师的成长</p>
+<h2 id="多模态学习"><a href="#多模态学习" class="headerlink" title="多模态学习"></a>多模态学习</h2><p>什么是多模态学习，本质上其实就是多个模态在表示特征上，特征融合上，特征转换上，特征对齐上进行的深度学习，世界本来就是多模态信息共同传递和作用的。</p>
+<p>既可以互补消除歧义，也能强化模态之间的语义表达，甚至不同模态之间的结合可以传递出更加复杂的<br>特征（例如真挚的情感等等），从单一模态走向多模态，是人工智能技术走向通用人工智能的里程碑~</p>
+<h3 id="常见多模态模型和算法"><a href="#常见多模态模型和算法" class="headerlink" title="常见多模态模型和算法"></a>常见多模态模型和算法</h3><p>Base：<a href="https://631212502.github.io/2022/03/21/Machine-Learning-Base-of-MMDL/">ML</a>、<a href>DL</a>、<a href="https://631212502.github.io/2022/03/21/Natural-Language-Processing-Key-of-MMDL/">NLP</a>、<a href>CV</a>、<a href>ASR</a>、<a href>MORE</a>、</p>
+<h4 id="Vilt"><a href="#Vilt" class="headerlink" title="Vilt"></a>Vilt</h4><h4 id="Cilp"><a href="#Cilp" class="headerlink" title="Cilp"></a>Cilp</h4><h2 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h2><ul>
+<li><p>基本结构</p>
+<ul>
+<li><p>conv<br>卷积结构，三个特性：局部感知，权值共享，下采样，可以模仿眼睛视觉关注局部信息以及提取他们的特征，通过共用卷积核的方式完成权值共享，极大减小了计算量。池化也就是下采样，逐渐降低空间尺寸，减小参数量。</p>
+<ul>
+<li>Pooling<br>其实这东西也有防止过拟合的作用，cnn卷出来的数据太复杂了，容易overfit，所以取个有代表性的数字即可，这就是pooling</li>
+<li>Resnet<br>如果从电力电子角度理解，resnet是一个差分放大器。通过间隔连接获得输出与输入之间的一个差分信号，从而获得更具有学习价值的输出。</li>
+</ul>
+</li>
+<li><p>RNN/lstm<br>RNN的结构目的是更好地处理序列信息，而且序列中的每一个元素是具有相关性表征的，如果语音语言序列，结构上的大白话就是，每个隐层都会在时间轴上向下一个层输出当前时间的一个权重W<br><img src="https://pic2.zhimg.com/v2-9e50e23bd3dff0d91b0198d0e6b6429a_r.jpg"><br>结构特点：</p>
+<ul>
+<li>one to one:单输入单输出，例如图像分类</li>
+<li>one to many:给一个输入得到一系列的输出，这种可用于生产图片</li>
+<li>many to one：给一列输入得到一个输出，用于文本分析，情感倾向分析</li>
+<li>many to many：对话机器人<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/85776566">BPTT推导以及梯度消失问题分析</a><br>为什么要参数共享：大大减小参数量，简化模型<br>RNN的输入是序列，如果序列过长，容易导致参数过多而且过拟合，而且RNN每一层对输入的处理是一样的，可以理解成</li>
+</ul>
+</li>
+<li><p>BN层：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/93643523">推导</a><br>Batch Normalization是2015年一篇论文中提出的数据归一化方法，往往用在深度神经网络中激活层之前。其作用可以加快模型训练时的收敛速度，使得模型训练过程更加稳定，避免梯度爆炸或者梯度消失。并且起到一定的正则化作用，几乎代替了Dropout。</p>
+</li>
+<li><p>Relu、Sigmoid</p>
+</li>
+<li><p>dropout<br>以一定的概率（一般是0.5）盖住某些隐藏层神经元，使其无法输入和输出参与前向传播和反向传播，减弱模型的复杂度（正则）</p>
+</li>
+<li><p>full link</p>
+</li>
+<li><p>fc</p>
+</li>
+</ul>
+</li>
+<li><p>一些现象</p>
+<ul>
+<li>维数灾难<br>在深度学习里，我们的模型往往面对的是高维特征，但随着维度的增加，样本的分布会逐渐小于空间的位置，或者说样本可能分布的位置会远大于样本的数目，这就是维数灾难，容易导致模型overfitting以及不知道从什么方向进行泛化<br><img src="https://4143056590-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-LpO5sn2FY1C9esHFJmo%2F-LpO5t6XJGnSXrbsZ_UC%2F-LpO60eOc5g6Myg5Qdum%2Fdimension-curse.png?generation=1569158084607914&alt=media"></li>
+</ul>
+</li>
+<li><p>一些常见网络</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/ybdesire/article/details/80628586">Inception</a></p>
+<p>Inception层是Inception网络中的基本结构。Inception层的基本原理如下图：<br><img src="https://img-blog.csdn.net/20180608215827629?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3liZGVzaXJl/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p>
+<p>Inception网络是由多个Inception层组成的，它的最大优点是可以一定程度上帮你省去指定CNN卷积核大小和MP调优的工作。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="编程应用能力"><a href="#编程应用能力" class="headerlink" title="编程应用能力"></a>编程应用能力</h1><p><a href="https://631212502.github.io/2021/12/12/%E7%BC%96%E7%A8%8B%E4%B9%8B%E9%81%93/">coding is all</a></p>
+<h1 id="知识面："><a href="#知识面：" class="headerlink" title="知识面："></a>知识面：</h1><p><strong>需要知道哪些模型，哪些方法，有什么特点，怎么调整修改，怎么应用</strong></p>
+<h1 id="面试问题归总"><a href="#面试问题归总" class="headerlink" title="面试问题归总"></a>面试问题归总</h1><h2 id="前言-总而言之"><a href="#前言-总而言之" class="headerlink" title="前言/总而言之"></a>前言/总而言之</h2><p>这两本书是我研究生期间攻读深度学习研究相关问题的重要工具书，虽然概念和公式理解起来不容易，但里面的描述十分具体和生动，学习的境界就是把知识先读厚再读薄~</p>
+<h2 id="特征工程"><a href="#特征工程" class="headerlink" title="特征工程"></a>特征工程</h2><h3 id="什么是特征"><a href="#什么是特征" class="headerlink" title="什么是特征"></a>什么是特征</h3><p>特征：事件本体或者事物发生或者变化的规律，也是学习这个任务的基石，机器学的是什么，就是根据特征学出（优化出）网络的权值</p>
+<h3 id="特征方案"><a href="#特征方案" class="headerlink" title="特征方案"></a>特征方案</h3><ol>
+<li>数据查找</li>
+<li>特征可用性评估<h3 id="特征获取方案"><a href="#特征获取方案" class="headerlink" title="特征获取方案"></a>特征获取方案</h3>如何获取，以及如何存储<h3 id="特征处理与特征选择"><a href="#特征处理与特征选择" class="headerlink" title="特征处理与特征选择"></a>特征处理与特征选择</h3><h4 id="特征清洗"><a href="#特征清洗" class="headerlink" title="特征清洗"></a>特征清洗</h4></li>
+<li>异常样本清洗</li>
+<li>采样</li>
+</ol>
+<ul>
+<li>数据不均衡</li>
+<li>样本权重<h4 id="特征归一化"><a href="#特征归一化" class="headerlink" title="特征归一化"></a>特征归一化</h4>归一化可以缩减样本的分布范围，从而缩短梯度下降过程，从而提高迭代速度<br>| 线性函数归一化 | 线性变换，使结果映射在区间0~1内 |<br>| 零均值归一化 | 原始数据映射到均值为0、标准差为1的分布上 |<br>| 注意 | 数据归一化并非万能。梯度下降过程往往涉及归一化，但决策树（信息增益相关）就于此无关 |<h4 id="类别型特征"><a href="#类别型特征" class="headerlink" title="类别型特征"></a>类别型特征</h4></li>
+</ul>
+<ol>
+<li>序号编码：处理有大小关系的数字，比如高低给个1,0 </li>
+<li>独热编码：类别间互相独立，而且可以进行稀疏表示，比如血型</li>
+<li>二进制编码：大类别ID化，将ID编码成为二进制编号<h4 id="高维组合特征"><a href="#高维组合特征" class="headerlink" title="高维组合特征"></a>高维组合特征</h4>组合特征：具有复杂关系的特征组合（比如我自己的微表情+语音文本倾向）<br>在一些推荐系统问题中，特征往往是相关联的，和结果又直接相关，我们也知道，网络可以从基础特征中学习得到一些高维度的特征表达<br>处理方法：以逻辑回归为例子，假设数据有k维的特征向量，k之中两两可以组成特征，这种两两组合特征的学习很容易提高参数的维度，例如在预测网页商品点击率的时候，每个用户都要有对应点击所有的商品的样本，所有用户就是m*n的一个大小，如果还是海量规模的用户数据，这种参数量根本无法学习<br>所以采用k维度的低维特征表达所有的m，和所有的n，这样参数就是km+kn，等价于矩阵分解。<h3 id="文本的特征表示（word2vec）"><a href="#文本的特征表示（word2vec）" class="headerlink" title="文本的特征表示（word2vec）"></a>文本的特征表示（word2vec）</h3></li>
+</ol>
+<ul>
+<li>词袋模型<ul>
+<li>把一段文字看成是一袋子词，忽略其中的顺序。把一个单词表示成整段文字这个长向量中的一维。然后给该维度附一个权重值代表其对这段话的重要程度，用逆文本频率TF-IDF计算：[公式]</li>
+<li>N-gram：有些通常连续出现的固定搭配和表达。通常也可以将他们组成一个完整单独的特征放到向量表示中，构成N-gram</li>
+<li>词干抽取：同一个词可能有多种词性变化，却有相同的含义，实际中就会进行词干抽取统一成一个统一的词干表达</li>
+</ul>
+</li>
+<li>主题模型<ul>
+<li>从文本库中发现有代表性的主题（得到主题上面的分布特性），并且能够计算出每篇文章的主题分布</li>
+</ul>
+</li>
+<li>词嵌入模型<ul>
+<li>将每个词都映射到一个低维稠密空间（one-hot降维化），通过余弦相似度可以得知他们的相似性。用词嵌入做特征，会在底层得到一个N（文章的词）×K（词嵌入维数）的底层矩阵。再通过训练提高他们的向量表达（没经过一层都可以看做是其词向量的抽象化表达）<h2 id="模型评估"><a href="#模型评估" class="headerlink" title="模型评估"></a>模型评估</h2><h3 id="评估指标的局限性"><a href="#评估指标的局限性" class="headerlink" title="评估指标的局限性"></a>评估指标的局限性</h3></li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>准确率的局限性<br>$$Accurancy=\frac{n_{correct}}{n_{total}}$$<br>又公式可以得知，准确率就是分类正确个数占分类总样本个数的比值，所以，当样本类比比例极端不均衡时，准确率往往受占大头的类别的影响，比如99的负样本，1个正样本的情况。</li>
+<li>精准率与召回率<br>$$Precosion=\frac{n_{correct}}{n_{model_correct_total}}$$<br>$$Recall=\frac{n_{correct}}{n_{data_correct_total}}$$</li>
+<li>P-R曲线的作用<br>P指的是模型的precision，也就是预测的精度，recall也就是召回的精度。，PR曲线的横轴是召回率，纵轴是精确率。对于排序模型来说，pr曲线一个点代表某一阈值下，模型将大于其阈值的判定为正样本，小于的判定为负样本。整条曲线随着阈值从高到低变化（原点附近代表阈值最大）。所以PR曲线完成了对模型的整体性能评估</li>
+<li>平方根误差：RMSE指标<br>RMSE = 根号（y预测与y真实之差的平方求和再除以样本数）：总体偏差<br>可以知道，这样的偏差一定很受到离群点的影响，而且越远越离谱，但如果很好地处理了离群点<br>那么可以这个指标很容易就反映出实际预测与样本的偏差。<br>当然，还有一个百分比指标：MAPE<h3 id="ROC曲线"><a href="#ROC曲线" class="headerlink" title="ROC曲线"></a>ROC曲线</h3>ROC曲线的横坐标是假阳性率，纵坐标是真阳性率<h3 id="MAE-MSE-RMSE-R-LOSS分析"><a href="#MAE-MSE-RMSE-R-LOSS分析" class="headerlink" title="MAE\MSE\RMSE\R LOSS分析"></a>MAE\MSE\RMSE\R LOSS分析</h3>MAE 平均绝对误差<br>MSE 平方误差<br>RMSE 均方根误差<br>R方 决定系数</li>
+</ol>
+<p>与平均绝对误差(MAE)相比，平均平方误差(MSE)和均方根误差是对大的预测误差的惩罚。然而，RMSE比MSE广泛用于评估回归模型与其他随机模型的性能，因为它与因变量(Y)的单位相同。</p>
+<p>MSE是一个可微分的函数，与MAE这样的不可微分的函数相比，它容易进行数学运算。因此，在许多模型中，尽管RMSE比MAE更难解释，但还是被作为计算损失函数的默认指标。</p>
+<p>MAE、MSE和RMSE的值越低，意味着回归模型的准确性越高。然而，较高的R平方值被认为是模型的解释性更强。</p>
+<p>R平方和调整后的R平方用于解释线性回归模型中的自变量对因变量变化的解释程度。R平方值总是随着自变量的增加而增加，这可能导致在我们的模型中增加多余的变量。然而，调整后的R平方值解决了这个问题。</p>
+<p>调整后的R平方考虑到了预测变量的数量，它被用来确定我们模型中独立变量的数量。如果增加的变量对R平方的增加不够明显，那么调整后的R平方值就会减少。</p>
+<p>对于比较不同线性回归模型之间的准确性，RMSE是比R平方更好的选择。</p>
+<h3 id="误差估计"><a href="#误差估计" class="headerlink" title="误差估计"></a>误差估计</h3><ol>
+<li>经验最小化误差<br>机器学习的目的就是根据一些训练样本，寻找一个最优的函数，使得函数对输入X的估计Y’与实际输出Y之间的期望风险（可以暂时理解为误差）最小化。</li>
+</ol>
+<p>期望风险最小化依赖于样本的输入X与其输出Y之间的函数映射关系F(x,y)，而这个映射关系，在机器视觉和模式识别系统中，一般指代先验概率和类条件概率。</p>
+<p><strong>然而，这两者在实际的应用中，都是无法准确获取的，唯一能够利用的就只有训练样本的输入X及其对应的观测输出Y。</strong></p>
+<p>而机器学习的目的又必须要求使得期望风险最小化，从而得到需要的目标函数。不难想象，可以利用样本的算术平均来代替式理想的期望，于是就定义了下面的式子来作为实际的目标风险函数是利用已知的经验数据（训练样本）来计算，因此被称之为经验风险。</p>
+<p><strong>用对参数求经验风险来逐渐逼近理想的期望风险的最小值，就是我们常说的经验风险最小化（ERM）原则。</strong></p>
+<p>显然，利用经验风险来代替真实的期望风险是有代价的。首先，经验风险并不完全等于期望风险；其次，用经验风险来近似代替期望风险在理论上并没有完善的依据；最后，用经验风险来代替期望风险计算得到的误差属于经验误差，而并非真实期望误差；尽管有这样那样的问题存在，在先验概率和类条件概率无法准确获取的情况下，用经验风险来“想当然”的代替期望风险从而解决模式识别等机器学习问题的思路在这一领域依然大量存在。<br>2. 降低过拟合的方法：</p>
+<ul>
+<li>增加数据</li>
+<li>降低模型复杂度</li>
+<li>正则化</li>
+<li>集成学习方法</li>
+</ul>
+<ol start="3">
+<li>降低欠拟合方法</li>
+</ol>
+<ul>
+<li>添加新特征</li>
+<li>增加模型复杂度</li>
+<li>减小正则化系数<h2 id="经典算法"><a href="#经典算法" class="headerlink" title="经典算法"></a>经典算法</h2><h3 id="SVM"><a href="#SVM" class="headerlink" title="SVM"></a>SVM</h3>问题一：空间线性可分的两类点，分别向SVM分类超平面投影，这些投影仍然线性可分吗？（p52）<br>不一定，通过超平面分开的两类点有可能是通过核函数映射后区分开的，如果原本就线性可分，也就不再需要到核函数映射（超平面方法），因为超平面为支持向量间间隔最大分类面，如果样本在其上的投影依然线性可分，显然应存在更优的超平面，故与假设矛盾，反之可推出映射到超平面的样本一定是线性不可分的两类点。<br>问题二：是否存在一组参数使得SVM训练误差为0？</li>
+</ul>
+<p>问题三：训练误差为0的SVM分类器一定存在么？加入松弛变量呢？</p>
+<h3 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h3><h4 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h4><p>在一堆数据点中用最小二乘法拟合出数据点的近似曲线<br>问题一：逻辑回归与线性回归有什么不同？<br>本质与线性回归大相径庭（相差很远），最重要的一点就是，逻辑回归处理的其实是分类问题，。逻辑回归中的因变量是离散的，线性回归中的因变量是连续的。相同的地方是都用了极大似然的方法对样本惊醒了建模<br>问题二：如何处理多分类问题，有哪些常见的做法？应用于什么场景<br>多分类问题往往采用多项逻辑回归来进行分类</p>
+<h3 id="决策树与随机森林"><a href="#决策树与随机森林" class="headerlink" title="决策树与随机森林"></a>决策树与随机森林</h3><h4 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h4><p>决策是广泛使用的分类算法，相比贝叶斯，决策树的优势在于不需要提供先验参数，所以在学习未知的知识这一情况下更加适用</p>
+<p>当一条记录有若干不同的方式划分为目标类的一部分时，适合用单条线来发现类别之间边界的统计学方法是无力的。而决策树能够成功地达到这一目标。</p>
+<h4 id="决策规则"><a href="#决策规则" class="headerlink" title="决策规则"></a>决策规则</h4><p>决策树可以认为是if-then的集合，也可以认为是点贵在特征空间与类空间上的条件概率分布。其主要有点事模型具有很好的可解释性，分类速度快。</p>
+<h4 id="决策树的学习"><a href="#决策树的学习" class="headerlink" title="决策树的学习"></a>决策树的学习</h4><p>决策树的学习与预测过程：学习时，利用训练数据，根据损失函数最小化的原则简历决策树模型；预测时，对新的数据，利用决策树模型进行分类。决策树学习通常包括3个步骤：特征选择、树生成、树修剪。<br>以下是决策树学习伪代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> **<br>data = []<br>target = []<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">dectree</span>():</span><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">TreeGenerate</span>(<span class="hljs-params">D,A</span>):</span><br>    ***<br>    <span class="hljs-comment">#数生成函数</span><br><span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&quot;__main__&quot;</span>:<br>  <span class="hljs-comment">#生成节点node</span><br>  node = dectree<br>  <span class="hljs-keyword">if</span> D中样本全属于同一类别C then<br>    将node标记为C类叶节点；<span class="hljs-keyword">return</span><br>  end <span class="hljs-keyword">if</span><br>  <span class="hljs-keyword">if</span> A = 空集 <span class="hljs-keyword">or</span> D中样本在A上取值相同then<br>    将node标记为叶节点，其类别标记为D重样本数最多的类；<span class="hljs-keyword">return</span><br>  end <span class="hljs-keyword">if</span><br>  从A中选择最优划分属性a*<br>  <span class="hljs-keyword">for</span> a* <span class="hljs-keyword">in</span> 它的集合：<br>    <span class="hljs-comment">#为node生成一个分支；令D表示D中在a*上取值为a*的样本子集</span><br>    <span class="hljs-keyword">if</span> Dv 为空 then<br>      将分支节点标记为叶节点，其类别标记为D重样本最多的类；<span class="hljs-keyword">return</span><br>    <span class="hljs-keyword">else</span><br>      以TreeGenerate()为分支节点<br>    end <span class="hljs-keyword">if</span><br>  end <span class="hljs-keyword">for</span><br>  <span class="hljs-keyword">return</span> 以node为根节点的一棵决策树<br></code></pre></td></tr></table></figure>
+<p>显然，决策树的生成是一个递归的过程。在决策树的基本算法中，有三种递归返回的情况：<br>  (1) 当前节点包涵的样本全属于同一类别，无需划分<br>  (2) 当前属性集为空，或是所有样本在所有属性上取值相同，无法划分<br>  (3) 当前结点包含的样本集为空，不能划分<br>在第(2)中情况下，我们把当前节点标记为叶结点，但把其类别设定为该节点所含样本最多的类别；<br>在第(3)中情况下，同样把当前节点标记为叶结点，但把其类别设定为父节点所含样本最多的类别；</p>
+<h4 id="特征选择：信息增益-率与基尼指数"><a href="#特征选择：信息增益-率与基尼指数" class="headerlink" title="特征选择：信息增益/率与基尼指数"></a>特征选择：信息增益/率与基尼指数</h4><p>信息增益表示得知特征X的信息而使类Y的信息的不确定性减少的程度。<br>基尼指数Gini(D)表示集合D的不确定性，基尼指数Gini(D,A)表示经A=a分割后，集合的不确定性。尼基指数越大，样本的集合不确定性越大，这一点与熵类似。</p>
+<h4 id="决策树剪枝"><a href="#决策树剪枝" class="headerlink" title="决策树剪枝"></a>决策树剪枝</h4><p>决策树生成算法递归地产生决策树，直到不能继续下去为止。这样产生的树往往对训练数据的分类很准确，但对未知的测试数据的分类却没有那么准确，即出现过拟合现象。解决这个问题的办法是考虑决策树的复杂度，对已经生成的决策树进行简化。</p>
+<h4 id="预剪枝"><a href="#预剪枝" class="headerlink" title="预剪枝"></a>预剪枝</h4><p>预剪枝的本质就是用验证集对分支节点的预测或者下一预测进行评估，如果分类错误的话，则直接去掉这一分支的展开，这就是预剪枝</p>
+<p>对比上面的未剪枝决策树和上图（预剪枝决策树），可以看出，预剪枝决策树使得决策树的很多分支都没有“展开”，这不仅降低了过拟合的风险，还显著少了决策树的训练时间开销和测试时间开销。但另一方面，有些分支的当前划分虽不能提升泛化性能、甚至可能导致泛化性能暂时下降，但在其基础上进行的后续划分，却有可能导致性能显著提高；预剪枝基于“贪心”本质禁止这些分支展开，给预剪枝决策树带来了欠拟合的风险。</p>
+<h4 id="后剪枝"><a href="#后剪枝" class="headerlink" title="后剪枝"></a>后剪枝</h4><p>后剪枝过程描述<br>后剪枝先从训练集生成一棵完整决策树,把在验证集上表现不良的子树分支减掉</p>
+<h4 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h4><ul>
+<li>优点<br>可解释性强<br>可处理混合类型特征<br>具体伸缩不变性（不用归一化特征）<br>有特征组合的作用<br>可自然地处理缺失值<br>对异常点鲁棒<br>有特征选择作用<br>可扩展性强， 容易并行</li>
+<li>缺点<br>缺乏平滑性（回归预测时输出值只能输出有限的若干种数值）<br>不适合处理高维稀疏数据 </li>
+</ul>
+<h3 id="降维方法"><a href="#降维方法" class="headerlink" title="降维方法"></a>降维方法</h3><p>其实嘛，降维的本质很单纯，就是奥特卡姆剃刀理论，有一维没啥用，还凭空增加计算量。也就是说原本是三维的点，但仔细一看其实他们都在一个平面上，那就降维到二维进行分类即可。其他维数同理</p>
+<h4 id="PCA最大方差理论"><a href="#PCA最大方差理论" class="headerlink" title="PCA最大方差理论"></a>PCA最大方差理论</h4><p>信息有大方差，噪声有小方差<br>所以PCA的目标就是寻找最大化投影方差，那怎么找呢？<br>原理上：投影肯定需要投影方向，那我先假设一个投影方向w，之后就变成了根据最大方差求解w的最优化问题，代入求方差的表达式中，可以得知方差的大小和样本的协方差矩阵相关，因为w是单位向量，所以等于求协方差矩阵特征值最大，最佳的投影方向就是最大特征值所对应的特征向量。</p>
+<p>方法：(1)中心化处理(2)协方差矩阵(3)特征值分解</p>
+<h3 id="EM算法"><a href="#EM算法" class="headerlink" title="EM算法"></a>EM算法</h3><p>EM（expectation maximization）期望极大算法<br>使用场景：高斯混合模型，抛硬币模型</p>
+<h3 id="HMM隐马尔科夫模型"><a href="#HMM隐马尔科夫模型" class="headerlink" title="HMM隐马尔科夫模型"></a>HMM隐马尔科夫模型</h3><h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><h4 id="概率计算方法"><a href="#概率计算方法" class="headerlink" title="概率计算方法"></a>概率计算方法</h4><h4 id="学习算法"><a href="#学习算法" class="headerlink" title="学习算法"></a>学习算法</h4><h4 id="预测算法"><a href="#预测算法" class="headerlink" title="预测算法"></a>预测算法</h4><h3 id="CRF条件随机场"><a href="#CRF条件随机场" class="headerlink" title="CRF条件随机场"></a>CRF条件随机场</h3><p>条件随机场是给定随机变量X的条件下，随机变量Y的马尔科夫随机场</p>
+<h2 id="降维"><a href="#降维" class="headerlink" title="降维"></a>降维</h2><ul>
+<li><p>PCA主成分分析<br>主成分分析（Principal Component Analysis）：一种统计方法，它对多变量表示数据点集合寻找尽可能少的正交矢量表征数据信息特征。也是方差最大化理论降维方法<br><img data-fancybox="gallery" data-sizes="auto" data-src="https://pic2.zhimg.com/v2-9d4402602d941eb00acd2cae715c4d05_1440w.jpg?source=172ae18b" alt="LDA-PCA" class="lazyload"></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/51769969">lda，线性判别降维算法</a><br>不同于PCA方差最大化理论，LDA算法的思想是将数据投影到低维空间之后，使得同一类数据尽可能的紧凑，不同类的数据尽可能分散。因此，LDA算法是一种有监督的机器学习算法。同时，LDA有如下两个假设:</p>
+<ul>
+<li>原始数据根据样本均值进行分类。</li>
+<li>不同类的数据拥有相同的协方差矩阵。</li>
+</ul>
+<p>  当然，在实际情况中，不可能满足以上两个假设。但是当数据主要是由均值来区分的时候，LDA一般都可以取得很好的效果。</p>
+</li>
+<li><p>流形学习</p>
+<p>流形学习（manifold learning）是机器学习、模式识别中的一种方法，在维数约简方面具有广泛的应用。它的主要思想是将高维的数据映射到低维，使该低维的数据能够反映原高维数据的某些本质结构特征。流形学习的前提是有一种假设，即某些高维数据，实际是一种低维的流形结构嵌入在高维空间中。流形学习的目的是将其映射回低维空间中，揭示其本质。</p>
+</li>
+<li><p>t-sne 从高维降到低维，代价高昂，但是效果很好</p>
+</li>
+</ul>
+<h2 id="非监督学习"><a href="#非监督学习" class="headerlink" title="非监督学习"></a>非监督学习</h2><h3 id="聚类-kmeans"><a href="#聚类-kmeans" class="headerlink" title="聚类-kmeans"></a>聚类-kmeans</h3><p>k均值聚类的算法是一个迭代的过程，每次迭代包括两个步骤：</p>
+<ol>
+<li>首先选择个类的中心，将样本逐个指派到与其最近的中心的类中，得到一个聚类的结果；</li>
+<li>然后更新每个类的样本的均值，作为类的新的中心<br>重复以上步骤，直到样本都分类正确，模型收敛为止。</li>
+</ol>
+<p>初始点怎么选？<br>随机选一个初始点，选个最远点，再选一个距离前两个点最近距离最大的点。如此往复，直至选出K个初始类簇中心点。<br>k如何选<br>只要我们假设的类簇的数目等于或者高于真实的类簇的数目时，该指标上升会很缓慢，而一旦试图得到少于真实数目的类簇时，该指标会急剧上升。类簇指标 作为一个重要的参考指标。</p>
+<p>类簇的直径是指类簇内任意两点之间的最大距离。<br>类簇的半径是指类簇内所有点到类簇中心距离的最大值。</p>
+<h4 id="最近邻分类算法-K-N-N"><a href="#最近邻分类算法-K-N-N" class="headerlink" title="最近邻分类算法(K N N)"></a>最近邻分类算法(K N N)</h4><p>K N N即K-Nearest Neighbor，是一种memory-based learning，也叫instance-based learning，属于lazy learning。即它没有明显的前期训练过程，而是程序开始运行时，把数据集加载到内存后，不需要进行训练，就可以开始分类了。 K N N也是一种监督学习算法，通过计算新数据与训练数据特征值之间的距离，然后选取K(K&gt;=1)个距离最近的邻居进行分类判(投票法)或者回归。若K=1，新数据被简单分配给其近邻的类。</p>
+<h4 id="聚类评价"><a href="#聚类评价" class="headerlink" title="聚类评价"></a>聚类评价</h4><p>聚类有两种评价方式，一种是基于外部的评价（就是根据label的分布，看聚类数据的效大体果）<br>另一种是没有外部信息，纯看聚类簇之间的距离，相似度，间隔性以及紧密性。</p>
+<h3 id="高斯混合模型"><a href="#高斯混合模型" class="headerlink" title="高斯混合模型"></a>高斯混合模型</h3><p>高斯混合模型（Gaussian Mixture Model）通常简称GMM，是一种业界广泛使用的聚类算法，该方法使用了高斯分布作为参数模型，并使用了期望最大（Expectation Maximization，简称EM）算法进行训练。</p>
+<h4 id="高斯分布与使用"><a href="#高斯分布与使用" class="headerlink" title="高斯分布与使用"></a>高斯分布与使用</h4><p>高斯分布有时候（一些条件下）又称为正态分布，是一种在自然界大量的存在的，最为常见的分布形式。</p>
+<h4 id="EM算法训练"><a href="#EM算法训练" class="headerlink" title="EM算法训练"></a>EM算法训练</h4><p>模型的EM训练过程，直观的来讲是这样：我们通过观察采样的概率值和模型概率值的接近程度，来判断一个模型是否拟合良好。然后我们通过调整模型以让新模型更适配采样的概率值。反复迭代这个过程很多次，直到两个概率值非常接近时，我们停止更新并完成模型训练。</p>
+<p>现在我们要将这个过程用算法来实现，所使用的方法是模型生成的数据来决定似然值，即通过模型来计算数据的期望值。通过更新参数μ和σ来让期望值最大化。这个过程可以不断迭代直到两次迭代中生成的参数变化非常小为止。该过程和k-means的算法训练过程很相似（k-means不断更新类中心来让结果最大化），只不过在这里的高斯模型中，我们需要同时更新两个参数：分布的均值和标准差</p>
+<h4 id="高斯混合（GMM）"><a href="#高斯混合（GMM）" class="headerlink" title="高斯混合（GMM）"></a>高斯混合（GMM）</h4><p>高斯混合模型是对高斯模型进行简单的扩展，GMM使用多个高斯分布的组合来刻画数据分布。</p>
+<p>举例来说：想象下现在咱们不再考察全部用户的身高，而是要在模型中同时考虑男性和女性的身高。假定之前的样本里男女都有，那么之前所画的高斯分布其实是两个高斯分布的叠加的结果。相比只使用一个高斯来建模，现在我们可以用两个（或多个）高斯分布。</p>
+<p>该公式和之前的公式非常相似，细节上有几点差异。首先分布概率是K个高斯分布的和，每个高斯分布有属于自己的μ和σ 参数，以及对应的权重参数，权重值必须为正数，所有权重的和必须等于1，以确保公式给出数值是合理的概率密度值。换句话说如果我们把该公式对应的输入空间合并起来，结果将等于1。</p>
+<h4 id="kmeans思想与GMM"><a href="#kmeans思想与GMM" class="headerlink" title="kmeans思想与GMM"></a>kmeans思想与GMM</h4><p>在特定条件下，k-means和GMM方法可以互相用对方的思想来表达。在k-means中根据距离每个点最接近的类中心来标记该点的类别，这里存在的假设是每个类簇的尺度接近且特征的分布不存在不均匀性。这也解释了为什么在使用k-means前对数据进行归一会有效果。高斯混合模型则不会受到这个约束，因为它对每个类簇分别考察特征的协方差模型。</p>
+<p>K-means算法可以被视为高斯混合模型（GMM）的一种特殊形式。整体上看，高斯混合模型能提供更强的描述能力，因为聚类时数据点的从属关系不仅与近邻相关，还会依赖于类簇的形状。n维高斯分布的形状由每个类簇的协方差来决定。在协方差矩阵上添加特定的约束条件后，可能会通过GMM和k-means得到相同的结果。</p>
+<p>实践中如果每个类簇的协方差矩阵绑定在一起（就是说它们完全相同），并且矩阵对角线上的协方差数值保持相同，其他数值则全部为0，这样能够生成具有相同尺寸且形状为圆形类簇。在此条件下，每个点都始终属于最近的中间点对应的类。（达观数据 陈运文）</p>
+<p>在k-means方法中使用EM来训练高斯混合模型时对初始值的设置非常敏感。而对比k-means，GMM方法有更多的初始条件要设置。实践中不仅初始类中心要指定，而且协方差矩阵和混合权重也要设置。可以运行k-means来生成类中心，并以此作为高斯混合模型的初始条件。由此可见并两个算法有相似的处理过程，主要区别在于模型的复杂度不同。</p>
+<p>整体来看，所有无监督机器学习算法都遵循一条简单的模式：给定一系列数据，训练出一个能描述这些数据规律的模型（并期望潜在过程能生成数据）。训练过程通常要反复迭代，直到无法再优化参数获得更贴合数据的模型为止。</p>
+<h2 id="概率图模型"><a href="#概率图模型" class="headerlink" title="概率图模型"></a>概率图模型</h2><h2 id="优化算法"><a href="#优化算法" class="headerlink" title="优化算法"></a>优化算法</h2><h2 id="采样"><a href="#采样" class="headerlink" title="采样"></a>采样</h2><h2 id="前向神经网络"><a href="#前向神经网络" class="headerlink" title="前向神经网络"></a>前向神经网络</h2><h2 id="循环神经网络"><a href="#循环神经网络" class="headerlink" title="循环神经网络"></a>循环神经网络</h2><h2 id="强化学习"><a href="#强化学习" class="headerlink" title="强化学习"></a>强化学习</h2><h2 id="集成学习"><a href="#集成学习" class="headerlink" title="集成学习"></a>集成学习</h2><h2 id="生成对抗网络"><a href="#生成对抗网络" class="headerlink" title="生成对抗网络"></a>生成对抗网络</h2><p>生成对抗本质上是一种minimax游戏（两个网络分别博弈和优化）：存在生成器和判别器两大通道，不断切换通道缩减各自的目标误差并进行对抗。<br>GANs的值函数：</p>
+<h2 id="热门应用"><a href="#热门应用" class="headerlink" title="热门应用"></a>热门应用</h2><h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><h1 id="实战详解"><a href="#实战详解" class="headerlink" title="实战详解"></a>实战详解</h1><h2 id="数学基础"><a href="#数学基础" class="headerlink" title="数学基础"></a>数学基础</h2><h3 id="微积分"><a href="#微积分" class="headerlink" title="微积分"></a>微积分</h3><h3 id="线性代数"><a href="#线性代数" class="headerlink" title="线性代数"></a>线性代数</h3><h3 id="概率统计与信息论"><a href="#概率统计与信息论" class="headerlink" title="概率统计与信息论"></a>概率统计与信息论</h3><h3 id="数值计算与优化"><a href="#数值计算与优化" class="headerlink" title="数值计算与优化"></a>数值计算与优化</h3><h3 id="梯度下降"><a href="#梯度下降" class="headerlink" title="梯度下降"></a>梯度下降</h3><h3 id="概率图模型-1"><a href="#概率图模型-1" class="headerlink" title="概率图模型"></a>概率图模型</h3><h2 id="计算机基础"><a href="#计算机基础" class="headerlink" title="计算机基础"></a>计算机基础</h2><h3 id="编程基础"><a href="#编程基础" class="headerlink" title="编程基础"></a>编程基础</h3><h3 id><a href="#" class="headerlink" title></a></h3><h2 id="算法基础"><a href="#算法基础" class="headerlink" title="算法基础"></a>算法基础</h2><h3 id="简单算法"><a href="#简单算法" class="headerlink" title="简单算法"></a>简单算法</h3><ol>
+<li>如何实现一个优先级队列？</li>
+<li>如何判断两个链表是否相交？以及查找其第一个交点<ul>
+<li>双指针遍历+哈希表查重</li>
+<li>遍历两个链表，判断尾指针是否相等</li>
+</ul>
+</li>
+<li>如何实现一个LRU<ul>
+<li>双向链表+哈希</li>
+<li>巧用Map，其放入是按顺序的，最新放入的数据在迭代器最后，而且map的entries方法还有keys方法会返回一个迭代器，迭代器调用next也是顺序返回，所以返回第一个的值就是最老的，找到删除即可</li>
+</ul>
+</li>
+<li>三数之和为N的问题<ul>
+<li>数组排序后按nums[i]循环双指针遍历求nums[N-i]</li>
+</ul>
+</li>
+<li>全排列、全组合函数<br> 就是将排列组合公式应用化</li>
+<li>求数组中的TOPK<br> 求数组中的前N个最大的数</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/124885051">如何实现各种排序（7类）</a><ul>
+<li>堆排序<br><img data-fancybox="gallery" data-sizes="auto" data-src="https://vdn1.vzuu.com/SD/3bb38dfe-236a-11eb-8039-a6caf32b14c9.mp4?disable_local_cache=1&auth_key=1647742778-0-0-bfef4e3de4968e56b61f07a6d7fc5cc7&f=mp4&bu=pico&expiration=1647742778&v=hw" alt="gif" class="lazyload"><h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3></li>
+</ul>
+</li>
+<li>简述 bloomfilter，及它的使用场景是什么</li>
+<li>什么是一致性哈希，可以解决什么问题</li>
+<li><h3 id="计网"><a href="#计网" class="headerlink" title="计网"></a>计网</h3><h3 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h3><h3 id="http"><a href="#http" class="headerlink" title="http"></a>http</h3><h3 id="shell"><a href="#shell" class="headerlink" title="shell"></a>shell</h3><h3 id="git"><a href="#git" class="headerlink" title="git"></a>git</h3><h3 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h3></li>
+</ol>
+<h2 id="机器学习常考面经"><a href="#机器学习常考面经" class="headerlink" title="机器学习常考面经"></a>机器学习常考面经</h2><h3 id="常用算法比较，各种算法的优缺点与总结"><a href="#常用算法比较，各种算法的优缺点与总结" class="headerlink" title="常用算法比较，各种算法的优缺点与总结"></a>常用算法比较，各种算法的优缺点与总结</h3><h3 id="RF、GBDT、XGBoost面试级整理"><a href="#RF、GBDT、XGBoost面试级整理" class="headerlink" title="RF、GBDT、XGBoost面试级整理"></a>RF、GBDT、XGBoost面试级整理</h3><h1 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h1><p><a target="_blank" rel="noopener" href="https://luweikxy.gitbook.io/machine-learning-notes/">ML note</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/25327755">算法集锦</a><br><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/26726794/answer/151282052">应用场景</a></p>
+
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>Natu Matu<br>
+        <strong>本文链接：</strong><a href="https://631212502.github.io/2021/10/24/%E7%99%BE%E9%9D%A2%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" title="https:&#x2F;&#x2F;631212502.github.io&#x2F;2021&#x2F;10&#x2F;24&#x2F;%E7%99%BE%E9%9D%A2%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;631212502.github.io&#x2F;2021&#x2F;10&#x2F;24&#x2F;%E7%99%BE%E9%9D%A2%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/mmdl/" rel="tag">mmdl</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a>
+    
+</div>
+
+  
+      <div class="nexmoe-post-footer">
+          <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: 'cdc194d30f71cf392fdd',
+        clientSecret: 'b27b4f1ec813cb7eaa115ab184569422b663176a',
+        id: window.location.pathname,
+        repo: '631212502.github.io',
+        owner: '631212502',
+        admin: '631212502'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+      </div>
+  
+</div>
+                <div class="nexmoe-post-right">
+                <div class="nexmoe-fixed">
+                    <div class="nexmoe-tool"> 
+                        
+                            
+                            
+                                <button class="mdui-fab catalog" style="overflow:unset;">
+                                    <i class="nexmoefont icon-i-catalog"></i>
+                                    <div class="nexmoe-toc">
+                                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A4%E7%9F%A5%E4%BD%93%E7%B3%BB%E6%90%AD%E5%BB%BA%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">认知体系搭建：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E6%A8%A1%E6%80%81%E5%AD%A6%E4%B9%A0"><span class="toc-number">1.1.</span> <span class="toc-text">多模态学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E5%A4%9A%E6%A8%A1%E6%80%81%E6%A8%A1%E5%9E%8B%E5%92%8C%E7%AE%97%E6%B3%95"><span class="toc-number">1.1.1.</span> <span class="toc-text">常见多模态模型和算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Vilt"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">Vilt</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Cilp"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">Cilp</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0"><span class="toc-number">1.2.</span> <span class="toc-text">深度学习</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BC%96%E7%A8%8B%E5%BA%94%E7%94%A8%E8%83%BD%E5%8A%9B"><span class="toc-number">2.</span> <span class="toc-text">编程应用能力</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86%E9%9D%A2%EF%BC%9A"><span class="toc-number">3.</span> <span class="toc-text">知识面：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98%E5%BD%92%E6%80%BB"><span class="toc-number">4.</span> <span class="toc-text">面试问题归总</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80-%E6%80%BB%E8%80%8C%E8%A8%80%E4%B9%8B"><span class="toc-number">4.1.</span> <span class="toc-text">前言&#x2F;总而言之</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B"><span class="toc-number">4.2.</span> <span class="toc-text">特征工程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%89%B9%E5%BE%81"><span class="toc-number">4.2.1.</span> <span class="toc-text">什么是特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E5%BE%81%E6%96%B9%E6%A1%88"><span class="toc-number">4.2.2.</span> <span class="toc-text">特征方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E5%BE%81%E8%8E%B7%E5%8F%96%E6%96%B9%E6%A1%88"><span class="toc-number">4.2.3.</span> <span class="toc-text">特征获取方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E5%BE%81%E5%A4%84%E7%90%86%E4%B8%8E%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9"><span class="toc-number">4.2.4.</span> <span class="toc-text">特征处理与特征选择</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%B9%E5%BE%81%E6%B8%85%E6%B4%97"><span class="toc-number">4.2.4.1.</span> <span class="toc-text">特征清洗</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%B9%E5%BE%81%E5%BD%92%E4%B8%80%E5%8C%96"><span class="toc-number">4.2.4.2.</span> <span class="toc-text">特征归一化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B1%BB%E5%88%AB%E5%9E%8B%E7%89%B9%E5%BE%81"><span class="toc-number">4.2.4.3.</span> <span class="toc-text">类别型特征</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%AB%98%E7%BB%B4%E7%BB%84%E5%90%88%E7%89%B9%E5%BE%81"><span class="toc-number">4.2.4.4.</span> <span class="toc-text">高维组合特征</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E7%9A%84%E7%89%B9%E5%BE%81%E8%A1%A8%E7%A4%BA%EF%BC%88word2vec%EF%BC%89"><span class="toc-number">4.2.5.</span> <span class="toc-text">文本的特征表示（word2vec）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0"><span class="toc-number">4.3.</span> <span class="toc-text">模型评估</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7"><span class="toc-number">4.3.1.</span> <span class="toc-text">评估指标的局限性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ROC%E6%9B%B2%E7%BA%BF"><span class="toc-number">4.3.2.</span> <span class="toc-text">ROC曲线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MAE-MSE-RMSE-R-LOSS%E5%88%86%E6%9E%90"><span class="toc-number">4.3.3.</span> <span class="toc-text">MAE\MSE\RMSE\R LOSS分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AF%E5%B7%AE%E4%BC%B0%E8%AE%A1"><span class="toc-number">4.3.4.</span> <span class="toc-text">误差估计</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95"><span class="toc-number">4.4.</span> <span class="toc-text">经典算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SVM"><span class="toc-number">4.4.1.</span> <span class="toc-text">SVM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92"><span class="toc-number">4.4.2.</span> <span class="toc-text">逻辑回归</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92"><span class="toc-number">4.4.2.1.</span> <span class="toc-text">线性回归</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E4%B8%8E%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97"><span class="toc-number">4.4.3.</span> <span class="toc-text">决策树与随机森林</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91"><span class="toc-number">4.4.3.1.</span> <span class="toc-text">决策树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E8%A7%84%E5%88%99"><span class="toc-number">4.4.3.2.</span> <span class="toc-text">决策规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E7%9A%84%E5%AD%A6%E4%B9%A0"><span class="toc-number">4.4.3.3.</span> <span class="toc-text">决策树的学习</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9%EF%BC%9A%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A-%E7%8E%87%E4%B8%8E%E5%9F%BA%E5%B0%BC%E6%8C%87%E6%95%B0"><span class="toc-number">4.4.3.4.</span> <span class="toc-text">特征选择：信息增益&#x2F;率与基尼指数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E5%89%AA%E6%9E%9D"><span class="toc-number">4.4.3.5.</span> <span class="toc-text">决策树剪枝</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%84%E5%89%AA%E6%9E%9D"><span class="toc-number">4.4.3.6.</span> <span class="toc-text">预剪枝</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8E%E5%89%AA%E6%9E%9D"><span class="toc-number">4.4.3.7.</span> <span class="toc-text">后剪枝</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-number">4.4.3.8.</span> <span class="toc-text">优缺点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%99%8D%E7%BB%B4%E6%96%B9%E6%B3%95"><span class="toc-number">4.4.4.</span> <span class="toc-text">降维方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#PCA%E6%9C%80%E5%A4%A7%E6%96%B9%E5%B7%AE%E7%90%86%E8%AE%BA"><span class="toc-number">4.4.4.1.</span> <span class="toc-text">PCA最大方差理论</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EM%E7%AE%97%E6%B3%95"><span class="toc-number">4.4.5.</span> <span class="toc-text">EM算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HMM%E9%9A%90%E9%A9%AC%E5%B0%94%E7%A7%91%E5%A4%AB%E6%A8%A1%E5%9E%8B"><span class="toc-number">4.4.6.</span> <span class="toc-text">HMM隐马尔科夫模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">4.4.6.1.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95"><span class="toc-number">4.4.6.2.</span> <span class="toc-text">概率计算方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95"><span class="toc-number">4.4.6.3.</span> <span class="toc-text">学习算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%84%E6%B5%8B%E7%AE%97%E6%B3%95"><span class="toc-number">4.4.6.4.</span> <span class="toc-text">预测算法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CRF%E6%9D%A1%E4%BB%B6%E9%9A%8F%E6%9C%BA%E5%9C%BA"><span class="toc-number">4.4.7.</span> <span class="toc-text">CRF条件随机场</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%8D%E7%BB%B4"><span class="toc-number">4.5.</span> <span class="toc-text">降维</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="toc-number">4.6.</span> <span class="toc-text">非监督学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%9A%E7%B1%BB-kmeans"><span class="toc-number">4.6.1.</span> <span class="toc-text">聚类-kmeans</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E8%BF%91%E9%82%BB%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95-K-N-N"><span class="toc-number">4.6.1.1.</span> <span class="toc-text">最近邻分类算法(K N N)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%81%9A%E7%B1%BB%E8%AF%84%E4%BB%B7"><span class="toc-number">4.6.1.2.</span> <span class="toc-text">聚类评价</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E6%96%AF%E6%B7%B7%E5%90%88%E6%A8%A1%E5%9E%8B"><span class="toc-number">4.6.2.</span> <span class="toc-text">高斯混合模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%AB%98%E6%96%AF%E5%88%86%E5%B8%83%E4%B8%8E%E4%BD%BF%E7%94%A8"><span class="toc-number">4.6.2.1.</span> <span class="toc-text">高斯分布与使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#EM%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83"><span class="toc-number">4.6.2.2.</span> <span class="toc-text">EM算法训练</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%AB%98%E6%96%AF%E6%B7%B7%E5%90%88%EF%BC%88GMM%EF%BC%89"><span class="toc-number">4.6.2.3.</span> <span class="toc-text">高斯混合（GMM）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#kmeans%E6%80%9D%E6%83%B3%E4%B8%8EGMM"><span class="toc-number">4.6.2.4.</span> <span class="toc-text">kmeans思想与GMM</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E7%8E%87%E5%9B%BE%E6%A8%A1%E5%9E%8B"><span class="toc-number">4.7.</span> <span class="toc-text">概率图模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95"><span class="toc-number">4.8.</span> <span class="toc-text">优化算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%87%E6%A0%B7"><span class="toc-number">4.9.</span> <span class="toc-text">采样</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E5%90%91%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-number">4.10.</span> <span class="toc-text">前向神经网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-number">4.11.</span> <span class="toc-text">循环神经网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0"><span class="toc-number">4.12.</span> <span class="toc-text">强化学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0"><span class="toc-number">4.13.</span> <span class="toc-text">集成学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C"><span class="toc-number">4.14.</span> <span class="toc-text">生成对抗网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%83%AD%E9%97%A8%E5%BA%94%E7%94%A8"><span class="toc-number">4.15.</span> <span class="toc-text">热门应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E8%AE%B0"><span class="toc-number">4.16.</span> <span class="toc-text">后记</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E6%88%98%E8%AF%A6%E8%A7%A3"><span class="toc-number">5.</span> <span class="toc-text">实战详解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80"><span class="toc-number">5.1.</span> <span class="toc-text">数学基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AE%E7%A7%AF%E5%88%86"><span class="toc-number">5.1.1.</span> <span class="toc-text">微积分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0"><span class="toc-number">5.1.2.</span> <span class="toc-text">线性代数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8E%E4%BF%A1%E6%81%AF%E8%AE%BA"><span class="toc-number">5.1.3.</span> <span class="toc-text">概率统计与信息论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E4%B8%8E%E4%BC%98%E5%8C%96"><span class="toc-number">5.1.4.</span> <span class="toc-text">数值计算与优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D"><span class="toc-number">5.1.5.</span> <span class="toc-text">梯度下降</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E7%8E%87%E5%9B%BE%E6%A8%A1%E5%9E%8B-1"><span class="toc-number">5.1.6.</span> <span class="toc-text">概率图模型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80"><span class="toc-number">5.2.</span> <span class="toc-text">计算机基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80"><span class="toc-number">5.2.1.</span> <span class="toc-text">编程基础</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">5.2.2.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80"><span class="toc-number">5.3.</span> <span class="toc-text">算法基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E7%AE%97%E6%B3%95"><span class="toc-number">5.3.1.</span> <span class="toc-text">简单算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-number">5.3.2.</span> <span class="toc-text">数据结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%BD%91"><span class="toc-number">5.3.3.</span> <span class="toc-text">计网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-number">5.3.4.</span> <span class="toc-text">操作系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#http"><span class="toc-number">5.3.5.</span> <span class="toc-text">http</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#shell"><span class="toc-number">5.3.6.</span> <span class="toc-text">shell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git"><span class="toc-number">5.3.7.</span> <span class="toc-text">git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vim"><span class="toc-number">5.3.8.</span> <span class="toc-text">vim</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%B8%B8%E8%80%83%E9%9D%A2%E7%BB%8F"><span class="toc-number">5.4.</span> <span class="toc-text">机器学习常考面经</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95%E6%AF%94%E8%BE%83%EF%BC%8C%E5%90%84%E7%A7%8D%E7%AE%97%E6%B3%95%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%E4%B8%8E%E6%80%BB%E7%BB%93"><span class="toc-number">5.4.1.</span> <span class="toc-text">常用算法比较，各种算法的优缺点与总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RF%E3%80%81GBDT%E3%80%81XGBoost%E9%9D%A2%E8%AF%95%E7%BA%A7%E6%95%B4%E7%90%86"><span class="toc-number">5.4.2.</span> <span class="toc-text">RF、GBDT、XGBoost面试级整理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99%EF%BC%9A"><span class="toc-number">6.</span> <span class="toc-text">参考资料：</span></a></li></ol>
+                                    </div>
+                                </button>
+                            
+                        
+                        <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="aplayerContent">
+        <meting-js
+        style="position:absolute; z-index:99999" 
+        type="playlist" 
+        server="netease" 
+        id="6976153408" 
+        fixed="true"
+        autoplay="true"
+        order="random"
+        loop="all"
+        list-folded="false"
+        preload="auto"
+        list-max-height="500px"
+        lrc-type="1">
+        </meting-js> 
+    </div>
+    <script>
+        // 对所有链接跳转事件绑定pjax容器container,只在容器中跳转
+        $(document).pjax('a[target!=_blank]', '#pageContent', {fragment: '#pageContent', timeout:8000})
+    </script>
+     
+    <div id="nexmoe-search-space">
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <input class="search-input" type="text" placeholder="搜索" oninput="sinput();">
+                </div>
+                <a class="search-close" onclick="sclose();">×</a>
+            </div>
+            <div class="search-body"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+ 
+
+<script async src="/js/app.js?v=1704991421223"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+
+
+    
+
+
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<!--烟花爆炸-->
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script type="text/javascript" src="/js/firework.js"></script>
+<!--单击显示文字-->
+<script type="text/javascript" src="/js/click_show_text.js"></script>
+</html>
+
+

@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    
+    <meta name="baidu-site-verification" content="code-NrUjkxdqT5" />
+    <title>【MAPs】多模态方向上的一些探索 - Eutupia by 夏夢</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="願いが叶う場所">
+    <meta name="keywords" content="null">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
+
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/logo.png" type="image/png" />
+    <meta name="description" content="Main From GitHub">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【MAPs】多模态方向上的一些探索">
+<meta property="og:url" content="https://631212502.github.io/2022/05/04/Image-Text-Cross-Modal-Retrieval/index.html">
+<meta property="og:site_name" content="Eutupia by 夏夢">
+<meta property="og:description" content="Main From GitHub">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-05-04T10:01:09.000Z">
+<meta property="article:modified_time" content="2023-12-02T09:04:08.491Z">
+<meta property="article:author" content="Natu Matu">
+<meta property="article:tag" content="Competition">
+<meta property="article:tag" content="mmdl">
+<meta name="twitter:card" content="summary">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
+    <!-- require APlayer -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+	<!-- require MetingJS : 未解决歌单播放问题-->
+	<script src="https://cdn.jsdelivr.net/npm/meting@latest/dist/Meting.min.js"></script>
+    <!-- require pjax -->
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+    <!-- DPlayer -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.js"></script>
+    <link rel="stylesheet" href="/css/style.css?v=1704991421155">
+     
+    
+        <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
+    
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1704991421155">
+    
+        <link rel="stylesheet" href="/custom.css">
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body class="mdui-drawer-body-left">
+    
+    <div id="pageContent">
+        <div id="nexmoe-background">
+            <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/202211081936671.jpg)"></div>
+            <div class="mdui-appbar mdui-shadow-0">
+                <div class="mdui-toolbar">
+                    <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                    <div class="mdui-toolbar-spacer"></div>
+                    <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                    <a href="/" title="Natu Matu" class="mdui-btn mdui-btn-icon"><img src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/avatar.jpg" alt="Natu Matu"></a>
+                </div>
+            </div>
+        </div>
+        <div id="nexmoe-header">
+            <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="Natu Matu">
+            <img src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/avatar.jpg" alt="Natu Matu" alt="Natu Matu">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>50</div>
+        <div><span>标签</span>17</div>
+        <div><span>分类</span>4</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/gate.html" title="小憩歌单">
+            <i class="mdui-list-item-icon nexmoefont icon-coffee"></i>
+            <div class="mdui-list-item-content">
+                小憩歌单
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/PY.html" title="左邻右舍">
+            <i class="mdui-list-item-icon nexmoefont icon-wechat-fill"></i>
+            <div class="mdui-list-item-content">
+                左邻右舍
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/album.html" title="时间光影">
+            <i class="mdui-list-item-icon nexmoefont icon-calendar-fill"></i>
+            <div class="mdui-list-item-content">
+                时间光影
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/natunoyume.html" title="拾音纪行">
+            <i class="mdui-list-item-icon nexmoefont icon-telegram"></i>
+            <div class="mdui-list-item-content">
+                拾音纪行
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+         
+            <form id="search_form" action_e="https://cn.bing.com/search?q=" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder="搜索"></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://qm.qq.com/cgi-bin/qm/qr?k=QriGs7GcXMPd6scnWXeO-IJ5TP8Qm8sd&noverify=0" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="https://space.bilibili.com/10580381" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .1);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/631212502" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .1);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=631212502@qq.com" target="_blank" mdui-tooltip="{content: '邮箱'}" style="color: rgb(51, 153, 255);background-color: rgba(51, 153, 255, .1);">
+            <i class="nexmoefont icon-mail-fill"></i>
+        </a><a class="mdui-ripple" href="https://steamcommunity.com/profiles/76561199013116495/" target="_blank" mdui-tooltip="{content: 'steam'}" style="color: rgb(3, 98, 255);background-color: rgba(3, 98, 255, .1);">
+            <i class="nexmoefont icon-steam"></i>
+        </a><a class="mdui-ripple" href="https://www.xiaohongshu.com/user/profile/5fcc10c4000000000100b0b7?xhsshare=CopyLink&appuid=5fcc10c4000000000100b0b7&apptime=1660447872" target="_blank" mdui-tooltip="{content: '小红书'}" style="color: rgb(250, 136, 111);background-color: rgba(250, 136, 111, .1);">
+            <i class="nexmoefont icon-calendar-fill"></i>
+        </a><a class="mdui-ripple" href="/null" target="_blank" mdui-tooltip="{content: '知乎'}" style="color: ;background-color: ;">
+            <i class="nexmoefont icon-zhihu"></i>
+        </a><a class="mdui-ripple" href="/null" target="_blank" mdui-tooltip="{content: '推特'}" style="color: ;background-color: ;">
+            <i class="nexmoefont icon-twitter"></i>
+        </a><a class="mdui-ripple" href="https://chat.openai.com/chat" target="_blank" mdui-tooltip="{content: 'GPT'}" style="color: rgb(45, 13, 73);background-color: rgba(45, 13, 73, .1);">
+            <i class="nexmoefont icon-eye-fill"></i>
+        </a>
+    </div>
+</div>
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/Coding/" style="font-size: 17.14px;">Coding</a> <a href="/tags/Competition/" style="font-size: 11.43px;">Competition</a> <a href="/tags/MMDL/" style="font-size: 10px;">MMDL</a> <a href="/tags/S-Project/" style="font-size: 14.29px;">S_Project</a> <a href="/tags/mmdl/" style="font-size: 18.57px;">mmdl</a> <a href="/tags/page-building/" style="font-size: 12.86px;">page_building</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 15.71px;">博客</a> <a href="/tags/%E5%AD%A6%E6%9C%AF/" style="font-size: 15.71px;">学术</a> <a href="/tags/%E6%91%84%E5%BD%B1/" style="font-size: 14.29px;">摄影</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 11.43px;">旅行</a> <a href="/tags/%E6%AD%8C%E3%81%86/" style="font-size: 11.43px;">歌う</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 17.14px;">笔记</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">编程</a> <a href="/tags/%E8%A8%80%E8%91%89/" style="font-size: 20px;">言葉</a> <a href="/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 14.29px;">记录</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 12.86px;">论文</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 17.14px;">随笔</a>
+    </div>
+    
+  </div>
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/小さな考え/">小さな考え</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/无情の勉強マシン/">无情の勉強マシン</a>
+          <span class="category-list-count">7</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/言けない言葉/">言けない言葉</a>
+          <span class="category-list-count">6</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/音楽が辞めよう/">音楽が辞めよう</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/">2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/">2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/">2010</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+
+    
+    <span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt = new Date("08/31/2021 17:38:00"); //在此处修改你的建站时间
+        now.setTime(now.getTime() + 250);
+        days = (now - grt) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt) / 1000 / 60 / 60 - 24 * dnum;
+        hnum = Math.floor(hours);
+        if (String(hnum).length == 1) {
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt) / 1000 / 60 - 24 * 60 * dnum - 60 * hnum;
+        mnum = Math.floor(minutes);
+        if (String(mnum).length == 1) {
+            mnum = "0" + mnum;
+        }
+        seconds = (now - grt) / 1000 - 24 * 60 * 60 * dnum - 60 * 60 * hnum - 60 * mnum;
+        snum = Math.round(seconds);
+        if (String(snum).length == 1) {
+            snum = "0" + snum;
+        }
+        document.getElementById("timeDate").innerHTML = 
+            " 风雨中度过了 " + dnum + " 天 ";
+        document.getElementById("times").innerHTML =
+            hnum + " 小时 " + mnum + " 分 "; 
+    }
+    setInterval("createtime()", 250);
+</script>
+<!-- + snum + " 秒 "-->
+    
+</aside>
+
+
+    <div class="nexmoe-copyright">
+        &copy; 2024 Natu Matu
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        
+    </div>
+</div><!-- .nexmoe-drawer -->
+<div style="font-size: 13px">
+    <link rel="stylesheet" href="https://widget.heweather.net/standard/static/css/he-standard.css?v=1.4.0"><script src="https://widget.heweather.net/standard/static/js/he-standard.js?v=1.4.0"></script><script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    本站总访问量  <a id="busuanzi_value_site_pv"></a> 次<br>
+    本站访客数<a id="busuanzi_value_site_uv"></a>人次
+</div>
+
+        </div>
+        <div id="nexmoe-content">
+            <div class="nexmoe-primary">
+                <div class="nexmoe-post">
+
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: NaN%;"> 
+              <img data-src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/女2.jpg" data-sizes="auto" alt="【MAPs】多模态方向上的一些探索" class="lazyload">
+              <h1>【MAPs】多模态方向上的一些探索</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2022年05月04日</a>
+    <a><i class="nexmoefont icon-areachart"></i>5.6k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 34 分钟</a>
+</div>
+
+      
+
+      <p><strong>Main From GitHub</strong></p>
+<span id="more"></span>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><h2 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h2><h3 id="Cross-Modal-Retrieval-SOTA-Work-20022-04-X-VLM"><a href="#Cross-Modal-Retrieval-SOTA-Work-20022-04-X-VLM" class="headerlink" title="Cross-Modal Retrieval SOTA Work(20022.04):X_VLM"></a>Cross-Modal Retrieval SOTA Work(20022.04):X_VLM</h3><p><a target="_blank" rel="noopener" href="https://paperswithcode.com/paper/multi-grained-vision-language-pre-training">PDF+code</a><br><a target="_blank" rel="noopener" href="https://readpaper.com/pdf-annotate/note?noteId=675221138334498816&pdfId=4558869039317786625">阅读笔记</a><br>带多种细粒度的图像文本匹配训练<br>使用交叉注意力以及跨模态编码器</p>
+<h3 id="Zero-Shot-Cross-Modal-Retrieval-SOTA-20022-04-TCL"><a href="#Zero-Shot-Cross-Modal-Retrieval-SOTA-20022-04-TCL" class="headerlink" title="Zero-Shot Cross-Modal Retrieval SOTA(20022.04):TCL"></a>Zero-Shot Cross-Modal Retrieval SOTA(20022.04):TCL</h3><p><a target="_blank" rel="noopener" href="https://paperswithcode.com/paper/vision-language-pre-training-with-triple">PDF+code</a><br><a target="_blank" rel="noopener" href="https://readpaper.com/pdf-annotate/note?noteId=675262937441792000&pdfId=4594888136060837889">阅读笔记</a></p>
+<h2 id="Method-model"><a href="#Method-model" class="headerlink" title="Method/model"></a>Method/model</h2><h3 id="提高商品跨模态检索的思路"><a href="#提高商品跨模态检索的思路" class="headerlink" title="提高商品跨模态检索的思路"></a>提高商品跨模态检索的思路</h3><h4 id="理解单元"><a href="#理解单元" class="headerlink" title="理解单元"></a>理解单元</h4><p>在语义对齐空间中，对齐的质量直接决定了图文之间的匹配程度。多粒度抽取可以获得图片中更丰富的语义以便搜索caption可以更好地定位这张图片（X-VLM）。<br>从充分利用模态信息的角度，可以加入ocr方法提取其中的信息，从而获得对应图片的文字信息，高维是一个极稀疏的空间，只要有样本和算力，不怕没有分界</p>
+<h4 id="技术单元"><a href="#技术单元" class="headerlink" title="技术单元"></a>技术单元</h4><h3 id="CBAM"><a href="#CBAM" class="headerlink" title="CBAM"></a>CBAM</h3><h3 id="double-cross-attention"><a href="#double-cross-attention" class="headerlink" title="double cross attention"></a>double cross attention</h3><h3 id="special-ocr-model"><a href="#special-ocr-model" class="headerlink" title="special ocr model"></a>special ocr model</h3><h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><h3 id="model-1-CLIP-zeroshot"><a href="#model-1-CLIP-zeroshot" class="headerlink" title="model 1:CLIP_zeroshot"></a>model 1:CLIP_zeroshot</h3><ol>
+<li>使用Vit-B/32 zero_shot</li>
+<li>使用VLM，原始model<h3 id="model-2-VLM"><a href="#model-2-VLM" class="headerlink" title="model 2:VLM"></a>model 2:VLM</h3>多粒度cross—attention<h3 id="model-3-TCL"><a href="#model-3-TCL" class="headerlink" title="model 3:TCL"></a>model 3:TCL</h3><h3 id="Pre-train"><a href="#Pre-train" class="headerlink" title="Pre_train"></a>Pre_train</h3><h3 id="fine-turn"><a href="#fine-turn" class="headerlink" title="fine_turn"></a>fine_turn</h3></li>
+</ol>
+<h2 id="Concluesion"><a href="#Concluesion" class="headerlink" title="Concluesion"></a>Concluesion</h2><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p><a target="_blank" rel="noopener" href="https://readpaper.com/pdf-annotate/note?noteId=681388314736361472&pdfId=4498414425345777665">生成方法用于增补跨模态对齐</a><br><a target="_blank" rel="noopener" href="https://readpaper.com/pdf-annotate/note?noteId=681739764826013696&pdfId=4500202415315378177">自监督手段用于词嵌入</a></p>
+<!--more-->
+<h1 id="下面是多模态领域值得一读的相关文献"><a href="#下面是多模态领域值得一读的相关文献" class="headerlink" title="下面是多模态领域值得一读的相关文献"></a>下面是多模态领域值得一读的相关文献</h1><p>感谢总结这些相关文献的作者：<br><a target="_blank" rel="noopener" href="https://github.com/pliang279/awesome-multimodal-ml">更新连接</a></p>
+<h1 id="Reading-List-for-Topics-in-Multimodal-Machine-Learning"><a href="#Reading-List-for-Topics-in-Multimodal-Machine-Learning" class="headerlink" title="Reading List for Topics in Multimodal Machine Learning"></a>Reading List for Topics in Multimodal Machine Learning</h1><p>By <a target="_blank" rel="noopener" href="http://www.cs.cmu.edu/~pliang/">Paul Liang</a> (<a href="mailto:&#112;&#x6c;&#105;&#97;&#110;&#103;&#64;&#x63;&#115;&#x2e;&#99;&#109;&#x75;&#x2e;&#101;&#100;&#x75;">&#112;&#x6c;&#105;&#97;&#110;&#103;&#64;&#x63;&#115;&#x2e;&#99;&#109;&#x75;&#x2e;&#101;&#100;&#x75;</a>), <a target="_blank" rel="noopener" href="http://www.ml.cmu.edu/">Machine Learning Department</a> and <a target="_blank" rel="noopener" href="https://www.lti.cs.cmu.edu/">Language Technologies Institute</a>, <a target="_blank" rel="noopener" href="https://www.cmu.edu/">CMU</a>, with help from members of the <a target="_blank" rel="noopener" href="http://multicomp.cs.cmu.edu/">MultiComp Lab</a> at LTI, CMU. If there are any areas, papers, and datasets I missed, please let me know!</p>
+<h2 id="Course-content-workshops"><a href="#Course-content-workshops" class="headerlink" title="Course content + workshops"></a>Course content + workshops</h2><p>New course <a target="_blank" rel="noopener" href="https://cmu-multicomp-lab.github.io/adv-mmml-course/spring2022/">11-877 Advanced Topics in Multimodal Machine Learning</a> Spring 2022 @ CMU. It will primarily be reading and discussion-based. We plan to post discussion probes, relevant papers, and summarized discussion highlights every week on the website.</p>
+<p>Public course content and lecture videos from <a target="_blank" rel="noopener" href="https://cmu-multicomp-lab.github.io/mmml-course/fall2020/">11-777 Multimodal Machine Learning</a>, Fall 2020 @ CMU.</p>
+<p><a target="_blank" rel="noopener" href="https://sites.google.com/princeton.edu/nl-supervision">Workshop on Learning with Natural Language Supervision</a> @ ACL 2022</p>
+<h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
+<li><a href="#survey-papers">Survey Papers</a></li>
+<li><a href="#core-areas">Core Areas</a><ul>
+<li><a href="#multimodal-representations">Multimodal Representations</a></li>
+<li><a href="#multimodal-fusion">Multimodal Fusion</a></li>
+<li><a href="#multimodal-alignment">Multimodal Alignment</a></li>
+<li><a href="#multimodal-pretraining">Multimodal Pretraining</a></li>
+<li><a href="#multimodal-translation">Multimodal Translation</a></li>
+<li><a href="#crossmodal-retrieval">Crossmodal Retrieval</a></li>
+<li><a href="#multimodal-colearning">Multimodal Co-learning</a></li>
+<li><a href="#missing-or-imperfect-modalities">Missing or Imperfect Modalities</a></li>
+<li><a href="#analysis-of-multimodal-models">Analysis of Multimodal Models</a></li>
+<li><a href="#knowledge-graphs-and-knowledge-bases">Knowledge Graphs and Knowledge Bases</a></li>
+<li><a href="#intepretable-learning">Intepretable Learning</a></li>
+<li><a href="#generative-learning">Generative Learning</a></li>
+<li><a href="#semi-supervised-learning">Semi-supervised Learning</a></li>
+<li><a href="#self-supervised-learning">Self-supervised Learning</a></li>
+<li><a href="#language-models">Language Models</a></li>
+<li><a href="#adversarial-attacks">Adversarial Attacks</a></li>
+<li><a href="#few-shot-learning">Few-Shot Learning</a></li>
+<li><a href="#bias-and-fairness">Bias and Fairness</a></li>
+<li><a href="#human-in-the-loop-learning">Human in the Loop Learning</a></li>
+</ul>
+</li>
+<li><a href="#architectures">Architectures</a><ul>
+<li><a href="#multimodal-transformers">Multimodal Transformers</a></li>
+<li><a href="#multimodal-memory">Multimodal Memory</a></li>
+</ul>
+</li>
+<li><a href="#applications-and-datasets">Applications and Datasets</a><ul>
+<li><a href="#language-and-visual-qa">Language and Visual QA</a></li>
+<li><a href="#language-grounding-in-vision">Language Grounding in Vision</a></li>
+<li><a href="#language-grouding-in-navigation">Language Grouding in Navigation</a></li>
+<li><a href="#multimodal-machine-translation">Multimodal Machine Translation</a></li>
+<li><a href="#multi-agent-communication">Multi-agent Communication</a></li>
+<li><a href="#commonsense-reasoning">Commonsense Reasoning</a></li>
+<li><a href="#multimodal-reinforcement-learning">Multimodal Reinforcement Learning</a></li>
+<li><a href="#multimodal-dialog">Multimodal Dialog</a></li>
+<li><a href="#language-and-audio">Language and Audio</a></li>
+<li><a href="#audio-and-visual">Audio and Visual</a></li>
+<li><a href="#media-description">Media Description</a></li>
+<li><a href="#video-generation-from-text">Video Generation from Text</a></li>
+<li><a href="#affect-recognition-and-multimodal-language">Affect Recognition and Multimodal Language</a></li>
+<li><a href="#healthcare">Healthcare</a></li>
+<li><a href="#robotics">Robotics</a></li>
+<li><a href="#Autonomous-Driving">Autonomous Driving</a></li>
+<li><a href="#Finance">Finance</a></li>
+<li><a href="#Human-AI-Interaction">Human AI Interaction</a></li>
+</ul>
+</li>
+<li><a href="#workshops">Workshops</a></li>
+<li><a href="#tutorials">Tutorials</a></li>
+<li><a href="#courses">Courses</a></li>
+</ul>
+<h1 id="Research-Papers"><a href="#Research-Papers" class="headerlink" title="Research Papers"></a>Research Papers</h1><h2 id="Survey-Papers"><a href="#Survey-Papers" class="headerlink" title="Survey Papers"></a>Survey Papers</h2><p><a target="_blank" rel="noopener" href="https://doi.org/10.1613/jair.1.11688">Trends in Integration of Vision and Language Research: A Survey of Tasks, Datasets, and Methods</a>, JAIR 2021</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2004.10151">Experience Grounds Language</a>, EMNLP 2020</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1906.03926">A Survey of Reinforcement Learning Informed by Natural Language</a>, IJCAI 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1705.09406">Multimodal Machine Learning: A Survey and Taxonomy</a>, TPAMI 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1911.03977">Multimodal Intelligence: Representation Learning, Information Fusion, and Applications</a>, arXiv 2019</p>
+<p><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/abstract/document/8715409">Deep Multimodal Representation Learning: A Survey</a>, arXiv 2019</p>
+<p><a target="_blank" rel="noopener" href="https://link.springer.com/article/10.1007/s11263-017-0993-y">Guest Editorial: Image and Language Understanding</a>, IJCV 2017</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1206.5538">Representation Learning: A Review and New Perspectives</a>, TPAMI 2013</p>
+<p><a target="_blank" rel="noopener" href="https://www.cs.cmu.edu/~illah/PAPERS/socialroboticssurvey.pdf">A Survey of Socially Interactive Robots</a>, 2003</p>
+<h2 id="Core-Areas"><a href="#Core-Areas" class="headerlink" title="Core Areas"></a>Core Areas</h2><h3 id="Multimodal-Representations"><a href="#Multimodal-Representations" class="headerlink" title="Multimodal Representations"></a>Multimodal Representations</h3><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2112.07074">Towards a Unified Foundation Model: Jointly Pre-Training Transformers on Unpaired Images and Text</a>, arXiv 2021</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2112.04482">FLAVA: A Foundational Language And Vision Alignment Model</a>, arXiv 2021</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2102.10772">Transformer is All You Need: Multimodal Multitask Learning with a Unified Transformer</a>, arXiv 2021</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2107.07502">MultiBench: Multiscale Benchmarks for Multimodal Representation Learning</a>, NeurIPS 2021 <a target="_blank" rel="noopener" href="https://github.com/pliang279/MultiBench">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.03206">Perceiver: General Perception with Iterative Attention</a>, ICML 2021 <a target="_blank" rel="noopener" href="https://github.com/deepmind/deepmind-research/tree/master/perceiver">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.00020">Learning Transferable Visual Models From Natural Language Supervision</a>, arXiv 2021 <a href="%5Bblog%5D(https://openai.com/blog/clip/)">[blog]</a> <a target="_blank" rel="noopener" href="https://github.com/OpenAI/CLIP">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2101.00529">VinVL: Revisiting Visual Representations in Vision-Language Models</a>, arXiv 2021 <a target="_blank" rel="noopener" href="https://www.microsoft.com/en-us/research/blog/vinvl-advancing-the-state-of-the-art-for-vision-language-models/?OCID=msr_blog_VinVL_fb">[blog]</a> <a target="_blank" rel="noopener" href="https://github.com/pzzhang/VinVL">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://cdn.openai.com/papers/Learning_Transferable_Visual_Models_From_Natural_Language.pdf">Learning Transferable Visual Models From Natural Language Supervision</a>, arXiv 2020 <a target="_blank" rel="noopener" href="https://openai.com/blog/clip/">[blog]</a> <a target="_blank" rel="noopener" href="https://github.com/openai/CLIP">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1912.02315">12-in-1: Multi-Task Vision and Language Representation Learning</a>, CVPR 2020 <a target="_blank" rel="noopener" href="https://github.com/facebookresearch/vilbert-multi-task">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2003.07990">Watching the World Go By: Representation Learning from Unlabeled Videos</a>, arXiv 2020</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1906.05743">Learning Video Representations using Contrastive Bidirectional Transformer</a>, arXiv 2019</p>
+<p><a target="_blank" rel="noopener" href="https://papers.nips.cc/paper/8745-visual-concept-metaconcept-learning.pdf">Visual Concept-Metaconcept Learning</a>, NeurIPS 2019 <a target="_blank" rel="noopener" href="http://vcml.csail.mit.edu/">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1907.07804">OmniNet: A Unified Architecture for Multi-modal Multi-task Learning</a>, arXiv 2019 <a target="_blank" rel="noopener" href="https://github.com/subho406/OmniNet">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1906.00910">Learning Representations by Maximizing Mutual Information Across Views</a>, arXiv 2019 <a target="_blank" rel="noopener" href="https://github.com/Philip-Bachman/amdim-public">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1908.08527">ViCo: Word Embeddings from Visual Co-occurrences</a>, ICCV 2019 <a target="_blank" rel="noopener" href="https://github.com/BigRedT/vico">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="http://openaccess.thecvf.com/content_CVPR_2019/papers/Wu_Unified_Visual-Semantic_Embeddings_Bridging_Vision_and_Language_With_Structured_Meaning_CVPR_2019_paper.pdf">Unified Visual-Semantic Embeddings: Bridging Vision and Language With Structured Meaning Representations</a>, CVPR 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1812.00500">Multi-Task Learning of Hierarchical Vision-Language Representation</a>, CVPR 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1806.06176">Learning Factorized Multimodal Representations</a>, ICLR 2019 <a target="_blank" rel="noopener" href="https://github.com/pliang279/factorized/">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1802.04630">A Probabilistic Framework for Multi-view Feature Learning with Many-to-many Associations via Neural Networks</a>, ICML 2018</p>
+<p><a target="_blank" rel="noopener" href="https://aclweb.org/anthology/P18-2074">Do Neural Network Cross-Modal Mappings Really Bridge Modalities?</a>, ACL 2018</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1703.05908">Learning Robust Visual-Semantic Embeddings</a>, ICCV 2017</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1704.03152">Deep Multimodal Representation Learning from Temporal Data</a>, CVPR 2017</p>
+<p><a target="_blank" rel="noopener" href="https://www.aclweb.org/anthology/C16-1264">Is an Image Worth More than a Thousand Words? On the Fine-Grain Semantic Differences between Visual and Linguistic Representations</a>, COLING 2016</p>
+<p><a target="_blank" rel="noopener" href="https://www.aclweb.org/anthology/N15-1016">Combining Language and Vision with a Multimodal Skip-gram Model</a>, NAACL 2015</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1406.5679">Deep Fragment Embeddings for Bidirectional Image Sentence Mapping</a>, NIPS 2014</p>
+<p><a target="_blank" rel="noopener" href="https://dl.acm.org/citation.cfm?id=2697059">Multimodal Learning with Deep Boltzmann Machines</a>, JMLR 2014</p>
+<p><a target="_blank" rel="noopener" href="https://www.aclweb.org/anthology/P14-1068">Learning Grounded Meaning Representations with Autoencoders</a>, ACL 2014</p>
+<p><a target="_blank" rel="noopener" href="https://papers.nips.cc/paper/5204-devise-a-deep-visual-semantic-embedding-model">DeViSE: A Deep Visual-Semantic Embedding Model</a>, NeurIPS 2013</p>
+<p><a target="_blank" rel="noopener" href="https://dl.acm.org/citation.cfm?id=3104569">Multimodal Deep Learning</a>, ICML 2011</p>
+<h3 id="Multimodal-Fusion"><a href="#Multimodal-Fusion" class="headerlink" title="Multimodal Fusion"></a>Multimodal Fusion</h3><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2201.04309">Robust Contrastive Learning against Noisy Views</a>, arXiv 2022</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2112.12337">Cooperative Learning for Multi-view Analysis</a>, arXiv 2022</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.04538">What Makes Multi-modal Learning Better than Single (Provably)</a>, NeurIPS 2021</p>
+<p><a target="_blank" rel="noopener" href="https://dl.acm.org/doi/abs/10.1145/3474085.3475188">Efficient Multi-Modal Fusion with Diversity Analysis</a>, ACMMM 2021</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2107.00135">Attention Bottlenecks for Multimodal Fusion</a>, NeurIPS 2021</p>
+<p><a target="_blank" rel="noopener" href="https://openreview.net/forum?id=OOsR8BzCnl5">Trusted Multi-View Classification</a>, ICLR 2021 <a target="_blank" rel="noopener" href="https://github.com/hanmenghan/TMC">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2010.08218.pdf">Deep-HOSeq: Deep Higher-Order Sequence Fusion for Multimodal Sentiment Analysis</a>, ICDM 2020 </p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2010.10802">Removing Bias in Multi-modal Classifiers: Regularization by Maximizing Functional Entropies</a>, NeurIPS 2020 <a target="_blank" rel="noopener" href="https://github.com/itaigat/removing-bias-in-multi-modal-classifiers">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2011.05005?context=cs.LG">Deep Multimodal Fusion by Channel Exchanging</a>, NeurIPS 2020 <a target="_blank" rel="noopener" href="https://github.com/yikaiw/CEN">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1905.12681">What Makes Training Multi-Modal Classification Networks Hard?</a>, CVPR 2020</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1911.03821">Dynamic Fusion for Multimodal Data</a>, arXiv 2019</p>
+<p><a target="_blank" rel="noopener" href="https://www.ijcai.org/proceedings/2019/503">DeepCU: Integrating Both Common and Unique Latent Information for Multimodal Sentiment Analysis</a>, IJCAI 2019 <a target="_blank" rel="noopener" href="https://github.com/sverma88/DeepCU-IJCAI19">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://papers.nips.cc/paper/9381-deep-multimodal-multilinear-fusion-with-high-order-polynomial-pooling">Deep Multimodal Multilinear Fusion with High-order Polynomial Pooling</a>, NeurIPS 2019</p>
+<p><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/abstract/document/8894404">XFlow: Cross-modal Deep Neural Networks for Audiovisual Classification</a>, IEEE TNNLS 2019 <a target="_blank" rel="noopener" href="https://github.com/catalina17/XFlow">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1903.06496">MFAS: Multimodal Fusion Architecture Search</a>, CVPR 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1904.12584">The Neuro-Symbolic Concept Learner: Interpreting Scenes, Words, and Sentences From Natural Supervision</a>, ICLR 2019 <a target="_blank" rel="noopener" href="http://nscl.csail.mit.edu/">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.ijcai.org/Proceedings/2018/0283.pdf">Unifying and merging well-trained deep neural networks for inference stage</a>, IJCAI 2018 <a target="_blank" rel="noopener" href="https://github.com/ivclab/NeuralMerger">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1806.00064">Efficient Low-rank Multimodal Fusion with Modality-Specific Factors</a>, ACL 2018 <a target="_blank" rel="noopener" href="https://github.com/Justin1904/Low-rank-Multimodal-Fusion">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.aaai.org/ocs/index.php/AAAI/AAAI18/paper/viewFile/17341/16122">Memory Fusion Network for Multi-view Sequential Learning</a>, AAAI 2018 <a target="_blank" rel="noopener" href="https://github.com/pliang279/MFN">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1707.07250">Tensor Fusion Network for Multimodal Sentiment Analysis</a>, EMNLP 2017 <a target="_blank" rel="noopener" href="https://github.com/A2Zadeh/TensorFusionNetwork">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="http://web.eecs.umich.edu/~jjcorso/pubs/xu_corso_AAAI2015_v2t.pdf">Jointly Modeling Deep Video and Compositional Text to Bridge Vision and Language in a Unified Framework</a>, AAAI 2015</p>
+<p><a target="_blank" rel="noopener" href="https://web.cse.ohio-state.edu/~belkin.8/papers/CASSL_ICML_05.pdf">A co-regularized approach to semi-supervised learning with multiple views</a>, ICML 2005</p>
+<h3 id="Multimodal-Alignment"><a href="#Multimodal-Alignment" class="headerlink" title="Multimodal Alignment"></a>Multimodal Alignment</h3><p><a target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content/CVPR2021/html/Trosten_Reconsidering_Representation_Alignment_for_Multi-View_Clustering_CVPR_2021_paper.html">Reconsidering Representation Alignment for Multi-view Clustering</a>, CVPR 2021 <a target="_blank" rel="noopener" href="https://github.com/DanielTrosten/mvc">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2006.06325.pdf">CoMIR: Contrastive Multimodal Image Representation for Registration</a>, NeurIPS 2020 <a target="_blank" rel="noopener" href="https://github.com/MIDA-group/CoMIR">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1906.00295">Multimodal Transformer for Unaligned Multimodal Language Sequences</a>, ACL 2019 <a target="_blank" rel="noopener" href="https://github.com/yaohungt/Multimodal-Transformer">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1904.07846">Temporal Cycle-Consistency Learning</a>, CVPR 2019 <a target="_blank" rel="noopener" href="https://github.com/google-research/google-research/tree/master/tcc">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://people.csail.mit.edu/yusuf/see-hear-read/paper.pdf">See, Hear, and Read: Deep Aligned Representations</a>, arXiv 2017</p>
+<p><a target="_blank" rel="noopener" href="http://proceedings.mlr.press/v37/wangb15.pdf">On Deep Multi-View Representation Learning</a>, ICML 2015</p>
+<p><a target="_blank" rel="noopener" href="https://dl.acm.org/citation.cfm?id=2892753.2892769">Unsupervised Alignment of Natural Language Instructions with Video Segments</a>, AAAI 2014</p>
+<p><a target="_blank" rel="noopener" href="https://dl.acm.org/citation.cfm?id=2654862">Multimodal Alignment of Videos</a>, MM 2014</p>
+<p><a target="_blank" rel="noopener" href="http://proceedings.mlr.press/v28/andrew13.html">Deep Canonical Correlation Analysis</a>, ICML 2013 <a target="_blank" rel="noopener" href="https://github.com/VahidooX/DeepCCA">[code]</a></p>
+<h3 id="Multimodal-Pretraining"><a href="#Multimodal-Pretraining" class="headerlink" title="Multimodal Pretraining"></a>Multimodal Pretraining</h3><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2102.06183">Less is More: ClipBERT for Video-and-Language Learning via Sparse Sampling</a>, CVPR 2021 <a target="_blank" rel="noopener" href="https://github.com/jayleicn/ClipBERT">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2102.10772">Transformer is All You Need: Multimodal Multitask Learning with a Unified Transformer</a>, arXiv 2021</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2006.06195">Large-Scale Adversarial Training for Vision-and-Language Representation Learning</a>, NeurIPS 2020 <a target="_blank" rel="noopener" href="https://github.com/zhegan27/VILLA">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2010.06775">Vokenization: Improving Language Understanding with Contextualized, Visual-Grounded Supervision</a>, EMNLP 2020 <a target="_blank" rel="noopener" href="https://github.com/airsplay/vokenization">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1908.05787">Integrating Multimodal Information in Large Pretrained Transformers</a>, ACL 2020</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1908.08530">VL-BERT: Pre-training of Generic Visual-Linguistic Representations</a>, arXiv 2019 <a target="_blank" rel="noopener" href="https://github.com/jackroos/VL-BERT">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1908.03557">VisualBERT: A Simple and Performant Baseline for Vision and Language</a>, arXiv 2019 <a target="_blank" rel="noopener" href="https://github.com/uclanlp/visualbert">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1908.02265">ViLBERT: Pretraining Task-Agnostic Visiolinguistic Representations for Vision-and-Language Tasks</a>, NeurIPS 2019 <a target="_blank" rel="noopener" href="https://github.com/jiasenlu/vilbert_beta">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1908.06066">Unicoder-VL: A Universal Encoder for Vision and Language by Cross-modal Pre-training</a>, arXiv 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1908.07490">LXMERT: Learning Cross-Modality Encoder Representations from Transformers</a>, EMNLP 2019 <a target="_blank" rel="noopener" href="https://github.com/airsplay/lxmert">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1904.01766">VideoBERT: A Joint Model for Video and Language Representation Learning</a>, ICCV 2019</p>
+<h3 id="Multimodal-Translation"><a href="#Multimodal-Translation" class="headerlink" title="Multimodal Translation"></a>Multimodal Translation</h3><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2102.12092">Zero-Shot Text-to-Image Generation</a>, ICML 2021 <a target="_blank" rel="noopener" href="https://github.com/openai/DALL-E">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content_CVPR_2019/papers/Du_Translate-to-Recognize_Networks_for_RGB-D_Scene_Recognition_CVPR_2019_paper.pdf">Translate-to-Recognize Networks for RGB-D Scene Recognition</a>, CVPR 2019 <a target="_blank" rel="noopener" href="https://github.com/ownstyledu/Translate-to-Recognize-Networks">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1907.01108">Language2Pose: Natural Language Grounded Pose Forecasting</a>, 3DV 2019 <a target="_blank" rel="noopener" href="http://chahuja.com/language2pose/">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1905.10604">Reconstructing Faces from Voices</a>, NeurIPS 2019 <a target="_blank" rel="noopener" href="https://github.com/cmu-mlsp/reconstructing_faces_from_voices">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1905.09773">Speech2Face: Learning the Face Behind a Voice</a>, CVPR 2019 <a target="_blank" rel="noopener" href="https://speech2face.github.io/">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1812.07809">Found in Translation: Learning Robust Joint Representations by Cyclic Translations Between Modalities</a>, AAAI 2019 <a target="_blank" rel="noopener" href="https://github.com/hainow/MCTN">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1712.05884">Natural TTS Synthesis by Conditioning Wavenet on Mel Spectrogram Predictions</a>, ICASSP 2018 <a target="_blank" rel="noopener" href="https://github.com/NVIDIA/tacotron2">[code]</a></p>
+<h3 id="Crossmodal-Retrieval"><a href="#Crossmodal-Retrieval" class="headerlink" title="Crossmodal Retrieval"></a>Crossmodal Retrieval</h3><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2109.05125">MURAL: Multimodal, Multitask Retrieval Across Languages</a>, arXiv 2021</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1901.02004">Self-Supervised Learning from Web Data for Multimodal Retrieval</a>, arXiv 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1711.06420">Look, Imagine and Match: Improving Textual-Visual Cross-Modal Retrieval with Generative Models</a>, CVPR 2018</p>
+<h3 id="Multimodal-Co-learning"><a href="#Multimodal-Co-learning" class="headerlink" title="Multimodal Co-learning"></a>Multimodal Co-learning</h3><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2102.05918">Scaling Up Visual and Vision-Language Representation Learning With Noisy Text Supervision</a>, ICML 2021</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2107.13782">Multimodal Co-learning: Challenges, Applications with Datasets, Recent Advances and Future Directions</a>, arXiv 2021</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2010.06775">Vokenization: Improving Language Understanding via Contextualized, Visually-Grounded Supervision</a>, EMNLP 2020</p>
+<p><a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S1566253520303006">Foundations of Multimodal Co-learning</a>, Information Fusion 2020</p>
+<h3 id="Missing-or-Imperfect-Modalities"><a href="#Missing-or-Imperfect-Modalities" class="headerlink" title="Missing or Imperfect Modalities"></a>Missing or Imperfect Modalities</h3><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2102.03014">A Variational Information Bottleneck Approach to Multi-Omics Data Integration</a>, AISTATS 2021 <a target="_blank" rel="noopener" href="https://github.com/chl8856/DeepIMV">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.05677">SMIL: Multimodal Learning with Severely Missing Modality</a>, AAAI 2021</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1905.13570">Factorized Inference in Deep Markov Models for Incomplete Multimodal Time Series</a>, arXiv 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1907.01011">Learning Representations from Imperfect Time Series Data via Tensor Rank Regularization</a>, ACL 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1507.06821">Multimodal Deep Learning for Robust RGB-D Object Recognition</a>, IROS 2015</p>
+<h3 id="Analysis-of-Multimodal-Models"><a href="#Analysis-of-Multimodal-Models" class="headerlink" title="Analysis of Multimodal Models"></a>Analysis of Multimodal Models</h3><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2107.08264">M2Lens: Visualizing and Explaining Multimodal Models for Sentiment Analysis</a>, IEEE TVCG 2022</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2102.00529">Decoupling the Role of Data, Attention, and Losses in Multimodal Transformers</a>, TACL 2021</p>
+<p><a target="_blank" rel="noopener" href="https://www.aclweb.org/anthology/2020.emnlp-main.62.pdf">Does my multimodal model learn cross-modal interactions? It’s harder to tell than you might think!</a>, EMNLP 2020</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1811.05013">Blindfold Baselines for Embodied QA</a>, NIPS 2018 Visually-Grounded Interaction and Language Workshop</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1606.07356">Analyzing the Behavior of Visual Question Answering Models</a>, EMNLP 2016</p>
+<h3 id="Knowledge-Graphs-and-Knowledge-Bases"><a href="#Knowledge-Graphs-and-Knowledge-Bases" class="headerlink" title="Knowledge Graphs and Knowledge Bases"></a>Knowledge Graphs and Knowledge Bases</h3><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1903.05485">MMKG: Multi-Modal Knowledge Graphs</a>, ESWC 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1709.02314">Answering Visual-Relational Queries in Web-Extracted Knowledge Graphs</a>, AKBC 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1809.01341">Embedding Multimodal Relational Data for Knowledge Base Completion</a>, EMNLP 2018</p>
+<p><a target="_blank" rel="noopener" href="https://www.aclweb.org/anthology/S18-2027">A Multimodal Translation-Based Approach for Knowledge Graph Representation Learning</a>, SEM 2018 <a target="_blank" rel="noopener" href="https://github.com/UKPLab/starsem18-multimodalKB">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1511.06361">Order-Embeddings of Images and Language</a>, ICLR 2016 <a target="_blank" rel="noopener" href="https://github.com/ivendrov/order-embedding">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1507.05670">Building a Large-scale Multimodal Knowledge Base System for Answering Visual Queries</a>, arXiv 2015</p>
+<h3 id="Intepretable-Learning"><a href="#Intepretable-Learning" class="headerlink" title="Intepretable Learning"></a>Intepretable Learning</h3><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1812.01263">Multimodal Explanations by Predicting Counterfactuality in Videos</a>, CVPR 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1802.08129">Multimodal Explanations: Justifying Decisions and Pointing to the Evidence</a>, CVPR 2018 <a target="_blank" rel="noopener" href="https://github.com/Seth-Park/MultimodalExplanations">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1810.12366">Do Explanations make VQA Models more Predictable to a Human?</a>, EMNLP 2018</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1608.08974">Towards Transparent AI Systems: Interpreting Visual Question Answering Models</a>, ICML Workshop on Visualization for Deep Learning 2016</p>
+<h3 id="Generative-Learning"><a href="#Generative-Learning" class="headerlink" title="Generative Learning"></a>Generative Learning</h3><p><a target="_blank" rel="noopener" href="https://openreview.net/forum?id=5Y21V0RDBV">Generalized Multimodal ELBO</a>, ICLR 2021 <a target="_blank" rel="noopener" href="https://openreview.net/attachment?id=5Y21V0RDBV&name=supplementary_material">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1911.03393.pdf">Variational Mixture-of-Experts Autoencodersfor Multi-Modal Deep Generative Models</a>, NeurIPS 2019 <a target="_blank" rel="noopener" href="https://github.com/iffsid/mmvae">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1910.12713">Few-shot Video-to-Video Synthesis</a>, NeurIPS 2019 <a target="_blank" rel="noopener" href="https://nvlabs.github.io/few-shot-vid2vid/">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1802.05335">Multimodal Generative Models for Scalable Weakly-Supervised Learning</a>, NeurIPS 2018 <a target="_blank" rel="noopener" href="https://github.com/mhw32/multimodal-vae-public">[code1]</a> <a target="_blank" rel="noopener" href="https://github.com/panpan2/Multimodal-Variational-Autoencoder">[code2]</a></p>
+<p><a target="_blank" rel="noopener" href="http://charlienash.github.io/assets/docs/mevae2017.pdf">The Multi-Entity Variational Autoencoder</a>, NeurIPS 2017</p>
+<h3 id="Semi-supervised-Learning"><a href="#Semi-supervised-Learning" class="headerlink" title="Semi-supervised Learning"></a>Semi-supervised Learning</h3><p><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/7989160">Semi-supervised Vision-language Mapping via Variational Learning</a>, ICRA 2017</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1712.03404">Semi-supervised Multimodal Hashing</a>, arXiv 2017</p>
+<p><a target="_blank" rel="noopener" href="https://www.ijcai.org/Proceedings/16/Papers/473.pdf">Semi-Supervised Multimodal Deep Learning for RGB-D Object Recognition</a>, IJCAI 2016</p>
+<p><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/abstract/document/5540120">Multimodal Semi-supervised Learning for Image Classification</a>, CVPR 2010</p>
+<h3 id="Self-supervised-Learning"><a href="#Self-supervised-Learning" class="headerlink" title="Self-supervised Learning"></a>Self-supervised Learning</h3><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2111.12062">DABS: A Domain-Agnostic Benchmark for Self-Supervised Learning</a>, NeurIPS 2021 Datasets &amp; Benchmarks Track <a target="_blank" rel="noopener" href="https://github.com/alextamkin/dabs">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1911.12667">Self-Supervised Learning by Cross-Modal Audio-Video Clustering</a>, NeurIPS 2020 <a target="_blank" rel="noopener" href="https://github.com/HumamAlwassel/XDC">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2006.16228">Self-Supervised MultiModal Versatile Networks</a>, NeurIPS 2020 <a target="_blank" rel="noopener" href="https://tfhub.dev/deepmind/mmv/s3d/1">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2006.13662">Labelling Unlabelled Videos from Scratch with Multi-modal Self-supervision</a>, NeurIPS 2020 <a target="_blank" rel="noopener" href="https://www.robots.ox.ac.uk/~vgg/research/selavi/">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/8099701">Self-Supervised Learning of Visual Features through Embedding Images into Text Topic Spaces</a>, CVPR 2017</p>
+<p><a target="_blank" rel="noopener" href="https://dl.acm.org/citation.cfm?id=1269207">Multimodal Dynamics : Self-supervised Learning in Perceptual and Motor Systems</a>, 2016</p>
+<h3 id="Language-Models"><a href="#Language-Models" class="headerlink" title="Language Models"></a>Language Models</h3><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1903.02930">Neural Language Modeling with Visual Features</a>, arXiv 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1711.03483">Learning Multi-Modal Word Representation Grounded in Visual Context</a>, AAAI 2018</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1511.07067">Visual Word2Vec (vis-w2v): Learning Visually Grounded Word Embeddings Using Abstract Scenes</a>, CVPR 2016</p>
+<p><a target="_blank" rel="noopener" href="http://proceedings.mlr.press/v32/kiros14.html">Unifying Visual-Semantic Embeddings with Multimodal Neural Language Models</a>, ICML 2014 <a target="_blank" rel="noopener" href="https://github.com/ryankiros/visual-semantic-embedding">[code]</a></p>
+<h3 id="Adversarial-Attacks"><a href="#Adversarial-Attacks" class="headerlink" title="Adversarial Attacks"></a>Adversarial Attacks</h3><p><a target="_blank" rel="noopener" href="https://nips2018vigil.github.io/static/papers/accepted/33.pdf">Attend and Attack: Attention Guided Adversarial Attacks on Visual Question Answering Models</a>, NeurIPS Workshop on Visually Grounded Interaction and Language 2018</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1712.02051">Attacking Visual Language Grounding with Adversarial Examples: A Case Study on Neural Image Captioning</a>, ACL 2018 <a target="_blank" rel="noopener" href="https://github.com/huanzhang12/ImageCaptioningAttack">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1709.08693">Fooling Vision and Language Models Despite Localization and Attention Mechanism</a>, CVPR 2018</p>
+<h3 id="Few-Shot-Learning"><a href="#Few-Shot-Learning" class="headerlink" title="Few-Shot Learning"></a>Few-Shot Learning</h3><p><a target="_blank" rel="noopener" href="https://www.aclweb.org/anthology/2020.acl-main.625/">Language to Network: Conditional Parameter Adaptation with Natural Language Descriptions</a>, ACL 2020</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1911.02683">Shaping Visual Representations with Language for Few-shot Classification</a>, ACL 2020</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1703.04394">Zero-Shot Learning - The Good, the Bad and the Ugly</a>, CVPR 2017</p>
+<p><a target="_blank" rel="noopener" href="https://nlp.stanford.edu/~socherr/SocherGanjooManningNg_NIPS2013.pdf">Zero-Shot Learning Through Cross-Modal Transfer</a>, NIPS 2013</p>
+<h3 id="Bias-and-Fairness"><a href="#Bias-and-Fairness" class="headerlink" title="Bias and Fairness"></a>Bias and Fairness</h3><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.08666">Worst of Both Worlds: Biases Compound in Pre-trained Vision-and-Language Models</a>, arXiv 2021</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2007.08100">Towards Debiasing Sentence Representations</a>, ACL 2020 <a target="_blank" rel="noopener" href="https://github.com/pliang279/sent_debias">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2009.07025">FairCVtest Demo: Understanding Bias in Multimodal Learning with a Testbed in Fair Automatic Recruitment</a>, ICMI 2020 <a target="_blank" rel="noopener" href="https://github.com/BiDAlab/FairCVtest">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1810.03993">Model Cards for Model Reporting</a>, FAccT 2019 </p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1904.04047">Black is to Criminal as Caucasian is to Police: Detecting and Removing Multiclass Bias in Word Embeddings</a>, NAACL 2019 <a target="_blank" rel="noopener" href="https://github.com/TManzini/DebiasMulticlassWordEmbedding">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="http://proceedings.mlr.press/v81/buolamwini18a.html?mod=article_inline">Gender Shades: Intersectional Accuracy Disparities in Commercial Gender Classification</a>, FAccT 2018</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1803.09010">Datasheets for Datasets</a>, arXiv 2018</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1607.06520">Man is to Computer Programmer as Woman is to Homemaker? Debiasing Word Embeddings</a>, NeurIPS 2016</p>
+<h3 id="Human-in-the-Loop-Learning"><a href="#Human-in-the-Loop-Learning" class="headerlink" title="Human in the Loop Learning"></a>Human in the Loop Learning</h3><p><a target="_blank" rel="noopener" href="https://sites.google.com/view/hlds-2020/home">Human in the Loop Dialogue Systems</a>, NeurIPS 2020 workshop</p>
+<p><a target="_blank" rel="noopener" href="https://hamlets-workshop.github.io/">Human And Machine in-the-Loop Evaluation and Learning Strategies</a>, NeurIPS 2020 workshop</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2010.05848">Human-centric dialog training via offline reinforcement learning</a>, EMNLP 2020 <a target="_blank" rel="noopener" href="https://github.com/natashamjaques/neural_chat/tree/master/BatchRL">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://csjzhou.github.io/homepage/papers/ICML2017_Syed.pdf">Human-In-The-Loop Machine Learning with Intelligent Multimodal Interfaces</a>, ICML 2017 workshop</p>
+<h2 id="Architectures"><a href="#Architectures" class="headerlink" title="Architectures"></a>Architectures</h2><h3 id="Multimodal-Transformers"><a href="#Multimodal-Transformers" class="headerlink" title="Multimodal Transformers"></a>Multimodal Transformers</h3><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.05247">Pretrained Transformers As Universal Computation Engines</a>, AAAI 2022</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.03206">Perceiver: General Perception with Iterative Attention</a>, ICML 2021</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2112.04482">FLAVA: A Foundational Language And Vision Alignment Model</a>, arXiv 2021</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2111.12993">PolyViT: Co-training Vision Transformers on Images, Videos and Audio</a>, arXiv 2021</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.11178">VATT: Transformers for Multimodal Self-Supervised Learning from Raw Video, Audio and Text</a>, NeurIPS 2021 <a target="_blank" rel="noopener" href="https://github.com/google-research/google-research/tree/master/vatt">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2012.04124">Parameter Efficient Multimodal Transformers for Video Representation Learning</a>, ICLR 2021 <a target="_blank" rel="noopener" href="https://github.com/sangho-vision/avbert">[code]</a></p>
+<h3 id="Multimodal-Memory"><a href="#Multimodal-Memory" class="headerlink" title="Multimodal Memory"></a>Multimodal Memory</h3><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2111.05759">Multimodal Transformer with Variable-length Memory for Vision-and-Language Navigation</a>, arXiv 2021</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2110.13309">History Aware Multimodal Transformer for Vision-and-Language Navigation</a>, NeurIPS 2021 <a target="_blank" rel="noopener" href="https://cshizhe.github.io/projects/vln_hamt.html">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1906.01076">Episodic Memory in Lifelong Language Learning</a>, NeurIPS 2019</p>
+<p><a target="_blank" rel="noopener" href="https://aclanthology.org/D18-1280.pdf">ICON: Interactive Conversational Memory Network for Multimodal Emotion Detection</a>, EMNLP 2018</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1611.05592">Multimodal Memory Modelling for Video Captioning</a>, CVPR 2018</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1603.01417">Dynamic Memory Networks for Visual and Textual Question Answering</a>, ICML 2016</p>
+<h2 id="Applications-and-Datasets"><a href="#Applications-and-Datasets" class="headerlink" title="Applications and Datasets"></a>Applications and Datasets</h2><h3 id="Language-and-Visual-QA"><a href="#Language-and-Visual-QA" class="headerlink" title="Language and Visual QA"></a>Language and Visual QA</h3><p><a target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content/CVPR2021/html/Xu_SUTD-TrafficQA_A_Question_Answering_Benchmark_and_an_Efficient_Network_for_CVPR_2021_paper.html">SUTD-TrafficQA: A Question Answering Benchmark and an Efficient Network for Video Reasoning over Traffic Events</a>, CVPR 2021 <a target="_blank" rel="noopener" href="https://github.com/SUTDCV/SUTD-TrafficQA">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://openreview.net/forum?id=ee6W5UgQLa">MultiModalQA: complex question answering over text, tables and images</a>, ICLR 2021</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2001.08034">ManyModalQA: Modality Disambiguation and QA over Diverse Inputs</a>, AAAI 2020 <a target="_blank" rel="noopener" href="https://github.com/hannandarryl/ManyModalQA">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1911.06258">Iterative Answer Prediction with Pointer-Augmented Multimodal Transformers for TextVQA</a>, CVPR 2020</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1908.10909">Interactive Language Learning by Question Answering</a>, EMNLP 2019 <a target="_blank" rel="noopener" href="https://github.com/xingdi-eric-yuan/qait_public">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1908.05054">Fusion of Detected Objects in Text for Visual Question Answering</a>, arXiv 2019 </p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1906.10169">RUBi: Reducing Unimodal Biases in Visual Question Answering</a>, NeurIPS 2019 <a target="_blank" rel="noopener" href="https://github.com/cdancette/rubi.bootstrap.pytorch">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1902.09506">GQA: A New Dataset for Real-World Visual Reasoning and Compositional Question Answering</a>, CVPR 2019 <a target="_blank" rel="noopener" href="https://cs.stanford.edu/people/dorarad/gqa/">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1906.00067">OK-VQA: A Visual Question Answering Benchmark Requiring External Knowledge</a>, CVPR 2019 <a target="_blank" rel="noopener" href="http://okvqa.allenai.org/">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1902.09487">MUREL: Multimodal Relational Reasoning for Visual Question Answering</a>, CVPR 2019 <a target="_blank" rel="noopener" href="https://github.com/Cadene/murel.bootstrap.pytorch">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="http://openaccess.thecvf.com/content_CVPR_2019/html/Zadeh_Social-IQ_A_Question_Answering_Benchmark_for_Artificial_Social_Intelligence_CVPR_2019_paper.html">Social-IQ: A Question Answering Benchmark for Artificial Social Intelligence</a>, CVPR 2019 <a target="_blank" rel="noopener" href="https://github.com/A2Zadeh/Social-IQ">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1902.07864">Probabilistic Neural-symbolic Models for Interpretable Visual Question Answering</a>, ICML 2019 <a target="_blank" rel="noopener" href="https://github.com/kdexd/probnmn-clevr">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1802.05766">Learning to Count Objects in Natural Images for Visual Question Answering</a>, ICLR 2018, <a target="_blank" rel="noopener" href="https://github.com/Cyanogenoid/vqa-counting">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1810.03649">Overcoming Language Priors in Visual Question Answering with Adversarial Regularization</a>, NeurIPS 2018</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1810.02338">Neural-Symbolic VQA: Disentangling Reasoning from Vision and Language Understanding</a>, NeurIPS 2018 <a target="_blank" rel="noopener" href="https://github.com/kexinyi/ns-vqa">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1809.00812">RecipeQA: A Challenge Dataset for Multimodal Comprehension of Cooking Recipes</a>, EMNLP 2018 <a target="_blank" rel="noopener" href="https://hucvl.github.io/recipeqa/">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.aclweb.org/anthology/D18-1167">TVQA: Localized, Compositional Video Question Answering</a>, EMNLP 2018 <a target="_blank" rel="noopener" href="https://github.com/jayleicn/TVQA">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1707.07998">Bottom-Up and Top-Down Attention for Image Captioning and Visual Question Answering</a>, CVPR 2018 <a target="_blank" rel="noopener" href="https://github.com/facebookresearch/pythia">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1712.00377">Don’t Just Assume; Look and Answer: Overcoming Priors for Visual Question Answering</a>, CVPR 2018 <a target="_blank" rel="noopener" href="https://github.com/AishwaryaAgrawal/GVQA">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="http://openaccess.thecvf.com/content_cvpr_2018/papers/Fan_Stacked_Latent_Attention_CVPR_2018_paper.pdf">Stacked Latent Attention for Multimodal Reasoning</a>, CVPR 2018</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1704.05526">Learning to Reason: End-to-End Module Networks for Visual Question Answering</a>, ICCV 2017 <a target="_blank" rel="noopener" href="https://github.com/ronghanghu/n2nmn">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1612.06890">CLEVR: A Diagnostic Dataset for Compositional Language and Elementary Visual Reasoning</a>, CVPR 2017 <a target="_blank" rel="noopener" href="https://github.com/facebookresearch/clevr-iep">[code]</a> <a target="_blank" rel="noopener" href="https://github.com/facebookresearch/clevr-dataset-gen">[dataset generation]</a></p>
+<p><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/8100054/">Are You Smarter Than A Sixth Grader? Textbook Question Answering for Multimodal Machine Comprehension</a>, CVPR 2017 <a target="_blank" rel="noopener" href="http://vuchallenge.org/tqa.html">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1606.01847">Multimodal Compact Bilinear Pooling for Visual Question Answering and Visual Grounding</a>, EMNLP 2016 <a target="_blank" rel="noopener" href="https://github.com/akirafukui/vqa-mcb">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1512.02902">MovieQA: Understanding Stories in Movies through Question-Answering</a>, CVPR 2016 <a target="_blank" rel="noopener" href="http://movieqa.cs.toronto.edu/home/">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1505.00468">VQA: Visual Question Answering</a>, ICCV 2015 <a target="_blank" rel="noopener" href="https://visualqa.org/">[code]</a></p>
+<h3 id="Language-Grounding-in-Vision"><a href="#Language-Grounding-in-Vision" class="headerlink" title="Language Grounding in Vision"></a>Language Grounding in Vision</h3><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.13948">Core Challenges in Embodied Vision-Language Planning</a>, arXiv 2021</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2109.13238">MaRVL: Multicultural Reasoning over Vision and Language</a>, EMNLP 2021 <a target="_blank" rel="noopener" href="https://marvl-challenge.github.io/">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.02192">Grounding ‘Grounding’ in NLP</a>, ACL 2021</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2005.04790">The Hateful Memes Challenge: Detecting Hate Speech in Multimodal Memes</a>, NeurIPS 2020 <a target="_blank" rel="noopener" href="https://ai.facebook.com/blog/hateful-memes-challenge-and-data-set/">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.aclweb.org/anthology/2020.acl-main.469/">What Does BERT with Vision Look At?</a>, ACL 2020</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2003.05078">Visual Grounding in Video for Unsupervised Word Translation</a>, CVPR 2020 <a target="_blank" rel="noopener" href="https://github.com/gsig/visual-grounding">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2003.11618">VIOLIN: A Large-Scale Dataset for Video-and-Language Inference</a>, CVPR 2020 <a target="_blank" rel="noopener" href="https://github.com/jimmy646/violin">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1812.06587">Grounded Video Description</a>, CVPR 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1811.10652">Show, Control and Tell: A Framework for Generating Controllable and Grounded Captions</a>, CVPR 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1804.05113">Multilevel Language and Vision Integration for Text-to-Clip Retrieval</a>, AAAI 2019 <a target="_blank" rel="noopener" href="https://github.com/VisionLearningGroup/Text-to-Clip_Retrieval">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1901.06595">Binary Image Selection (BISON): Interpretable Evaluation of Visual Grounding</a>, arXiv 2019 <a target="_blank" rel="noopener" href="https://github.com/facebookresearch/binary-image-selection">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="http://openaccess.thecvf.com/content_cvpr_2018/papers/Huang_Finding_It_Weakly-Supervised_CVPR_2018_paper.pdf">Finding “It”: Weakly-Supervised Reference-Aware Visual Grounding in Instructional Videos</a>, CVPR 2018</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1707.03389">SCAN: Learning Hierarchical Compositional Visual Concepts</a>, ICLR 2018</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1809.01816">Visual Coreference Resolution in Visual Dialog using Neural Module Networks</a>, ECCV 2018 <a target="_blank" rel="noopener" href="https://github.com/facebookresearch/corefnmn">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1706.07230">Gated-Attention Architectures for Task-Oriented Language Grounding</a>, AAAI 2018 <a target="_blank" rel="noopener" href="https://github.com/devendrachaplot/DeepRL-Grounding">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1805.10547">Using Syntax to Ground Referring Expressions in Natural Images</a>, AAAI 2018 <a target="_blank" rel="noopener" href="https://github.com/volkancirik/groundnet">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://cbmm.mit.edu/sites/default/files/publications/Ross-et-al_ACL2018_Grounding%20language%20acquisition%20by%20training%20semantic%20parsing%20using%20caption%20videos.pdf">Grounding language acquisition by training semantic parsers using captioned videos</a>, ACL 2018</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1803.11209">Interpretable and Globally Optimal Prediction for Textual Grounding using Image Concepts</a>, NeurIPS 2017</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1708.01641">Localizing Moments in Video with Natural Language</a>, ICCV 2017</p>
+<p><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/abstract/document/6909850/">What are you talking about? Text-to-Image Coreference</a>, CVPR 2014</p>
+<p><a target="_blank" rel="noopener" href="https://www.aclweb.org/anthology/P13-1006">Grounded Language Learning from Video Described with Sentences</a>, ACL 2013</p>
+<p><a target="_blank" rel="noopener" href="https://nlp.stanford.edu/~socherr/SocherKarpathyLeManningNg_TACL2013.pdf">Grounded Compositional Semantics for Finding and Describing Images with Sentences</a>, TACL 2013</p>
+<h3 id="Language-Grouding-in-Navigation"><a href="#Language-Grouding-in-Navigation" class="headerlink" title="Language Grouding in Navigation"></a>Language Grouding in Navigation</h3><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2010.03768">ALFWorld: Aligning Text and Embodied Environments for Interactive Learning</a>, ICLR 2021 <a target="_blank" rel="noopener" href="http://alfworld.github.io/">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.10674">Hierarchical Cross-Modal Agent for Robotics Vision-and-Language Navigation</a>, ICRA 2021, <a target="_blank" rel="noopener" href="https://github.com/GT-RIPL/robo-vln">[code]</a>, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=y16x9n_zP_4">[video]</a>, <a target="_blank" rel="noopener" href="https://zubair-irshad.github.io/projects/robo-vln.html">[project page]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2004.14973">Improving Vision-and-Language Navigation with Image-Text Pairs from the Web</a>, ECCV 2020</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2002.10638">Towards Learning a Generic Agent for Vision-and-Language Navigation via Pre-training</a>, CVPR 2020 <a target="_blank" rel="noopener" href="https://github.com/weituo12321/PREVALENT">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1908.04950">VideoNavQA: Bridging the Gap between Visual and Embodied Question Answering</a>, BMVC 2019 <a target="_blank" rel="noopener" href="https://github.com/catalina17/VideoNavQA">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1907.04957">Vision-and-Dialog Navigation</a>, arXiv 2019 <a target="_blank" rel="noopener" href="https://github.com/mmurray/cvdn">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1906.00744">Hierarchical Decision Making by Generating and Following Natural Language Instructions</a>, arXiv 2019 <a target="_blank" rel="noopener" href="https://www.minirts.net/">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1905.12255">Stay on the Path: Instruction Fidelity in Vision-and-Language Navigation</a>, ACL 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1906.00347">Are You Looking? Grounding to Multiple Modalities in Vision-and-Language Navigation</a>, ACL 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1811.12354">Touchdown: Natural Language Navigation and Spatial Reasoning in Visual Street Environments</a>, CVPR 2019 <a target="_blank" rel="noopener" href="https://github.com/lil-lab/touchdown">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1811.10092">Reinforced Cross-Modal Matching and Self-Supervised Imitation Learning for Vision-Language Navigation</a>, CVPR 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1903.01602">The Regretful Navigation Agent for Vision-and-Language Navigation</a>, CVPR 2019 <a target="_blank" rel="noopener" href="https://github.com/chihyaoma/regretful-agent">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1903.02547">Tactical Rewind: Self-Correction via Backtracking in Vision-and-Language Navigation</a>, CVPR 2019 <a target="_blank" rel="noopener" href="https://github.com/Kelym/FAST">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.aclweb.org/anthology/W19-1605">Multi-modal Discriminative Model for Vision-and-Language Navigation</a>, NAACL SpLU-RoboNLP Workshop 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1901.03035">Self-Monitoring Navigation Agent via Auxiliary Progress Estimation</a>, ICLR 2019 <a target="_blank" rel="noopener" href="https://github.com/chihyaoma/selfmonitoring-agent">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1902.07742">From Language to Goals: Inverse Reinforcement Learning for Vision-Based Instruction Following</a>, ICLR 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1901.06829">Read, Watch, and Move: Reinforcement Learning for Temporally Grounding Natural Language Descriptions in Videos</a>, AAAI 2019</p>
+<p><a target="_blank" rel="noopener" href="https://www.aclweb.org/anthology/N19-1268">Learning to Navigate Unseen Environments: Back Translation with Environmental Dropout</a>, NAACL 2019 <a target="_blank" rel="noopener" href="https://github.com/airsplay/R2R-EnvDrop">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1804.08454">Attention Based Natural Language Grounding by Navigating Virtual Environment</a>, IEEE WACV 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1809.00786">Mapping Instructions to Actions in 3D Environments with Visual Goal Prediction</a>, EMNLP 2018 <a target="_blank" rel="noopener" href="https://github.com/lil-lab/ciff">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1711.07280">Vision-and-Language Navigation: Interpreting Visually-Grounded Navigation Instructions in Real Environments</a>, CVPR 2018 <a target="_blank" rel="noopener" href="https://bringmeaspoon.org/">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1711.11543">Embodied Question Answering</a>, CVPR 2018 <a target="_blank" rel="noopener" href="https://embodiedqa.org/">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1803.07729">Look Before You Leap: Bridging Model-Free and Model-Based Reinforcement Learning for Planned-Ahead Vision-and-Language Navigation</a>, ECCV 2018</p>
+<h3 id="Multimodal-Machine-Translation"><a href="#Multimodal-Machine-Translation" class="headerlink" title="Multimodal Machine Translation"></a>Multimodal Machine Translation</h3><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2005.03119">Unsupervised Multimodal Neural Machine Translation with Pseudo Visual Pivoting</a>, ACL 2020</p>
+<p><a target="_blank" rel="noopener" href="https://www.aclweb.org/anthology/2020.acl-main.400/">Multimodal Transformer for Multimodal Machine Translation</a>, ACL 2020</p>
+<p><a target="_blank" rel="noopener" href="https://openreview.net/forum?id=Byl8hhNYPS">Neural Machine Translation with Universal Visual Representation</a>, ICLR 2020 <a target="_blank" rel="noopener" href="https://github.com/cooelf/UVR-NMT">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1912.12014">Visual Agreement Regularized Training for Multi-Modal Machine Translation</a>, AAAI 2020</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1904.03493">VATEX: A Large-Scale, High-Quality Multilingual Dataset for Video-and-Language Research</a>, ICCV 2019 <a target="_blank" rel="noopener" href="http://vatex.org/main/index.html">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1811.00357">Latent Variable Model for Multi-modal Translation</a>, ACL 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1906.07701">Distilling Translations with Visual Awareness</a>, ACL 2019</p>
+<p><a target="_blank" rel="noopener" href="https://www.aclweb.org/anthology/N19-1422">Probing the Need for Visual Context in Multimodal Machine Translation</a>, NAACL 2019</p>
+<p><a target="_blank" rel="noopener" href="https://openreview.net/pdf?id=H1vEXaxA-">Emergent Translation in Multi-Agent Communication</a>, ICLR 2018</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1802.03116">Zero-Resource Neural Machine Translation with Multi-Agent Communication Game</a>, AAAI 2018</p>
+<p><a target="_blank" rel="noopener" href="http://aclweb.org/anthology/P18-1239">Learning Translations via Images with a Massively Multilingual Image Dataset</a>, ACL 2018</p>
+<p><a target="_blank" rel="noopener" href="http://aclweb.org/anthology/D18-1400">A Visual Attention Grounding Neural Model for Multimodal Machine Translation</a>, EMNLP 2018</p>
+<p><a target="_blank" rel="noopener" href="http://aclweb.org/anthology/D18-1329">Adversarial Evaluation of Multimodal Machine Translation</a>, EMNLP 2018</p>
+<p><a target="_blank" rel="noopener" href="http://aclweb.org/anthology/P17-1175">Doubly-Attentive Decoder for Multi-modal Neural Machine Translation</a>, ACL 2017 <a target="_blank" rel="noopener" href="https://github.com/iacercalixto/MultimodalNMT">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="http://aclweb.org/anthology/D17-1095">An empirical study on the effectiveness of images in Multimodal Neural Machine Translation</a>, EMNLP 2017</p>
+<p><a target="_blank" rel="noopener" href="http://aclweb.org/anthology/D17-1105">Incorporating Global Visual Features into Attention-based Neural Machine Translation</a>, EMNLP 2017 <a target="_blank" rel="noopener" href="https://github.com/iacercalixto/MultimodalNMT">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="http://aclweb.org/anthology/P16-1227">Multimodal Pivots for Image Caption Translation</a>, ACL 2016</p>
+<p><a target="_blank" rel="noopener" href="https://aclweb.org/anthology/W16-3210.pdf">Multi30K: Multilingual English-German Image Descriptions</a>, ACL Workshop on Language and Vision 2016 <a target="_blank" rel="noopener" href="https://github.com/multi30k/dataset">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.statmt.org/wmt16/pdf/W16-2358.pdf">Does Multimodality Help Human and Machine for Translation and Image Captioning?</a>, ACL WMT 2016</p>
+<h3 id="Multi-agent-Communication"><a href="#Multi-agent-Communication" class="headerlink" title="Multi-agent Communication"></a>Multi-agent Communication</h3><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2005.07064">Multi-agent Communication meets Natural Language: Synergies between Functional and Structural Language Learning</a>, ACL 2020</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1904.09067">Emergence of Compositional Language with Deep Generational Transmission</a>, ICML 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1903.05168">On the Pitfalls of Measuring Emergent Communication</a>, AAMAS 2019 <a target="_blank" rel="noopener" href="https://github.com/facebookresearch/measuring-emergent-comm">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1710.06922">Emergent Translation in Multi-Agent Communication</a>, ICLR 2018 <a target="_blank" rel="noopener" href="https://github.com/facebookresearch/translagent">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://openreview.net/pdf?id=rJGZq6g0-">Emergent Communication in a Multi-Modal, Multi-Step Referential Game</a>, ICLR 2018 <a target="_blank" rel="noopener" href="https://github.com/nyu-dl/MultimodalGame">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://openreview.net/pdf?id=HJGv1Z-AW">Emergence of Linguistic Communication From Referential Games with Symbolic and Pixel Input</a>, ICLR 2018</p>
+<p><a target="_blank" rel="noopener" href="https://openreview.net/pdf?id=Hk6WhagRW">Emergent Communication through Negotiation</a>, ICLR 2018 <a target="_blank" rel="noopener" href="https://github.com/ASAPPinc/emergent_comms_negotiation">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1703.04908">Emergence of Grounded Compositional Language in Multi-Agent Populations</a>, AAAI 2018</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1705.11192">Emergence of Language with Multi-agent Games: Learning to Communicate with Sequences of Symbols</a>, NeurIPS 2017</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1706.08502">Natural Language Does Not Emerge ‘Naturally’ in Multi-Agent Dialog</a>, EMNLP 2017 <a target="_blank" rel="noopener" href="https://github.com/batra-mlp-lab/lang-emerge">[code1]</a> <a target="_blank" rel="noopener" href="https://github.com/kdexd/lang-emerge-parlai">[code2]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1703.06585">Learning Cooperative Visual Dialog Agents with Deep Reinforcement Learning</a>, ICCV 2017 <a target="_blank" rel="noopener" href="https://github.com/batra-mlp-lab/visdial-rl">code</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1612.07182">Multi-agent Cooperation and the Emergence of (natural) Language</a>, ICLR 2017</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1605.06676">Learning to Communicate with Deep Multi-agent Reinforcement Learning</a>, NIPS 2016.</p>
+<p><a target="_blank" rel="noopener" href="http://papers.nips.cc/paper/6398-learning-multiagent-communication-with-backpropagation.pdf">Learning multiagent communication with backpropagation</a>, NIPS 2016.</p>
+<p><a target="_blank" rel="noopener" href="https://www.cs.utexas.edu/~kuipers/readings/Vogt-aij-05.pdf">The Emergence of Compositional Structures in Perceptually Grounded Language Games</a>, AI 2005</p>
+<h3 id="Commonsense-Reasoning"><a href="#Commonsense-Reasoning" class="headerlink" title="Commonsense Reasoning"></a>Commonsense Reasoning</h3><p><a target="_blank" rel="noopener" href="https://www.tshu.io/HeiderSimmel/CogSci20/Flatland_CogSci20.pdf">Adventures in Flatland: Perceiving Social Interactions Under Physical Dynamics</a>, CogSci 2020</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1912.11599">A Logical Model for Supporting Social Commonsense Knowledge Acquisition</a>, arXiv 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1910.11475">Heterogeneous Graph Learning for Visual Commonsense Reasoning</a>, NeurIPS 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1904.09728">SocialIQA: Commonsense Reasoning about Social Interactions</a>, arXiv 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1811.10830">From Recognition to Cognition: Visual Commonsense Reasoning</a>, CVPR 2019 <a target="_blank" rel="noopener" href="https://visualcommonsense.com/">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1811.00937">CommonsenseQA: A Question Answering Challenge Targeting Commonsense Knowledge</a>, NAACL 2019</p>
+<h3 id="Multimodal-Reinforcement-Learning"><a href="#Multimodal-Reinforcement-Learning" class="headerlink" title="Multimodal Reinforcement Learning"></a>Multimodal Reinforcement Learning</h3><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2109.13202">MiniHack the Planet: A Sandbox for Open-Ended Reinforcement Learning Research</a>, NeurIPS 2021 <a target="_blank" rel="noopener" href="https://github.com/facebookresearch/minihack">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2012.05672">Imitating Interactive Intelligence</a>, arXiv 2020</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2009.01719">Grounded Language Learning Fast and Slow</a>, ICLR 2021</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1910.08210">RTFM: Generalising to Novel Environment Dynamics via Reading</a>, ICLR 2020 <a target="_blank" rel="noopener" href="https://github.com/facebookresearch/RTFM">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1902.01385">Embodied Multimodal Multitask Learning</a>, IJCAI 2020</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1903.03094">Learning to Speak and Act in a Fantasy Text Adventure Game</a>, arXiv 2019 <a target="_blank" rel="noopener" href="https://parl.ai/projects/light/">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1906.07343">Language as an Abstraction for Hierarchical Deep Reinforcement Learning</a>, NeurIPS 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1906.00744">Hierarchical Decision Making by Generating and Following Natural Language Instructions</a>, NeurIPS 2019 <a target="_blank" rel="noopener" href="https://github.com/facebookresearch/minirts">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1904.01201">Habitat: A Platform for Embodied AI Research</a>, ICCV 2019 <a target="_blank" rel="noopener" href="https://aihabitat.org/">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1805.03257">Multimodal Hierarchical Reinforcement Learning Policy for Task-Oriented Visual Dialog</a>, SIGDIAL 2018</p>
+<p><a target="_blank" rel="noopener" href="https://www.cs.cornell.edu/~dkm/papers/mla-emnlp.2017.pdf">Mapping Instructions and Visual Observations to Actions with Reinforcement Learning</a>, EMNLP 2017</p>
+<p><a target="_blank" rel="noopener" href="https://people.csail.mit.edu/regina/my_papers/RL.pdf">Reinforcement Learning for Mapping Instructions to Actions</a>, ACL 2009</p>
+<h3 id="Multimodal-Dialog"><a href="#Multimodal-Dialog" class="headerlink" title="Multimodal Dialog"></a>Multimodal Dialog</h3><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1911.10496">Two Causal Principles for Improving Visual Dialog</a>, CVPR 2020</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1810.02508">MELD: A Multimodal Multi-Party Dataset for Emotion Recognition in Conversations</a>, ACL 2019 <a target="_blank" rel="noopener" href="http://affective-meld.github.io/">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.aclweb.org/anthology/N19-1058">CLEVR-Dialog: A Diagnostic Dataset for Multi-Round Reasoning in Visual Dialog</a>, NAACL 2019 <a target="_blank" rel="noopener" href="https://github.com/satwikkottur/clevr-dialog">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1807.03367">Talk the Walk: Navigating New York City through Grounded Dialogue</a>, arXiv 2018</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1805.00145">Dialog-based Interactive Image Retrieval</a>, NeurIPS 2018 <a target="_blank" rel="noopener" href="https://github.com/XiaoxiaoGuo/fashion-retrieval">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1704.00200">Towards Building Large Scale Multimodal Domain-Aware Conversation Systems</a>, arXiv 2017 <a target="_blank" rel="noopener" href="https://amritasaha1812.github.io/MMD/">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1611.08669">Visual Dialog</a>, CVPR 2017 <a target="_blank" rel="noopener" href="https://github.com/batra-mlp-lab/visdial">[code]</a></p>
+<h3 id="Language-and-Audio"><a href="#Language-and-Audio" class="headerlink" title="Language and Audio"></a>Language and Audio</h3><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1906.05551">Lattice Transformer for Speech Translation</a>, ACL 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1906.01199">Exploring Phoneme-Level Speech Representations for End-to-End Speech Translation</a>, ACL 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1902.09254">Audio Caption: Listen and Tell</a>, ICASSP 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1902.07817">Audio-Linguistic Embeddings for Spoken Sentences</a>, ICASSP 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1904.05078">From Semi-supervised to Almost-unsupervised Speech Recognition with Very-low Resource by Jointly Learning Phonetic Structures from Audio and Text Embeddings</a>, arXiv 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1809.09190">From Audio to Semantics: Approaches To End-to-end Spoken Language Understanding</a>, arXiv 2018</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1712.05884">Natural TTS Synthesis by Conditioning Wavenet on Mel Spectrogram Predictions</a>, ICASSP 2018 <a target="_blank" rel="noopener" href="https://github.com/NVIDIA/tacotron2">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1710.07654">Deep Voice 3: Scaling Text-to-Speech with Convolutional Sequence Learning</a>, ICLR 2018</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1705.08947">Deep Voice 2: Multi-Speaker Neural Text-to-Speech</a>, NeurIPS 2017</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1702.07825">Deep Voice: Real-time Neural Text-to-Speech</a>, ICML 2017</p>
+<p><a target="_blank" rel="noopener" href="https://dl.acm.org/citation.cfm?id=1592988">Text-to-Speech Synthesis</a>, 2009</p>
+<h3 id="Audio-and-Visual"><a href="#Audio-and-Visual" class="headerlink" title="Audio and Visual"></a>Audio and Visual</h3><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2004.09476">Music Gesture for Visual Sound Separation</a>, CVPR 2020</p>
+<p><a target="_blank" rel="noopener" href="http://openaccess.thecvf.com/content_CVPRW_2019/papers/MULA/Wan_Co-Compressing_and_Unifying_Deep_CNN_Models_for_Efficient_Human_Face_CVPRW_2019_paper.pdf">Co-Compressing and Unifying Deep CNN Models for Efficient Human Face and Speaker Recognition</a>, CVPRW 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1906.04160">Learning Individual Styles of Conversational Gesture</a>, CVPR 2019 <a target="_blank" rel="noopener" href="http://people.eecs.berkeley.edu/~shiry/speech2gesture">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://ps.is.tuebingen.mpg.de/uploads_file/attachment/attachment/510/paper_final.pdf">Capture, Learning, and Synthesis of 3D Speaking Styles</a>, CVPR 2019 <a target="_blank" rel="noopener" href="https://github.com/TimoBolkart/voca">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1807.04836">Disjoint Mapping Network for Cross-modal Matching of Voices and Faces</a>, ICLR 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1903.10195">Wav2Pix: Speech-conditioned Face Generation using Generative Adversarial Networks</a>, ICASSP 2019 <a target="_blank" rel="noopener" href="https://imatge-upc.github.io/wav2pix/">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1804.01452">Jointly Discovering Visual Objects and Spoken Words from Raw Sensory Input</a>, ECCV 2018 <a target="_blank" rel="noopener" href="https://github.com/LiqunChen0606/Jointly-Discovering-Visual-Objects-and-Spoken-Words">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1804.00326">Seeing Voices and Hearing Faces: Cross-modal Biometric Matching</a>, CVPR 2018 <a target="_blank" rel="noopener" href="https://github.com/a-nagrani/SVHF-Net">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="http://openaccess.thecvf.com/content_cvpr_2018_workshops/papers/w49/Gao_Learning_to_Separate_CVPR_2018_paper.pdf">Learning to Separate Object Sounds by Watching Unlabeled Video</a>, CVPR 2018</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1809.02108">Deep Audio-Visual Speech Recognition</a>, IEEE TPAMI 2018</p>
+<p><a target="_blank" rel="noopener" href="http://openaccess.thecvf.com/content_ICCV_2017/papers/Arandjelovic_Look_Listen_and_ICCV_2017_paper.pdf">Look, Listen and Learn</a>, ICCV 2017</p>
+<p><a target="_blank" rel="noopener" href="https://papers.nips.cc/paper/6186-unsupervised-learning-of-spoken-language-with-visual-context.pdf">Unsupervised Learning of Spoken Language with Visual Context</a>, NeurIPS 2016</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1610.09001">SoundNet: Learning Sound Representations from Unlabeled Video</a>, NeurIPS 2016 <a target="_blank" rel="noopener" href="http://projects.csail.mit.edu/soundnet/">[code]</a></p>
+<h3 id="Media-Description"><a href="#Media-Description" class="headerlink" title="Media Description"></a>Media Description</h3><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1908.09317">Towards Unsupervised Image Captioning with Shared Multimodal Embeddings</a>, ICCV 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1903.10547">Video Relationship Reasoning using Gated Spatio-Temporal Energy Graph</a>, CVPR 2019 <a target="_blank" rel="noopener" href="https://github.com/yaohungt/GSTEG_CVPR_2019">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1802.10250">Joint Event Detection and Description in Continuous Video Streams</a>, WACVW 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1906.01784">Learning to Compose and Reason with Language Tree Structures for Visual Grounding</a>, TPAMI 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1803.09845">Neural Baby Talk</a>, CVPR 2018 <a target="_blank" rel="noopener" href="https://github.com/jiasenlu/NeuralBabyTalk">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1712.01892">Grounding Referring Expressions in Images by Variational Context</a>, CVPR 2018</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1711.11135">Video Captioning via Hierarchical Reinforcement Learning</a>, CVPR 2018</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1804.09626">Charades-Ego: A Large-Scale Dataset of Paired Third and First Person Videos</a>, CVPR 2018 <a target="_blank" rel="noopener" href="https://allenai.org/plato/charades/">[code]</a> </p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1711.06640">Neural Motifs: Scene Graph Parsing with Global Context</a>, CVPR 2018 <a target="_blank" rel="noopener" href="http://github.com/rowanz/neural-motifs">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1804.09160">No Metrics Are Perfect: Adversarial Reward Learning for Visual Storytelling</a>, ACL 2018</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1704.01518">Generating Descriptions with Grounded and Co-Referenced People</a>, CVPR 2017</p>
+<p><a target="_blank" rel="noopener" href="https://cs.stanford.edu/people/karpathy/densecap/">DenseCap: Fully Convolutional Localization Networks for Dense Captioning</a>, CVPR 2016</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1605.07912">Review Networks for Caption Generation</a>, NeurIPS 2016 <a target="_blank" rel="noopener" href="https://github.com/kimiyoung/review_net">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1604.01753">Hollywood in Homes: Crowdsourcing Data Collection for Activity Understanding</a>, ECCV 2016 <a target="_blank" rel="noopener" href="https://allenai.org/plato/charades/">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1609.06647">Show and Tell: Lessons learned from the 2015 MSCOCO Image Captioning Challenge</a>, TPAMI 2016 <a target="_blank" rel="noopener" href="https://github.com/tensorflow/models/tree/master/research/im2txt">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1502.03044">Show, Attend and Tell: Neural Image Caption Generation with Visual Attention</a>, ICML 2015 <a target="_blank" rel="noopener" href="https://github.com/kelvinxu/arctic-captions">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1412.2306v2">Deep Visual-Semantic Alignments for Generating Image Descriptions</a>, CVPR 2015 <a target="_blank" rel="noopener" href="https://github.com/karpathy/neuraltalk2">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1411.4555">Show and Tell: A Neural Image Caption Generator</a>, CVPR 2015 <a target="_blank" rel="noopener" href="https://github.com/karpathy/neuraltalk2">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1501.02530">A Dataset for Movie Description</a>, CVPR 2015 <a target="_blank" rel="noopener" href="https://www.mpi-inf.mpg.de/departments/computer-vision-and-multimodal-computing/research/vision-and-language/mpii-movie-description-dataset/">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1503.01558">What’s Cookin’? Interpreting Cooking Videos using Text, Speech and Vision</a>, NAACL 2015 <a target="_blank" rel="noopener" href="https://github.com/malmaud/whats_cookin">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1405.0312">Microsoft COCO: Common Objects in Context</a>, ECCV 2014 <a target="_blank" rel="noopener" href="http://cocodataset.org/#home">[code]</a></p>
+<h3 id="Video-Generation-from-Text"><a href="#Video-Generation-from-Text" class="headerlink" title="Video Generation from Text"></a>Video Generation from Text</h3><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1804.01622">Image Generation from Scene Graphs</a>, CVPR 2018</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1804.06026">Learning to Color from Language</a>, NAACL 2018</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1605.05396">Generative Adversarial Text to Image Synthesis</a>, ICML 2016</p>
+<h3 id="Affect-Recognition-and-Multimodal-Language"><a href="#Affect-Recognition-and-Multimodal-Language" class="headerlink" title="Affect Recognition and Multimodal Language"></a>Affect Recognition and Multimodal Language</h3><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1912.04711">End-to-end Facial and Physiological Model for Affective Computing and Applications</a>, arXiv 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1911.05609">Affective Computing for Large-Scale Heterogeneous Multimedia Data: A Survey</a>, ACM TOMM 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1906.01815">Towards Multimodal Sarcasm Detection (An Obviously_Perfect Paper)</a>, ACL 2019 <a target="_blank" rel="noopener" href="https://github.com/soujanyaporia/MUStARD">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1804.09452">Multi-modal Approach for Affective Computing</a>, EMBC 2018</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1808.03920">Multimodal Language Analysis with Recurrent Multistage Fusion</a>, EMNLP 2018</p>
+<p><a target="_blank" rel="noopener" href="http://aclweb.org/anthology/P18-1208">Multimodal Language Analysis in the Wild: CMU-MOSEI Dataset and Interpretable Dynamic Fusion Graph</a>, ACL 2018 <a target="_blank" rel="noopener" href="https://github.com/A2Zadeh/CMU-MultimodalSDK">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.aaai.org/ocs/index.php/AAAI/AAAI18/paper/viewFile/17390/16123">Multi-attention Recurrent Network for Human Communication Comprehension</a>, AAAI 2018 <a target="_blank" rel="noopener" href="https://github.com/A2Zadeh/CMU-MultimodalSDK">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1704.08619">End-to-End Multimodal Emotion Recognition using Deep Neural Networks</a>, arXiv 2017</p>
+<p><a target="_blank" rel="noopener" href="https://dl.acm.org/citation.cfm?id=3136806">AMHUSE - A Multimodal dataset for HUmor SEnsing</a>, ICMI 2017 <a target="_blank" rel="noopener" href="http://amhuse.phuselab.di.unimi.it/">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.cbi.gatech.edu/mmdb/docs/mmdb_paper.pdf">Decoding Children’s Social Behavior</a>, CVPR 2013 <a target="_blank" rel="noopener" href="http://www.cbi.gatech.edu/mmdb/">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="http://users.cecs.anu.edu.au/%7Eadhall/Dhall_Goecke_Lucey_Gedeon_M_2012.pdf">Collecting Large, Richly Annotated Facial-Expression Databases from Movies</a>, IEEE Multimedia 2012 <a target="_blank" rel="noopener" href="https://cs.anu.edu.au/few/AFEW.html">[code]</a></p>
+<p><a target="_blank" rel="noopener" href="https://sail.usc.edu/iemocap/Busso_2008_iemocap.pdf">The Interactive Emotional Dyadic Motion Capture (IEMOCAP) Database</a>, 2008 <a target="_blank" rel="noopener" href="https://sail.usc.edu/iemocap/">[code]</a></p>
+<h3 id="Healthcare"><a href="#Healthcare" class="headerlink" title="Healthcare"></a>Healthcare</h3><p><a target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content/ICCV2021/html/Chen_Multimodal_Co-Attention_Transformer_for_Survival_Prediction_in_Gigapixel_Whole_Slide_ICCV_2021_paper.html">Multimodal Co-Attention Transformer for Survival Prediction in Gigapixel Whole Slide Images</a>, ICCV, 2021</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1912.08937">Pathomic Fusion: An Integrated Framework for Fusing Histopathology and Genomic Features for Cancer Diagnosis and Prognosis</a>, IEEE TMI, 2020</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1905.12008">Leveraging Medical Visual Question Answering with Supporting Facts</a>, arXiv 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1811.08615">Unsupervised Multimodal Representation Learning across Medical Images and Reports</a>, ML4H 2018</p>
+<p><a target="_blank" rel="noopener" href="https://aiforsocialgood.github.io/2018/pdfs/track1/75_aisg_neurips2018.pdf">Multimodal Medical Image Retrieval based on Latent Topic Modeling</a>, ML4H 2018</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1811.12276">Improving Hospital Mortality Prediction with Medical Named Entities and Multimodal Learning</a>, ML4H 2018</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1812.00509">Knowledge-driven Generative Subspaces for Modeling Multi-view Dependencies in Medical Data</a>, ML4H 2018</p>
+<p><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/7763752">Multimodal Depression Detection: Fusion Analysis of Paralinguistic, Head Pose and Eye Gaze Behaviors</a>, TAC 2018</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1803.04837">Learning the Joint Representation of Heterogeneous Temporal Events for Clinical Endpoint Prediction</a>, AAAI 2018</p>
+<p><a target="_blank" rel="noopener" href="http://mucmd.org/CameraReadySubmissions/67%5CCameraReadySubmission%5Cunderstanding-coagulopathy-multi%20(6).pdf">Understanding Coagulopathy using Multi-view Data in the Presence of Sub-Cohorts: A Hierarchical Subspace Approach</a>, MLHC 2017</p>
+<p><a target="_blank" rel="noopener" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5357511/">Machine Learning in Multimodal Medical Imaging</a>, 2017</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1709.08073">Cross-modal Recurrent Models for Weight Objective Prediction from Multimodal Time-series Data</a>, ML4H 2017</p>
+<p><a target="_blank" rel="noopener" href="https://dl.acm.org/citation.cfm?id=2617388.2617415">SimSensei Kiosk: A Virtual Human Interviewer for Healthcare Decision Support</a>, AAMAS 2014</p>
+<p><a target="_blank" rel="noopener" href="https://dl.acm.org/citation.cfm?doid=2663204.2663238">Dyadic Behavior Analysis in Depression Severity Assessment Interviews</a>, ICMI 2014</p>
+<p><a target="_blank" rel="noopener" href="https://dl.acm.org/citation.cfm?doid=2522848.2522886">Audiovisual Behavior Descriptors for Depression Assessment</a>, ICMI 2013</p>
+<h3 id="Robotics"><a href="#Robotics" class="headerlink" title="Robotics"></a>Robotics</h3><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2012.00201">Detect, Reject, Correct: Crossmodal Compensation of Corrupted Sensors</a>, ICRA 2021</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2010.13021">Multimodal sensor fusion with differentiable filters</a>, IROS 2020</p>
+<p><a target="_blank" rel="noopener" href="http://www.roboticsproceedings.org/rss16/p082.pdf">Concept2Robot: Learning Manipulation Concepts from Instructions and Human Demonstrations</a>, RSS 2020</p>
+<p><a target="_blank" rel="noopener" href="https://robotics.sciencemag.org/content/4/26/eaav3123">See, Feel, Act: Hierarchical Learning for Complex Manipulation Skills with Multi-sensory Fusion</a>, Science Robotics 2019 </p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1811.08824">Early Fusion for Goal Directed Robotic Vision</a>, IROS 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1902.04706">Simultaneously Learning Vision and Feature-based Control Policies for Real-world Ball-in-a-Cup</a>, RSS 2019</p>
+<p><a target="_blank" rel="noopener" href="http://www.roboticsproceedings.org/rss15/p47.pdf">Probabilistic Multimodal Modeling for Human-Robot Interaction Tasks</a>, RSS 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1810.10191">Making Sense of Vision and Touch: Self-Supervised Learning of Multimodal Representations for Contact-Rich Tasks</a>, ICRA 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1807.03392">Evolving Multimodal Robot Behavior via Many Stepping Stones with the Combinatorial Multi-Objective Evolutionary Algorithm
+</a>, arXiv 2018</p>
+<p><a target="_blank" rel="noopener" href="https://www.cs.utexas.edu/~pstone/Papers/bib2html-links/IJCAI18-saeid.pdf">Multi-modal Predicate Identification using Dynamically Learned Robot Controllers</a>, IJCAI 2018</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1710.09483">Multimodal Probabilistic Model-Based Planning for Human-Robot Interaction</a>, arXiv 2017 </p>
+<p><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/6907472">Perching and Vertical Climbing: Design of a Multimodal Robot</a>, ICRA 2014</p>
+<p><a target="_blank" rel="noopener" href="http://kth.diva-portal.org/smash/get/diva2:459199/FULLTEXT01">Multi-Modal Scene Understanding for Robotic Grasping</a>, 2011</p>
+<p><a target="_blank" rel="noopener" href="https://am.is.tuebingen.mpg.de/uploads_file/attachment/attachment/307/2010_IROS_bjbk_camred.pdf">Strategies for Multi-Modal Scene Exploration</a>, IROS 2010</p>
+<h3 id="Autonomous-Driving"><a href="#Autonomous-Driving" class="headerlink" title="Autonomous Driving"></a>Autonomous Driving</h3><p><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1902.07830.pdf">Deep Multi-modal Object Detection and Semantic Segmentation for Autonomous Driving: Datasets, Methods, and Challenges</a>, IEEE TITS 2020 <a target="_blank" rel="noopener" href="https://boschresearch.github.io/multimodalperception/">[website]</a> </p>
+<p><a target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Caesar_nuScenes_A_Multimodal_Dataset_for_Autonomous_Driving_CVPR_2020_paper.pdf">nuScenes: A multimodal dataset for autonomous driving</a>, CVPR 2020 <a target="_blank" rel="noopener" href="https://www.nuscenes.org/">[dataset]</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1906.03199">Multimodal End-to-End Autonomous Driving</a>, arXiv 2020</p>
+<h3 id="Finance"><a href="#Finance" class="headerlink" title="Finance"></a>Finance</h3><p><a target="_blank" rel="noopener" href="https://ailab-ua.github.io/courses/resources/Qing_TKDE_2020.pdf">A Multimodal Event-driven LSTM Model for Stock Prediction Using Online News</a>, TKDE 2020</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1903.06478">Multimodal Deep Learning for Finance: Integrating and Forecasting International Stock Markets</a>, 2019</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1812.10479">Multimodal deep learning for short-term stock volatility prediction</a>, 2018</p>
+<h3 id="Human-AI-Interaction"><a href="#Human-AI-Interaction" class="headerlink" title="Human AI Interaction"></a>Human AI Interaction</h3><p><a target="_blank" rel="noopener" href="https://link.springer.com/chapter/10.1007/11573425_1">Multimodal Human Computer Interaction: A Survey</a>, HCI 2005</p>
+<p><a target="_blank" rel="noopener" href="https://dl.acm.org/doi/10.1145/1101149.1101299">Affective multimodal human-computer interaction</a>, Multimedia 2005</p>
+<p><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/abstract/document/1183338?casa_token=tdKeY0Q0e-4AAAAA:XfKwp5Di1O5bCEOnebeaS58waSbWm80lxNuY8IhWW7DqDLvRQj-8ettJW1NrFrmoR_ShudTgzw">Building a multimodal human-robot interface</a>, IEEE Intelligent Systems 2001</p>
+<h1 id="Workshops"><a href="#Workshops" class="headerlink" title="Workshops"></a>Workshops</h1><p><a target="_blank" rel="noopener" href="https://social-intelligence-human-ai.github.io/">Social Intelligence in Humans and Robots</a> @ ICRA 2021</p>
+<p><a target="_blank" rel="noopener" href="https://www.lantern.uni-saarland.de/2021/">LANTERN 2021</a>: The Third Workshop Beyond Vision and LANguage: inTEgrating Real-world kNowledge @ EACL 2021</p>
+<p>Multimodal workshops @ CVPR 2021: <a target="_blank" rel="noopener" href="https://mula-workshop.github.io/">Multimodal Learning and Applications</a>, <a target="_blank" rel="noopener" href="http://sightsound.org/">Sight and Sound</a>, <a target="_blank" rel="noopener" href="https://visualqa.org/workshop">Visual Question Answering</a>, <a target="_blank" rel="noopener" href="https://embodied-ai.org/">Embodied AI</a>, <a target="_blank" rel="noopener" href="http://language3dscenes.github.io/">Language for 3D Scenes</a>.</p>
+<p>Multimodal workshops @ NAACL 2021: <a target="_blank" rel="noopener" href="http://multicomp.cs.cmu.edu/naacl2021multimodalworkshop/">MAI-Workshop</a>, <a target="_blank" rel="noopener" href="https://alvr-workshop.github.io/">ALVR</a>, <a target="_blank" rel="noopener" href="https://vigilworkshop.github.io/">ViGIL</a>.</p>
+<p>ICLR 2021 workshop on <a target="_blank" rel="noopener" href="https://eml-workshop.github.io/">Embodied Multimodal Learning</a>.</p>
+<p>NeurIPS 2020 workshop on <a target="_blank" rel="noopener" href="https://wordplay-workshop.github.io/">Wordplay: When Language Meets Games</a>.</p>
+<p>ACL 2020 workshops on <a target="_blank" rel="noopener" href="http://multicomp.cs.cmu.edu/acl2020multimodalworkshop/">Multimodal Language</a> <a target="_blank" rel="noopener" href="https://www.aclweb.org/anthology/volumes/2020.challengehml-1/">(proceedings)</a> and <a target="_blank" rel="noopener" href="https://alvr-workshop.github.io/">Advances in Language and Vision Research</a>.</p>
+<p>Multimodal workshops @ ECCV 2020: <a target="_blank" rel="noopener" href="https://askforalfred.com/EVAL/">EVAL</a>, <a target="_blank" rel="noopener" href="https://camp-workshop.stanford.edu/">CAMP</a>, and <a target="_blank" rel="noopener" href="https://sites.google.com/view/multimodalvideo-v2">MVA</a>.</p>
+<p><a target="_blank" rel="noopener" href="https://sutdcv.github.io/multi-modal-video-reasoning">Multi-Modal Video Reasoning and Analyzing Competition</a>, ICCV 2021</p>
+<p><a target="_blank" rel="noopener" href="http://multicomp.cs.cmu.edu/acl2020multimodalworkshop/">Grand Challenge and Workshop on Human Multimodal Language</a>, ACL 2020, ACL 2018</p>
+<p><a target="_blank" rel="noopener" href="https://alvr-workshop.github.io/">Advances in Language and Vision Research</a>, ACL 2020</p>
+<p><a target="_blank" rel="noopener" href="https://vigilworkshop.github.io/">Visually Grounded Interaction and Language</a>, NeurIPS 2019, NeurIPS 2018</p>
+<p><a target="_blank" rel="noopener" href="https://sites.google.com/view/emecom2019">Emergent Communication: Towards Natural Language</a>, NeurIPS 2019</p>
+<p><a target="_blank" rel="noopener" href="https://sites.google.com/view/mulea2019/home">Workshop on Multimodal Understanding and Learning for Embodied Applications</a>, ACM Multimedia 2019</p>
+<p><a target="_blank" rel="noopener" href="https://www.lantern.uni-saarland.de/">Beyond Vision and Language: Integrating Real-World Knowledge</a>, EMNLP 2019</p>
+<p><a target="_blank" rel="noopener" href="https://srvk.github.io/how2-challenge/">The How2 Challenge: New Tasks for Vision &amp; Language</a>, ICML 2019</p>
+<p><a target="_blank" rel="noopener" href="https://visualqa.org/workshop.html">Visual Question Answering and Dialog</a>, CVPR 2019, CVPR 2017</p>
+<p><a target="_blank" rel="noopener" href="https://sites.google.com/view/mmlv/home">Multi-modal Learning from Videos</a>, CVPR 2019</p>
+<p><a target="_blank" rel="noopener" href="https://mula-workshop.github.io/">Multimodal Learning and Applications Workshop</a>, CVPR 2019, ECCV 2018</p>
+<p><a target="_blank" rel="noopener" href="https://aihabitat.org/workshop/">Habitat: Embodied Agents Challenge and Workshop</a>, CVPR 2019</p>
+<p><a target="_blank" rel="noopener" href="https://sites.google.com/site/iccv19clvllsmdc/">Closing the Loop Between Vision and Language &amp; LSMD Challenge</a>, ICCV 2019</p>
+<p><a target="_blank" rel="noopener" href="https://sites.google.com/view/multimodalvideo/">Multi-modal Video Analysis and Moments in Time Challenge</a>, ICCV 2019</p>
+<p><a target="_blank" rel="noopener" href="https://cromol.github.io/">Cross-Modal Learning in Real World</a>, ICCV 2019</p>
+<p><a target="_blank" rel="noopener" href="https://splu-robonlp.github.io/">Spatial Language Understanding and Grounded Communication for Robotics</a>, NAACL 2019</p>
+<p><a target="_blank" rel="noopener" href="https://research.google.com/youtube8m/workshop2018/">YouTube-8M Large-Scale Video Understanding</a>, ICCV 2019, ECCV 2018, CVPR 2017</p>
+<p><a target="_blank" rel="noopener" href="http://languageandvision.com/">Language and Vision Workshop</a>, CVPR 2019, CVPR 2018, CVPR 2017, CVPR 2015</p>
+<p><a target="_blank" rel="noopener" href="http://sightsound.org/">Sight and Sound</a>, CVPR 2019, CVPR 2018</p>
+<p><a target="_blank" rel="noopener" href="https://sites.google.com/site/describingmovies/">The Large Scale Movie Description Challenge (LSMDC)</a>, ICCV 2019, ICCV 2017</p>
+<p><a target="_blank" rel="noopener" href="https://www.wordplay2018.com/">Wordplay: Reinforcement and Language Learning in Text-based Games</a>, NeurIPS 2018</p>
+<p><a target="_blank" rel="noopener" href="https://irasl.gitlab.io/">Interpretability and Robustness in Audio, Speech, and Language</a>, NeurIPS 2018</p>
+<p><a target="_blank" rel="noopener" href="https://natanaso.github.io/rcw-icra18/">Multimodal Robot Perception</a>, ICRA 2018</p>
+<p><a target="_blank" rel="noopener" href="http://www.statmt.org/wmt18/multimodal-task.html">WMT18: Shared Task on Multimodal Machine Translation</a>, EMNLP 2018</p>
+<p><a target="_blank" rel="noopener" href="https://sites.google.com/view/sivl/">Shortcomings in Vision and Language</a>, ECCV 2018</p>
+<p><a target="_blank" rel="noopener" href="https://wt-public.emm4u.eu/wassa2018/">Computational Approaches to Subjectivity, Sentiment and Social Media Analysis</a>, EMNLP 2018, EMNLP 2017, NAACL-HLT 2016, EMNLP 2015, ACL 2014, NAACL-HLT 2013</p>
+<p><a target="_blank" rel="noopener" href="http://vuchallenge.org/">Visual Understanding Across Modalities</a>, CVPR 2017</p>
+<p><a target="_blank" rel="noopener" href="https://cvavm2017.wordpress.com/">International Workshop on Computer Vision for Audio-Visual Media</a>, ICCV 2017</p>
+<p><a target="_blank" rel="noopener" href="https://robo-nlp.github.io/2017_index.html">Language Grounding for Robotics</a>, ACL 2017</p>
+<p><a target="_blank" rel="noopener" href="https://cvavm2016.wordpress.com/">Computer Vision for Audio-visual Media</a>, ECCV 2016</p>
+<p><a target="_blank" rel="noopener" href="https://vision.cs.hacettepe.edu.tr/vl2016/">Language and Vision</a>, ACL 2016, EMNLP 2015</p>
+<h1 id="Tutorials"><a href="#Tutorials" class="headerlink" title="Tutorials"></a>Tutorials</h1><p><a target="_blank" rel="noopener" href="https://rohit497.github.io/Recent-Advances-in-Vision-and-Language-Research/">Recent Advances in Vision-and-Language Research</a>, CVPR 2020</p>
+<p><a target="_blank" rel="noopener" href="https://lvatutorial.github.io/">Connecting Language and Vision to Actions</a>, ACL 2018</p>
+<p><a target="_blank" rel="noopener" href="https://www.michaelchughes.com/mlhc2018_tutorial.html">Machine Learning for Clinicians: Advances for Multi-Modal Health Data</a>, MLHC 2018</p>
+<p><a target="_blank" rel="noopener" href="https://sites.google.com/site/multiml2016cvpr/">Multimodal Machine Learning</a>, ACL 2017, CVPR 2016, ICMI 2016</p>
+<p><a target="_blank" rel="noopener" href="https://www.microsoft.com/en-us/research/publication/vision-language-bridging-vision-language-deep-learning/">Vision and Language: Bridging Vision and Language with Deep Learning</a>, ICIP 2017</p>
+<h1 id="Courses"><a href="#Courses" class="headerlink" title="Courses"></a>Courses</h1><p>Follow our course <a target="_blank" rel="noopener" href="https://cmu-multicomp-lab.github.io/mmml-course/fall2020/">11-777 Multimodal Machine Learning</a>, Fall 2020 @ CMU.</p>
+<p><a target="_blank" rel="noopener" href="https://haiicmu.github.io/">CMU 05-618, Human-AI Interaction</a></p>
+<p><a target="_blank" rel="noopener" href="https://piazza.com/cmu/fall2018/11777/resources">CMU 11-777, Advanced Multimodal Machine Learning</a></p>
+<p><a target="_blank" rel="noopener" href="http://cs422interactive.stanford.edu/">Stanford CS422: Interactive and Embodied Learning</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.cs.cmu.edu/~jeanoh/16-785/">CMU 16-785, Integrated Intelligence in Robotics: Vision, Language, and Planning</a></p>
+<p><a target="_blank" rel="noopener" href="https://katefvision.github.io/LanguageGrounding/">CMU 10-808, Language Grounding to Vision and Control</a></p>
+<p><a target="_blank" rel="noopener" href="https://sites.google.com/a/is.cs.cmu.edu/lti-speech-classes/11-775-large-scale-multimedia-analysis">CMU 11-775, Large-Scale Multimedia Analysis</a></p>
+
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>Natu Matu<br>
+        <strong>本文链接：</strong><a href="https://631212502.github.io/2022/05/04/Image-Text-Cross-Modal-Retrieval/" title="https:&#x2F;&#x2F;631212502.github.io&#x2F;2022&#x2F;05&#x2F;04&#x2F;Image-Text-Cross-Modal-Retrieval&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;631212502.github.io&#x2F;2022&#x2F;05&#x2F;04&#x2F;Image-Text-Cross-Modal-Retrieval&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/Competition/" rel="tag">Competition</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/mmdl/" rel="tag">mmdl</a>
+    
+</div>
+
+  
+      <div class="nexmoe-post-footer">
+          <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: 'cdc194d30f71cf392fdd',
+        clientSecret: 'b27b4f1ec813cb7eaa115ab184569422b663176a',
+        id: window.location.pathname,
+        repo: '631212502.github.io',
+        owner: '631212502',
+        admin: '631212502'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+      </div>
+  
+</div>
+                <div class="nexmoe-post-right">
+                <div class="nexmoe-fixed">
+                    <div class="nexmoe-tool"> 
+                        
+                            
+                            
+                                <button class="mdui-fab catalog" style="overflow:unset;">
+                                    <i class="nexmoefont icon-i-catalog"></i>
+                                    <div class="nexmoe-toc">
+                                        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Abstract"><span class="toc-number">1.</span> <span class="toc-text">Abstract</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">2.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Related-Work"><span class="toc-number">3.</span> <span class="toc-text">Related Work</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cross-Modal-Retrieval-SOTA-Work-20022-04-X-VLM"><span class="toc-number">3.1.</span> <span class="toc-text">Cross-Modal Retrieval SOTA Work(20022.04):X_VLM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Zero-Shot-Cross-Modal-Retrieval-SOTA-20022-04-TCL"><span class="toc-number">3.2.</span> <span class="toc-text">Zero-Shot Cross-Modal Retrieval SOTA(20022.04):TCL</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Method-model"><span class="toc-number">4.</span> <span class="toc-text">Method&#x2F;model</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E9%AB%98%E5%95%86%E5%93%81%E8%B7%A8%E6%A8%A1%E6%80%81%E6%A3%80%E7%B4%A2%E7%9A%84%E6%80%9D%E8%B7%AF"><span class="toc-number">4.1.</span> <span class="toc-text">提高商品跨模态检索的思路</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%90%86%E8%A7%A3%E5%8D%95%E5%85%83"><span class="toc-number">4.1.1.</span> <span class="toc-text">理解单元</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E5%8D%95%E5%85%83"><span class="toc-number">4.1.2.</span> <span class="toc-text">技术单元</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CBAM"><span class="toc-number">4.2.</span> <span class="toc-text">CBAM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#double-cross-attention"><span class="toc-number">4.3.</span> <span class="toc-text">double cross attention</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#special-ocr-model"><span class="toc-number">4.4.</span> <span class="toc-text">special ocr model</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Experiments"><span class="toc-number">5.</span> <span class="toc-text">Experiments</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#model-1-CLIP-zeroshot"><span class="toc-number">5.1.</span> <span class="toc-text">model 1:CLIP_zeroshot</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#model-2-VLM"><span class="toc-number">5.2.</span> <span class="toc-text">model 2:VLM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#model-3-TCL"><span class="toc-number">5.3.</span> <span class="toc-text">model 3:TCL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pre-train"><span class="toc-number">5.4.</span> <span class="toc-text">Pre_train</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fine-turn"><span class="toc-number">5.5.</span> <span class="toc-text">fine_turn</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Concluesion"><span class="toc-number">6.</span> <span class="toc-text">Concluesion</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number">7.</span> <span class="toc-text">References</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8B%E9%9D%A2%E6%98%AF%E5%A4%9A%E6%A8%A1%E6%80%81%E9%A2%86%E5%9F%9F%E5%80%BC%E5%BE%97%E4%B8%80%E8%AF%BB%E7%9A%84%E7%9B%B8%E5%85%B3%E6%96%87%E7%8C%AE"><span class="toc-number"></span> <span class="toc-text">下面是多模态领域值得一读的相关文献</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Reading-List-for-Topics-in-Multimodal-Machine-Learning"><span class="toc-number"></span> <span class="toc-text">Reading List for Topics in Multimodal Machine Learning</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Course-content-workshops"><span class="toc-number">1.</span> <span class="toc-text">Course content + workshops</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Table-of-Contents"><span class="toc-number">2.</span> <span class="toc-text">Table of Contents</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Research-Papers"><span class="toc-number"></span> <span class="toc-text">Research Papers</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Survey-Papers"><span class="toc-number">1.</span> <span class="toc-text">Survey Papers</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Core-Areas"><span class="toc-number">2.</span> <span class="toc-text">Core Areas</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Multimodal-Representations"><span class="toc-number">2.1.</span> <span class="toc-text">Multimodal Representations</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Multimodal-Fusion"><span class="toc-number">2.2.</span> <span class="toc-text">Multimodal Fusion</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Multimodal-Alignment"><span class="toc-number">2.3.</span> <span class="toc-text">Multimodal Alignment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Multimodal-Pretraining"><span class="toc-number">2.4.</span> <span class="toc-text">Multimodal Pretraining</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Multimodal-Translation"><span class="toc-number">2.5.</span> <span class="toc-text">Multimodal Translation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Crossmodal-Retrieval"><span class="toc-number">2.6.</span> <span class="toc-text">Crossmodal Retrieval</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Multimodal-Co-learning"><span class="toc-number">2.7.</span> <span class="toc-text">Multimodal Co-learning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Missing-or-Imperfect-Modalities"><span class="toc-number">2.8.</span> <span class="toc-text">Missing or Imperfect Modalities</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Analysis-of-Multimodal-Models"><span class="toc-number">2.9.</span> <span class="toc-text">Analysis of Multimodal Models</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Knowledge-Graphs-and-Knowledge-Bases"><span class="toc-number">2.10.</span> <span class="toc-text">Knowledge Graphs and Knowledge Bases</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Intepretable-Learning"><span class="toc-number">2.11.</span> <span class="toc-text">Intepretable Learning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generative-Learning"><span class="toc-number">2.12.</span> <span class="toc-text">Generative Learning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Semi-supervised-Learning"><span class="toc-number">2.13.</span> <span class="toc-text">Semi-supervised Learning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Self-supervised-Learning"><span class="toc-number">2.14.</span> <span class="toc-text">Self-supervised Learning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Language-Models"><span class="toc-number">2.15.</span> <span class="toc-text">Language Models</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Adversarial-Attacks"><span class="toc-number">2.16.</span> <span class="toc-text">Adversarial Attacks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Few-Shot-Learning"><span class="toc-number">2.17.</span> <span class="toc-text">Few-Shot Learning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bias-and-Fairness"><span class="toc-number">2.18.</span> <span class="toc-text">Bias and Fairness</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Human-in-the-Loop-Learning"><span class="toc-number">2.19.</span> <span class="toc-text">Human in the Loop Learning</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Architectures"><span class="toc-number">3.</span> <span class="toc-text">Architectures</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Multimodal-Transformers"><span class="toc-number">3.1.</span> <span class="toc-text">Multimodal Transformers</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Multimodal-Memory"><span class="toc-number">3.2.</span> <span class="toc-text">Multimodal Memory</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Applications-and-Datasets"><span class="toc-number">4.</span> <span class="toc-text">Applications and Datasets</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Language-and-Visual-QA"><span class="toc-number">4.1.</span> <span class="toc-text">Language and Visual QA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Language-Grounding-in-Vision"><span class="toc-number">4.2.</span> <span class="toc-text">Language Grounding in Vision</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Language-Grouding-in-Navigation"><span class="toc-number">4.3.</span> <span class="toc-text">Language Grouding in Navigation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Multimodal-Machine-Translation"><span class="toc-number">4.4.</span> <span class="toc-text">Multimodal Machine Translation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Multi-agent-Communication"><span class="toc-number">4.5.</span> <span class="toc-text">Multi-agent Communication</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Commonsense-Reasoning"><span class="toc-number">4.6.</span> <span class="toc-text">Commonsense Reasoning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Multimodal-Reinforcement-Learning"><span class="toc-number">4.7.</span> <span class="toc-text">Multimodal Reinforcement Learning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Multimodal-Dialog"><span class="toc-number">4.8.</span> <span class="toc-text">Multimodal Dialog</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Language-and-Audio"><span class="toc-number">4.9.</span> <span class="toc-text">Language and Audio</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Audio-and-Visual"><span class="toc-number">4.10.</span> <span class="toc-text">Audio and Visual</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Media-Description"><span class="toc-number">4.11.</span> <span class="toc-text">Media Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-Generation-from-Text"><span class="toc-number">4.12.</span> <span class="toc-text">Video Generation from Text</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Affect-Recognition-and-Multimodal-Language"><span class="toc-number">4.13.</span> <span class="toc-text">Affect Recognition and Multimodal Language</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Healthcare"><span class="toc-number">4.14.</span> <span class="toc-text">Healthcare</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Robotics"><span class="toc-number">4.15.</span> <span class="toc-text">Robotics</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Autonomous-Driving"><span class="toc-number">4.16.</span> <span class="toc-text">Autonomous Driving</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Finance"><span class="toc-number">4.17.</span> <span class="toc-text">Finance</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Human-AI-Interaction"><span class="toc-number">4.18.</span> <span class="toc-text">Human AI Interaction</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Workshops"><span class="toc-number"></span> <span class="toc-text">Workshops</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Tutorials"><span class="toc-number"></span> <span class="toc-text">Tutorials</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Courses"><span class="toc-number"></span> <span class="toc-text">Courses</span></a>
+                                    </div>
+                                </button>
+                            
+                        
+                        <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="aplayerContent">
+        <meting-js
+        style="position:absolute; z-index:99999" 
+        type="playlist" 
+        server="netease" 
+        id="6976153408" 
+        fixed="true"
+        autoplay="true"
+        order="random"
+        loop="all"
+        list-folded="false"
+        preload="auto"
+        list-max-height="500px"
+        lrc-type="1">
+        </meting-js> 
+    </div>
+    <script>
+        // 对所有链接跳转事件绑定pjax容器container,只在容器中跳转
+        $(document).pjax('a[target!=_blank]', '#pageContent', {fragment: '#pageContent', timeout:8000})
+    </script>
+     
+    <div id="nexmoe-search-space">
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <input class="search-input" type="text" placeholder="搜索" oninput="sinput();">
+                </div>
+                <a class="search-close" onclick="sclose();">×</a>
+            </div>
+            <div class="search-body"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+ 
+
+<script async src="/js/app.js?v=1704991421173"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+
+
+    
+
+
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<!--烟花爆炸-->
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script type="text/javascript" src="/js/firework.js"></script>
+<!--单击显示文字-->
+<script type="text/javascript" src="/js/click_show_text.js"></script>
+</html>
+
+

@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    
+    <meta name="baidu-site-verification" content="code-NrUjkxdqT5" />
+    <title>Aplayer+MetingJS+Pjax=网“页”云音乐 - Eutupia by 夏夢</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="願いが叶う場所">
+    <meta name="keywords" content="null">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
+
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/logo.png" type="image/png" />
+    <meta name="description" content="关于如何给网页引入一个不会中断的质朴无华播放器这件事">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Aplayer+MetingJS+Pjax&#x3D;网“页”云音乐">
+<meta property="og:url" content="https://631212502.github.io/2021/10/05/Aplayer-MetingJS-Pjax-%E7%BD%91%E2%80%9C%E9%A1%B5%E2%80%9D%E4%BA%91%E9%9F%B3%E4%B9%90/index.html">
+<meta property="og:site_name" content="Eutupia by 夏夢">
+<meta property="og:description" content="关于如何给网页引入一个不会中断的质朴无华播放器这件事">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://631212502.github.io/2021/10/05/Aplayer-MetingJS-Pjax-%E7%BD%91%E2%80%9C%E9%A1%B5%E2%80%9D%E4%BA%91%E9%9F%B3%E4%B9%90/%E7%BD%91%E6%98%93%E4%BA%91%E7%A4%BA%E4%BE%8B.png">
+<meta property="og:image" content="https://631212502.github.io/2021/10/05/Aplayer-MetingJS-Pjax-%E7%BD%91%E2%80%9C%E9%A1%B5%E2%80%9D%E4%BA%91%E9%9F%B3%E4%B9%90/Aplayer%E5%AE%9E%E4%BE%8B.png">
+<meta property="og:image" content="https://631212502.github.io/2021/10/05/Aplayer-MetingJS-Pjax-%E7%BD%91%E2%80%9C%E9%A1%B5%E2%80%9D%E4%BA%91%E9%9F%B3%E4%B9%90/%E7%BD%91%E6%98%93%E4%BA%91%E6%96%B9%E6%B3%95.png">
+<meta property="og:image" content="https://631212502.github.io/2021/10/05/Aplayer-MetingJS-Pjax-%E7%BD%91%E2%80%9C%E9%A1%B5%E2%80%9D%E4%BA%91%E9%9F%B3%E4%B9%90/meting%E5%8F%82%E6%95%B0.png">
+<meta property="article:published_time" content="2021-10-05T11:00:13.000Z">
+<meta property="article:modified_time" content="2023-12-02T09:04:08.298Z">
+<meta property="article:author" content="Natu Matu">
+<meta property="article:tag" content="page_building">
+<meta property="article:tag" content="博客">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://631212502.github.io/2021/10/05/Aplayer-MetingJS-Pjax-%E7%BD%91%E2%80%9C%E9%A1%B5%E2%80%9D%E4%BA%91%E9%9F%B3%E4%B9%90/%E7%BD%91%E6%98%93%E4%BA%91%E7%A4%BA%E4%BE%8B.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
+    <!-- require APlayer -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+	<!-- require MetingJS : 未解决歌单播放问题-->
+	<script src="https://cdn.jsdelivr.net/npm/meting@latest/dist/Meting.min.js"></script>
+    <!-- require pjax -->
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+    <!-- DPlayer -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.js"></script>
+    <link rel="stylesheet" href="/css/style.css?v=1704991421234">
+     
+    
+        <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
+    
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1704991421234">
+    
+        <link rel="stylesheet" href="/custom.css">
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body class="mdui-drawer-body-left">
+    
+    <div id="pageContent">
+        <div id="nexmoe-background">
+            <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/202211081936671.jpg)"></div>
+            <div class="mdui-appbar mdui-shadow-0">
+                <div class="mdui-toolbar">
+                    <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                    <div class="mdui-toolbar-spacer"></div>
+                    <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                    <a href="/" title="Natu Matu" class="mdui-btn mdui-btn-icon"><img src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/avatar.jpg" alt="Natu Matu"></a>
+                </div>
+            </div>
+        </div>
+        <div id="nexmoe-header">
+            <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="Natu Matu">
+            <img src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/avatar.jpg" alt="Natu Matu" alt="Natu Matu">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>50</div>
+        <div><span>标签</span>17</div>
+        <div><span>分类</span>4</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/gate.html" title="小憩歌单">
+            <i class="mdui-list-item-icon nexmoefont icon-coffee"></i>
+            <div class="mdui-list-item-content">
+                小憩歌单
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/PY.html" title="左邻右舍">
+            <i class="mdui-list-item-icon nexmoefont icon-wechat-fill"></i>
+            <div class="mdui-list-item-content">
+                左邻右舍
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/album.html" title="时间光影">
+            <i class="mdui-list-item-icon nexmoefont icon-calendar-fill"></i>
+            <div class="mdui-list-item-content">
+                时间光影
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/natunoyume.html" title="拾音纪行">
+            <i class="mdui-list-item-icon nexmoefont icon-telegram"></i>
+            <div class="mdui-list-item-content">
+                拾音纪行
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+         
+            <form id="search_form" action_e="https://cn.bing.com/search?q=" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder="搜索"></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://qm.qq.com/cgi-bin/qm/qr?k=QriGs7GcXMPd6scnWXeO-IJ5TP8Qm8sd&noverify=0" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="https://space.bilibili.com/10580381" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .1);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/631212502" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .1);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=631212502@qq.com" target="_blank" mdui-tooltip="{content: '邮箱'}" style="color: rgb(51, 153, 255);background-color: rgba(51, 153, 255, .1);">
+            <i class="nexmoefont icon-mail-fill"></i>
+        </a><a class="mdui-ripple" href="https://steamcommunity.com/profiles/76561199013116495/" target="_blank" mdui-tooltip="{content: 'steam'}" style="color: rgb(3, 98, 255);background-color: rgba(3, 98, 255, .1);">
+            <i class="nexmoefont icon-steam"></i>
+        </a><a class="mdui-ripple" href="https://www.xiaohongshu.com/user/profile/5fcc10c4000000000100b0b7?xhsshare=CopyLink&appuid=5fcc10c4000000000100b0b7&apptime=1660447872" target="_blank" mdui-tooltip="{content: '小红书'}" style="color: rgb(250, 136, 111);background-color: rgba(250, 136, 111, .1);">
+            <i class="nexmoefont icon-calendar-fill"></i>
+        </a><a class="mdui-ripple" href="/null" target="_blank" mdui-tooltip="{content: '知乎'}" style="color: ;background-color: ;">
+            <i class="nexmoefont icon-zhihu"></i>
+        </a><a class="mdui-ripple" href="/null" target="_blank" mdui-tooltip="{content: '推特'}" style="color: ;background-color: ;">
+            <i class="nexmoefont icon-twitter"></i>
+        </a><a class="mdui-ripple" href="https://chat.openai.com/chat" target="_blank" mdui-tooltip="{content: 'GPT'}" style="color: rgb(45, 13, 73);background-color: rgba(45, 13, 73, .1);">
+            <i class="nexmoefont icon-eye-fill"></i>
+        </a>
+    </div>
+</div>
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/Coding/" style="font-size: 17.14px;">Coding</a> <a href="/tags/Competition/" style="font-size: 11.43px;">Competition</a> <a href="/tags/MMDL/" style="font-size: 10px;">MMDL</a> <a href="/tags/S-Project/" style="font-size: 14.29px;">S_Project</a> <a href="/tags/mmdl/" style="font-size: 18.57px;">mmdl</a> <a href="/tags/page-building/" style="font-size: 12.86px;">page_building</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 15.71px;">博客</a> <a href="/tags/%E5%AD%A6%E6%9C%AF/" style="font-size: 15.71px;">学术</a> <a href="/tags/%E6%91%84%E5%BD%B1/" style="font-size: 14.29px;">摄影</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 11.43px;">旅行</a> <a href="/tags/%E6%AD%8C%E3%81%86/" style="font-size: 11.43px;">歌う</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 17.14px;">笔记</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">编程</a> <a href="/tags/%E8%A8%80%E8%91%89/" style="font-size: 20px;">言葉</a> <a href="/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 14.29px;">记录</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 12.86px;">论文</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 17.14px;">随笔</a>
+    </div>
+    
+  </div>
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/小さな考え/">小さな考え</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/无情の勉強マシン/">无情の勉強マシン</a>
+          <span class="category-list-count">7</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/言けない言葉/">言けない言葉</a>
+          <span class="category-list-count">6</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/音楽が辞めよう/">音楽が辞めよう</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/">2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/">2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/">2010</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+
+    
+    <span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt = new Date("08/31/2021 17:38:00"); //在此处修改你的建站时间
+        now.setTime(now.getTime() + 250);
+        days = (now - grt) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt) / 1000 / 60 / 60 - 24 * dnum;
+        hnum = Math.floor(hours);
+        if (String(hnum).length == 1) {
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt) / 1000 / 60 - 24 * 60 * dnum - 60 * hnum;
+        mnum = Math.floor(minutes);
+        if (String(mnum).length == 1) {
+            mnum = "0" + mnum;
+        }
+        seconds = (now - grt) / 1000 - 24 * 60 * 60 * dnum - 60 * 60 * hnum - 60 * mnum;
+        snum = Math.round(seconds);
+        if (String(snum).length == 1) {
+            snum = "0" + snum;
+        }
+        document.getElementById("timeDate").innerHTML = 
+            " 风雨中度过了 " + dnum + " 天 ";
+        document.getElementById("times").innerHTML =
+            hnum + " 小时 " + mnum + " 分 "; 
+    }
+    setInterval("createtime()", 250);
+</script>
+<!-- + snum + " 秒 "-->
+    
+</aside>
+
+
+    <div class="nexmoe-copyright">
+        &copy; 2024 Natu Matu
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        
+    </div>
+</div><!-- .nexmoe-drawer -->
+<div style="font-size: 13px">
+    <link rel="stylesheet" href="https://widget.heweather.net/standard/static/css/he-standard.css?v=1.4.0"><script src="https://widget.heweather.net/standard/static/js/he-standard.js?v=1.4.0"></script><script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    本站总访问量  <a id="busuanzi_value_site_pv"></a> 次<br>
+    本站访客数<a id="busuanzi_value_site_uv"></a>人次
+</div>
+
+        </div>
+        <div id="nexmoe-content">
+            <div class="nexmoe-primary">
+                <div class="nexmoe-post">
+
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: NaN%;"> 
+              <img data-src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/mGcKXQmY.webp" data-sizes="auto" alt="Aplayer+MetingJS+Pjax=网“页”云音乐" class="lazyload">
+              <h1>Aplayer+MetingJS+Pjax=网“页”云音乐</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2021年10月05日</a>
+    <a><i class="nexmoefont icon-areachart"></i>2.6k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 14 分钟</a>
+</div>
+
+      
+
+      <p><strong>关于如何给网页引入一个不会中断的质朴无华播放器这件事</strong></p>
+<span id="more"></span>
+
+<h2 id="Aplayer的引用"><a href="#Aplayer的引用" class="headerlink" title="Aplayer的引用"></a>Aplayer的引用</h2><p>注：我使用的主题是Noemoe，全改动都在layout.ejs中配置</p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>现在网页中引用音乐播放器的方式总共就两种</p>
+<ol>
+<li>音乐平台提供的iframe插件，以网易云为例子：<br><img data-fancybox="gallery" data-sizes="auto" data-src="/2021/10/05/Aplayer-MetingJS-Pjax-%E7%BD%91%E2%80%9C%E9%A1%B5%E2%80%9D%E4%BA%91%E9%9F%B3%E4%B9%90/%E7%BD%91%E6%98%93%E4%BA%91%E7%A4%BA%E4%BE%8B.png" alt="网易云播放器" class="lazyload"><br>效果预览：<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="100%" height="400" src="//music.163.com/outchain/player?type=0&id=6976153408&auto=0&height=380"></iframe></li>
+<li>使用网页插件，以Aplayer+MetingJS为例子：<br><img data-fancybox="gallery" data-sizes="auto" data-src="/2021/10/05/Aplayer-MetingJS-Pjax-%E7%BD%91%E2%80%9C%E9%A1%B5%E2%80%9D%E4%BA%91%E9%9F%B3%E4%B9%90/Aplayer%E5%AE%9E%E4%BE%8B.png" alt="Aplayer实例" class="lazyload"><br>效果预览：<br><meting-js server="netease" type="song" id="499027"></meting-js></li>
+</ol>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ol>
+<li><p>iframe方式直接将html代码导入到自己的网站中即可：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">iframe</span> <span class="hljs-attr">frameborder</span>=<span class="hljs-string">&quot;no&quot;</span> <span class="hljs-attr">border</span>=<span class="hljs-string">&quot;0&quot;</span> <span class="hljs-attr">marginwidth</span>=<span class="hljs-string">&quot;0&quot;</span> <span class="hljs-attr">marginheight</span>=<span class="hljs-string">&quot;0&quot;</span> <span class="hljs-attr">width</span>=<span class="hljs-string">330</span> <span class="hljs-attr">height</span>=<span class="hljs-string">450</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;//music.163.com/outchain/player?type=0&amp;id=6890823962&amp;auto=1&amp;height=430&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">iframe</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="/2021/10/05/Aplayer-MetingJS-Pjax-%E7%BD%91%E2%80%9C%E9%A1%B5%E2%80%9D%E4%BA%91%E9%9F%B3%E4%B9%90/%E7%BD%91%E6%98%93%E4%BA%91%E6%96%B9%E6%B3%95.png" alt="网易云插件使用" class="lazyload"></p>
+</li>
+<li><p>插件使用：Aplayer+MetingJS</p>
+<ul>
+<li>安装插件<ol>
+<li>官方直接安装：<br><a target="_blank" rel="noopener" href="https://aplayer.js.org/#/zh-Hans/?id=%E5%AE%89%E8%A3%85">官方文档</a></li>
+<li>插件hexo-tag-aplayer安装：<br><a target="_blank" rel="noopener" href="https://github.com/grzhan/hexo-tag-aplayer">官方文档</a></li>
+<li>从CDN库引用到对应的网页文件中(可独立可插入head/body)：<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;utf-8&quot;</span> /&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>	<br>	<span class="hljs-comment">&lt;!-- require APlayer --&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css&quot;</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>	<span class="hljs-comment">&lt;!-- require MetingJS --&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    <span class="hljs-comment">&lt;!-- 简单使用 --&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">meting-js</span> <span class="hljs-attr">server</span>=<span class="hljs-string">&quot;netease&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;playlist&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;60198&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">meting-js</span>&gt;</span><br>		<br>	<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li>使用参数中文版<br>   <img data-fancybox="gallery" data-sizes="auto" data-src="/2021/10/05/Aplayer-MetingJS-Pjax-%E7%BD%91%E2%80%9C%E9%A1%B5%E2%80%9D%E4%BA%91%E9%9F%B3%E4%B9%90/meting%E5%8F%82%E6%95%B0.png" alt="参数" class="lazyload"></li>
+</ul>
+</li>
+</ol>
+<h2 id="Pjax的使用：网页刷新不中断播放器播放"><a href="#Pjax的使用：网页刷新不中断播放器播放" class="headerlink" title="Pjax的使用：网页刷新不中断播放器播放"></a>Pjax的使用：网页刷新不中断播放器播放</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><ol>
+<li><p>pjax是jquery的一个插件，它使用ajax和pushState两个技术改善用户的网页浏览体验。具体来说，当用户使用a标签切换页面时，可以实现局部刷新的技术。(next主题配置中有自带，把pjax配置修改为true即可<br>)</p>
+</li>
+<li><p>Pjax 又是啥？别急，听在下说说新的麻烦：<br>沉浸中欢乐的歌声中，随便点了一个页内跳转，网页开始刷新，但是！但是！但是！音乐播放器也跟着刷新了，从头开始播放？！Excuse Me？这也太傻了吧…</p>
+</li>
+</ol>
+<p>&emsp;&emsp;转念细想，其实按上面的教程，是在每个 html 页面上都加上了 APlayer 的加载代码，页面刷新的时候，上个页面自然的就被替换成了新的页面，APlayer 就相当于重新加载了一次。所以，讲道理，这段代码应该只用加载一次，并且不能随着网页跳转而改变，就像被我埋没多年的 QQ 空间那样（每次翻看太多黑历史了，但音乐播放器是优秀的）。</p>
+<p>&emsp;&emsp;网上有人说可以用框架做，就是一个框架中嵌入 APlayer，另一个用于页面跳转；也有人说用 Pjax，它可以做到无刷新 ajax 加载。考虑再三（也就几秒钟），肯定抛弃前者这种过时的方法，积极拥抱 jQuery-Pjax 。原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/PingXiaoGai/article/details/113448237">https://blog.csdn.net/PingXiaoGai/article/details/113448237</a></p>
+<p>&emsp;&emsp;从我这个js新手的角度来看，每一次点击网页或者博客内的链接，网页都会重新加载一次，这不免会导致有些操作是重复多余的，如果可以使用某个容器把要更新的body框起来，其他的部分不受影响，这样就可以既浏览博客内的网页，又不会影响播放器全局的播放（nice）。<br>注明：我使用的主题是Noemoe，全改动都在layout.ejs中配置<br><strong>一不做二不休,开干！</strong></p>
+<h3 id="head引入Pjax"><a href="#head引入Pjax" class="headerlink" title="head引入Pjax"></a>head引入Pjax</h3><ol>
+<li>老样子，从CDN下发中引入插件（head部分插入如下代码）<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- require pjax --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
+<li>然后在body中将要替换（局部更新）的内容用 div 圈起来，id自定义，另外播放器也圈起来类似如下：<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    ...<br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;pageContent&quot;</span>&gt;</span><br>        <span class="hljs-comment">&lt;!--include content.html--&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;aplayerContent&quot;</span>&gt;</span><br>        <span class="hljs-comment">&lt;!--include aplayer.html--&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span> <br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"></span><br><span class="javascript">        <span class="hljs-comment">// 对所有链接跳转事件绑定pjax容器container</span></span><br><span class="javascript">        $(<span class="hljs-built_in">document</span>).pjax(<span class="hljs-string">&#x27;a[target!=_blank]&#x27;</span>, <span class="hljs-string">&#x27;#pageContent&#x27;</span>, &#123;<span class="hljs-attr">fragment</span>: <span class="hljs-string">&#x27;#pageContent&#x27;</span>, <span class="hljs-attr">timeout</span>:<span class="hljs-number">8000</span>&#125;)</span><br><span class="javascript">    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>    ...<br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<h2 id="就此大功告成！开始我们的素质三连体验吧"><a href="#就此大功告成！开始我们的素质三连体验吧" class="headerlink" title="就此大功告成！开始我们的素质三连体验吧~"></a>就此大功告成！开始我们的素质三连体验吧~</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo clean<br>hexo g<br>hexo s<br></code></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="迷你版参数代码示例"><a href="#迷你版参数代码示例" class="headerlink" title="迷你版参数代码示例"></a>迷你版参数代码示例</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;utf-8&quot;</span> /&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>	<br>	<span class="hljs-comment">&lt;!-- require APlayer --&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css&quot;</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>	<span class="hljs-comment">&lt;!-- require MetingJS --&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">meting-js</span> </span><br><span class="hljs-tag">	<span class="hljs-attr">server</span>=<span class="hljs-string">&quot;netease&quot;</span> </span><br><span class="hljs-tag">	<span class="hljs-attr">type</span>=<span class="hljs-string">&quot;playlist&quot;</span> </span><br><span class="hljs-tag">	<span class="hljs-attr">id</span>=<span class="hljs-string">&quot;60198&quot;</span></span><br><span class="hljs-tag">	<span class="hljs-attr">fixed</span>=<span class="hljs-string">&quot;true&quot;</span> </span><br><span class="hljs-tag">	<span class="hljs-attr">autoplay</span>=<span class="hljs-string">&quot;true&quot;</span></span><br><span class="hljs-tag">	<span class="hljs-attr">loop</span>=<span class="hljs-string">&quot;all&quot;</span></span><br><span class="hljs-tag">	<span class="hljs-attr">order</span>=<span class="hljs-string">&quot;random&quot;</span></span><br><span class="hljs-tag">	<span class="hljs-attr">preload</span>=<span class="hljs-string">&quot;auto&quot;</span></span><br><span class="hljs-tag">	<span class="hljs-attr">list-folded</span>=<span class="hljs-string">&quot;ture&quot;</span></span><br><span class="hljs-tag">	<span class="hljs-attr">list-max-height</span>=<span class="hljs-string">&quot;500px&quot;</span></span><br><span class="hljs-tag">	<span class="hljs-attr">lrc-type</span>=<span class="hljs-string">&quot;1&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">meting-js</span>&gt;</span><br><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<h2 id="如果你是分别独立放入css，js中："><a href="#如果你是分别独立放入css，js中：" class="headerlink" title="如果你是分别独立放入css，js中："></a>如果你是分别独立放入css，js中：</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!--css--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css&quot;</span>&gt;</span><br><span class="hljs-comment">&lt;!--js--&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>        <span class="hljs-comment">&lt;!--使用--&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">meting-js</span> </span><br><span class="hljs-tag">	<span class="hljs-attr">server</span>=<span class="hljs-string">&quot;netease&quot;</span> </span><br><span class="hljs-tag">	<span class="hljs-attr">type</span>=<span class="hljs-string">&quot;playlist&quot;</span> </span><br><span class="hljs-tag">	<span class="hljs-attr">id</span>=<span class="hljs-string">&quot;60198&quot;</span></span><br><span class="hljs-tag">	<span class="hljs-attr">fixed</span>=<span class="hljs-string">&quot;true&quot;</span> </span><br><span class="hljs-tag">	<span class="hljs-attr">autoplay</span>=<span class="hljs-string">&quot;true&quot;</span></span><br><span class="hljs-tag">	<span class="hljs-attr">loop</span>=<span class="hljs-string">&quot;all&quot;</span></span><br><span class="hljs-tag">	<span class="hljs-attr">order</span>=<span class="hljs-string">&quot;random&quot;</span></span><br><span class="hljs-tag">	<span class="hljs-attr">preload</span>=<span class="hljs-string">&quot;auto&quot;</span></span><br><span class="hljs-tag">	<span class="hljs-attr">list-folded</span>=<span class="hljs-string">&quot;ture&quot;</span></span><br><span class="hljs-tag">	<span class="hljs-attr">list-max-height</span>=<span class="hljs-string">&quot;500px&quot;</span></span><br><span class="hljs-tag">	<span class="hljs-attr">lrc-type</span>=<span class="hljs-string">&quot;1&quot;</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">meting-js</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<h2 id="最后附上我的layout-ejs代码-swg等网页配置类型文件同理"><a href="#最后附上我的layout-ejs代码-swg等网页配置类型文件同理" class="headerlink" title="最后附上我的layout.ejs代码(swg等网页配置类型文件同理)"></a>最后附上我的layout.ejs代码(swg等网页配置类型文件同理)</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span> &lt;% <span class="hljs-attr">if</span> (<span class="hljs-attr">config.language</span>) &#123; %&gt;</span>lang=&quot;&lt;%- config.language %&gt;&quot;&lt;% &#125; %&gt;&gt;<br><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>    &lt;%<br>    var title = page.title;<br><br>    if (is_archive())&#123;<br>        title = __(&#x27;archive&#x27;);<br><br>        if (is_month())&#123;<br>            title += &#x27;：&#x27; + page.year + &#x27;/&#x27; + page.month;<br>        &#125; else if (is_year())&#123;<br>            title += &#x27;：&#x27; + page.year;<br>        &#125;<br>    &#125; else if (is_category())&#123;<br>        title = __(&#x27;count.categories&#x27;) + &#x27;：&#x27; + page.category;<br>    &#125; else if (is_tag())&#123;<br>        title = __(&#x27;count.tags&#x27;) + &#x27;：&#x27; + page.tag;<br>    &#125;<br>    %&gt;<br>    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>&lt;% if (title)&#123; %&gt;&lt;%= title %&gt; - &lt;% &#125; %&gt;&lt;%= config.title %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span><br>    <span class="hljs-comment">&lt;!-- require APlayer --&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css&quot;</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><br>	<span class="hljs-comment">&lt;!-- require MetingJS --&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>    <span class="hljs-comment">&lt;!-- require pjax --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;description&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;&lt;%= config.description %&gt;&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;keywords&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;&lt;%= config.keywords %&gt;&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1, maximum-scale=5&quot;</span>&gt;</span><br>    &lt;%- partial(&#x27;_partial/_analytics/gtm-head&#x27;) %&gt;<br>    &lt;%- partial(&#x27;_partial/site-verification&#x27;) %&gt;<br>    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;shortcut icon&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;&lt;%= theme.favicon.href %&gt;&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;&lt;%= theme.favicon.type %&gt;&quot;</span> /&gt;</span><br>    &lt;%- open_graph(&#123;twitter_id: theme.twitter, google_plus: theme.google_plus, fb_admins: theme.fb_admins, fb_app_id: theme.fb_app_id&#125;) %&gt;<br>    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233&quot;</span> <span class="hljs-attr">crossorigin</span>&gt;</span><br>    &lt;%- css_auto_version(&#x27;css/style&#x27;) %&gt;<br>    &lt;% if (theme.function.darkmode) &#123; %&gt;<br>        &lt;%- css_auto_version(&#x27;css/dark&#x27;) %&gt;<br>    &lt;% &#125; %&gt; <br>    &lt;% if (theme.iconlib) &#123; %&gt;<br>        <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;&lt;%= theme.iconlib %&gt;&quot;</span>&gt;</span><br>    &lt;% &#125; %&gt;<br>    &lt;%- css_auto_version(&#x27;lib/iconfont/iconfont.css&#x27;) %&gt;<br>    &lt;% if (theme.customstyle) &#123; %&gt;<br>        <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/custom.css&quot;</span>&gt;</span><br>    &lt;% &#125; %&gt;<br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mdui-drawer-body-left&quot;</span>&gt;</span><br>    &lt;%- partial(&#x27;_partial/_analytics/gtm-body&#x27;) %&gt;<br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;pageContent&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;nexmoe-background&quot;</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;nexmoe-bg&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;background-image: url(&lt;%= theme.background.path %&gt;)&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mdui-appbar mdui-shadow-0&quot;</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mdui-toolbar&quot;</span>&gt;</span><br>                    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">mdui-drawer</span>=<span class="hljs-string">&quot;&#123;target: &#x27;#drawer&#x27;, swipe: true&#125;&quot;</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;menu&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mdui-btn mdui-btn-icon mdui-ripple&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mdui-icon nexmoefont icon-menu&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br>                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mdui-toolbar-spacer&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>                    <span class="hljs-comment">&lt;!--&lt;a href=&quot;javascript:;&quot; class=&quot;mdui-btn mdui-btn-icon&quot;&gt;&lt;i class=&quot;mdui-icon material-icons&quot;&gt;search&lt;/i&gt;&lt;/a&gt;--&gt;</span><br>                    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;&lt;%- url_for() %&gt;&quot;</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;&lt;%= config.author || config.title %&gt;&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mdui-btn mdui-btn-icon&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;&lt;%= theme.avatar %&gt;&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;&lt;%= config.author || config.title %&gt;&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br>                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;nexmoe-header&quot;</span>&gt;</span><br>            &lt;%- partial(&#x27;_partial/header&#x27;) %&gt;<br>        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;nexmoe-content&quot;</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;nexmoe-primary&quot;</span>&gt;</span><br>                &lt;%- body %&gt;<br>                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;nexmoe-post-right&quot;</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;nexmoe-fixed&quot;</span>&gt;</span><br>                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;nexmoe-tool&quot;</span>&gt;</span> <br>                        &lt;% if (page.toc || theme.function.globalToc)&#123; %&gt;<br>                            &lt;% const toc_obj = toc(page.content, &#123;list_number: true&#125;); %&gt;<br>                            &lt;% if (toc_obj.length &gt; 0) &#123; %&gt;<br>                                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mdui-fab catalog&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;overflow:unset;&quot;</span>&gt;</span><br>                                    <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;nexmoefont icon-i-catalog&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span><br>                                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;nexmoe-toc&quot;</span>&gt;</span><br>                                        &lt;%- toc_obj %&gt;<br>                                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>                                <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br>                            &lt;% &#125; %&gt;<br>                        &lt;%&#125; %&gt;<br>                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#nexmoe-content&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;toc-link&quot;</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">&quot;回到顶部&quot;</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;top&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mdui-fab mdui-ripple&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;nexmoefont icon-caret-top&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br>                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;aplayerContent&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">meting-js</span></span><br><span class="hljs-tag">        <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;position:absolute; z-index:99999&quot;</span> </span><br><span class="hljs-tag">        <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;playlist&quot;</span> </span><br><span class="hljs-tag">        <span class="hljs-attr">server</span>=<span class="hljs-string">&quot;netease&quot;</span> </span><br><span class="hljs-tag">        <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;6976153408&quot;</span> </span><br><span class="hljs-tag">        <span class="hljs-attr">fixed</span>=<span class="hljs-string">&quot;true&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">autoplay</span>=<span class="hljs-string">&quot;true&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">order</span>=<span class="hljs-string">&quot;random&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">loop</span>=<span class="hljs-string">&quot;all&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">list-folded</span>=<span class="hljs-string">&quot;false&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">preload</span>=<span class="hljs-string">&quot;auto&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">list-max-height</span>=<span class="hljs-string">&quot;500px&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">lrc-type</span>=<span class="hljs-string">&quot;1&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">meting-js</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"></span><br><span class="javascript">        <span class="hljs-comment">// 对所有链接跳转事件绑定pjax容器container</span></span><br><span class="javascript">        $(<span class="hljs-built_in">document</span>).pjax(<span class="hljs-string">&#x27;a[target!=_blank]&#x27;</span>, <span class="hljs-string">&#x27;#pageContent&#x27;</span>, &#123;<span class="hljs-attr">fragment</span>: <span class="hljs-string">&#x27;#pageContent&#x27;</span>, <span class="hljs-attr">timeout</span>:<span class="hljs-number">8000</span>&#125;)</span><br><span class="javascript">    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>    &lt;%- partial(&#x27;_partial/searchbox&#x27;) %&gt;<br>    &lt;%- partial(&#x27;_partial/after-footer&#x27;) %&gt;<br>    &lt;%- partial(&#x27;_partial/analytics&#x27;) %&gt;<br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-comment">&lt;!--烟花爆炸--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;fireworks&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;&quot;</span> &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span> <br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;//cdn.bootcss.com/animejs/2.2.0/anime.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span> <br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;/js/firework.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-comment">&lt;!--单击显示文字--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;/js/click_show_text.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>Natu Matu<br>
+        <strong>本文链接：</strong><a href="https://631212502.github.io/2021/10/05/Aplayer-MetingJS-Pjax-%E7%BD%91%E2%80%9C%E9%A1%B5%E2%80%9D%E4%BA%91%E9%9F%B3%E4%B9%90/" title="https:&#x2F;&#x2F;631212502.github.io&#x2F;2021&#x2F;10&#x2F;05&#x2F;Aplayer-MetingJS-Pjax-%E7%BD%91%E2%80%9C%E9%A1%B5%E2%80%9D%E4%BA%91%E9%9F%B3%E4%B9%90&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;631212502.github.io&#x2F;2021&#x2F;10&#x2F;05&#x2F;Aplayer-MetingJS-Pjax-%E7%BD%91%E2%80%9C%E9%A1%B5%E2%80%9D%E4%BA%91%E9%9F%B3%E4%B9%90&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/page-building/" rel="tag">page_building</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a>
+    
+</div>
+
+  
+      <div class="nexmoe-post-footer">
+          <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: 'cdc194d30f71cf392fdd',
+        clientSecret: 'b27b4f1ec813cb7eaa115ab184569422b663176a',
+        id: window.location.pathname,
+        repo: '631212502.github.io',
+        owner: '631212502',
+        admin: '631212502'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+      </div>
+  
+</div>
+                <div class="nexmoe-post-right">
+                <div class="nexmoe-fixed">
+                    <div class="nexmoe-tool"> 
+                        
+                            
+                            
+                                <button class="mdui-fab catalog" style="overflow:unset;">
+                                    <i class="nexmoefont icon-i-catalog"></i>
+                                    <div class="nexmoe-toc">
+                                        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Aplayer%E7%9A%84%E5%BC%95%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">Aplayer的引用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">1.2.</span> <span class="toc-text">安装</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pjax%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%9A%E7%BD%91%E9%A1%B5%E5%88%B7%E6%96%B0%E4%B8%8D%E4%B8%AD%E6%96%AD%E6%92%AD%E6%94%BE%E5%99%A8%E6%92%AD%E6%94%BE"><span class="toc-number">2.</span> <span class="toc-text">Pjax的使用：网页刷新不中断播放器播放</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-number">2.1.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#head%E5%BC%95%E5%85%A5Pjax"><span class="toc-number">2.2.</span> <span class="toc-text">head引入Pjax</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%B1%E6%AD%A4%E5%A4%A7%E5%8A%9F%E5%91%8A%E6%88%90%EF%BC%81%E5%BC%80%E5%A7%8B%E6%88%91%E4%BB%AC%E7%9A%84%E7%B4%A0%E8%B4%A8%E4%B8%89%E8%BF%9E%E4%BD%93%E9%AA%8C%E5%90%A7"><span class="toc-number">3.</span> <span class="toc-text">就此大功告成！开始我们的素质三连体验吧~</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%B7%E4%BD%A0%E7%89%88%E5%8F%82%E6%95%B0%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B"><span class="toc-number">4.</span> <span class="toc-text">迷你版参数代码示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C%E4%BD%A0%E6%98%AF%E5%88%86%E5%88%AB%E7%8B%AC%E7%AB%8B%E6%94%BE%E5%85%A5css%EF%BC%8Cjs%E4%B8%AD%EF%BC%9A"><span class="toc-number">5.</span> <span class="toc-text">如果你是分别独立放入css，js中：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%90%8E%E9%99%84%E4%B8%8A%E6%88%91%E7%9A%84layout-ejs%E4%BB%A3%E7%A0%81-swg%E7%AD%89%E7%BD%91%E9%A1%B5%E9%85%8D%E7%BD%AE%E7%B1%BB%E5%9E%8B%E6%96%87%E4%BB%B6%E5%90%8C%E7%90%86"><span class="toc-number">6.</span> <span class="toc-text">最后附上我的layout.ejs代码(swg等网页配置类型文件同理)</span></a></li></ol>
+                                    </div>
+                                </button>
+                            
+                        
+                        <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="aplayerContent">
+        <meting-js
+        style="position:absolute; z-index:99999" 
+        type="playlist" 
+        server="netease" 
+        id="6976153408" 
+        fixed="true"
+        autoplay="true"
+        order="random"
+        loop="all"
+        list-folded="false"
+        preload="auto"
+        list-max-height="500px"
+        lrc-type="1">
+        </meting-js> 
+    </div>
+    <script>
+        // 对所有链接跳转事件绑定pjax容器container,只在容器中跳转
+        $(document).pjax('a[target!=_blank]', '#pageContent', {fragment: '#pageContent', timeout:8000})
+    </script>
+     
+    <div id="nexmoe-search-space">
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <input class="search-input" type="text" placeholder="搜索" oninput="sinput();">
+                </div>
+                <a class="search-close" onclick="sclose();">×</a>
+            </div>
+            <div class="search-body"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+ 
+
+<script async src="/js/app.js?v=1704991421240"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+
+
+    
+
+
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<!--烟花爆炸-->
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script type="text/javascript" src="/js/firework.js"></script>
+<!--单击显示文字-->
+<script type="text/javascript" src="/js/click_show_text.js"></script>
+</html>
+
+

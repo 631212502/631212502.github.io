@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    
+    <meta name="baidu-site-verification" content="code-NrUjkxdqT5" />
+    <title>TXT——文本中的情绪极性 - Eutupia by 夏夢</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="願いが叶う場所">
+    <meta name="keywords" content="null">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
+
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/logo.png" type="image/png" />
+    <meta name="description" content="言葉之庭，弦外之音">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TXT——文本中的情绪极性">
+<meta property="og:url" content="https://631212502.github.io/2022/04/14/%E4%B8%AD%E6%96%87NLP-%E6%83%85%E6%84%9F%E5%88%86%E6%9E%90/index.html">
+<meta property="og:site_name" content="Eutupia by 夏夢">
+<meta property="og:description" content="言葉之庭，弦外之音">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://631212502.github.io/2022/04/14/%E4%B8%AD%E6%96%87NLP-%E6%83%85%E6%84%9F%E5%88%86%E6%9E%90/04/14/%E4%B8%AD%E6%96%87NLP-%E6%83%85%E6%84%9F%E5%88%86%E6%9E%90/flowchart.jpg">
+<meta property="article:published_time" content="2022-04-14T14:53:46.000Z">
+<meta property="article:modified_time" content="2023-12-02T09:04:09.795Z">
+<meta property="article:author" content="Natu Matu">
+<meta property="article:tag" content="S_Project">
+<meta property="article:tag" content="MMDL">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://631212502.github.io/2022/04/14/%E4%B8%AD%E6%96%87NLP-%E6%83%85%E6%84%9F%E5%88%86%E6%9E%90/04/14/%E4%B8%AD%E6%96%87NLP-%E6%83%85%E6%84%9F%E5%88%86%E6%9E%90/flowchart.jpg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
+    <!-- require APlayer -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+	<!-- require MetingJS : 未解决歌单播放问题-->
+	<script src="https://cdn.jsdelivr.net/npm/meting@latest/dist/Meting.min.js"></script>
+    <!-- require pjax -->
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+    <!-- DPlayer -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.js"></script>
+    <link rel="stylesheet" href="/css/style.css?v=1704991421178">
+     
+    
+        <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
+    
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1704991421178">
+    
+        <link rel="stylesheet" href="/custom.css">
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body class="mdui-drawer-body-left">
+    
+    <div id="pageContent">
+        <div id="nexmoe-background">
+            <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/202211081936671.jpg)"></div>
+            <div class="mdui-appbar mdui-shadow-0">
+                <div class="mdui-toolbar">
+                    <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                    <div class="mdui-toolbar-spacer"></div>
+                    <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                    <a href="/" title="Natu Matu" class="mdui-btn mdui-btn-icon"><img src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/avatar.jpg" alt="Natu Matu"></a>
+                </div>
+            </div>
+        </div>
+        <div id="nexmoe-header">
+            <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="Natu Matu">
+            <img src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/avatar.jpg" alt="Natu Matu" alt="Natu Matu">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>50</div>
+        <div><span>标签</span>17</div>
+        <div><span>分类</span>4</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/gate.html" title="小憩歌单">
+            <i class="mdui-list-item-icon nexmoefont icon-coffee"></i>
+            <div class="mdui-list-item-content">
+                小憩歌单
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/PY.html" title="左邻右舍">
+            <i class="mdui-list-item-icon nexmoefont icon-wechat-fill"></i>
+            <div class="mdui-list-item-content">
+                左邻右舍
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/album.html" title="时间光影">
+            <i class="mdui-list-item-icon nexmoefont icon-calendar-fill"></i>
+            <div class="mdui-list-item-content">
+                时间光影
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/natunoyume.html" title="拾音纪行">
+            <i class="mdui-list-item-icon nexmoefont icon-telegram"></i>
+            <div class="mdui-list-item-content">
+                拾音纪行
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+         
+            <form id="search_form" action_e="https://cn.bing.com/search?q=" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder="搜索"></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://qm.qq.com/cgi-bin/qm/qr?k=QriGs7GcXMPd6scnWXeO-IJ5TP8Qm8sd&noverify=0" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="https://space.bilibili.com/10580381" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .1);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/631212502" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .1);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=631212502@qq.com" target="_blank" mdui-tooltip="{content: '邮箱'}" style="color: rgb(51, 153, 255);background-color: rgba(51, 153, 255, .1);">
+            <i class="nexmoefont icon-mail-fill"></i>
+        </a><a class="mdui-ripple" href="https://steamcommunity.com/profiles/76561199013116495/" target="_blank" mdui-tooltip="{content: 'steam'}" style="color: rgb(3, 98, 255);background-color: rgba(3, 98, 255, .1);">
+            <i class="nexmoefont icon-steam"></i>
+        </a><a class="mdui-ripple" href="https://www.xiaohongshu.com/user/profile/5fcc10c4000000000100b0b7?xhsshare=CopyLink&appuid=5fcc10c4000000000100b0b7&apptime=1660447872" target="_blank" mdui-tooltip="{content: '小红书'}" style="color: rgb(250, 136, 111);background-color: rgba(250, 136, 111, .1);">
+            <i class="nexmoefont icon-calendar-fill"></i>
+        </a><a class="mdui-ripple" href="/null" target="_blank" mdui-tooltip="{content: '知乎'}" style="color: ;background-color: ;">
+            <i class="nexmoefont icon-zhihu"></i>
+        </a><a class="mdui-ripple" href="/null" target="_blank" mdui-tooltip="{content: '推特'}" style="color: ;background-color: ;">
+            <i class="nexmoefont icon-twitter"></i>
+        </a><a class="mdui-ripple" href="https://chat.openai.com/chat" target="_blank" mdui-tooltip="{content: 'GPT'}" style="color: rgb(45, 13, 73);background-color: rgba(45, 13, 73, .1);">
+            <i class="nexmoefont icon-eye-fill"></i>
+        </a>
+    </div>
+</div>
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/Coding/" style="font-size: 17.14px;">Coding</a> <a href="/tags/Competition/" style="font-size: 11.43px;">Competition</a> <a href="/tags/MMDL/" style="font-size: 10px;">MMDL</a> <a href="/tags/S-Project/" style="font-size: 14.29px;">S_Project</a> <a href="/tags/mmdl/" style="font-size: 18.57px;">mmdl</a> <a href="/tags/page-building/" style="font-size: 12.86px;">page_building</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 15.71px;">博客</a> <a href="/tags/%E5%AD%A6%E6%9C%AF/" style="font-size: 15.71px;">学术</a> <a href="/tags/%E6%91%84%E5%BD%B1/" style="font-size: 14.29px;">摄影</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 11.43px;">旅行</a> <a href="/tags/%E6%AD%8C%E3%81%86/" style="font-size: 11.43px;">歌う</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 17.14px;">笔记</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">编程</a> <a href="/tags/%E8%A8%80%E8%91%89/" style="font-size: 20px;">言葉</a> <a href="/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 14.29px;">记录</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 12.86px;">论文</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 17.14px;">随笔</a>
+    </div>
+    
+  </div>
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/小さな考え/">小さな考え</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/无情の勉強マシン/">无情の勉強マシン</a>
+          <span class="category-list-count">7</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/言けない言葉/">言けない言葉</a>
+          <span class="category-list-count">6</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/音楽が辞めよう/">音楽が辞めよう</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/">2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/">2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/">2010</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+
+    
+    <span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt = new Date("08/31/2021 17:38:00"); //在此处修改你的建站时间
+        now.setTime(now.getTime() + 250);
+        days = (now - grt) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt) / 1000 / 60 / 60 - 24 * dnum;
+        hnum = Math.floor(hours);
+        if (String(hnum).length == 1) {
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt) / 1000 / 60 - 24 * 60 * dnum - 60 * hnum;
+        mnum = Math.floor(minutes);
+        if (String(mnum).length == 1) {
+            mnum = "0" + mnum;
+        }
+        seconds = (now - grt) / 1000 - 24 * 60 * 60 * dnum - 60 * 60 * hnum - 60 * mnum;
+        snum = Math.round(seconds);
+        if (String(snum).length == 1) {
+            snum = "0" + snum;
+        }
+        document.getElementById("timeDate").innerHTML = 
+            " 风雨中度过了 " + dnum + " 天 ";
+        document.getElementById("times").innerHTML =
+            hnum + " 小时 " + mnum + " 分 "; 
+    }
+    setInterval("createtime()", 250);
+</script>
+<!-- + snum + " 秒 "-->
+    
+</aside>
+
+
+    <div class="nexmoe-copyright">
+        &copy; 2024 Natu Matu
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        
+    </div>
+</div><!-- .nexmoe-drawer -->
+<div style="font-size: 13px">
+    <link rel="stylesheet" href="https://widget.heweather.net/standard/static/css/he-standard.css?v=1.4.0"><script src="https://widget.heweather.net/standard/static/js/he-standard.js?v=1.4.0"></script><script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    本站总访问量  <a id="busuanzi_value_site_pv"></a> 次<br>
+    本站访客数<a id="busuanzi_value_site_uv"></a>人次
+</div>
+
+        </div>
+        <div id="nexmoe-content">
+            <div class="nexmoe-primary">
+                <div class="nexmoe-post">
+
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: NaN%;"> 
+              <img data-src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/uQCrV8lz.webp" data-sizes="auto" alt="TXT——文本中的情绪极性" class="lazyload">
+              <h1>TXT——文本中的情绪极性</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2022年04月14日</a>
+    <a><i class="nexmoefont icon-areachart"></i>2.6k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 12 分钟</a>
+</div>
+
+      
+
+      <p><strong>言葉之庭，弦外之音</strong></p>
+<span id="more"></span>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>用RNN对文本的情绪倾向进行预测和分类</p>
+<h2 id="用Tensorflow进行中文自然语言处理–情感分析"><a href="#用Tensorflow进行中文自然语言处理–情感分析" class="headerlink" title="用Tensorflow进行中文自然语言处理–情感分析"></a>用Tensorflow进行中文自然语言处理–情感分析</h2><p>$$f(‘真好喝’)=1$$<br>$$f(‘太难喝了’)=0$$</p>
+<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><p><strong>需要的库</strong><br>numpy<br>jieba<br>gensim<br>tensorflow<br>matplotlib  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 首先加载必用的库</span><br>%matplotlib inline<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><span class="hljs-keyword">import</span> re<br><span class="hljs-keyword">import</span> jieba <span class="hljs-comment"># 结巴分词</span><br><span class="hljs-comment"># gensim用来加载预训练word vector</span><br><span class="hljs-keyword">from</span> gensim.models <span class="hljs-keyword">import</span> KeyedVectors<br><span class="hljs-keyword">import</span> warnings<br>warnings.filterwarnings(<span class="hljs-string">&quot;ignore&quot;</span>)<br><span class="hljs-comment"># 用来解压</span><br><span class="hljs-keyword">import</span> bz2<br></code></pre></td></tr></table></figure>
+<h2 id="语料"><a href="#语料" class="headerlink" title="语料"></a>语料</h2><p>中文对话情绪语料<br>sentiment_XS_test.txt包含11577个手动标记的实例（文中提到的XS_test）。 sentiment_XS_30k.txt包含几乎30k个自动标记的实例（文中提到的XS_30k）。</p>
+<p>所有数据均来自人机对话日志，并由Jieba工具进行分词。</p>
+<p>如果你使用这个数据集，请参阅第12届计算智能与安全国际会议（CIS2016），论文：卷积神经网络的情感分类：大规模中文会话语料库的实验研究。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/xxxspy/Chinese_conversation_sentiment">下载地址</a></p>
+<p>说明：数据来自腾讯微博 1。评测数据全集包括 20 个话题，每个话题采集大约1000条微博，共约20000条微博。数据采用xml格式，已经预先切分好句子。每条句子的所有标注信息都包含在元素的属性中。其中opinionated表示是否观点句，polarity表示句子情感倾向。</p>
+<p>下载地址: <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1psjysSXpKOEb1ciem7DsRw">https://pan.baidu.com/s/1psjysSXpKOEb1ciem7DsRw</a> 密码：7hb4</p>
+<h2 id="预处理"><a href="#预处理" class="headerlink" title="预处理"></a>预处理</h2><p><strong>预训练词向量</strong><br>使用北京师范大学中文信息处理研究所与中国人民大学 DBIIR 实验室的研究者开源的”chinese-word-vectors” github链接为：<br><a target="_blank" rel="noopener" href="https://github.com/Embedding/Chinese-Word-Vectors">https://github.com/Embedding/Chinese-Word-Vectors</a><br>如果你不知道word2vec是什么，推荐以下一篇文章：<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/26306795">https://zhuanlan.zhihu.com/p/26306795</a><br>这里使用了”chinese-word-vectors”知乎Word + Ngram的词向量，可以从上面github链接下载，我先加载预训练模型并进行一些简单测试：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">```<br>```python<br><span class="hljs-comment"># 请将下载的词向量压缩包放置在根目录 embeddings 文件夹里</span><br><span class="hljs-comment"># 解压词向量, 有可能需要等待1-2分钟</span><br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;embeddings/sgns.zhihu.bigram&quot;</span>, <span class="hljs-string">&#x27;wb&#x27;</span>) <span class="hljs-keyword">as</span> new_file, <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;embeddings/sgns.zhihu.bigram.bz2&quot;</span>, <span class="hljs-string">&#x27;rb&#x27;</span>) <span class="hljs-keyword">as</span> file:<br>    decompressor = bz2.BZ2Decompressor()<br>    <span class="hljs-keyword">for</span> data <span class="hljs-keyword">in</span> <span class="hljs-built_in">iter</span>(<span class="hljs-keyword">lambda</span> : file.read(<span class="hljs-number">100</span> * <span class="hljs-number">1024</span>), <span class="hljs-string">b&#x27;&#x27;</span>):<br>        new_file.write(decompressor.decompress(data))<br></code></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 使用gensim加载预训练中文分词embedding, 有可能需要等待1-2分钟</span><br>cn_model = KeyedVectors.load_word2vec_format(<span class="hljs-string">&#x27;embeddings/sgns.zhihu.bigram&#x27;</span>, <br>                                             binary=<span class="hljs-literal">False</span>, unicode_errors=<span class="hljs-string">&quot;ignore&quot;</span>)<br></code></pre></td></tr></table></figure>
+<p><strong>词向量模型</strong><br>在这个词向量模型里，每一个词是一个索引，对应的是一个长度为300的向量，我们今天需要构建的LSTM神经网络模型并不能直接处理汉字文本，需要先进行分次并把词汇转换为词向量，步骤请参考下图，步骤的讲解会跟着代码一步一步来，如果你不知道RNN，GRU，LSTM是什么，我推荐deeplearning.ai的课程，网易公开课有免费中文字幕版，但我还是推荐有习题和练习代码部分的的coursera原版：  </p>
+<img src="/2022/04/14/%E4%B8%AD%E6%96%87NLP-%E6%83%85%E6%84%9F%E5%88%86%E6%9E%90/04/14/%E4%B8%AD%E6%96%87NLP-%E6%83%85%E6%84%9F%E5%88%86%E6%9E%90/flowchart.jpg" class title="This is the image of setting-logic">
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 由此可见每一个词都对应一个长度为300的向量</span><br><span class="hljs-comment">#print(type(cn_model))</span><br>embedding_dim = cn_model[<span class="hljs-string">&#x27;山东大学&#x27;</span>].shape[<span class="hljs-number">0</span>]<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;词向量的长度为&#123;&#125;&#x27;</span>.<span class="hljs-built_in">format</span>(embedding_dim))<br>cn_model[<span class="hljs-string">&#x27;山东大学&#x27;</span>]<br></code></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 计算相似度</span><br>cn_model.similarity(<span class="hljs-string">&#x27;橘子&#x27;</span>, <span class="hljs-string">&#x27;橙子&#x27;</span>)<br><span class="hljs-comment"># dot（&#x27;橘子&#x27;/|&#x27;橘子&#x27;|， &#x27;橙子&#x27;/|&#x27;橙子&#x27;| ）点积计算余弦相似度，向量 /向量范数（np.linalg.norm）</span><br>np.dot(cn_model[<span class="hljs-string">&#x27;橘子&#x27;</span>]/np.linalg.norm(cn_model[<span class="hljs-string">&#x27;橘子&#x27;</span>]), <br>cn_model[<span class="hljs-string">&#x27;橙子&#x27;</span>]/np.linalg.norm(cn_model[<span class="hljs-string">&#x27;橙子&#x27;</span>]))<br><span class="hljs-comment"># 找出最相近的词，余弦相似度</span><br>cn_model.most_similar(positive=[<span class="hljs-string">&#x27;大学&#x27;</span>], topn=<span class="hljs-number">10</span>)<br><span class="hljs-comment"># 找出不同的词</span><br>test_words = <span class="hljs-string">&#x27;老师 会计师 程序员 律师 医生 老人&#x27;</span><br>test_words_result = cn_model.doesnt_match(test_words.split())<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;在 &#x27;</span>+test_words+<span class="hljs-string">&#x27; 中:\n不是同一类别的词为: %s&#x27;</span> %test_words_result)<br>cn_model.most_similar(positive=[<span class="hljs-string">&#x27;女人&#x27;</span>,<span class="hljs-string">&#x27;劈腿&#x27;</span>], negative=[<span class="hljs-string">&#x27;男人&#x27;</span>], topn=<span class="hljs-number">1</span>)<br></code></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 获得样本的索引，样本存放于两个文件夹中，</span><br><span class="hljs-comment"># 分别为 正面评价&#x27;pos&#x27;文件夹 和 负面评价&#x27;neg&#x27;文件夹</span><br><span class="hljs-comment"># 每个文件夹中有2000个txt文件，每个文件中是一例评价</span><br><span class="hljs-keyword">import</span> os<br>pos_txts = os.listdir(<span class="hljs-string">&#x27;pos&#x27;</span>)<span class="hljs-comment">#正面评价</span><br>neg_txts = os.listdir(<span class="hljs-string">&#x27;neg&#x27;</span>)<span class="hljs-comment">#负面评价</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">len</span>(pos_txts))<br><span class="hljs-built_in">print</span>( <span class="hljs-string">&#x27;样本总共: &#x27;</span>+ <span class="hljs-built_in">str</span>(<span class="hljs-built_in">len</span>(pos_txts) + <span class="hljs-built_in">len</span>(neg_txts)) )<br><span class="hljs-comment"># 现在我们将所有的评价内容放置到一个list里</span><br><span class="hljs-comment"># 这里和视频课程不一样, 因为很多同学反应按照视频课程里的读取方法会乱码,</span><br><span class="hljs-comment"># 经过检查发现是原始文本里的编码是gbk造成的,</span><br><span class="hljs-comment"># 这里我进行了简单的预处理, 以避免乱码</span><br>train_texts_orig = []<br><span class="hljs-comment"># 文本所对应的labels, 也就是标记</span><br>train_target = []<br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;positive_samples.txt&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>, encoding=<span class="hljs-string">&quot;utf-8&quot;</span>) <span class="hljs-keyword">as</span> f:<br>    lines = f.readlines()<br>    <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> lines:<br>        dic = <span class="hljs-built_in">eval</span>(line)<br>        train_texts_orig.append(dic[<span class="hljs-string">&quot;text&quot;</span>])<br>        train_target.append(dic[<span class="hljs-string">&quot;label&quot;</span>])<br><br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;negative_samples.txt&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>, encoding=<span class="hljs-string">&quot;utf-8&quot;</span>) <span class="hljs-keyword">as</span> f:<br>    lines = f.readlines()<br>    <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> lines:<br>        dic = <span class="hljs-built_in">eval</span>(line)<br>        train_texts_orig.append(dic[<span class="hljs-string">&quot;text&quot;</span>])<br>        train_target.append(dic[<span class="hljs-string">&quot;label&quot;</span>])<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">len</span>(train_texts_orig)) <span class="hljs-comment">#看一下长度</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="设计模型"><a href="#设计模型" class="headerlink" title="设计模型"></a>设计模型</h2><p><strong>分类模型建模</strong>  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 我们使用tensorflow的keras接口来建模</span><br><span class="hljs-keyword">from</span> tensorflow.python.keras.models <span class="hljs-keyword">import</span> Sequential<br><span class="hljs-keyword">from</span> tensorflow.python.keras.layers <span class="hljs-keyword">import</span> Dense, GRU, Embedding, LSTM, Bidirectional<br><span class="hljs-keyword">from</span> tensorflow.python.keras.preprocessing.text <span class="hljs-keyword">import</span> Tokenizer<br><span class="hljs-keyword">from</span> tensorflow.python.keras.preprocessing.sequence <span class="hljs-keyword">import</span> pad_sequences<br><span class="hljs-keyword">from</span> tensorflow.python.keras.optimizer_v1 <span class="hljs-keyword">import</span> RMSprop<br><span class="hljs-keyword">from</span> tensorflow.python.keras.optimizer_v1 <span class="hljs-keyword">import</span> Adam<br><span class="hljs-keyword">from</span> tensorflow.python.keras.callbacks <span class="hljs-keyword">import</span> EarlyStopping, ModelCheckpoint, TensorBoard, ReduceLROnPlateau<br><br><span class="hljs-comment"># 进行分词和tokenize</span><br><span class="hljs-comment"># train_tokens是一个长长的list，其中含有4000个小list，对应每一条评价</span><br>train_tokens = []<br><span class="hljs-keyword">for</span> text <span class="hljs-keyword">in</span> train_texts_orig:<br>    <span class="hljs-comment"># 去掉标点</span><br>    text = re.sub(<span class="hljs-string">&quot;[\s+\.\!\/_,$%^*(+\&quot;\&#x27;]+|[+——！，。？、~@#￥%……&amp;*（）]+&quot;</span>, <span class="hljs-string">&quot;&quot;</span>,text)<br>    <span class="hljs-comment"># 结巴分词</span><br>    cut = jieba.cut(text)<br>    <span class="hljs-comment"># 结巴分词的输出结果为一个生成器</span><br>    <span class="hljs-comment"># 把生成器转换为list</span><br>    cut_list = [ i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> cut ]<br>    <span class="hljs-comment">#索引化</span><br>    <span class="hljs-keyword">for</span> i, word <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(cut_list):<br>        <span class="hljs-keyword">try</span>:<br>            <span class="hljs-comment"># 将词转换为索引index</span><br>            cut_list[i] = cn_model.key_to_index[word]<br>        <span class="hljs-keyword">except</span> KeyError:<br>            <span class="hljs-comment"># 如果词不在字典中，则输出0</span><br>            cut_list[i] = <span class="hljs-number">0</span><br>    train_tokens.append(cut_list)<br><span class="hljs-comment"># 获得所有tokens的长度</span><br>num_tokens = [ <span class="hljs-built_in">len</span>(tokens) <span class="hljs-keyword">for</span> tokens <span class="hljs-keyword">in</span> train_tokens ]<br>num_tokens = np.array(num_tokens)<br><span class="hljs-built_in">print</span>(num_tokens)<br><span class="hljs-comment"># 平均tokens的长度</span><br><span class="hljs-built_in">print</span>(np.mean(num_tokens))<br><span class="hljs-comment"># 最长的评价tokens的长度</span><br><span class="hljs-built_in">print</span>(np.<span class="hljs-built_in">max</span>(num_tokens))<br><span class="hljs-comment"># 查看样本分布</span><br>plt.hist(np.log(num_tokens), bins = <span class="hljs-number">100</span>)<br>plt.xlim((<span class="hljs-number">0</span>,<span class="hljs-number">10</span>))<br>plt.ylabel(<span class="hljs-string">&#x27;number of tokens&#x27;</span>)<br>plt.xlabel(<span class="hljs-string">&#x27;length of tokens&#x27;</span>)<br>plt.title(<span class="hljs-string">&#x27;Distribution of tokens length&#x27;</span>)<br>plt.show()<br>&#123;% asset_img output.png This <span class="hljs-keyword">is</span> the image of data_lenth %&#125;<br><span class="hljs-comment"># 取tokens平均值并加上两个tokens的标准差，</span><br><span class="hljs-comment"># 假设tokens长度的分布为正态分布，则max_tokens这个值可以涵盖95%左右的样本</span><br>max_tokens = np.mean(num_tokens) + <span class="hljs-number">2</span> * np.std(num_tokens)<br>max_tokens = <span class="hljs-built_in">int</span>(max_tokens)<br>max_tokens<br><span class="hljs-comment"># 取tokens的长度为236时，大约95%的样本被涵盖</span><br><span class="hljs-comment"># 我们对长度不足的进行padding，超长的进行修剪</span><br>np.<span class="hljs-built_in">sum</span>( num_tokens &lt; max_tokens ) / <span class="hljs-built_in">len</span>(num_tokens)<br><span class="hljs-comment"># 用来将tokens转换为文本</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">reverse_tokens</span>(<span class="hljs-params">tokens</span>):</span><br>    text = <span class="hljs-string">&#x27;&#x27;</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> tokens:<br>        <span class="hljs-keyword">if</span> i != <span class="hljs-number">0</span>:<br>            text = text + cn_model.index_to_key[i]<br>        <span class="hljs-keyword">else</span>:<br>            text = text + <span class="hljs-string">&#x27; &#x27;</span><br>    <span class="hljs-keyword">return</span> text<br>reverse = reverse_tokens(train_tokens[<span class="hljs-number">0</span>]) <span class="hljs-comment">#试着恢复文本</span><br></code></pre></td></tr></table></figure>
+<p><strong>准备词嵌入矩阵</strong> </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 只使用前20000个词</span><br>num_words = <span class="hljs-number">50000</span><br><span class="hljs-comment"># 初始化embedding_matrix，之后在keras上进行应用</span><br>embedding_matrix = np.zeros((num_words, embedding_dim))<br><span class="hljs-comment"># embedding_matrix为一个 [num_words，embedding_dim] 的矩阵</span><br><span class="hljs-comment"># 维度为 50000 * 300</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(num_words):<br>    <span class="hljs-comment">#print(cn_model[cn_model.index_to_key[i]])</span><br>    embedding_matrix[i,:] = cn_model[cn_model.index_to_key[i]]<br>embedding_matrix = embedding_matrix.astype(<span class="hljs-string">&#x27;float32&#x27;</span>)<br><span class="hljs-built_in">print</span>(embedding_matrix[<span class="hljs-number">1</span>,<span class="hljs-number">1</span>])<br><span class="hljs-comment"># 检查index是否对应，</span><br><span class="hljs-comment"># 输出300意义为长度为300的embedding向量一一对应</span><br>np.<span class="hljs-built_in">sum</span>( cn_model[cn_model.index_to_key[<span class="hljs-number">333</span>]] == embedding_matrix[<span class="hljs-number">333</span>] )<br><span class="hljs-comment"># embedding_matrix的维度，</span><br><span class="hljs-comment"># 这个维度为keras的要求，后续会在模型中用到</span><br><span class="hljs-built_in">print</span>(embedding_matrix.shape)<br><span class="hljs-comment"># 进行padding和truncating， 输入的train_tokens是一个list</span><br><span class="hljs-comment"># 返回的train_pad是一个numpy array</span><br>train_pad = pad_sequences(train_tokens, maxlen=max_tokens,<br>                            padding=<span class="hljs-string">&#x27;pre&#x27;</span>, truncating=<span class="hljs-string">&#x27;pre&#x27;</span>)<br><span class="hljs-comment"># 超出五万个词向量的词用0代替</span><br>train_pad[ train_pad&gt;=num_words ] = <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#样本分割</span><br><span class="hljs-comment"># 进行训练和测试样本的分割</span><br><span class="hljs-keyword">from</span> sklearn.model_selection <span class="hljs-keyword">import</span> train_test_split<br><span class="hljs-comment"># 90%的样本用来训练，剩余10%用来测试</span><br>X_train, X_test, y_train, y_test = train_test_split(train_pad,<br>                                                    train_target,<br>                                                    test_size=<span class="hljs-number">0.1</span>,<br>                                                    random_state=<span class="hljs-number">12</span>)<span class="hljs-comment">#打乱顺序</span><br><span class="hljs-comment"># 查看训练样本，确认无误</span><br><span class="hljs-built_in">print</span>(reverse_tokens(X_train[<span class="hljs-number">30</span>]))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;class: &#x27;</span>,y_train[<span class="hljs-number">30</span>])<br><span class="hljs-comment"># 用LSTM对样本进行分类</span><br>model = Sequential()<br><span class="hljs-comment"># 模型第一层为embedding</span><br>model.add(Embedding(num_words,<br>                    embedding_dim,<br>                    weights=[embedding_matrix],<br>                    input_length=max_tokens,<br>                    trainable=<span class="hljs-literal">False</span>))<br><span class="hljs-comment">#载入模型</span><br>model.add(Bidirectional(LSTM(units=<span class="hljs-number">64</span>, return_sequences=<span class="hljs-literal">True</span>)))<br>model.add(LSTM(units=<span class="hljs-number">16</span>, return_sequences=<span class="hljs-literal">False</span>))<br><span class="hljs-keyword">import</span> tensorflow <span class="hljs-keyword">as</span> tf<br>model.add(Dense(<span class="hljs-number">1</span>, activation=<span class="hljs-string">&#x27;sigmoid&#x27;</span>))<br><span class="hljs-comment"># 我们使用adam以0.001的learning rate进行优化</span><br>optimizer = tf.keras.optimizers.Adam(lr=<span class="hljs-number">1e-3</span>)<br>model.<span class="hljs-built_in">compile</span>(loss=<span class="hljs-string">&#x27;binary_crossentropy&#x27;</span>,<br>              optimizer=optimizer,<br>              metrics=[<span class="hljs-string">&#x27;accuracy&#x27;</span>])<span class="hljs-comment">#使用默认优化器</span><br><span class="hljs-comment"># 建立一个权重的存储点</span><br>path_checkpoint = <span class="hljs-string">&#x27;sentiment_checkpoint.keras&#x27;</span><br>checkpoint = ModelCheckpoint(filepath=path_checkpoint, monitor=<span class="hljs-string">&#x27;val_loss&#x27;</span>,<br>                                      verbose=<span class="hljs-number">1</span>, save_weights_only=<span class="hljs-literal">True</span>,<br>                                      save_best_only=<span class="hljs-literal">True</span>)<br><span class="hljs-comment"># 尝试加载已训练模型</span><br><span class="hljs-keyword">try</span>:<br>    model.load_weights(path_checkpoint)<br><span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:<br>    <span class="hljs-built_in">print</span>(e)<br><span class="hljs-comment"># 定义early stoping如果3个epoch内validation loss没有改善则停止训练</span><br>earlystopping = EarlyStopping(monitor=<span class="hljs-string">&#x27;val_loss&#x27;</span>, patience=<span class="hljs-number">5</span>, verbose=<span class="hljs-number">1</span>)<br><span class="hljs-comment"># 自动降低learning rate</span><br>lr_reduction = ReduceLROnPlateau(monitor=<span class="hljs-string">&#x27;val_loss&#x27;</span>,<br>                                       factor=<span class="hljs-number">0.1</span>, min_lr=<span class="hljs-number">1e-8</span>, patience=<span class="hljs-number">0</span>,<br>                                       verbose=<span class="hljs-number">1</span>)<br><span class="hljs-comment"># 定义callback函数</span><br>callbacks = [<br>    earlystopping, <br>    checkpoint,<br>    lr_reduction<br>]<br><span class="hljs-comment"># 开始训练</span><br>model.fit(X_train, y_train,<br>          validation_split=<span class="hljs-number">0.1</span>, <br>          epochs=<span class="hljs-number">20</span>,<br>          batch_size=<span class="hljs-number">128</span>,<br>          callbacks=callbacks)<br></code></pre></td></tr></table></figure>
+<h2 id="模型预测"><a href="#模型预测" class="headerlink" title="模型预测"></a>模型预测</h2><p><strong>预测函数</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">predict_sentiment</span>(<span class="hljs-params">text</span>):</span><br>    <span class="hljs-built_in">print</span>(text)<br>    <span class="hljs-comment"># 去标点</span><br>    text = re.sub(<span class="hljs-string">&quot;[\s+\.\!\/_,$%^*(+\&quot;\&#x27;]+|[+——！，。？、~@#￥%……&amp;*（）]+&quot;</span>, <span class="hljs-string">&quot;&quot;</span>,text)<br>    <span class="hljs-comment"># 分词</span><br>    cut = jieba.cut(text)<br>    cut_list = [ i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> cut ]<br>    <span class="hljs-comment"># tokenize</span><br>    <span class="hljs-keyword">for</span> i, word <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(cut_list):<br>        <span class="hljs-keyword">try</span>:<br>            cut_list[i] = cn_model.key_to_index[word]<br>            <span class="hljs-keyword">if</span> cut_list[i] &gt;= <span class="hljs-number">50000</span>:<br>                cut_list[i] = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">except</span> KeyError:<br>            cut_list[i] = <span class="hljs-number">0</span><br>    <span class="hljs-comment"># padding</span><br>    tokens_pad = pad_sequences([cut_list], maxlen=max_tokens,<br>                           padding=<span class="hljs-string">&#x27;pre&#x27;</span>, truncating=<span class="hljs-string">&#x27;pre&#x27;</span>)<br>    <span class="hljs-comment"># 预测</span><br>    result = model.predict(x=tokens_pad)<br>    coef = result[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>]<br>    <span class="hljs-keyword">if</span> coef &gt;= <span class="hljs-number">0.5</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;是一例正面评价&#x27;</span>,<span class="hljs-string">&#x27;output=%.2f&#x27;</span>%coef)<br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;是一例负面评价&#x27;</span>,<span class="hljs-string">&#x27;output=%.2f&#x27;</span>%coef)<br><span class="hljs-comment"># 测试预测结果</span><br>test_list = [<br>    <span class="hljs-string">&#x27;酒店设施不是新的，服务态度很不好&#x27;</span>,<br>    <span class="hljs-string">&#x27;酒店卫生条件非常不好&#x27;</span>,<br>    <span class="hljs-string">&#x27;床铺非常舒适&#x27;</span>,<br>    <span class="hljs-string">&#x27;房间很凉，不给开暖气&#x27;</span>,<br>    <span class="hljs-string">&#x27;房间很凉爽，空调冷气很足&#x27;</span>,<br>    <span class="hljs-string">&#x27;酒店环境不好，住宿体验很不好&#x27;</span>,<br>    <span class="hljs-string">&#x27;房间隔音不到位&#x27;</span> ,<br>    <span class="hljs-string">&#x27;晚上回来发现没有打扫卫生&#x27;</span>,<br>    <span class="hljs-string">&#x27;因为过节所以要我临时加钱，比团购的价格贵&#x27;</span><br>]<br><span class="hljs-keyword">for</span> text <span class="hljs-keyword">in</span> test_list:<br>    predict_sentiment(text)<br>y_pred = model.predict(X_test)<br>y_pred = y_pred.T[<span class="hljs-number">0</span>]<br>y_pred = [<span class="hljs-number">1</span> <span class="hljs-keyword">if</span> p&gt;= <span class="hljs-number">0.5</span> <span class="hljs-keyword">else</span> <span class="hljs-number">0</span> <span class="hljs-keyword">for</span> p <span class="hljs-keyword">in</span> y_pred]<br>y_pred = np.array(y_pred)<br></code></pre></td></tr></table></figure>
+<h2 id="补充：查询分类错误的索引"><a href="#补充：查询分类错误的索引" class="headerlink" title="补充：查询分类错误的索引"></a>补充：查询分类错误的索引</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python">y_actual = np.array(y_test)<br><span class="hljs-comment"># 找出错误分类的索引</span><br>misclassified = np.where( y_pred != y_actual )[<span class="hljs-number">0</span>]<br><span class="hljs-comment"># 输出所有错误分类的索引</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">len</span>(misclassified))<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">len</span>(X_test))<br><span class="hljs-comment"># 我们来找出错误分类的样本看看</span><br>idx=<span class="hljs-number">101</span><br><span class="hljs-built_in">print</span>(reverse_tokens(X_test[idx]))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;预测的分类&#x27;</span>, y_pred[idx])<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;实际的分类&#x27;</span>, y_actual[idx])<br>idx=<span class="hljs-number">1</span><br><span class="hljs-built_in">print</span>(reverse_tokens(X_test[idx]))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;预测的分类&#x27;</span>, y_pred[idx])<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;实际的分类&#x27;</span>, y_actual[idx])<br></code></pre></td></tr></table></figure>
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>Natu Matu<br>
+        <strong>本文链接：</strong><a href="https://631212502.github.io/2022/04/14/%E4%B8%AD%E6%96%87NLP-%E6%83%85%E6%84%9F%E5%88%86%E6%9E%90/" title="https:&#x2F;&#x2F;631212502.github.io&#x2F;2022&#x2F;04&#x2F;14&#x2F;%E4%B8%AD%E6%96%87NLP-%E6%83%85%E6%84%9F%E5%88%86%E6%9E%90&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;631212502.github.io&#x2F;2022&#x2F;04&#x2F;14&#x2F;%E4%B8%AD%E6%96%87NLP-%E6%83%85%E6%84%9F%E5%88%86%E6%9E%90&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/MMDL/" rel="tag">MMDL</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/S-Project/" rel="tag">S_Project</a>
+    
+</div>
+
+  
+      <div class="nexmoe-post-footer">
+          <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: 'cdc194d30f71cf392fdd',
+        clientSecret: 'b27b4f1ec813cb7eaa115ab184569422b663176a',
+        id: window.location.pathname,
+        repo: '631212502.github.io',
+        owner: '631212502',
+        admin: '631212502'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+      </div>
+  
+</div>
+                <div class="nexmoe-post-right">
+                <div class="nexmoe-fixed">
+                    <div class="nexmoe-tool"> 
+                        
+                            
+                            
+                                <button class="mdui-fab catalog" style="overflow:unset;">
+                                    <i class="nexmoefont icon-i-catalog"></i>
+                                    <div class="nexmoe-toc">
+                                        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8Tensorflow%E8%BF%9B%E8%A1%8C%E4%B8%AD%E6%96%87%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E2%80%93%E6%83%85%E6%84%9F%E5%88%86%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text">用Tensorflow进行中文自然语言处理–情感分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="toc-number">3.</span> <span class="toc-text">环境搭建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%AD%E6%96%99"><span class="toc-number">4.</span> <span class="toc-text">语料</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%84%E5%A4%84%E7%90%86"><span class="toc-number">5.</span> <span class="toc-text">预处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%9E%8B"><span class="toc-number">6.</span> <span class="toc-text">设计模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E9%A2%84%E6%B5%8B"><span class="toc-number">7.</span> <span class="toc-text">模型预测</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A%E6%9F%A5%E8%AF%A2%E5%88%86%E7%B1%BB%E9%94%99%E8%AF%AF%E7%9A%84%E7%B4%A2%E5%BC%95"><span class="toc-number">8.</span> <span class="toc-text">补充：查询分类错误的索引</span></a></li></ol>
+                                    </div>
+                                </button>
+                            
+                        
+                        <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="aplayerContent">
+        <meting-js
+        style="position:absolute; z-index:99999" 
+        type="playlist" 
+        server="netease" 
+        id="6976153408" 
+        fixed="true"
+        autoplay="true"
+        order="random"
+        loop="all"
+        list-folded="false"
+        preload="auto"
+        list-max-height="500px"
+        lrc-type="1">
+        </meting-js> 
+    </div>
+    <script>
+        // 对所有链接跳转事件绑定pjax容器container,只在容器中跳转
+        $(document).pjax('a[target!=_blank]', '#pageContent', {fragment: '#pageContent', timeout:8000})
+    </script>
+     
+    <div id="nexmoe-search-space">
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <input class="search-input" type="text" placeholder="搜索" oninput="sinput();">
+                </div>
+                <a class="search-close" onclick="sclose();">×</a>
+            </div>
+            <div class="search-body"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+ 
+
+<script async src="/js/app.js?v=1704991421183"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+
+
+    
+
+
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<!--烟花爆炸-->
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script type="text/javascript" src="/js/firework.js"></script>
+<!--单击显示文字-->
+<script type="text/javascript" src="/js/click_show_text.js"></script>
+</html>
+
+

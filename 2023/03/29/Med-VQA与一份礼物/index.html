@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    
+    <meta name="baidu-site-verification" content="code-NrUjkxdqT5" />
+    <title>【Demo发布】A Med-VQA | 医学视觉问答 - Eutupia by 夏夢</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="願いが叶う場所">
+    <meta name="keywords" content="null">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
+
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/logo.png" type="image/png" />
+    <meta name="description" content="Demo小さな仕事にも意味を持たせたいなあ～">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Demo发布】A Med-VQA | 医学视觉问答">
+<meta property="og:url" content="https://631212502.github.io/2023/03/29/Med-VQA%E4%B8%8E%E4%B8%80%E4%BB%BD%E7%A4%BC%E7%89%A9/index.html">
+<meta property="og:site_name" content="Eutupia by 夏夢">
+<meta property="og:description" content="Demo小さな仕事にも意味を持たせたいなあ～">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://631212502.github.io/2023/03/29/Med-VQA%E4%B8%8E%E4%B8%80%E4%BB%BD%E7%A4%BC%E7%89%A9/03/29/Med-VQA%E4%B8%8E%E4%B8%80%E4%BB%BD%E7%A4%BC%E7%89%A9/Q-type.png">
+<meta property="og:image" content="https://631212502.github.io/2023/03/29/Med-VQA%E4%B8%8E%E4%B8%80%E4%BB%BD%E7%A4%BC%E7%89%A9/03/29/Med-VQA%E4%B8%8E%E4%B8%80%E4%BB%BD%E7%A4%BC%E7%89%A9/synpic17153.jpg">
+<meta property="og:image" content="https://631212502.github.io/2023/03/29/Med-VQA%E4%B8%8E%E4%B8%80%E4%BB%BD%E7%A4%BC%E7%89%A9/synpic18250.jpg">
+<meta property="og:image" content="https://631212502.github.io/2023/03/29/Med-VQA%E4%B8%8E%E4%B8%80%E4%BB%BD%E7%A4%BC%E7%89%A9/03/29/Med-VQA%E4%B8%8E%E4%B8%80%E4%BB%BD%E7%A4%BC%E7%89%A9/train_0000.jpg">
+<meta property="og:image" content="https://631212502.github.io/2023/03/29/Med-VQA%E4%B8%8E%E4%B8%80%E4%BB%BD%E7%A4%BC%E7%89%A9/03/29/Med-VQA%E4%B8%8E%E4%B8%80%E4%BB%BD%E7%A4%BC%E7%89%A9/close_confusionmatrix.png">
+<meta property="og:image" content="https://631212502.github.io/2023/03/29/Med-VQA%E4%B8%8E%E4%B8%80%E4%BB%BD%E7%A4%BC%E7%89%A9/03/29/Med-VQA%E4%B8%8E%E4%B8%80%E4%BB%BD%E7%A4%BC%E7%89%A9/open_confusionmatrix.png">
+<meta property="og:image" content="https://631212502.github.io/2023/03/29/Med-VQA%E4%B8%8E%E4%B8%80%E4%BB%BD%E7%A4%BC%E7%89%A9/03/29/Med-VQA%E4%B8%8E%E4%B8%80%E4%BB%BD%E7%A4%BC%E7%89%A9/close_roc.png">
+<meta property="article:published_time" content="2023-03-29T09:56:53.000Z">
+<meta property="article:modified_time" content="2023-12-02T09:04:08.492Z">
+<meta property="article:author" content="Natu Matu">
+<meta property="article:tag" content="S_Project">
+<meta property="article:tag" content="学术">
+<meta property="article:tag" content="论文">
+<meta property="article:tag" content="mmdl">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://631212502.github.io/2023/03/29/Med-VQA%E4%B8%8E%E4%B8%80%E4%BB%BD%E7%A4%BC%E7%89%A9/03/29/Med-VQA%E4%B8%8E%E4%B8%80%E4%BB%BD%E7%A4%BC%E7%89%A9/Q-type.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
+    <!-- require APlayer -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+	<!-- require MetingJS : 未解决歌单播放问题-->
+	<script src="https://cdn.jsdelivr.net/npm/meting@latest/dist/Meting.min.js"></script>
+    <!-- require pjax -->
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+    <!-- DPlayer -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.js"></script>
+    <link rel="stylesheet" href="/css/style.css?v=1704991421068">
+     
+    
+        <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
+    
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1704991421068">
+    
+        <link rel="stylesheet" href="/custom.css">
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body class="mdui-drawer-body-left">
+    
+    <div id="pageContent">
+        <div id="nexmoe-background">
+            <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/202211081936671.jpg)"></div>
+            <div class="mdui-appbar mdui-shadow-0">
+                <div class="mdui-toolbar">
+                    <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                    <div class="mdui-toolbar-spacer"></div>
+                    <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                    <a href="/" title="Natu Matu" class="mdui-btn mdui-btn-icon"><img src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/avatar.jpg" alt="Natu Matu"></a>
+                </div>
+            </div>
+        </div>
+        <div id="nexmoe-header">
+            <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="Natu Matu">
+            <img src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/avatar.jpg" alt="Natu Matu" alt="Natu Matu">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>50</div>
+        <div><span>标签</span>17</div>
+        <div><span>分类</span>4</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/gate.html" title="小憩歌单">
+            <i class="mdui-list-item-icon nexmoefont icon-coffee"></i>
+            <div class="mdui-list-item-content">
+                小憩歌单
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/PY.html" title="左邻右舍">
+            <i class="mdui-list-item-icon nexmoefont icon-wechat-fill"></i>
+            <div class="mdui-list-item-content">
+                左邻右舍
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/album.html" title="时间光影">
+            <i class="mdui-list-item-icon nexmoefont icon-calendar-fill"></i>
+            <div class="mdui-list-item-content">
+                时间光影
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/natunoyume.html" title="拾音纪行">
+            <i class="mdui-list-item-icon nexmoefont icon-telegram"></i>
+            <div class="mdui-list-item-content">
+                拾音纪行
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+         
+            <form id="search_form" action_e="https://cn.bing.com/search?q=" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder="搜索"></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://qm.qq.com/cgi-bin/qm/qr?k=QriGs7GcXMPd6scnWXeO-IJ5TP8Qm8sd&noverify=0" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="https://space.bilibili.com/10580381" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .1);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/631212502" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .1);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=631212502@qq.com" target="_blank" mdui-tooltip="{content: '邮箱'}" style="color: rgb(51, 153, 255);background-color: rgba(51, 153, 255, .1);">
+            <i class="nexmoefont icon-mail-fill"></i>
+        </a><a class="mdui-ripple" href="https://steamcommunity.com/profiles/76561199013116495/" target="_blank" mdui-tooltip="{content: 'steam'}" style="color: rgb(3, 98, 255);background-color: rgba(3, 98, 255, .1);">
+            <i class="nexmoefont icon-steam"></i>
+        </a><a class="mdui-ripple" href="https://www.xiaohongshu.com/user/profile/5fcc10c4000000000100b0b7?xhsshare=CopyLink&appuid=5fcc10c4000000000100b0b7&apptime=1660447872" target="_blank" mdui-tooltip="{content: '小红书'}" style="color: rgb(250, 136, 111);background-color: rgba(250, 136, 111, .1);">
+            <i class="nexmoefont icon-calendar-fill"></i>
+        </a><a class="mdui-ripple" href="/null" target="_blank" mdui-tooltip="{content: '知乎'}" style="color: ;background-color: ;">
+            <i class="nexmoefont icon-zhihu"></i>
+        </a><a class="mdui-ripple" href="/null" target="_blank" mdui-tooltip="{content: '推特'}" style="color: ;background-color: ;">
+            <i class="nexmoefont icon-twitter"></i>
+        </a><a class="mdui-ripple" href="https://chat.openai.com/chat" target="_blank" mdui-tooltip="{content: 'GPT'}" style="color: rgb(45, 13, 73);background-color: rgba(45, 13, 73, .1);">
+            <i class="nexmoefont icon-eye-fill"></i>
+        </a>
+    </div>
+</div>
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/Coding/" style="font-size: 17.14px;">Coding</a> <a href="/tags/Competition/" style="font-size: 11.43px;">Competition</a> <a href="/tags/MMDL/" style="font-size: 10px;">MMDL</a> <a href="/tags/S-Project/" style="font-size: 14.29px;">S_Project</a> <a href="/tags/mmdl/" style="font-size: 18.57px;">mmdl</a> <a href="/tags/page-building/" style="font-size: 12.86px;">page_building</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 15.71px;">博客</a> <a href="/tags/%E5%AD%A6%E6%9C%AF/" style="font-size: 15.71px;">学术</a> <a href="/tags/%E6%91%84%E5%BD%B1/" style="font-size: 14.29px;">摄影</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 11.43px;">旅行</a> <a href="/tags/%E6%AD%8C%E3%81%86/" style="font-size: 11.43px;">歌う</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 17.14px;">笔记</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">编程</a> <a href="/tags/%E8%A8%80%E8%91%89/" style="font-size: 20px;">言葉</a> <a href="/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 14.29px;">记录</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 12.86px;">论文</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 17.14px;">随笔</a>
+    </div>
+    
+  </div>
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/小さな考え/">小さな考え</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/无情の勉強マシン/">无情の勉強マシン</a>
+          <span class="category-list-count">7</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/言けない言葉/">言けない言葉</a>
+          <span class="category-list-count">6</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/音楽が辞めよう/">音楽が辞めよう</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/">2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/">2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/">2010</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+
+    
+    <span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt = new Date("08/31/2021 17:38:00"); //在此处修改你的建站时间
+        now.setTime(now.getTime() + 250);
+        days = (now - grt) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt) / 1000 / 60 / 60 - 24 * dnum;
+        hnum = Math.floor(hours);
+        if (String(hnum).length == 1) {
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt) / 1000 / 60 - 24 * 60 * dnum - 60 * hnum;
+        mnum = Math.floor(minutes);
+        if (String(mnum).length == 1) {
+            mnum = "0" + mnum;
+        }
+        seconds = (now - grt) / 1000 - 24 * 60 * 60 * dnum - 60 * 60 * hnum - 60 * mnum;
+        snum = Math.round(seconds);
+        if (String(snum).length == 1) {
+            snum = "0" + snum;
+        }
+        document.getElementById("timeDate").innerHTML = 
+            " 风雨中度过了 " + dnum + " 天 ";
+        document.getElementById("times").innerHTML =
+            hnum + " 小时 " + mnum + " 分 "; 
+    }
+    setInterval("createtime()", 250);
+</script>
+<!-- + snum + " 秒 "-->
+    
+</aside>
+
+
+    <div class="nexmoe-copyright">
+        &copy; 2024 Natu Matu
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        
+    </div>
+</div><!-- .nexmoe-drawer -->
+<div style="font-size: 13px">
+    <link rel="stylesheet" href="https://widget.heweather.net/standard/static/css/he-standard.css?v=1.4.0"><script src="https://widget.heweather.net/standard/static/js/he-standard.js?v=1.4.0"></script><script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    本站总访问量  <a id="busuanzi_value_site_pv"></a> 次<br>
+    本站访客数<a id="busuanzi_value_site_uv"></a>人次
+</div>
+
+        </div>
+        <div id="nexmoe-content">
+            <div class="nexmoe-primary">
+                <div class="nexmoe-post">
+
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: NaN%;"> 
+              <img data-src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/202211061907926.jpg" data-sizes="auto" alt="【Demo发布】A Med-VQA | 医学视觉问答" class="lazyload">
+              <h1>【Demo发布】A Med-VQA | 医学视觉问答</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2023年03月29日</a>
+    <a><i class="nexmoefont icon-areachart"></i>1.9k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 7 分钟</a>
+</div>
+
+      
+
+      <p><strong><a target="_blank" rel="noopener" href="https://37977v0m87.yicp.fun/">Demo</a>小さな仕事にも意味を持たせたいなあ～</strong></p>
+<span id="more"></span>
+<h2 id="Demo发布地址"><a href="#Demo发布地址" class="headerlink" title="Demo发布地址"></a>Demo发布地址</h2><p>如果你并不关心这个Demo背后无聊的原理和故事，那就直接<a target="_blank" rel="noopener" href="https://37977v0m87.yicp.fun/">点击体验</a>吧~</p>
+<h3 id="网址嵌入版"><a href="#网址嵌入版" class="headerlink" title="网址嵌入版"></a>网址嵌入版</h3><iframe src="https://37977v0m87.yicp.fun/?"></iframe>
+
+<h2 id="一点启发"><a href="#一点启发" class="headerlink" title="一点启发"></a>一点启发</h2><p>先向Coolwuf大神致敬(瑞思拜)，其实最早还要追溯到去年5月份刷到的一个差评君视频：<br></p>
+<div style="position: relative; padding: 30% 45%;">
+<iframe style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;" src="//player.bilibili.com/player.html?aid=426952626&bvid=BV1x3411V7tL&cid=729621720&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+</div>
+
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><meting-js server="netease" type="song" id="1984758339" audio.type="auto"></meting-js></p>
+<p>当时还是个头铁娃，拿两张实验室的TitanXP跑几十个G的自然图像数据集跑个模型跑了三天三夜的我看了这个视频之后大为震撼，发现自然图像下的QA对话模型都是一些类似”小儿看图说话”那样的弱智问答，哪怕把点摁train上去了也毫无意义，在AI真正具备自主能力和世界连接的能力之前，传统VQA的落地似乎还比较遥远并且没有十分的必要。</p>
+<p>于是，我就把目光转向了医疗图像领域，一是数据集比较小，比较适合我这种仅有一点辣鸡算力资源的Ai学生贫农去玩。其次就是正如差评君的视频所说，好的医生的诊断经验其实非常宝贵，而好的医生学者不但培养周期长，工作服务时间有限，而且往往集中与大城市的三甲医院或者高校，普通老百姓往往难以获得这样的诊断机会，或许一不小心就会耽误了救治的最佳时机，成为一家之”痛”，所以做一个哪怕只能帮助人们做做疾病预警和问答的Ai也或许有那么一些些意义（传说中的自我感觉良好~）</p>
+<h2 id="研究背景"><a href="#研究背景" class="headerlink" title="研究背景"></a>研究背景</h2><p>Med-VQA是最近才兴起的一个小领域，主要是想通过AI模型学习各科医生的宝贵诊疗经验，帮助使用者随时都可以了解自己的身体情况以及及时预防和降低风险。在最近的研究中，医学 VQA 被分配给几个“工作”。第一个是诊断放射科医生，它充当参考医生的专家顾问。工作量研究表明，平均放射科医生必须在3到4秒内解释一个CT或MRI图像。除了成像研究的长队列外，放射科医生还必须回答医生和患者每天27个电话的平均值，从而导致工作流程的进一步低效和中断。医学 VQA 系统可以潜在地回答医生的问题，并有助于减轻医疗保健系统的负担并提高医疗专业人员的效率。与 VQA 优势相匹配的另一个应用是作为检查的病理学家身体组织并帮助其他医疗保健提供者进行诊断。</p>
+<p>除了健康专业角色外，医疗 VQA 系统还可以作为知识渊博的助手。例如，VQA 系统的“第二意见”可以支持临床医生解释医学图像的意见，同时降低误诊的风险</p>
+<p>最终，成熟完整的医学 VQA 系统可以直接审查患者的图像并回答任何类型的问题。在某些情况下，例如无法获得医疗专业人员的完全自动化健康检查，VQA 系统可以提供等效的咨询。在医院就诊后，患者在线搜索更多信息。来自搜索引擎的不规则和误导性信息可能会导致答案不合适。或者，医学 VQA 可以集成到在线咨询系统中，随时随地提供可靠的答案。</p>
+<h2 id="挑战"><a href="#挑战" class="headerlink" title="挑战"></a>挑战</h2><p>由于以下因素，医学 VQA 在技术上比一般领域 VQA 更具挑战性。首先，创建大规模的医学 VQA 数据集具有挑战性，因为专家注释因其对专业知识的高要求而昂贵，并且 QA 对不能直接从图像中合成生成。其次，根据医学图像回答问题也需要 VQA 模型的具体设计。该任务还需要关注细粒度的尺度，因为病变是微观的。因此，可能需要分割技术来精确定位感兴趣的区域。最后，一个医学问题可能是非常专业的，这需要模型使用医学知识库而不是通用语言进行训练。</p>
+<h2 id="爆肝神曲"><a href="#爆肝神曲" class="headerlink" title="爆肝神曲"></a>爆肝神曲</h2><p><meting-js server="netease" type="song" id="464605692" audio.type="auto"></meting-js><br><meting-js server="netease" type="song" id="32317208" audio.type="auto"></meting-js></p>
+<p>僕らの手に何もないけ、この歌僕にとってとても深い意味がある。</p>
+<h2 id="相关"><a href="#相关" class="headerlink" title="相关"></a>相关</h2><p><a href="https://631212502.github.io/2022/07/01/VQA/">科研记录</a><br>一些主流的模型、方法、数据集介绍以及踩坑路。。。。。。</p>
+<h2 id="Demo介绍"><a href="#Demo介绍" class="headerlink" title="Demo介绍"></a>Demo介绍</h2><p>Q:这个Demo是什么？有什么用？可以做一些什么？<br><strong>这个Demo背后是一个医学视觉问答模型，能够帮助非专业的人去看或者看懂一些医学图像。</strong><br>(注：Demo尚且在测试和收集数据阶段，提供的答案仅具有参考意义，AI目前不承担法律责任，望周知！)</p>
+<p>由于标注成本高，公开数据集十分匮乏，目前仅支持头部MRI、CT、chest-Xray这三类图像并且仅支持英文（可输入中文，后台代码会协助翻译，但准确性会有所下降），问题类型可以参考样例，问一些关于图像中数目（COUNT）、颜色（COLOR）、器官（Organ）、模态（Modality）等如下图所示的问题类型：</p>
+<img src="/2023/03/29/Med-VQA%E4%B8%8E%E4%B8%80%E4%BB%BD%E7%A4%BC%E7%89%A9/03/29/Med-VQA%E4%B8%8E%E4%B8%80%E4%BB%BD%E7%A4%BC%E7%89%A9/Q-type.png" class title="问题类型">
+
+<h2 id="数据集相关"><a href="#数据集相关" class="headerlink" title="数据集相关"></a>数据集相关</h2><p>目前使用的数据集有：</p>
+<table>
+<thead>
+<tr>
+<th>领域</th>
+<th>数据集</th>
+<th>状态</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>放射学</td>
+<td>MED-RAD、SLAKE</td>
+<td>已上线</td>
+</tr>
+<tr>
+<td>病理学</td>
+<td>PathVQA</td>
+<td>准备中</td>
+</tr>
+</tbody></table>
+<p>放射学（Med-RAD）数据样例：</p>
+<img src="/2023/03/29/Med-VQA%E4%B8%8E%E4%B8%80%E4%BB%BD%E7%A4%BC%E7%89%A9/03/29/Med-VQA%E4%B8%8E%E4%B8%80%E4%BB%BD%E7%A4%BC%E7%89%A9/synpic17153.jpg" class title="MRI\CT">
+<!-- <img src="/2023/03/29/Med-VQA%E4%B8%8E%E4%B8%80%E4%BB%BD%E7%A4%BC%E7%89%A9/synpic18250.jpg" class="" title="X-ray"> -->
+
+<p>病理学数据：</p>
+<img src="/2023/03/29/Med-VQA%E4%B8%8E%E4%B8%80%E4%BB%BD%E7%A4%BC%E7%89%A9/03/29/Med-VQA%E4%B8%8E%E4%B8%80%E4%BB%BD%E7%A4%BC%E7%89%A9/train_0000.jpg" class title="Path">
+<h2 id="模型相关"><a href="#模型相关" class="headerlink" title="模型相关"></a>模型相关</h2><p><a href="https://631212502.github.io/2022/07/01/VQA/">科研记录</a><br>（具体的使用到的方法和idea待日后再补充）</p>
+<h2 id="模型评估"><a href="#模型评估" class="headerlink" title="模型评估"></a>模型评估</h2><h3 id="测试集准确率"><a href="#测试集准确率" class="headerlink" title="测试集准确率"></a>测试集准确率</h3><p>在Med-RAD下的准确率以及和主流模型对比：</p>
+<table>
+<thead>
+<tr>
+<th>Methods</th>
+<th>Open</th>
+<th>Closed</th>
+<th>ALL</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>MAML-AE -SAN</td>
+<td>40.7%</td>
+<td>74.1%</td>
+<td>60.8%</td>
+</tr>
+<tr>
+<td>MAML-AE -BAN</td>
+<td>43.9%</td>
+<td>75.1%</td>
+<td>62.7%</td>
+</tr>
+<tr>
+<td>MAML-AE -CMSA</td>
+<td>43.9%</td>
+<td>75.1%</td>
+<td>62.6%</td>
+</tr>
+<tr>
+<td>MTPT-BAN</td>
+<td>56.1%</td>
+<td>75.7%</td>
+<td>67.9%</td>
+</tr>
+<tr>
+<td>MTPT-CMSA</td>
+<td>56.1%</td>
+<td>77.3%</td>
+<td>68.8%</td>
+</tr>
+<tr>
+<td>CMAE-CMSA(Ours)</td>
+<td>65.4%</td>
+<td>77.6%</td>
+<td>72.7%</td>
+</tr>
+<tr>
+<td>CMAE-SAN(contrast)</td>
+<td>53.6%</td>
+<td>75.7%</td>
+<td>67.0%</td>
+</tr>
+<tr>
+<td>CMAE-BAN(contrast)</td>
+<td>52.0%</td>
+<td>78.0%</td>
+<td>68.3%</td>
+</tr>
+</tbody></table>
+<p>在SLAKE下的准确率以及和主流模型对比：</p>
+<table>
+<thead>
+<tr>
+<th>Methods</th>
+<th>Open</th>
+<th>Closed</th>
+<th>ALL</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>MEVF-SAN</td>
+<td>72.9&amp;</td>
+<td>77.6%</td>
+<td>74.7%</td>
+</tr>
+<tr>
+<td>MEVF-BAN</td>
+<td>75.0%</td>
+<td>76.4%</td>
+<td>75.6%</td>
+</tr>
+<tr>
+<td>MEVF-CMSA</td>
+<td>75.8%</td>
+<td>81.5%</td>
+<td>78.0%</td>
+</tr>
+<tr>
+<td>CMAE-CMSA(Ours)</td>
+<td>76.0%</td>
+<td>81.7%</td>
+<td>78.2%</td>
+</tr>
+<tr>
+<td>CMAE-SAN(contrast)</td>
+<td>74.9%</td>
+<td>82.0%</td>
+<td>77.7%</td>
+</tr>
+<tr>
+<td>CMAE-BAN(contrast)</td>
+<td>76.3%</td>
+<td>78.6%</td>
+<td>77.2%</td>
+</tr>
+</tbody></table>
+<p>虽然在数据集上的直观表现不错（水论文警告），但由于仅仅看了一千多张图片和训练了一万多的问答对，模型泛化能力依然有限。</p>
+<h3 id="BLEU"><a href="#BLEU" class="headerlink" title="BLEU"></a>BLEU</h3><h3 id="混淆矩阵"><a href="#混淆矩阵" class="headerlink" title="混淆矩阵"></a>混淆矩阵</h3><p>CLOSE封闭式问答:</p>
+<img src="/2023/03/29/Med-VQA%E4%B8%8E%E4%B8%80%E4%BB%BD%E7%A4%BC%E7%89%A9/03/29/Med-VQA%E4%B8%8E%E4%B8%80%E4%BB%BD%E7%A4%BC%E7%89%A9/close_confusionmatrix.png" class title="close_confusionmatrix">
+<p>OPEN开放式问答:<br>横纵坐标为测试集中的127个开放式回答label</p>
+<img src="/2023/03/29/Med-VQA%E4%B8%8E%E4%B8%80%E4%BB%BD%E7%A4%BC%E7%89%A9/03/29/Med-VQA%E4%B8%8E%E4%B8%80%E4%BB%BD%E7%A4%BC%E7%89%A9/open_confusionmatrix.png" class title="open_confusionmatrix">
+<p>（从对角线与非对角线的热力差可以看出这个模型在预测时的实际表现还是不错的）</p>
+<h3 id="ROC曲线"><a href="#ROC曲线" class="headerlink" title="ROC曲线"></a>ROC曲线</h3><p>CLOSE:</p>
+<img src="/2023/03/29/Med-VQA%E4%B8%8E%E4%B8%80%E4%BB%BD%E7%A4%BC%E7%89%A9/03/29/Med-VQA%E4%B8%8E%E4%B8%80%E4%BB%BD%E7%A4%BC%E7%89%A9/close_roc.png" class title="close_roc">
+<p>(由于模型非概率输出，此曲线和AUC值仅代表理想性能)</p>
+<h2 id="一点心愿"><a href="#一点心愿" class="headerlink" title="一点心愿"></a>一点心愿</h2><p>这个小小的QA模型饱含了我整个研究生时期的心血和汗水，其中做过的选择，冒过的险，踩过的坑，经历过的无奈，熬过的夜，掉过的头发估计连自己也数不清楚了，希望自己这些年那些微不足道的想法和细碎的科研真的能够切实帮助到一些有需要的人，如此便好~</p>
+<p>也谢谢您能看到这里，ありがとうございました！<br><meting-js server="netease" type="song" id="1953812194" audio.type="auto"></meting-js></p>
+<p>——Manatu撰写于2023年3月29日 | 「今年の誕生日前に、この世界にプレゼントを捧げたい」</p>
+
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>Natu Matu<br>
+        <strong>本文链接：</strong><a href="https://631212502.github.io/2023/03/29/Med-VQA%E4%B8%8E%E4%B8%80%E4%BB%BD%E7%A4%BC%E7%89%A9/" title="https:&#x2F;&#x2F;631212502.github.io&#x2F;2023&#x2F;03&#x2F;29&#x2F;Med-VQA%E4%B8%8E%E4%B8%80%E4%BB%BD%E7%A4%BC%E7%89%A9&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;631212502.github.io&#x2F;2023&#x2F;03&#x2F;29&#x2F;Med-VQA%E4%B8%8E%E4%B8%80%E4%BB%BD%E7%A4%BC%E7%89%A9&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/S-Project/" rel="tag">S_Project</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/mmdl/" rel="tag">mmdl</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E5%AD%A6%E6%9C%AF/" rel="tag">学术</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E8%AE%BA%E6%96%87/" rel="tag">论文</a>
+    
+</div>
+
+  
+      <div class="nexmoe-post-footer">
+          <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: 'cdc194d30f71cf392fdd',
+        clientSecret: 'b27b4f1ec813cb7eaa115ab184569422b663176a',
+        id: window.location.pathname,
+        repo: '631212502.github.io',
+        owner: '631212502',
+        admin: '631212502'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+      </div>
+  
+</div>
+                <div class="nexmoe-post-right">
+                <div class="nexmoe-fixed">
+                    <div class="nexmoe-tool"> 
+                        
+                            
+                            
+                                <button class="mdui-fab catalog" style="overflow:unset;">
+                                    <i class="nexmoefont icon-i-catalog"></i>
+                                    <div class="nexmoe-toc">
+                                        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Demo%E5%8F%91%E5%B8%83%E5%9C%B0%E5%9D%80"><span class="toc-number">1.</span> <span class="toc-text">Demo发布地址</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E5%9D%80%E5%B5%8C%E5%85%A5%E7%89%88"><span class="toc-number">1.1.</span> <span class="toc-text">网址嵌入版</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E7%82%B9%E5%90%AF%E5%8F%91"><span class="toc-number">2.</span> <span class="toc-text">一点启发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">3.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A0%94%E7%A9%B6%E8%83%8C%E6%99%AF"><span class="toc-number">4.</span> <span class="toc-text">研究背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%91%E6%88%98"><span class="toc-number">5.</span> <span class="toc-text">挑战</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%88%86%E8%82%9D%E7%A5%9E%E6%9B%B2"><span class="toc-number">6.</span> <span class="toc-text">爆肝神曲</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3"><span class="toc-number">7.</span> <span class="toc-text">相关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Demo%E4%BB%8B%E7%BB%8D"><span class="toc-number">8.</span> <span class="toc-text">Demo介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86%E7%9B%B8%E5%85%B3"><span class="toc-number">9.</span> <span class="toc-text">数据集相关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E7%9B%B8%E5%85%B3"><span class="toc-number">10.</span> <span class="toc-text">模型相关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0"><span class="toc-number">11.</span> <span class="toc-text">模型评估</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E9%9B%86%E5%87%86%E7%A1%AE%E7%8E%87"><span class="toc-number">11.1.</span> <span class="toc-text">测试集准确率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BLEU"><span class="toc-number">11.2.</span> <span class="toc-text">BLEU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B7%E6%B7%86%E7%9F%A9%E9%98%B5"><span class="toc-number">11.3.</span> <span class="toc-text">混淆矩阵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ROC%E6%9B%B2%E7%BA%BF"><span class="toc-number">11.4.</span> <span class="toc-text">ROC曲线</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E7%82%B9%E5%BF%83%E6%84%BF"><span class="toc-number">12.</span> <span class="toc-text">一点心愿</span></a></li></ol>
+                                    </div>
+                                </button>
+                            
+                        
+                        <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="aplayerContent">
+        <meting-js
+        style="position:absolute; z-index:99999" 
+        type="playlist" 
+        server="netease" 
+        id="6976153408" 
+        fixed="true"
+        autoplay="true"
+        order="random"
+        loop="all"
+        list-folded="false"
+        preload="auto"
+        list-max-height="500px"
+        lrc-type="1">
+        </meting-js> 
+    </div>
+    <script>
+        // 对所有链接跳转事件绑定pjax容器container,只在容器中跳转
+        $(document).pjax('a[target!=_blank]', '#pageContent', {fragment: '#pageContent', timeout:8000})
+    </script>
+     
+    <div id="nexmoe-search-space">
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <input class="search-input" type="text" placeholder="搜索" oninput="sinput();">
+                </div>
+                <a class="search-close" onclick="sclose();">×</a>
+            </div>
+            <div class="search-body"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+ 
+
+<script async src="/js/app.js?v=1704991421074"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+
+
+    
+
+
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<!--烟花爆炸-->
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script type="text/javascript" src="/js/firework.js"></script>
+<!--单击显示文字-->
+<script type="text/javascript" src="/js/click_show_text.js"></script>
+</html>
+
+

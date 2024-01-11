@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    
+    <meta name="baidu-site-verification" content="code-NrUjkxdqT5" />
+    <title>muti-machin deep learning - Eutupia by 夏夢</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="願いが叶う場所">
+    <meta name="keywords" content="null">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
+
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/logo.png" type="image/png" />
+    <meta name="description" content="MMDL综述篇：三句话从入门到劝退">
+<meta property="og:type" content="article">
+<meta property="og:title" content="muti-machin deep learning">
+<meta property="og:url" content="https://631212502.github.io/2020/09/13/%E6%97%A0%E6%83%85%E7%9A%84%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E6%9C%BA%E5%99%A8/index.html">
+<meta property="og:site_name" content="Eutupia by 夏夢">
+<meta property="og:description" content="MMDL综述篇：三句话从入门到劝退">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pdf.cdn.readpaper.com/parsed/fetch_target/610d2a8ecee7531cae89da46d39e66a7_0_Figure_1.png">
+<meta property="og:image" content="https://pdf.cdn.readpaper.com/parsed/fetch_target/610d2a8ecee7531cae89da46d39e66a7_1_Figure_2.png">
+<meta property="og:image" content="https://pdf.cdn.readpaper.com/parsed/fetch_target/610d2a8ecee7531cae89da46d39e66a7_3_Figure_3.png">
+<meta property="og:image" content="https://pdf.cdn.readpaper.com/parsed/fetch_target/610d2a8ecee7531cae89da46d39e66a7_5_Table_1.png">
+<meta property="og:image" content="https://pdf.cdn.readpaper.com/parsed/fetch_target/610d2a8ecee7531cae89da46d39e66a7_5_Table_2.png">
+<meta property="og:image" content="https://pdf.cdn.readpaper.com/parsed/fetch_target/610d2a8ecee7531cae89da46d39e66a7_6_Table_3.png">
+<meta property="og:image" content="https://pdf.cdn.readpaper.com/parsed/fetch_target/610d2a8ecee7531cae89da46d39e66a7_6_Table_4.png">
+<meta property="article:published_time" content="2020-09-13T01:33:06.000Z">
+<meta property="article:modified_time" content="2023-12-02T09:04:09.880Z">
+<meta property="article:author" content="Natu Matu">
+<meta property="article:tag" content="学术">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pdf.cdn.readpaper.com/parsed/fetch_target/610d2a8ecee7531cae89da46d39e66a7_0_Figure_1.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
+    <!-- require APlayer -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+	<!-- require MetingJS : 未解决歌单播放问题-->
+	<script src="https://cdn.jsdelivr.net/npm/meting@latest/dist/Meting.min.js"></script>
+    <!-- require pjax -->
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+    <!-- DPlayer -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.js"></script>
+    <link rel="stylesheet" href="/css/style.css?v=1704991421291">
+     
+    
+        <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
+    
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1704991421291">
+    
+        <link rel="stylesheet" href="/custom.css">
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body class="mdui-drawer-body-left">
+    
+    <div id="pageContent">
+        <div id="nexmoe-background">
+            <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/202211081936671.jpg)"></div>
+            <div class="mdui-appbar mdui-shadow-0">
+                <div class="mdui-toolbar">
+                    <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                    <div class="mdui-toolbar-spacer"></div>
+                    <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                    <a href="/" title="Natu Matu" class="mdui-btn mdui-btn-icon"><img src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/avatar.jpg" alt="Natu Matu"></a>
+                </div>
+            </div>
+        </div>
+        <div id="nexmoe-header">
+            <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="Natu Matu">
+            <img src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/avatar.jpg" alt="Natu Matu" alt="Natu Matu">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>50</div>
+        <div><span>标签</span>17</div>
+        <div><span>分类</span>4</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/gate.html" title="小憩歌单">
+            <i class="mdui-list-item-icon nexmoefont icon-coffee"></i>
+            <div class="mdui-list-item-content">
+                小憩歌单
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/PY.html" title="左邻右舍">
+            <i class="mdui-list-item-icon nexmoefont icon-wechat-fill"></i>
+            <div class="mdui-list-item-content">
+                左邻右舍
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/album.html" title="时间光影">
+            <i class="mdui-list-item-icon nexmoefont icon-calendar-fill"></i>
+            <div class="mdui-list-item-content">
+                时间光影
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/natunoyume.html" title="拾音纪行">
+            <i class="mdui-list-item-icon nexmoefont icon-telegram"></i>
+            <div class="mdui-list-item-content">
+                拾音纪行
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+         
+            <form id="search_form" action_e="https://cn.bing.com/search?q=" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder="搜索"></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://qm.qq.com/cgi-bin/qm/qr?k=QriGs7GcXMPd6scnWXeO-IJ5TP8Qm8sd&noverify=0" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="https://space.bilibili.com/10580381" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .1);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/631212502" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .1);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=631212502@qq.com" target="_blank" mdui-tooltip="{content: '邮箱'}" style="color: rgb(51, 153, 255);background-color: rgba(51, 153, 255, .1);">
+            <i class="nexmoefont icon-mail-fill"></i>
+        </a><a class="mdui-ripple" href="https://steamcommunity.com/profiles/76561199013116495/" target="_blank" mdui-tooltip="{content: 'steam'}" style="color: rgb(3, 98, 255);background-color: rgba(3, 98, 255, .1);">
+            <i class="nexmoefont icon-steam"></i>
+        </a><a class="mdui-ripple" href="https://www.xiaohongshu.com/user/profile/5fcc10c4000000000100b0b7?xhsshare=CopyLink&appuid=5fcc10c4000000000100b0b7&apptime=1660447872" target="_blank" mdui-tooltip="{content: '小红书'}" style="color: rgb(250, 136, 111);background-color: rgba(250, 136, 111, .1);">
+            <i class="nexmoefont icon-calendar-fill"></i>
+        </a><a class="mdui-ripple" href="/null" target="_blank" mdui-tooltip="{content: '知乎'}" style="color: ;background-color: ;">
+            <i class="nexmoefont icon-zhihu"></i>
+        </a><a class="mdui-ripple" href="/null" target="_blank" mdui-tooltip="{content: '推特'}" style="color: ;background-color: ;">
+            <i class="nexmoefont icon-twitter"></i>
+        </a><a class="mdui-ripple" href="https://chat.openai.com/chat" target="_blank" mdui-tooltip="{content: 'GPT'}" style="color: rgb(45, 13, 73);background-color: rgba(45, 13, 73, .1);">
+            <i class="nexmoefont icon-eye-fill"></i>
+        </a>
+    </div>
+</div>
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/Coding/" style="font-size: 17.14px;">Coding</a> <a href="/tags/Competition/" style="font-size: 11.43px;">Competition</a> <a href="/tags/MMDL/" style="font-size: 10px;">MMDL</a> <a href="/tags/S-Project/" style="font-size: 14.29px;">S_Project</a> <a href="/tags/mmdl/" style="font-size: 18.57px;">mmdl</a> <a href="/tags/page-building/" style="font-size: 12.86px;">page_building</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 15.71px;">博客</a> <a href="/tags/%E5%AD%A6%E6%9C%AF/" style="font-size: 15.71px;">学术</a> <a href="/tags/%E6%91%84%E5%BD%B1/" style="font-size: 14.29px;">摄影</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 11.43px;">旅行</a> <a href="/tags/%E6%AD%8C%E3%81%86/" style="font-size: 11.43px;">歌う</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 17.14px;">笔记</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">编程</a> <a href="/tags/%E8%A8%80%E8%91%89/" style="font-size: 20px;">言葉</a> <a href="/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 14.29px;">记录</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 12.86px;">论文</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 17.14px;">随笔</a>
+    </div>
+    
+  </div>
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/小さな考え/">小さな考え</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/无情の勉強マシン/">无情の勉強マシン</a>
+          <span class="category-list-count">7</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/言けない言葉/">言けない言葉</a>
+          <span class="category-list-count">6</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/音楽が辞めよう/">音楽が辞めよう</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/">2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/">2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/">2010</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+
+    
+    <span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt = new Date("08/31/2021 17:38:00"); //在此处修改你的建站时间
+        now.setTime(now.getTime() + 250);
+        days = (now - grt) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt) / 1000 / 60 / 60 - 24 * dnum;
+        hnum = Math.floor(hours);
+        if (String(hnum).length == 1) {
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt) / 1000 / 60 - 24 * 60 * dnum - 60 * hnum;
+        mnum = Math.floor(minutes);
+        if (String(mnum).length == 1) {
+            mnum = "0" + mnum;
+        }
+        seconds = (now - grt) / 1000 - 24 * 60 * 60 * dnum - 60 * 60 * hnum - 60 * mnum;
+        snum = Math.round(seconds);
+        if (String(snum).length == 1) {
+            snum = "0" + snum;
+        }
+        document.getElementById("timeDate").innerHTML = 
+            " 风雨中度过了 " + dnum + " 天 ";
+        document.getElementById("times").innerHTML =
+            hnum + " 小时 " + mnum + " 分 "; 
+    }
+    setInterval("createtime()", 250);
+</script>
+<!-- + snum + " 秒 "-->
+    
+</aside>
+
+
+    <div class="nexmoe-copyright">
+        &copy; 2024 Natu Matu
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        
+    </div>
+</div><!-- .nexmoe-drawer -->
+<div style="font-size: 13px">
+    <link rel="stylesheet" href="https://widget.heweather.net/standard/static/css/he-standard.css?v=1.4.0"><script src="https://widget.heweather.net/standard/static/js/he-standard.js?v=1.4.0"></script><script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    本站总访问量  <a id="busuanzi_value_site_pv"></a> 次<br>
+    本站访客数<a id="busuanzi_value_site_uv"></a>人次
+</div>
+
+        </div>
+        <div id="nexmoe-content">
+            <div class="nexmoe-primary">
+                <div class="nexmoe-post">
+
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: NaN%;"> 
+              <img data-src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/1.jpg" data-sizes="auto" alt="muti-machin deep learning" class="lazyload">
+              <h1>muti-machin deep learning</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2020年09月13日</a>
+    <a><i class="nexmoefont icon-areachart"></i>2.8k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 12 分钟</a>
+</div>
+
+      
+
+      <p><strong>MMDL综述篇：三句话从入门到劝退</strong></p>
+<span id="more"></span>
+<p><strong>PS：在此之前，需要提到的是：无论是论文笔记，还是总结性的读物，都包含了作者自己的理解和二次加工，想要做出好的工作必定需要自己看论文和总结。这里推荐一套来自卡内基梅隆大学的<a target="_blank" rel="noopener" href="https://cmu-multicomp-lab.github.io/mmml-course/fall2020/schedule/">网课</a></strong></p>
+<h2 id="来个段子"><a href="#来个段子" class="headerlink" title="来个段子"></a>来个段子</h2><center>导师：CV太卷，NLP太难，小伙子，不如来搞搞多模态往池子里灌灌水吧~</center>
+<center>我：多模态是干什么滴啊，能当饭吃？</center>
+<center>导师：当然可以~~东拼一点CV西凑一点NLP，再往锅里一炖，香得亚匹！</center>
+<center>我：我明白了，这就立马去炼丹！</center>
+
+<p><strong>由于近几年深度学习火热的原因，很多单一领域任务的模型性能难以提升，所以才有了混合模态灌水大法</strong><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/53511144">知乎一文读懂</a><br><a href="pytorch%E5%A4%9A%E6%A8%A1%E6%80%81%E5%AE%9E%E8%B7%B5%E5%9F%BA%E7%A1%80">pytorch多模态实践基础</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/tozhangning/article/details/82802164?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_title~default-0.no_search_link&spm=1001.2101.3001.4242">视觉问答VQA知识资料全集</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/liupeng19970119/article/details/106504992">音视频融合</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/152234745">常见的fusion</a></p>
+<h2 id="文献1-《Multimodal-Machine-Learning-A-Survey-and-Taxonomy》"><a href="#文献1-《Multimodal-Machine-Learning-A-Survey-and-Taxonomy》" class="headerlink" title="文献1:《Multimodal Machine Learning: A Survey and Taxonomy》"></a>文献1:<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/63143789">《Multimodal Machine Learning: A Survey and Taxonomy》</a></h2><h4 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h4><p>Abstract—Our experience of the world is <strong>multimodal</strong> - we see objects, hear sounds, feel texture, smell odors, and taste flavors.<br>Modality refers to the way in which something happens or is experienced and a research problem is characterized as multimodal when<br>it includes multiple such modalities. In order for Artificial Intelligence to make progress in understanding the world around us, it needs<br>to be able to interpret such multimodal signals together. Multimodal machine learning aims to build models that can process and relate<br>information from multiple modalities. It is a vibrant multi-disciplinary field of increasing importance and with extraordinary potential.<br>Instead of focusing on specific multimodal applications, this paper surveys the recent advances in multimodal machine learning itself<br>and presents them in a common taxonomy. We go beyond the typical early and late fusion categorization and identify broader<br>challenges that are faced by multimodal machine learning, namely: representation, translation, alignment, fusion, and co-learning. This<br>new taxonomy will enable researchers to better understand the state of the field and identify directions for futur</p>
+<h4 id="分析-综述太笼统，一下就不展开了"><a href="#分析-综述太笼统，一下就不展开了" class="headerlink" title="分析:综述太笼统，一下就不展开了"></a>分析:综述太笼统，一下就不展开了</h4><ul>
+<li>解决问题：是一篇行业大牛所写的综述，总结过去展望了未来，嗯，很好~</li>
+<li>论文动机：多模态领域内容杂乱，坑数不胜数，江湖分久必合</li>
+<li>研究方法：无情论文阅读法</li>
+<li>其他内容：总结了多模态信息融合过程中的表示（联合/嵌入），映射，融合，协同等学习方法</li>
+</ul>
+<h4 id="研究内容和应用领域"><a href="#研究内容和应用领域" class="headerlink" title="研究内容和应用领域"></a>研究内容和应用领域</h4><ul>
+<li>五大类：表示：多模态表征，对齐：跨模态对齐，映射（翻译），融合（多模态融合），协同</li>
+<li>如今的主要任务：<ul>
+<li>跨模态的预训练模型：Vision-Language Model</li>
+<li>跨任务预训练</li>
+</ul>
+</li>
+<li>Language-Audio<ul>
+<li>ext-to-Speech Synthesis: 给定文本，生成一段对应的声音。</li>
+<li>Audio Captioning：给定一段语音，生成一句话总结并描述主要内容。(不是语音识别)</li>
+</ul>
+</li>
+<li>Vision-Audio<ul>
+<li>Audio-Visual Speech Recognition(视听语音识别)：给定某人的视频及语音进行语音识别。</li>
+<li>Video Sound Separation(视频声源分离)：给定视频和声音信号(包含多个声源)，进行声源定位与分离。</li>
+<li>Image Generation from Audio: 给定声音，生成与其相关的图像。</li>
+<li>Speech-conditioned Face generation：给定一段话，生成说话人的视频。</li>
+<li>Audio-Driven 3D Facial Animation：给定一段话与3D人脸模版，生成说话的人脸3D动画。</li>
+</ul>
+</li>
+<li>Vision-Language<ul>
+<li>Image/Video-Text Retrieval (图(视频)文检索): 图像/视频&lt;–&gt;文本的相互检索。</li>
+<li>Image/Video Captioning(图像/视频描述)：给定一个图像/视频，生成文本描述其主要内容。</li>
+<li>Visual Question Answering(视觉问答)：给定一个图像/视频与一个问题，预测答案。</li>
+<li>Image/Video Generation from Text：给定文本，生成相应的图像或视频。</li>
+<li>Multimodal Machine Translation：给定一种语言的文本与该文本对应的图像，翻译为另外一种语言。</li>
+<li>Vision-and-Language Navigation(视觉-语言导航)： 给定自然语言进行指导，使得智能体根据视觉传感器导航到特定的目标。</li>
+<li>Multimodal Dialog(多模态对话)： 给定图像，历史对话，以及与图像相关的问题，预测该问题的回答。</li>
+</ul>
+</li>
+<li>定位相关的任务<ul>
+<li>Visual Grounding：给定一个图像与一段文本，定位到文本所描述的物体。</li>
+<li>Temporal Language Localization: 给定一个视频即一段文本，定位到文本所描述的动作(预测起止时间)。</li>
+<li>Video Summarization from text query：给定一段话(query)与一个视频，根据这段话的内容进行视频摘要，预测视频关键帧(或关键片段)组合为一个短的摘要视频。</li>
+<li>Video Segmentation from Natural Language Query: 给定一段话(query)与一个视频，分割得到query所指示的物体。</li>
+<li>ideo-Language Inference: 给定视频(包括视频的一些字幕信息)，还有一段文本假设(hypothesis)，判断二者是否存在语义蕴含(二分类)，即判断视频内容是否包含这段文本的语义。</li>
+<li>Object Tracking from Natural Language Query: 给定一段视频和一些文本，进行</li>
+<li>Language-guided Image/Video Editing: 一句话自动修图。给定一段指令(文本)，自动进行图像/视频的编辑。</li>
+</ul>
+</li>
+<li>更多模态<ul>
+<li>Affect Computing (情感计算)：使用语音、视觉(人脸表情)、文本信息、心电、脑电等模态进行情感识别。</li>
+<li>Medical Image：不同医疗图像模态如CT、MRI、PET</li>
+<li>RGB-D模态：RGB图与深度图</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="文献2-《ViLT-Vision-and-Language-Transformer-Without-Convolution-or-Region-Supervision》"><a href="#文献2-《ViLT-Vision-and-Language-Transformer-Without-Convolution-or-Region-Supervision》" class="headerlink" title="文献2:《ViLT: Vision-and-Language Transformer Without Convolution or Region Supervision》"></a>文献2:<a target="_blank" rel="noopener" href="https://readpaper.com/pdf-annotate/note?noteId=633812503618015232&pdfId=4545248231012589569">《ViLT: Vision-and-Language Transformer Without Convolution or Region Supervision》</a></h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>注：这是2021最轻量级的多模态融合模型（目前计算资源下仅有能跑得动的多模态模型）</p>
+<h4 id="摘要-1"><a href="#摘要-1" class="headerlink" title="摘要"></a>摘要</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://pdf.cdn.readpaper.com/parsed/fetch_target/610d2a8ecee7531cae89da46d39e66a7_0_Figure_1.png" alt="ideas" class="lazyload"></p>
+<h4 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h4><ul>
+<li>当今多模态领域（2019年以后），VLP（vision-and-language pre—training）模型已经成为了主流，面对大型网络的应用都是pre-traing+final tune的模式。</li>
+<li>一开始的VLP在视觉端都是采用的深度卷积神经网络实现（CNN），是以区域特征为主要的视觉语言密集型嵌入方法。Bert的提出是这个趋势的一种例外，他是Resnet的一种变体，取代了cnn/目标检测模块。</li>
+<li>很多VLP都是聚焦于提高如果提高视觉嵌入器cnn的性能，但缺点也很明显，在真实的应用中，对目标提取特征并训练是一个缓慢的过程。</li>
+<li>所以作者打算减轻视觉输入的嵌入，使其变成快速的轻量级输入，2020年的一项 (Dosovitskiy et al.,2020; Touvron et al., 2020) 工作说明不用区域特征提取而是进行图形投影就已经可以有效地嵌入像素（让模型学习到像素地语义）</li>
+<li>文章提出Vilt 一个可以同时处理视觉语言特质的轻量级预训练网络（如下图），作者有三点贡献：<ul>
+<li>简单架构，使用视觉投影（？），有显著的时间优势，（score）性能有些不足</li>
+<li>第一次在视觉任务中不使用卷积或者区域特征学习</li>
+<li>whole word masking 和 image augmentations<h4 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h4>作者基于两点提出视觉和语言模型分类标准</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li><p>基于参数和计算的模型表达水平是否一致</p>
+</li>
+<li><p>是否有在深层网络进行交互<br><strong>如下图:</strong><br><img data-fancybox="gallery" data-sizes="auto" data-src="https://pdf.cdn.readpaper.com/parsed/fetch_target/610d2a8ecee7531cae89da46d39e66a7_1_Figure_2.png" alt="four ways compare" class="lazyload"><br>PS:(1)是2017年提出的VSE (2)是2021年的CLIP (3)是2018年perez的多模态模型 (4)是作者</p>
+</li>
+<li><p>transformer是如今VLP主流的信息转换器，为了不引入额外的参数，作者选择了单流作为交互模式，单流就是视觉和语义信息同时通过一个embedding。</p>
+</li>
+<li><p>架构上，引入片面投影而不是区域网格特征。</p>
+</li>
+<li><p>目标检测不可能比程序主干或者单层卷积要快，冻结视觉模块主要是为了减小训练时间而不是为了进行推理预测。更不说其有可能影响性能。</p>
+<h4 id="VilT-model-mudle"><a href="#VilT-model-mudle" class="headerlink" title="VilT model/mudle"></a>VilT model/mudle</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://pdf.cdn.readpaper.com/parsed/fetch_target/610d2a8ecee7531cae89da46d39e66a7_3_Figure_3.png" alt="model structuer" class="lazyload"><br>（待进行代码研究）</p>
+</li>
+</ol>
+<p>实现计算原理：<br>$$<br>\begin{aligned}<br>\bar{t} &amp;=\left[t_{\text {class }} ; t_{1} T ; \cdots ; t_{L} T\right]+T^{\text {pos }} &amp; &amp; \<br>\bar{v} &amp;=\left[v_{\text {class }} ; v_{1} V ; \cdots ; v_{N} V\right]+V^{\text {pos }} &amp; &amp; \<br>z^{0} &amp;=\left[\bar{t}+t^{\text {type }} ; \bar{v}+v^{\text {type }}\right] &amp; &amp; \<br>\hat{z}^{d} &amp;=\operatorname{MSA}\left(\operatorname{LN}\left(z^{d-1}\right)\right)+z^{d-1}, &amp; &amp; d=1 \ldots D \<br>z^{d} &amp;=\operatorname{MLP}\left(\operatorname{LN}\left(\hat{z}^{d}\right)\right)+\hat{z}^{d}, &amp; &amp; d=1 \ldots D \<br>p &amp;=\tanh \left(z_{0}^{D} W_{\text {pool }}\right) &amp; &amp;<br>\end{aligned}<br>$$</p>
+<h4 id="experiments"><a href="#experiments" class="headerlink" title="experiments"></a>experiments</h4><ul>
+<li>采用了四个数据集：MSCOCO\VG\GCC\SBU<br><img data-fancybox="gallery" data-sizes="auto" data-src="https://pdf.cdn.readpaper.com/parsed/fetch_target/610d2a8ecee7531cae89da46d39e66a7_5_Table_1.png" alt="使用的数据集table 1" class="lazyload"></li>
+<li>VQA和NLVR任务下的性能表现：<br><img data-fancybox="gallery" data-sizes="auto" data-src="https://pdf.cdn.readpaper.com/parsed/fetch_target/610d2a8ecee7531cae89da46d39e66a7_5_Table_2.png" alt="模型对比" class="lazyload"></li>
+<li>Text Retrieval and Image Retrieval<ul>
+<li>Zero shot(零样本学习)<br><img data-fancybox="gallery" data-sizes="auto" data-src="https://pdf.cdn.readpaper.com/parsed/fetch_target/610d2a8ecee7531cae89da46d39e66a7_6_Table_3.png" alt="table" class="lazyload"></li>
+<li>nomal<br><img data-fancybox="gallery" data-sizes="auto" data-src="https://pdf.cdn.readpaper.com/parsed/fetch_target/610d2a8ecee7531cae89da46d39e66a7_6_Table_4.png" alt="table" class="lazyload"></li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://readpaper.com/pdf-annotate/note?noteId=633812503618015232&pdfId=4545248231012589569">Ablation Study</a><h4 id="Conclusion-and-Future-work"><a href="#Conclusion-and-Future-work" class="headerlink" title="Conclusion and Future work"></a>Conclusion and Future work</h4></li>
+</ul>
+<ol>
+<li>present a mionimal VLP architecture Vilt</li>
+<li>Vilt is competent competitors </li>
+<li>future work on VLP <h4 id="some-idea-as-this-page"><a href="#some-idea-as-this-page" class="headerlink" title="some idea as this page"></a>some idea as this page</h4></li>
+<li>多模态融合基本都要走transformer (当然，也可以不走，但要研究新的信息学习范式出来)</li>
+<li>借鉴人认识新事物的多模态辅助场景，很多时候，模态都起到可以互为数据集增补信息，或者堆叠出新理解质变，也就是说，反正都是收集各种语义，训练出语言背后的意义。</li>
+<li>大多数场景下，多模态并不能让我们更本质的感受到信息，只能深化感受提高用户体验。</li>
+<li><h2 id="文献3：《多模态预训练综述》"><a href="#文献3：《多模态预训练综述》" class="headerlink" title="文献3：《多模态预训练综述》"></a>文献3：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/r95blN2q9OAr7wUfJBxTNQ">《多模态预训练综述》</a></h2><h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><h4 id="Vision-Language-预训练模型"><a href="#Vision-Language-预训练模型" class="headerlink" title="Vision-Language 预训练模型"></a>Vision-Language 预训练模型</h4>寻找预训练模型<br><a target="_blank" rel="noopener" href="https://visualcommonsense.com/leaderboard/">VCR榜单</a><br>除此之外，一些之前的有关预训练模型的其他方向的trick也被同步应用到了多模态预训练模型，比如Prompt-Tuning等等：<br><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2109.01229.pdf">https://arxiv.org/pdf/2109.01229.pdf</a><br><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2109.11797.pdf">https://arxiv.org/pdf/2109.11797.pdf</a><br>需要说明的是目前这一赛道大的方面分为两块：通用型的预训练&amp;特定领域的预训练，具体一些论文大家可以看：<br><a target="_blank" rel="noopener" href="https://github.com/yuewang-cuhk/awesome-vision-language-pretraining-papers">地址</a><br><a target="_blank" rel="noopener" href="https://github.com/yuewang-cuhk/awesome-vision-language-pretraining-papers">预训练模型最新进展</a><h4 id="特征提取"><a href="#特征提取" class="headerlink" title="特征提取"></a>特征提取</h4></li>
+<li>特征提取要解决的问题是怎么分别量化文字和图像，进而送到模型学习？</li>
+<li>特征融合要解决的问题是怎么让文字和图像的表征交互？</li>
+<li>预训练任务就是怎么去设计一些预训练任务来辅助模型学习到图文的对齐信息？<br>目前这三个技术的通常做法是：<br>(1)  特征提取：文本端的表征标配就是bert的tokenizer，更早的可能有LSTM；图像的话就是使用一些传统经典的卷积网络，按提取的形式主要有三种Rol、Pixel、Patch三种形式。<br>(2) 特征融合：目前的主流的做法不外乎两种即双流two-stream或者单流single-stream；前者基本上就是双塔网络，然后在模型最后的时候设计一些layer进行交互，所以双流结构的交互发生的时间更晚。后者就是一个网络比如transformer，其从一开始就进入一个网络进行交互，所以单流结构的交互时间发生的更早且全程发生，更灵活；当然还有一类是Multi-stream(MMFT-BERT)，目前还不多，不排除将来出现基于图文音等Multi-stream多模态模型。<br>(3) 预训练任务：这里就是最有意思的地方，也是大部分多模态paper的idea体现。这里就先总结一些常见的标配任务，一些特色的任务后面paper单独介绍。</li>
+</ol>
+
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>Natu Matu<br>
+        <strong>本文链接：</strong><a href="https://631212502.github.io/2020/09/13/%E6%97%A0%E6%83%85%E7%9A%84%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E6%9C%BA%E5%99%A8/" title="https:&#x2F;&#x2F;631212502.github.io&#x2F;2020&#x2F;09&#x2F;13&#x2F;%E6%97%A0%E6%83%85%E7%9A%84%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E6%9C%BA%E5%99%A8&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;631212502.github.io&#x2F;2020&#x2F;09&#x2F;13&#x2F;%E6%97%A0%E6%83%85%E7%9A%84%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E6%9C%BA%E5%99%A8&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/%E6%97%A0%E6%83%85%E3%81%AE%E5%8B%89%E5%BC%B7%E3%83%9E%E3%82%B7%E3%83%B3/">无情の勉強マシン</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E5%AD%A6%E6%9C%AF/" rel="tag">学术</a>
+    
+</div>
+
+  
+      <div class="nexmoe-post-footer">
+          <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: 'cdc194d30f71cf392fdd',
+        clientSecret: 'b27b4f1ec813cb7eaa115ab184569422b663176a',
+        id: window.location.pathname,
+        repo: '631212502.github.io',
+        owner: '631212502',
+        admin: '631212502'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+      </div>
+  
+</div>
+                <div class="nexmoe-post-right">
+                <div class="nexmoe-fixed">
+                    <div class="nexmoe-tool"> 
+                        
+                            
+                            
+                                <button class="mdui-fab catalog" style="overflow:unset;">
+                                    <i class="nexmoefont icon-i-catalog"></i>
+                                    <div class="nexmoe-toc">
+                                        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%A5%E4%B8%AA%E6%AE%B5%E5%AD%90"><span class="toc-number">1.</span> <span class="toc-text">来个段子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E7%8C%AE1-%E3%80%8AMultimodal-Machine-Learning-A-Survey-and-Taxonomy%E3%80%8B"><span class="toc-number">2.</span> <span class="toc-text">文献1:《Multimodal Machine Learning: A Survey and Taxonomy》</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">2.0.1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E6%9E%90-%E7%BB%BC%E8%BF%B0%E5%A4%AA%E7%AC%BC%E7%BB%9F%EF%BC%8C%E4%B8%80%E4%B8%8B%E5%B0%B1%E4%B8%8D%E5%B1%95%E5%BC%80%E4%BA%86"><span class="toc-number">2.0.2.</span> <span class="toc-text">分析:综述太笼统，一下就不展开了</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A0%94%E7%A9%B6%E5%86%85%E5%AE%B9%E5%92%8C%E5%BA%94%E7%94%A8%E9%A2%86%E5%9F%9F"><span class="toc-number">2.0.3.</span> <span class="toc-text">研究内容和应用领域</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E7%8C%AE2-%E3%80%8AViLT-Vision-and-Language-Transformer-Without-Convolution-or-Region-Supervision%E3%80%8B"><span class="toc-number">3.</span> <span class="toc-text">文献2:《ViLT: Vision-and-Language Transformer Without Convolution or Region Supervision》</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%9E%90"><span class="toc-number">3.1.</span> <span class="toc-text">分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%91%98%E8%A6%81-1"><span class="toc-number">3.1.1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Introduction"><span class="toc-number">3.1.2.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Background"><span class="toc-number">3.1.3.</span> <span class="toc-text">Background</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#VilT-model-mudle"><span class="toc-number">3.1.4.</span> <span class="toc-text">VilT model&#x2F;mudle</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#experiments"><span class="toc-number">3.1.5.</span> <span class="toc-text">experiments</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Conclusion-and-Future-work"><span class="toc-number">3.1.6.</span> <span class="toc-text">Conclusion and Future work</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#some-idea-as-this-page"><span class="toc-number">3.1.7.</span> <span class="toc-text">some idea as this page</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E7%8C%AE3%EF%BC%9A%E3%80%8A%E5%A4%9A%E6%A8%A1%E6%80%81%E9%A2%84%E8%AE%AD%E7%BB%83%E7%BB%BC%E8%BF%B0%E3%80%8B"><span class="toc-number">4.</span> <span class="toc-text">文献3：《多模态预训练综述》</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%9E%90-1"><span class="toc-number">4.1.</span> <span class="toc-text">分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Vision-Language-%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B"><span class="toc-number">4.1.1.</span> <span class="toc-text">Vision-Language 预训练模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96"><span class="toc-number">4.1.2.</span> <span class="toc-text">特征提取</span></a></li></ol></li></ol></li></ol>
+                                    </div>
+                                </button>
+                            
+                        
+                        <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="aplayerContent">
+        <meting-js
+        style="position:absolute; z-index:99999" 
+        type="playlist" 
+        server="netease" 
+        id="6976153408" 
+        fixed="true"
+        autoplay="true"
+        order="random"
+        loop="all"
+        list-folded="false"
+        preload="auto"
+        list-max-height="500px"
+        lrc-type="1">
+        </meting-js> 
+    </div>
+    <script>
+        // 对所有链接跳转事件绑定pjax容器container,只在容器中跳转
+        $(document).pjax('a[target!=_blank]', '#pageContent', {fragment: '#pageContent', timeout:8000})
+    </script>
+     
+    <div id="nexmoe-search-space">
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <input class="search-input" type="text" placeholder="搜索" oninput="sinput();">
+                </div>
+                <a class="search-close" onclick="sclose();">×</a>
+            </div>
+            <div class="search-body"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+ 
+
+<script async src="/js/app.js?v=1704991421295"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+
+
+    
+
+
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<!--烟花爆炸-->
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script type="text/javascript" src="/js/firework.js"></script>
+<!--单击显示文字-->
+<script type="text/javascript" src="/js/click_show_text.js"></script>
+</html>
+
+

@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    
+    <meta name="baidu-site-verification" content="code-NrUjkxdqT5" />
+    <title>Ai真的可以看得懂图像嘛 - Eutupia by 夏夢</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="願いが叶う場所">
+    <meta name="keywords" content="null">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
+
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/logo.png" type="image/png" />
+    <meta name="description" content="VQA-MED+Byesian实验记录：代码+方法+实验+调参">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ai真的可以看得懂图像嘛">
+<meta property="og:url" content="https://631212502.github.io/2022/07/01/VQA/index.html">
+<meta property="og:site_name" content="Eutupia by 夏夢">
+<meta property="og:description" content="VQA-MED+Byesian实验记录：代码+方法+实验+调参">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-00f3e45a5867f2d6a7d19302a9824007_720w.jpg">
+<meta property="article:published_time" content="2022-07-01T11:03:20.000Z">
+<meta property="article:modified_time" content="2023-12-02T09:04:08.498Z">
+<meta property="article:author" content="Natu Matu">
+<meta property="article:tag" content="学术">
+<meta property="article:tag" content="论文">
+<meta property="article:tag" content="mmdl">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic4.zhimg.com/80/v2-00f3e45a5867f2d6a7d19302a9824007_720w.jpg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
+    <!-- require APlayer -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+	<!-- require MetingJS : 未解决歌单播放问题-->
+	<script src="https://cdn.jsdelivr.net/npm/meting@latest/dist/Meting.min.js"></script>
+    <!-- require pjax -->
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+    <!-- DPlayer -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.js"></script>
+    <link rel="stylesheet" href="/css/style.css?v=1704991421132">
+     
+    
+        <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
+    
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1704991421132">
+    
+        <link rel="stylesheet" href="/custom.css">
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body class="mdui-drawer-body-left">
+    
+    <div id="pageContent">
+        <div id="nexmoe-background">
+            <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/202211081936671.jpg)"></div>
+            <div class="mdui-appbar mdui-shadow-0">
+                <div class="mdui-toolbar">
+                    <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                    <div class="mdui-toolbar-spacer"></div>
+                    <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                    <a href="/" title="Natu Matu" class="mdui-btn mdui-btn-icon"><img src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/avatar.jpg" alt="Natu Matu"></a>
+                </div>
+            </div>
+        </div>
+        <div id="nexmoe-header">
+            <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="Natu Matu">
+            <img src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/avatar.jpg" alt="Natu Matu" alt="Natu Matu">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>50</div>
+        <div><span>标签</span>17</div>
+        <div><span>分类</span>4</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/gate.html" title="小憩歌单">
+            <i class="mdui-list-item-icon nexmoefont icon-coffee"></i>
+            <div class="mdui-list-item-content">
+                小憩歌单
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/PY.html" title="左邻右舍">
+            <i class="mdui-list-item-icon nexmoefont icon-wechat-fill"></i>
+            <div class="mdui-list-item-content">
+                左邻右舍
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/album.html" title="时间光影">
+            <i class="mdui-list-item-icon nexmoefont icon-calendar-fill"></i>
+            <div class="mdui-list-item-content">
+                时间光影
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/natunoyume.html" title="拾音纪行">
+            <i class="mdui-list-item-icon nexmoefont icon-telegram"></i>
+            <div class="mdui-list-item-content">
+                拾音纪行
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+         
+            <form id="search_form" action_e="https://cn.bing.com/search?q=" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder="搜索"></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://qm.qq.com/cgi-bin/qm/qr?k=QriGs7GcXMPd6scnWXeO-IJ5TP8Qm8sd&noverify=0" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="https://space.bilibili.com/10580381" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .1);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/631212502" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .1);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=631212502@qq.com" target="_blank" mdui-tooltip="{content: '邮箱'}" style="color: rgb(51, 153, 255);background-color: rgba(51, 153, 255, .1);">
+            <i class="nexmoefont icon-mail-fill"></i>
+        </a><a class="mdui-ripple" href="https://steamcommunity.com/profiles/76561199013116495/" target="_blank" mdui-tooltip="{content: 'steam'}" style="color: rgb(3, 98, 255);background-color: rgba(3, 98, 255, .1);">
+            <i class="nexmoefont icon-steam"></i>
+        </a><a class="mdui-ripple" href="https://www.xiaohongshu.com/user/profile/5fcc10c4000000000100b0b7?xhsshare=CopyLink&appuid=5fcc10c4000000000100b0b7&apptime=1660447872" target="_blank" mdui-tooltip="{content: '小红书'}" style="color: rgb(250, 136, 111);background-color: rgba(250, 136, 111, .1);">
+            <i class="nexmoefont icon-calendar-fill"></i>
+        </a><a class="mdui-ripple" href="/null" target="_blank" mdui-tooltip="{content: '知乎'}" style="color: ;background-color: ;">
+            <i class="nexmoefont icon-zhihu"></i>
+        </a><a class="mdui-ripple" href="/null" target="_blank" mdui-tooltip="{content: '推特'}" style="color: ;background-color: ;">
+            <i class="nexmoefont icon-twitter"></i>
+        </a><a class="mdui-ripple" href="https://chat.openai.com/chat" target="_blank" mdui-tooltip="{content: 'GPT'}" style="color: rgb(45, 13, 73);background-color: rgba(45, 13, 73, .1);">
+            <i class="nexmoefont icon-eye-fill"></i>
+        </a>
+    </div>
+</div>
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/Coding/" style="font-size: 17.14px;">Coding</a> <a href="/tags/Competition/" style="font-size: 11.43px;">Competition</a> <a href="/tags/MMDL/" style="font-size: 10px;">MMDL</a> <a href="/tags/S-Project/" style="font-size: 14.29px;">S_Project</a> <a href="/tags/mmdl/" style="font-size: 18.57px;">mmdl</a> <a href="/tags/page-building/" style="font-size: 12.86px;">page_building</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 15.71px;">博客</a> <a href="/tags/%E5%AD%A6%E6%9C%AF/" style="font-size: 15.71px;">学术</a> <a href="/tags/%E6%91%84%E5%BD%B1/" style="font-size: 14.29px;">摄影</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 11.43px;">旅行</a> <a href="/tags/%E6%AD%8C%E3%81%86/" style="font-size: 11.43px;">歌う</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 17.14px;">笔记</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">编程</a> <a href="/tags/%E8%A8%80%E8%91%89/" style="font-size: 20px;">言葉</a> <a href="/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 14.29px;">记录</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 12.86px;">论文</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 17.14px;">随笔</a>
+    </div>
+    
+  </div>
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/小さな考え/">小さな考え</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/无情の勉強マシン/">无情の勉強マシン</a>
+          <span class="category-list-count">7</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/言けない言葉/">言けない言葉</a>
+          <span class="category-list-count">6</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/音楽が辞めよう/">音楽が辞めよう</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/">2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/">2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/">2010</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+
+    
+    <span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt = new Date("08/31/2021 17:38:00"); //在此处修改你的建站时间
+        now.setTime(now.getTime() + 250);
+        days = (now - grt) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt) / 1000 / 60 / 60 - 24 * dnum;
+        hnum = Math.floor(hours);
+        if (String(hnum).length == 1) {
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt) / 1000 / 60 - 24 * 60 * dnum - 60 * hnum;
+        mnum = Math.floor(minutes);
+        if (String(mnum).length == 1) {
+            mnum = "0" + mnum;
+        }
+        seconds = (now - grt) / 1000 - 24 * 60 * 60 * dnum - 60 * 60 * hnum - 60 * mnum;
+        snum = Math.round(seconds);
+        if (String(snum).length == 1) {
+            snum = "0" + snum;
+        }
+        document.getElementById("timeDate").innerHTML = 
+            " 风雨中度过了 " + dnum + " 天 ";
+        document.getElementById("times").innerHTML =
+            hnum + " 小时 " + mnum + " 分 "; 
+    }
+    setInterval("createtime()", 250);
+</script>
+<!-- + snum + " 秒 "-->
+    
+</aside>
+
+
+    <div class="nexmoe-copyright">
+        &copy; 2024 Natu Matu
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        
+    </div>
+</div><!-- .nexmoe-drawer -->
+<div style="font-size: 13px">
+    <link rel="stylesheet" href="https://widget.heweather.net/standard/static/css/he-standard.css?v=1.4.0"><script src="https://widget.heweather.net/standard/static/js/he-standard.js?v=1.4.0"></script><script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    本站总访问量  <a id="busuanzi_value_site_pv"></a> 次<br>
+    本站访客数<a id="busuanzi_value_site_uv"></a>人次
+</div>
+
+        </div>
+        <div id="nexmoe-content">
+            <div class="nexmoe-primary">
+                <div class="nexmoe-post">
+
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: NaN%;"> 
+              <img data-src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/ZHWPYlah.webp" data-sizes="auto" alt="Ai真的可以看得懂图像嘛" class="lazyload">
+              <h1>Ai真的可以看得懂图像嘛</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2022年07月01日</a>
+    <a><i class="nexmoefont icon-areachart"></i>13.7k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 64 分钟</a>
+</div>
+
+      
+
+      <p><strong>VQA-MED+Byesian实验记录：代码+方法+实验+调参</strong></p>
+<span id="more"></span>
+<p>我的结论是想让机器以我们所认知的通过记忆推理回答问题这还是一个伪命题</p>
+<h2 id="视觉问答（VQA）背景"><a href="#视觉问答（VQA）背景" class="headerlink" title="视觉问答（VQA）背景"></a>视觉问答（VQA）背景</h2><p><strong>明白一个本质的问题，一张照片和一个句子对是如果进行向量运算获得最终的预测的</strong><br><meting-js server="netease" type="song" id="522529624"></meting-js></p>
+<h3 id="VQA梗概"><a href="#VQA梗概" class="headerlink" title="VQA梗概"></a>VQA梗概</h3><p>视觉问答（VQA）是最近几年出现的一个热门研究领域，是一个综合CV视觉推理能力（目标检测，图像分类等）和NLP语言理解能力而形成的一个综合性多学科的任务。比如有一张图片：<br><a target="_blank" rel="noopener" href="https://pic4.zhimg.com/80/v2-c2892fdbff53a1723f7deb30d0cc13a7_720w.jpg">四大天王</a></p>
+<p>我想要知道：<br>图片中有几个人？（开放）<br>他们是什么职业？（开放）<br>天气是雨天吗？（封闭）<br>他们在喝酒吗？（封闭）</p>
+<p>这些问题人可以轻松回答，但是未经过训练的机器却不可以。不过我们可以把这个问题分为一系列小任务，比如先理解问题句子包含什么关键词（人，天气等）或者这个问题是开放式问题（open-ended）还是封闭式问题（close-ended）。</p>
+<p>开放式问题需要按照问题给出合适答案，这样后续还需要使用目标检测的方法处理图像，比如检测图像中人物的数量。</p>
+<p>封闭式问题只需要根据关键词回答是或不是，这样后续就需要将任务变成图像分类任务，比如判断手中是否拿的酒杯。可以看出视觉问答任务需要同时结合CV领域和NLP领域的先进技术。并且随着问题的内容和难度的变化，视觉问答的难度也随之不同。</p>
+<p>如今，通用视觉问答技术已经扩展到了多个领域，包括按专业领域划分的知识问答、按视频/图片/表格等不同数据类型的问答等，本质上还是CV、NLP两个领域的信息多模态问题。</p>
+<p><img src="https://pic4.zhimg.com/80/v2-00f3e45a5867f2d6a7d19302a9824007_720w.jpg"><br>在未来的智慧医疗，AI医疗领域有巨大的应用潜力，能够帮助医生辅助做出病理诊断，甚至自动完成正确的诊断。相比自然图像的视觉问答，医疗图像内容更加单一，问题的复杂度以及推理程度都不如自然图像大。但是医疗图像也非常具有挑战性：一方面，需要保证较高的预测精准度，因为在实际应用场景中，预测结果精度关乎人的生命和健康。另一方面，获取专业医生标注好的医疗图像数据集和问答对（question-answer pair）非常困难，医疗视觉问答数据集通常很小。而那些成功的深度学习模型都含有大量训练参数，在小数据量时很难训练到较好性能（容易过拟合）。</p>
+<p>为解决这个问题，最开始是利用迁移学习的方法，让这些大模型在自然图像大数据集上预训练后，再用目标医疗数据进行微调。但由于自然图像和医疗图像的特征之间具有较大的差异，导致迁移后的模型效果并不是很好。接下来介绍的两篇文章就是针对这个问题通过不同的技巧来提升迁移后模型的性能。</p>
+<h3 id="VQA技术模型迭代"><a href="#VQA技术模型迭代" class="headerlink" title="VQA技术模型迭代"></a>VQA技术模型迭代</h3><ul>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/468960316">介绍以及三部曲</a></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/471359218">2019年前的方法</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/475687261">2019-2020:transformer</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/480029003">2021年后寻找统一的框架</a></li>
+</ul>
+</li>
+<li><p>传统模型:Vencoder+Qencoder+fusing algorithm+answering component<br>  这是VQA问题最经典也最主流的结构，多模态体现在融合机制上，特征编码器一般冻结或者是在端到端的训练中进行微调，回答通常是通过分类器（全连接）或者RNN进行语言的生成。<br>  这种模式也是基于相似分类的方式，训练并寻找CNN图片特征和问题的相关性，通过相关度大小去匹配答案。</p>
+</li>
+<li><p>拥抱transformer，开始尝试多模态表征</p>
+<ul>
+<li><p>VinVL<br>  在视觉语言模型中，视觉端一般都是使用一个预训练的目标检测模型。现在的多模态模型都是聚焦在如何改进跨模态的融合模块上，但是很少聚焦于如何做好目标检测来提升多模态任务。所以，本文聚焦于如何改进以object为中心的视觉表示，用以证明视觉特征在多模态模型中的重要性（尤其是目标检测模型的改进）</p>
+</li>
+<li><p>CLIP</p>
+<ul>
+<li>motivation<br>先前的网络都是通过训练去预测给定的目标类别（也就是说label是给定的），但是这种监督式的训练会限制网络的泛化能力和可用性（如果出现其他没见过的目标对象还得打上额外的标签）<br>因此paper提出从关于图片的文本进行学习，以达到利用更多的有监督数据，证明了通过预测哪个caption对应哪张图片的简单预训练任务是学习SOTA图像表征的好方法。这里用到的数据集是从互联网收集的400 million图像文本对数据集。经过预训练后，这些caption的自然语言被reference学习到的视觉概念,能够以零样本的转移学习到下游任务上。</li>
+<li>process<ul>
+<li>CLIP 将一批文本通过 Text Encoder 编码成一批 word embedding，将一批图片（与文本一一对应）通过 Image Encoder 编码成一批 feature embedding，然后将对应的 word embedding 和 feature embedding 先归一化然后进行点积得到相似度矩阵，点积数值越大，代表 word embedding 和 feature embedding 的向量越相似，这里的监督信号就是矩阵对角线为 1，其余位置为 0。其中 Text Encoder 使用的是 Transformer，而 Image Encoder 使用 ResNet50 和 ViT 两种架构其中一个，Image Encoder 和 Text Encoder 都是从头训练。</li>
+<li>然后将预训练好的 CLIP 迁移到下游任务，先将下游任务的标签构建为一批带标签的文本（例如 A photo of a {plane}），然后经过 Text Encoder 编码成一批相应的 word embedding。</li>
+<li>最后将没有见过的图片进行 zero-shot 预测，通过 Image Encoder 将一张小狗的图片编码成一个 feature embedding，然后跟（2）编码的一批 word embedding 先归一化然后进行点积，最后得到的 logits 中数值最大的位置对应的标签即为最终预测结果。</li>
+</ul>
+</li>
+<li>这应该算是一种P-tuning。</li>
+</ul>
+</li>
+<li><p>ViLT<br>  目前参数量最小的多模态Transformer方法。ViLT使用预训练的ViT来初始化交互的transformer，这样就可以直接利用交互层来处理视觉特征，不需要额外增加一个视觉encoder（如Faster-RCNN）。<br>  第一个基于patch projection的多模态预训练模型，其是首个使用patch projection来做visual embedding的方法。<br>  证明了可以将BERT的方法和Vison Transformer结合起来用于多模态transformer。<br>  体现了全词掩码（whole word masking）在预训练时以及图像增强（image augmentations）在微调时的重要性。</p>
+</li>
+<li><p>ALIGN<br>  目前对于多模态的数据集的构建依然严重依赖于昂贵的专家知识。所以，本文作者使用了一个超过10亿的带有噪声的图片文本对，并没有经过数据过滤等进一步处理。<br>  基于对比学习，作者使用了一个非常简单的duel encoder的结构（双塔结构）来学习视觉表示和语言表示。<br>  该模型ALIGN在ImageNet等数据集上取得了非常有竞争力的表现，并且在检索数据集比如Flickr30K和MSCOCO都取得了sota。zero-shot的效果也非常不错。</p>
+</li>
+<li><p>SOHO<br>  用Fast RCNN提取的region特征，是会存在一些问题的：<br>  忽略检测框外的上下文信息；<br>  提取的视觉特定会被局限在目标检测器预定义的类别中；<br>  目标检测器依赖大规模标注数据，并且存在质量低、噪声大等问题。<br>  所以，作者根据这一点，提出了基于grid的预训练模型SOHO。</p>
+</li>
+<li><p>ALBEF<br>  问题一：先有的CLIP和ALIGN等模型虽然通过一些多模态的对比学习等任务，获得了在图像上面性能的大幅度提升，但是并没有学习丰富的多模态交互。</p>
+<p>  问题二：以UNITER为代表的方法使用了多模态encoder来学习联合的图像文本分布。但是他们所学习的文本，图像是没有预先对齐的。</p>
+<p>  问题三：预训练的数据集大多是由从网络上收集的嘈杂的图像-文本对组成，所以我们现在的预训练目标比如MLM很容易对噪声文本过拟合。</p>
+<p>  作者通过图片-文本对比学习（ITC）、图片-文本匹配（ITM）、掩码语言模型（MLM），三个预训练任务，并提出动量蒸馏（Momentum Distillation）对抗数据噪音、改进训练过程，在VQA等任务上获得了SOTA。使用了经典的双流模型。image的encoder使用了ViT。Text的encoder比较有意思，并不是用传统的BERT而是只使用了前6层。动量模型 Momentum Model<br>  我也是第一次接触这个词，感觉不是很懂。感觉是使用动量模型给图像-文本对比学习和掩码语言建模生成伪目标。比如给一个图片生成很多描述，然后根据此来进行预训练。比如下图就是给每个图生成了5个伪目标。</p>
+</li>
+<li><p>Probing Inter-modality<br>  作者觉得可以从视觉的方面来改进多模态任务。针对视觉的内部信息的学习以及文本与视觉的多模态学习都被封装在了一个transformer里面，这样是不合理的。所以作者把self-attention引入了视觉端用以促进模态内的学习。（我怎么感觉这个idea，好像在以前哪里就看过，但是咱们不说）接着提出了一个 Inter-Modality Flow (IMF) 的metric用于衡量视觉和语言的融合度。并且提出了一个Visual Directionary（VD）来提取视觉特征。</p>
+</li>
+<li><p>CLIP-ViL</p>
+</li>
+<li><p>SimVLM</p>
+</li>
+<li><p>CPT</p>
+</li>
+<li><p>METER</p>
+</li>
+<li><p>VLMo</p>
+</li>
+<li><p>TRAR</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="MEDVQA的发展"><a href="#MEDVQA的发展" class="headerlink" title="MEDVQA的发展"></a>MEDVQA的发展</h2><p>2018年，ImageCLIF发布了视觉问答相关任务，同时提出了数据集ImageCLEF2018 共2866个图片，6413个问答对。次年ImageCLEF2019 共4200个放射性图片，15992个问答对 ，有器官和病理图。</p>
+<h3 id="他人总结知乎"><a href="#他人总结知乎" class="headerlink" title="他人总结知乎"></a>他人总结<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/438143139">知乎</a></h3><ol>
+<li><p>元学习时代：Overcoming Data Limitation in Medical Visual Question Answering<br>提出将元学习用于MEDVQA（MAML（Model-Agnostic Meta-Learning ））<br>简单来说，就是大哥A和小弟B，A想要做一个2分类，但A和B都不会。于是A先命令B去学习做20分类问题，B学有所成回来后，再找一些2分类来教A。相比起B无依无靠从头学习，对于A来说，B已经是一个好的老师了，所以A学习起来很容易，赢在了起跑线上。用专业的话来说就是A有一个好的初始条件。后续只需要少量特定任务的数据做微调（fine-tune）就能让网络快速收敛</p>
+</li>
+<li><p>增强推理：Medical Visual Question Answering via Conditional Reasoning<br>基于前文利用元学习在数据和图像处理阶段做出的改进，提出QCR（question-conditional reasoning）和TCR（type-conditional reasoning）模块进一步获取问题中的关键信息。</p>
+</li>
+</ol>
+<p>视觉/语言特征提取，特征融合和预测。第一篇工作通过元学习在视觉特征提取这部分做出了贡献。但医疗视觉问答的困难还包括对于问题的理解。封闭式问题需要的推理较少，更容易理解，而开放式的问题推理较多，更难理解。现有的方法在开放式问题上表现都不好。作者认为这是由于过去的模型用同样的方法理解这两种问题，没有对具体的问题具体分析。并且这些问题里包含的丰富信息并没有被充分利用。</p>
+<p>QCR: Question-Conditioned Reasoning Module<br>QCR是为了从问题句子中学习到有关问题形式（开放/非开放）以及问题种类（VQA-RAD的11类问题，见前文）的信息来帮助特征融合过程中筛选出图像中对应的有效注意力区域，排除无关信息。</p>
+<p>TCR: Type-Conditioned Reasoning Module<br>对于简单的封闭式问题和复杂的开放式问题，文章希望用两个模块分开处理，这样模型再遇到未知问题时，能有更好的多尺度推理能力。</p>
+<p>因此TCR模块被用于预先处理问题句子。它的内部结构和QCR很像。在得到词嵌入特征后，用MLP去获得这个特征的一个标量表示（或者说分数）。因为开放式和封闭式问题具有明显的词语却别：封闭式一般以“Is\Dose\Are”开头，而开放式一般以“What\How many\Where”开头。所以MLP能够很好的区分这两种特征。最后用softmax函数得到一个二分类概率。如果概率为1，则网络训练出一个针对开放式问题有效的QCR模块；如果概率为0，则网络训练一个仅针对封闭式问题有效的QCR模块。</p>
+<ol start="3">
+<li>跨模态自注意力的使用：Cross-Modal Self-Attention with Multi-Task Pre-Training for Medical Visual Question Answering<br>此文基于集成学习方法，在前文使用的自注意力模型的基础上使用了多任务预训练模型，不是提高模态交互能力而是提高视觉编码的准确率从而提高整体模型的一个性能（MTPT）</li>
+</ol>
+<p>三个在不同任务（CT,X-ray，MRI）上预训练的resnet共同对视觉特征进行编码，然后对三个编码向量进行加权相加得到融合编码，源代码： distmodal_emb = [modal_classifier, abd_v_emb, brain_v_emb, chest_v_emb] 其中modal_classifier使用了医学上常用的MCNET</p>
+<ol start="4">
+<li>CLIP预训练模型：Does CLIP Benefit Visual Question Answering in the Medical Domain as Much as it Does in the General Domain?<br>在2.的基础上修改了图像编码器改成clip，获得了良好的跨模态交互性能，并且基于预训练数据获得了医学图像更好的特征表示。</li>
+</ol>
+<h2 id="医学影像上的VQA"><a href="#医学影像上的VQA" class="headerlink" title="医学影像上的VQA"></a>医学影像上的VQA</h2><h3 id="视频介绍"><a href="#视频介绍" class="headerlink" title="视频介绍"></a>视频介绍</h3><iframe width="640" height="360" src="https://www.youtube.com/embed/7b-_h_4W760" title="Software for Medical Visual Question Answering (Med-VQA)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+<h3 id="与自然图像VQA对比"><a href="#与自然图像VQA对比" class="headerlink" title="与自然图像VQA对比"></a>与自然图像VQA对比</h3><table>
+<thead>
+<tr>
+<th>样本区别</th>
+<th>医学图像</th>
+<th>自然图像</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>数量上</td>
+<td>样本数据量少，无法人工产生</td>
+<td>可以由人工制作而成</td>
+</tr>
+<tr>
+<td>信息上</td>
+<td>噪声大，关键信息占比小</td>
+<td>噪声可控，信息充足</td>
+</tr>
+<tr>
+<td>标注上</td>
+<td>专业人员标注，难度大</td>
+<td>普通人员可以标注</td>
+</tr>
+<tr>
+<td>特征上</td>
+<td>整体相似度高，难以区分，但细节十分多样</td>
+<td>有明显特征</td>
+</tr>
+<tr>
+<td>结构上</td>
+<td>多数为灰度图，放射图，光谱单一</td>
+<td>复杂光谱</td>
+</tr>
+</tbody></table>
+<h3 id="我的一些观察（领域整理）"><a href="#我的一些观察（领域整理）" class="headerlink" title="我的一些观察（领域整理）"></a>我的一些观察（领域整理）</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/air__Heaven/article/details/124469861">有效融合图像文本信息的三种方法</a><br>特征拼接concat | 跨模态注意 | 条件批量归一化(CBN)</p>
+<h4 id="科普思路"><a href="#科普思路" class="headerlink" title="科普思路"></a>科普思路</h4><ul>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/cAq5R972li7R2260nViFMg">大脑多模态信息整合理论</a></p>
+<ol>
+<li><p>多模态信息整合<br> 如同人在不同环境下对物理做定位那样，亮的时候更依赖视觉，暗的时候更依赖听觉，所以在多模态信息整合的过程中，有所谓的信息筛选，加权的形式（计算贝叶斯后验概率），这刚好也是神经网络擅长的。<br> 不同的模态间可以产生一定的互补作用。比如去同一空间的表征均值。同时，对信息的整合也可以提高大脑对估计的可靠程度。</p>
+</li>
+<li><p>分布式多模态信息整合系统<br> 分布式架构中的处理器可位于不同的物理位置，例如分布于大脑中的不同脑区。总体而言，分布式系统有以下几个特点：</p>
+<ol>
+<li>每个处理器可以采用模块化构造，即处理器内部的结构都一致；</li>
+<li>处理器可以分布于不同的物理位置，但处理器之间需要相互通信；</li>
+<li>分布式系统中，处理器实现了平行分布式计算，它们同时完成了信息整合；</li>
+<li>由于没有处理器位于系统拓扑结构的中心，分布式系统鲁棒性（robustness）很强。即失去一个或多个处理器，其余完好的处理器仍然可以进行信息整合工作。试想，计算机程序能不能模拟出这样的网络。</li>
+</ol>
+</li>
+<li><p>信息分离<br> 多模态信息整合与分离的道理看似简单，但在具体实现这一计算任务时却面临一个根本性的难题，即大脑事先并不知晓这些输入的来源及产生过程，从而不确定是到底应该进行信息整合还是分离。在计算上大脑面临的是一个“鸡生蛋”还是“蛋生鸡”的挑战：如果不整合多模态信息，那么大脑可能无法对外界世界做出准确估计；但如果大脑简单且随意地整合信息，大脑就可能犯错，把不是来自同一物体的信息整合在一起从而得出错误的结论，即张冠李戴。</p>
+<p> 那么大脑的神经环路如何同时进行整合与分离？它们对应的神经基础是什么？在视觉前庭脑区（MSTd区和VIP区），实验发现神经元可以根据它们的调谐曲线分成两类[6][12]。其中一类神经元在两种模态下的刺激偏好一致，被称为一致性神经元(congruent neuron)，见图6A。图2C和E所示的理论及实验都已证实一致性神经元负责视觉和前庭输入的多模态信息整合。而出人意料的是，除了一致性神经元之外，多模态脑区中还存在另一类神经元，它在两种模态下的刺激偏好几乎完全相反，被称为反向神经元(opposite neuron)，如图6B所示。例如，若一个反向神经元偏好0度的视觉运动方向，那么它会偏好180度的前庭刺激运动方向。  </p>
+</li>
+<li><p>主流方法</p>
+<ul>
+<li>多模态表示：联合表示是投影到同一个空间，或者用协同表示方法将不同的空间加上关联（相关性约束） </li>
+<li>模态转化：同样的一个信息，在不同的表达之间转化<ul>
+<li>图文编码转化</li>
+</ul>
+</li>
+<li>对齐：找信息之中的局部关联性，给他们自身或者整体加上关系<ul>
+<li>Attention</li>
+</ul>
+</li>
+<li>多模态融合:数据融合,特征融合,结果融合<ul>
+<li>数据融合：牛</li>
+<li>特征：torch.cat/torch.sum/torch.mul、注意力、双线性</li>
+<li>结果：投票，均值方差</li>
+</ul>
+</li>
+<li>协同学习（打辅助）：使用一个资源丰富的模态信息来辅助另一个资源相对贫瘠的模态进行学习，协同学习是与需要解决的任务无关的，因此它可以用于辅助多模态映射、融合及对齐等问题的研究。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h4 id="领域综述"><a href="#领域综述" class="headerlink" title="领域综述"></a>领域综述</h4><ul>
+<li>主要来自2021年的一篇综述《Medical Visual Question Answering: A Survey》</li>
+<li>因为如上医学的图像的数据特殊性，视觉编码器大家在一开始使用了预训练迁移学习和模型不可知元学习的方法（简单的总结一下MAML的基本思路，即寻找一个优化的参数θ，这个参数对于相关任务是通用的，其能够帮助我们使用更少量的样本进行学习，缩短训练时间）以及采用自编码器进行去噪。<strong>但也正因为医学问答中的数据标签少，预训练模型就有了很高的可验证性，这也是一个可以做工作的地方</strong></li>
+</ul>
+<p>没有大规模并且具有鲁棒性的数据集是医学问答无法直接应用现有流行VQA方法的一大痛点。更多是采用CNN等结构进行特征提取。</p>
+<h3 id="样本上的区别："><a href="#样本上的区别：" class="headerlink" title="样本上的区别："></a>样本上的区别：</h3><ol>
+<li>样本数据量少，并且无法人工生成：医学图像只能来源于病患，并且，无法人工产生。从医学伦理角度，我们不可能人为制造病患来收集医学图像。在其他领域，往往可以人工生成样本数据。这是最大的区别点。</li>
+<li>噪声大，关键信息占比小：医学图像中，关键信息往往是细节，比如肺癌图片，有无肺癌结节才是关键信息，肺癌结节的亮点在整个肺癌图像上面积占比不到1%、甚至更低，所以，医学图像的信噪比很低。在其他领域的图像，要识别的对象往往是占主体的，所以，其他领域图像的信噪比往往较高。</li>
+<li>标注难度大 ，成本高：医学图像的标注，必须是医学专业的人员，标注数据极难获得（有时候，这都不是花钱就能解决的问题）。其他领域的图像，往往可以请普通人标注，甚至借助深度学习技术来标注，标注成本低。标注成本高也决定了医学图像样本数据量不可能太大。</li>
+<li>研究人员少，前沿技术难以应用：能够接触医学图像的图像处理的研究人员范围很小，一般来说，最前沿的图像处理技术是针对其他领域的来设计的，当这些技术应用到医学图像领域时，往往会出现适应性的问题，所以，医学图像处理的技术水平往往也不是最高的。</li>
+</ol>
+<h2 id="我的一些前期工作"><a href="#我的一些前期工作" class="headerlink" title="我的一些前期工作"></a>我的一些前期工作</h2><h3 id="mmf"><a href="#mmf" class="headerlink" title="mmf"></a>mmf</h3><p>fackbook开发的针对多模态任务的集成训练工具，代码封装性高，极其复杂，但可以同时接触到更多的模型和更好的数据集</p>
+<h3 id="Bert-read-code"><a href="#Bert-read-code" class="headerlink" title="Bert read code"></a>Bert read code</h3><p>跟读了一遍bert文本分类代码，但因为没有实际的任务场景，很快又忘记了</p>
+<h3 id="Vilt"><a href="#Vilt" class="headerlink" title="Vilt"></a>Vilt</h3><p>这里有vit+bert以及将其轻量化的视觉编码器</p>
+<h3 id="BAN-MED-阅读"><a href="#BAN-MED-阅读" class="headerlink" title="BAN+MED 阅读"></a>BAN+MED 阅读</h3><h3 id="搞懂模型和代码"><a href="#搞懂模型和代码" class="headerlink" title="搞懂模型和代码"></a>搞懂模型和代码</h3><ol>
+<li>导入数据，得到对应的feature（dataset process）<ul>
+<li>一些基本的初始化参数确定后，模型会调用class VQAFeatureDataset(Dataset)获取特征<ul>
+<li>初始化函数：导入ans和label的索引关系pkl（临时存储的变量关系）</li>
+<li>定义VQAfeature类的使用方法：tokenize(<em>)\tensorize(</em>)</li>
+<li>设计默认类getitem,读取npy返回各类型的数据</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>模型设计<ul>
+<li>BAN模型（QCR-TCR）<ul>
+<li>初始化：w_emb、q_emb、att 建立模型时直接获得dateset中的数据编码形式，采用的是golve编码，再将dataset中的v_dim数据以及给定的h_dim初始化注意力和BiRESNET还有FC</li>
+<li>根据参数选择DAE、MAML两种方式调整编码的向量形式，以及是否做cat</li>
+<li>内部结构<ul>
+<li>Embedding层（W,Q）</li>
+<li>针对封闭域问答的分类层：BiAttention + BiResNet + SimpleClassifier</li>
+</ul>
+  <details>
+  <summary>点击此处打开折叠代码</summary>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><code class="hljs python">(close_att): BiAttention(<br>    (logits): BCNet(<br>    (v_net): FCNet(<br>        (main): Sequential(<br>        (<span class="hljs-number">0</span>): Dropout(p=<span class="hljs-number">0.2</span>, inplace=<span class="hljs-literal">False</span>)<br>        (<span class="hljs-number">1</span>): Linear(in_features=<span class="hljs-number">128</span>, out_features=<span class="hljs-number">3072</span>, bias=<span class="hljs-literal">True</span>)<br>        (<span class="hljs-number">2</span>): ReLU()<br>        )<br>    )<br>    (q_net): FCNet(<br>        (main): Sequential(<br>        (<span class="hljs-number">0</span>): Dropout(p=<span class="hljs-number">0.2</span>, inplace=<span class="hljs-literal">False</span>)<br>        (<span class="hljs-number">1</span>): Linear(in_features=<span class="hljs-number">1024</span>, out_features=<span class="hljs-number">3072</span>, bias=<span class="hljs-literal">True</span>)<br>        (<span class="hljs-number">2</span>): ReLU()<br>        )<br>    )<br>    (dropout): Dropout(p=<span class="hljs-number">0.5</span>, inplace=<span class="hljs-literal">False</span>)<br>    (p_net): AvgPool1d(kernel_size=(<span class="hljs-number">3</span>,), stride=(<span class="hljs-number">3</span>,), padding=(<span class="hljs-number">0</span>,))<br>    )<br>)<br>(close_resnet): BiResNet(<br>    (b_net): ModuleList(<br>    (<span class="hljs-number">0</span>): BCNet(<br>        (v_net): FCNet(<br>        (main): Sequential(<br>            (<span class="hljs-number">0</span>): Dropout(p=<span class="hljs-number">0.2</span>, inplace=<span class="hljs-literal">False</span>)<br>            (<span class="hljs-number">1</span>): Linear(in_features=<span class="hljs-number">128</span>, out_features=<span class="hljs-number">1024</span>, bias=<span class="hljs-literal">True</span>)<br>            (<span class="hljs-number">2</span>): ReLU()<br>        )<br>        )<br>        (q_net): FCNet(<br>        (main): Sequential(<br>            (<span class="hljs-number">0</span>): Dropout(p=<span class="hljs-number">0.2</span>, inplace=<span class="hljs-literal">False</span>)<br>            (<span class="hljs-number">1</span>): Linear(in_features=<span class="hljs-number">1024</span>, out_features=<span class="hljs-number">1024</span>, bias=<span class="hljs-literal">True</span>)<br>            (<span class="hljs-number">2</span>): ReLU()<br>        )<br>        )<br>        (dropout): Dropout(p=<span class="hljs-number">0.5</span>, inplace=<span class="hljs-literal">False</span>)<br>    )<br>    (<span class="hljs-number">1</span>): BCNet(<br>        (v_net): FCNet(<br>        (main): Sequential(<br>            (<span class="hljs-number">0</span>): Dropout(p=<span class="hljs-number">0.2</span>, inplace=<span class="hljs-literal">False</span>)<br>            (<span class="hljs-number">1</span>): Linear(in_features=<span class="hljs-number">128</span>, out_features=<span class="hljs-number">1024</span>, bias=<span class="hljs-literal">True</span>)<br>            (<span class="hljs-number">2</span>): ReLU()<br>        )<br>        )<br>        (q_net): FCNet(<br>        (main): Sequential(<br>            (<span class="hljs-number">0</span>): Dropout(p=<span class="hljs-number">0.2</span>, inplace=<span class="hljs-literal">False</span>)<br>            (<span class="hljs-number">1</span>): Linear(in_features=<span class="hljs-number">1024</span>, out_features=<span class="hljs-number">1024</span>, bias=<span class="hljs-literal">True</span>)<br>            (<span class="hljs-number">2</span>): ReLU()<br>        )<br>        )<br>        (dropout): Dropout(p=<span class="hljs-number">0.5</span>, inplace=<span class="hljs-literal">False</span>)<br>    )<br>    )<br>    (q_prj): ModuleList(<br>    (<span class="hljs-number">0</span>): FCNet(<br>        (main): Sequential(<br>        (<span class="hljs-number">0</span>): Dropout(p=<span class="hljs-number">0.2</span>, inplace=<span class="hljs-literal">False</span>)<br>        (<span class="hljs-number">1</span>): Linear(in_features=<span class="hljs-number">1024</span>, out_features=<span class="hljs-number">1024</span>, bias=<span class="hljs-literal">True</span>)<br>        )<br>    )<br>    (<span class="hljs-number">1</span>): FCNet(<br>        (main): Sequential(<br>        (<span class="hljs-number">0</span>): Dropout(p=<span class="hljs-number">0.2</span>, inplace=<span class="hljs-literal">False</span>)<br>        (<span class="hljs-number">1</span>): Linear(in_features=<span class="hljs-number">1024</span>, out_features=<span class="hljs-number">1024</span>, bias=<span class="hljs-literal">True</span>)<br>        )<br>    )<br>    )<br>    (c_prj): ModuleList()<br>)<br>(close_classifier): SimpleClassifier(<br>    (main): Sequential(<br>    (<span class="hljs-number">0</span>): Linear(in_features=<span class="hljs-number">1024</span>, out_features=<span class="hljs-number">2048</span>, bias=<span class="hljs-literal">True</span>)<br>    (<span class="hljs-number">1</span>): ReLU()<br>    (<span class="hljs-number">2</span>): Dropout(p=<span class="hljs-number">0.5</span>, inplace=<span class="hljs-literal">True</span>)<br>    (<span class="hljs-number">3</span>): Linear(in_features=<span class="hljs-number">2048</span>, out_features=<span class="hljs-number">56</span>, bias=<span class="hljs-literal">True</span>)<br>    )<br>)<br></code></pre></td></tr></table></figure>
+  - 针对开放域问答的分类层：BiAttention + BiResNet + SimpleClassifier
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><code class="hljs python">  (open_att): BiAttention(<br>    (logits): BCNet(<br>    (v_net): FCNet(<br>        (main): Sequential(<br>        (<span class="hljs-number">0</span>): Dropout(p=<span class="hljs-number">0.2</span>, inplace=<span class="hljs-literal">False</span>)<br>        (<span class="hljs-number">1</span>): Linear(in_features=<span class="hljs-number">128</span>, out_features=<span class="hljs-number">3072</span>, bias=<span class="hljs-literal">True</span>)<br>        (<span class="hljs-number">2</span>): ReLU()<br>        )<br>    )<br>    (q_net): FCNet(<br>        (main): Sequential(<br>        (<span class="hljs-number">0</span>): Dropout(p=<span class="hljs-number">0.2</span>, inplace=<span class="hljs-literal">False</span>)<br>        (<span class="hljs-number">1</span>): Linear(in_features=<span class="hljs-number">1024</span>, out_features=<span class="hljs-number">3072</span>, bias=<span class="hljs-literal">True</span>)<br>        (<span class="hljs-number">2</span>): ReLU()<br>        )<br>    )<br>    (dropout): Dropout(p=<span class="hljs-number">0.5</span>, inplace=<span class="hljs-literal">False</span>)<br>    (p_net): AvgPool1d(kernel_size=(<span class="hljs-number">3</span>,), stride=(<span class="hljs-number">3</span>,), padding=(<span class="hljs-number">0</span>,))<br>    )<br>)<br>(open_resnet): BiResNet(<br>    (b_net): ModuleList(<br>    (<span class="hljs-number">0</span>): BCNet(<br>        (v_net): FCNet(<br>        (main): Sequential(<br>            (<span class="hljs-number">0</span>): Dropout(p=<span class="hljs-number">0.2</span>, inplace=<span class="hljs-literal">False</span>)<br>            (<span class="hljs-number">1</span>): Linear(in_features=<span class="hljs-number">128</span>, out_features=<span class="hljs-number">1024</span>, bias=<span class="hljs-literal">True</span>)<br>            (<span class="hljs-number">2</span>): ReLU()<br>        )<br>        )<br>        (q_net): FCNet(<br>        (main): Sequential(<br>            (<span class="hljs-number">0</span>): Dropout(p=<span class="hljs-number">0.2</span>, inplace=<span class="hljs-literal">False</span>)<br>            (<span class="hljs-number">1</span>): Linear(in_features=<span class="hljs-number">1024</span>, out_features=<span class="hljs-number">1024</span>, bias=<span class="hljs-literal">True</span>)<br>            (<span class="hljs-number">2</span>): ReLU()<br>        )<br>        )<br>        (dropout): Dropout(p=<span class="hljs-number">0.5</span>, inplace=<span class="hljs-literal">False</span>)<br>    )<br>    (<span class="hljs-number">1</span>): BCNet(<br>        (v_net): FCNet(<br>        (main): Sequential(<br>            (<span class="hljs-number">0</span>): Dropout(p=<span class="hljs-number">0.2</span>, inplace=<span class="hljs-literal">False</span>)<br>            (<span class="hljs-number">1</span>): Linear(in_features=<span class="hljs-number">128</span>, out_features=<span class="hljs-number">1024</span>, bias=<span class="hljs-literal">True</span>)<br>            (<span class="hljs-number">2</span>): ReLU()<br>        )<br>        )<br>        (q_net): FCNet(<br>        (main): Sequential(<br>            (<span class="hljs-number">0</span>): Dropout(p=<span class="hljs-number">0.2</span>, inplace=<span class="hljs-literal">False</span>)<br>            (<span class="hljs-number">1</span>): Linear(in_features=<span class="hljs-number">1024</span>, out_features=<span class="hljs-number">1024</span>, bias=<span class="hljs-literal">True</span>)<br>            (<span class="hljs-number">2</span>): ReLU()<br>        )<br>        )<br>        (dropout): Dropout(p=<span class="hljs-number">0.5</span>, inplace=<span class="hljs-literal">False</span>)<br>    )<br>    )<br>    (q_prj): ModuleList(<br>    (<span class="hljs-number">0</span>): FCNet(<br>        (main): Sequential(<br>        (<span class="hljs-number">0</span>): Dropout(p=<span class="hljs-number">0.2</span>, inplace=<span class="hljs-literal">False</span>)<br>        (<span class="hljs-number">1</span>): Linear(in_features=<span class="hljs-number">1024</span>, out_features=<span class="hljs-number">1024</span>, bias=<span class="hljs-literal">True</span>)<br>        )<br>    )<br>    (<span class="hljs-number">1</span>): FCNet(<br>        (main): Sequential(<br>        (<span class="hljs-number">0</span>): Dropout(p=<span class="hljs-number">0.2</span>, inplace=<span class="hljs-literal">False</span>)<br>        (<span class="hljs-number">1</span>): Linear(in_features=<span class="hljs-number">1024</span>, out_features=<span class="hljs-number">1024</span>, bias=<span class="hljs-literal">True</span>)<br>        )<br>    )<br>    )<br>    (c_prj): ModuleList()<br>)<br>(open_classifier): SimpleClassifier(<br>    (main): Sequential(<br>    (<span class="hljs-number">0</span>): Linear(in_features=<span class="hljs-number">1024</span>, out_features=<span class="hljs-number">2048</span>, bias=<span class="hljs-literal">True</span>)<br>    (<span class="hljs-number">1</span>): ReLU()<br>    (<span class="hljs-number">2</span>): Dropout(p=<span class="hljs-number">0.5</span>, inplace=<span class="hljs-literal">True</span>)<br>    (<span class="hljs-number">3</span>): Linear(in_features=<span class="hljs-number">2048</span>, out_features=<span class="hljs-number">431</span>, bias=<span class="hljs-literal">True</span>)<br>    )<br>)<br></code></pre></td></tr></table></figure>
+  - 模型交互层typeatt
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"> (typeatt): typeAttention(<br>    (w_emb): WordEmbedding(<br>    (emb): Embedding(<span class="hljs-number">1178</span>, <span class="hljs-number">300</span>, padding_idx=<span class="hljs-number">1177</span>)<br>    (dropout): Dropout(p=<span class="hljs-number">0.0</span>, inplace=<span class="hljs-literal">False</span>)<br>    )<br>    (q_emb): QuestionEmbedding(<br>    (rnn): GRU(<span class="hljs-number">300</span>, <span class="hljs-number">1024</span>, batch_first=<span class="hljs-literal">True</span>)<br>    )<br>    (q_final): QuestionAttention(<br>    (tanh_gate): Linear(in_features=<span class="hljs-number">1324</span>, out_features=<span class="hljs-number">1024</span>, bias=<span class="hljs-literal">True</span>)<br>    (sigmoid_gate): Linear(in_features=<span class="hljs-number">1324</span>, out_features=<span class="hljs-number">1024</span>, bias=<span class="hljs-literal">True</span>)<br>    (attn): Linear(in_features=<span class="hljs-number">1024</span>, out_features=<span class="hljs-number">1</span>, bias=<span class="hljs-literal">True</span>)<br>    )<br>    (f_fc1): Linear(in_features=<span class="hljs-number">1024</span>, out_features=<span class="hljs-number">2048</span>, bias=<span class="hljs-literal">True</span>)<br>    (f_fc2): Linear(in_features=<span class="hljs-number">2048</span>, out_features=<span class="hljs-number">1024</span>, bias=<span class="hljs-literal">True</span>)<br>    (f_fc3): Linear(in_features=<span class="hljs-number">1024</span>, out_features=<span class="hljs-number">1024</span>, bias=<span class="hljs-literal">True</span>)<br>)<br></code></pre></td></tr></table></figure>
+  - 元学习编码MAML
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"> (maml): SimpleCNN(<br>    (conv1): Conv2d(<span class="hljs-number">1</span>, <span class="hljs-number">64</span>, kernel_size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), stride=(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>), padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>))<br>    (conv1_bn): BatchNorm2d(<span class="hljs-number">64</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.05</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>    (conv2): Conv2d(<span class="hljs-number">64</span>, <span class="hljs-number">64</span>, kernel_size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), stride=(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>), padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>))<br>    (conv2_bn): BatchNorm2d(<span class="hljs-number">64</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.05</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>    (conv3): Conv2d(<span class="hljs-number">64</span>, <span class="hljs-number">64</span>, kernel_size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), stride=(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>), padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>))<br>    (conv3_bn): BatchNorm2d(<span class="hljs-number">64</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.05</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>    (conv4): Conv2d(<span class="hljs-number">64</span>, <span class="hljs-number">64</span>, kernel_size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), stride=(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>), padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>))<br>    (conv4_bn): BatchNorm2d(<span class="hljs-number">64</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.05</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>)<br></code></pre></td></tr></table></figure>
+  - 自编码器DAE
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python">(ae): Auto_Encoder_Model(<br>    (conv1): Conv2d(<span class="hljs-number">1</span>, <span class="hljs-number">64</span>, kernel_size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>))<br>    (max_pool1): MaxPool2d(kernel_size=<span class="hljs-number">2</span>, stride=<span class="hljs-number">2</span>, padding=<span class="hljs-number">0</span>, dilation=<span class="hljs-number">1</span>, ceil_mode=<span class="hljs-literal">False</span>)<br>    (conv2): Conv2d(<span class="hljs-number">64</span>, <span class="hljs-number">32</span>, kernel_size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>))<br>    (max_pool2): MaxPool2d(kernel_size=<span class="hljs-number">2</span>, stride=<span class="hljs-number">2</span>, padding=<span class="hljs-number">0</span>, dilation=<span class="hljs-number">1</span>, ceil_mode=<span class="hljs-literal">False</span>)<br>    (conv3): Conv2d(<span class="hljs-number">32</span>, <span class="hljs-number">16</span>, kernel_size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>))<br>    (tran_conv1): ConvTranspose2d(<span class="hljs-number">16</span>, <span class="hljs-number">32</span>, kernel_size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), stride=(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>), padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), output_padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>))<br>    (conv4): Conv2d(<span class="hljs-number">32</span>, <span class="hljs-number">32</span>, kernel_size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>))<br>    (tran_conv2): ConvTranspose2d(<span class="hljs-number">32</span>, <span class="hljs-number">64</span>, kernel_size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), stride=(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>), padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), output_padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>))<br>    (conv5): Conv2d(<span class="hljs-number">64</span>, <span class="hljs-number">1</span>, kernel_size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>))<br>)<br>(convert): Linear(in_features=<span class="hljs-number">16384</span>, out_features=<span class="hljs-number">64</span>, bias=<span class="hljs-literal">True</span>)<br></code></pre></td></tr></table></figure>
+  </details></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<pre><code>- CCMSA模型
+    - 模型结构
+        &lt;details&gt;
+        &lt;summary&gt;点击此处打开折叠代码&lt;/summary&gt;
+
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br></pre></td><td class="code"><pre><code class="hljs python">CCMSA_Model(<br>(w_emb): WordEmbedding(<br>    (emb): Embedding(<span class="hljs-number">1178</span>, <span class="hljs-number">300</span>, padding_idx=<span class="hljs-number">1177</span>)<br>    (emb_): Embedding(<span class="hljs-number">1178</span>, <span class="hljs-number">300</span>, padding_idx=<span class="hljs-number">1177</span>)<br>    (dropout): Dropout(p=<span class="hljs-number">0.0</span>, inplace=<span class="hljs-literal">False</span>)<br>)<br>(q_emb): QuestionEmbedding(<br>    (rnn): LSTM(<span class="hljs-number">600</span>, <span class="hljs-number">1024</span>, batch_first=<span class="hljs-literal">True</span>)<br>)<br>(cmsa0): NONLocalBlock3D(<br>    (g): Conv3d(<span class="hljs-number">2184</span>, <span class="hljs-number">1092</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>))<br>    (W): Sequential(<br>    (<span class="hljs-number">0</span>): Conv3d(<span class="hljs-number">1092</span>, <span class="hljs-number">2184</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>))<br>    (<span class="hljs-number">1</span>): BatchNorm3d(<span class="hljs-number">2184</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>    )<br>    (theta): Conv3d(<span class="hljs-number">2184</span>, <span class="hljs-number">1092</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>))<br>    (phi): Conv3d(<span class="hljs-number">2184</span>, <span class="hljs-number">1092</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>))<br>)<br>(cmsa1): NONLocalBlock3D(<br>    (g): Conv3d(<span class="hljs-number">2184</span>, <span class="hljs-number">1092</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>))<br>    (W): Sequential(<br>    (<span class="hljs-number">0</span>): Conv3d(<span class="hljs-number">1092</span>, <span class="hljs-number">2184</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>))<br>    (<span class="hljs-number">1</span>): BatchNorm3d(<span class="hljs-number">2184</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>    )<br>    (theta): Conv3d(<span class="hljs-number">2184</span>, <span class="hljs-number">1092</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>))<br>    (phi): Conv3d(<span class="hljs-number">2184</span>, <span class="hljs-number">1092</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>))<br>)<br>(fc): Linear(in_features=<span class="hljs-number">2184</span>, out_features=<span class="hljs-number">1024</span>, bias=<span class="hljs-literal">True</span>)<br>(classifier): BayesClassifier(<br>    (fc1): BayesLinear_Normalq()<br>    (fc2): BayesLinear_Normalq()<br>    (activate): ReLU()<br>)<br>(maml_v_emb): SimpleCNN(<br>    (conv1): Conv2d(<span class="hljs-number">1</span>, <span class="hljs-number">64</span>, kernel_size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), stride=(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>), padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>))<br>    (conv1_bn): BatchNorm2d(<span class="hljs-number">64</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.05</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>    (conv2): Conv2d(<span class="hljs-number">64</span>, <span class="hljs-number">64</span>, kernel_size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), stride=(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>), padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>))<br>    (conv2_bn): BatchNorm2d(<span class="hljs-number">64</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.05</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>    (conv3): Conv2d(<span class="hljs-number">64</span>, <span class="hljs-number">64</span>, kernel_size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), stride=(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>), padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>))<br>    (conv3_bn): BatchNorm2d(<span class="hljs-number">64</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.05</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>    (conv4): Conv2d(<span class="hljs-number">64</span>, <span class="hljs-number">64</span>, kernel_size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), stride=(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>), padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>))<br>    (conv4_bn): BatchNorm2d(<span class="hljs-number">64</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.05</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>)<br>(ae_v_emb): Auto_Encoder_Model(<br>    (conv1): Conv2d(<span class="hljs-number">1</span>, <span class="hljs-number">64</span>, kernel_size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>))<br>    (max_pool1): MaxPool2d(kernel_size=<span class="hljs-number">2</span>, stride=<span class="hljs-number">2</span>, padding=<span class="hljs-number">0</span>, dilation=<span class="hljs-number">1</span>, ceil_mode=<span class="hljs-literal">False</span>)<br>    (conv2): Conv2d(<span class="hljs-number">64</span>, <span class="hljs-number">32</span>, kernel_size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>))<br>    (max_pool2): MaxPool2d(kernel_size=<span class="hljs-number">2</span>, stride=<span class="hljs-number">2</span>, padding=<span class="hljs-number">0</span>, dilation=<span class="hljs-number">1</span>, ceil_mode=<span class="hljs-literal">False</span>)<br>    (conv3): Conv2d(<span class="hljs-number">32</span>, <span class="hljs-number">16</span>, kernel_size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>))<br>    (tran_conv1): ConvTranspose2d(<span class="hljs-number">16</span>, <span class="hljs-number">32</span>, kernel_size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), stride=(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>), padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), output_padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>))<br>    (conv4): Conv2d(<span class="hljs-number">32</span>, <span class="hljs-number">32</span>, kernel_size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>))<br>    (tran_conv2): ConvTranspose2d(<span class="hljs-number">32</span>, <span class="hljs-number">64</span>, kernel_size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), stride=(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>), padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), output_padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>))<br>    (conv5): Conv2d(<span class="hljs-number">64</span>, <span class="hljs-number">1</span>, kernel_size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>))<br>)<br>(convert): Linear(in_features=<span class="hljs-number">16384</span>, out_features=<span class="hljs-number">64</span>, bias=<span class="hljs-literal">True</span>)<br>(clip_v_emb): CLIP(<br>    (visual): ModifiedResNet(<br>    (conv1): Conv2d(<span class="hljs-number">3</span>, <span class="hljs-number">32</span>, kernel_size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), stride=(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>), padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>    (bn1): BatchNorm2d(<span class="hljs-number">32</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>    (conv2): Conv2d(<span class="hljs-number">32</span>, <span class="hljs-number">32</span>, kernel_size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>    (bn2): BatchNorm2d(<span class="hljs-number">32</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>    (conv3): Conv2d(<span class="hljs-number">32</span>, <span class="hljs-number">64</span>, kernel_size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>    (bn3): BatchNorm2d(<span class="hljs-number">64</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>    (avgpool): AvgPool2d(kernel_size=<span class="hljs-number">2</span>, stride=<span class="hljs-number">2</span>, padding=<span class="hljs-number">0</span>)<br>    (relu): ReLU(inplace=<span class="hljs-literal">True</span>)<br>    (layer1): Sequential(<br>        (<span class="hljs-number">0</span>): Bottleneck(<br>        (conv1): Conv2d(<span class="hljs-number">64</span>, <span class="hljs-number">64</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn1): BatchNorm2d(<span class="hljs-number">64</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (conv2): Conv2d(<span class="hljs-number">64</span>, <span class="hljs-number">64</span>, kernel_size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn2): BatchNorm2d(<span class="hljs-number">64</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (avgpool): Identity()<br>        (conv3): Conv2d(<span class="hljs-number">64</span>, <span class="hljs-number">256</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn3): BatchNorm2d(<span class="hljs-number">256</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (relu): ReLU(inplace=<span class="hljs-literal">True</span>)<br>        (downsample): Sequential(<br>            (-<span class="hljs-number">1</span>): AvgPool2d(kernel_size=<span class="hljs-number">1</span>, stride=<span class="hljs-number">1</span>, padding=<span class="hljs-number">0</span>)<br>            (<span class="hljs-number">0</span>): Conv2d(<span class="hljs-number">64</span>, <span class="hljs-number">256</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>            (<span class="hljs-number">1</span>): BatchNorm2d(<span class="hljs-number">256</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        )<br>        )<br>        (<span class="hljs-number">1</span>): Bottleneck(<br>        (conv1): Conv2d(<span class="hljs-number">256</span>, <span class="hljs-number">64</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn1): BatchNorm2d(<span class="hljs-number">64</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (conv2): Conv2d(<span class="hljs-number">64</span>, <span class="hljs-number">64</span>, kernel_size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn2): BatchNorm2d(<span class="hljs-number">64</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (avgpool): Identity()<br>        (conv3): Conv2d(<span class="hljs-number">64</span>, <span class="hljs-number">256</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn3): BatchNorm2d(<span class="hljs-number">256</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (relu): ReLU(inplace=<span class="hljs-literal">True</span>)<br>        )<br>        (<span class="hljs-number">2</span>): Bottleneck(<br>        (conv1): Conv2d(<span class="hljs-number">256</span>, <span class="hljs-number">64</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn1): BatchNorm2d(<span class="hljs-number">64</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (conv2): Conv2d(<span class="hljs-number">64</span>, <span class="hljs-number">64</span>, kernel_size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn2): BatchNorm2d(<span class="hljs-number">64</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (avgpool): Identity()<br>        (conv3): Conv2d(<span class="hljs-number">64</span>, <span class="hljs-number">256</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn3): BatchNorm2d(<span class="hljs-number">256</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (relu): ReLU(inplace=<span class="hljs-literal">True</span>)<br>        )<br>    )<br>    (layer2): Sequential(<br>        (<span class="hljs-number">0</span>): Bottleneck(<br>        (conv1): Conv2d(<span class="hljs-number">256</span>, <span class="hljs-number">128</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn1): BatchNorm2d(<span class="hljs-number">128</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (conv2): Conv2d(<span class="hljs-number">128</span>, <span class="hljs-number">128</span>, kernel_size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn2): BatchNorm2d(<span class="hljs-number">128</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (avgpool): AvgPool2d(kernel_size=<span class="hljs-number">2</span>, stride=<span class="hljs-number">2</span>, padding=<span class="hljs-number">0</span>)<br>        (conv3): Conv2d(<span class="hljs-number">128</span>, <span class="hljs-number">512</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn3): BatchNorm2d(<span class="hljs-number">512</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (relu): ReLU(inplace=<span class="hljs-literal">True</span>)<br>        (downsample): Sequential(<br>            (-<span class="hljs-number">1</span>): AvgPool2d(kernel_size=<span class="hljs-number">2</span>, stride=<span class="hljs-number">2</span>, padding=<span class="hljs-number">0</span>)<br>            (<span class="hljs-number">0</span>): Conv2d(<span class="hljs-number">256</span>, <span class="hljs-number">512</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>            (<span class="hljs-number">1</span>): BatchNorm2d(<span class="hljs-number">512</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        )<br>        )<br>        (<span class="hljs-number">1</span>): Bottleneck(<br>        (conv1): Conv2d(<span class="hljs-number">512</span>, <span class="hljs-number">128</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn1): BatchNorm2d(<span class="hljs-number">128</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (conv2): Conv2d(<span class="hljs-number">128</span>, <span class="hljs-number">128</span>, kernel_size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn2): BatchNorm2d(<span class="hljs-number">128</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (avgpool): Identity()<br>        (conv3): Conv2d(<span class="hljs-number">128</span>, <span class="hljs-number">512</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn3): BatchNorm2d(<span class="hljs-number">512</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (relu): ReLU(inplace=<span class="hljs-literal">True</span>)<br>        )<br>        (<span class="hljs-number">2</span>): Bottleneck(<br>        (conv1): Conv2d(<span class="hljs-number">512</span>, <span class="hljs-number">128</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn1): BatchNorm2d(<span class="hljs-number">128</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (conv2): Conv2d(<span class="hljs-number">128</span>, <span class="hljs-number">128</span>, kernel_size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn2): BatchNorm2d(<span class="hljs-number">128</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (avgpool): Identity()<br>        (conv3): Conv2d(<span class="hljs-number">128</span>, <span class="hljs-number">512</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn3): BatchNorm2d(<span class="hljs-number">512</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (relu): ReLU(inplace=<span class="hljs-literal">True</span>)<br>        )<br>        (<span class="hljs-number">3</span>): Bottleneck(<br>        (conv1): Conv2d(<span class="hljs-number">512</span>, <span class="hljs-number">128</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn1): BatchNorm2d(<span class="hljs-number">128</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (conv2): Conv2d(<span class="hljs-number">128</span>, <span class="hljs-number">128</span>, kernel_size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn2): BatchNorm2d(<span class="hljs-number">128</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (avgpool): Identity()<br>        (conv3): Conv2d(<span class="hljs-number">128</span>, <span class="hljs-number">512</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn3): BatchNorm2d(<span class="hljs-number">512</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (relu): ReLU(inplace=<span class="hljs-literal">True</span>)<br>        )<br>    )<br>    (layer3): Sequential(<br>        (<span class="hljs-number">0</span>): Bottleneck(<br>        (conv1): Conv2d(<span class="hljs-number">512</span>, <span class="hljs-number">256</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn1): BatchNorm2d(<span class="hljs-number">256</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (conv2): Conv2d(<span class="hljs-number">256</span>, <span class="hljs-number">256</span>, kernel_size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn2): BatchNorm2d(<span class="hljs-number">256</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (avgpool): AvgPool2d(kernel_size=<span class="hljs-number">2</span>, stride=<span class="hljs-number">2</span>, padding=<span class="hljs-number">0</span>)<br>        (conv3): Conv2d(<span class="hljs-number">256</span>, <span class="hljs-number">1024</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn3): BatchNorm2d(<span class="hljs-number">1024</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (relu): ReLU(inplace=<span class="hljs-literal">True</span>)<br>        (downsample): Sequential(<br>            (-<span class="hljs-number">1</span>): AvgPool2d(kernel_size=<span class="hljs-number">2</span>, stride=<span class="hljs-number">2</span>, padding=<span class="hljs-number">0</span>)<br>            (<span class="hljs-number">0</span>): Conv2d(<span class="hljs-number">512</span>, <span class="hljs-number">1024</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>            (<span class="hljs-number">1</span>): BatchNorm2d(<span class="hljs-number">1024</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        )<br>        )<br>        (<span class="hljs-number">1</span>): Bottleneck(<br>        (conv1): Conv2d(<span class="hljs-number">1024</span>, <span class="hljs-number">256</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn1): BatchNorm2d(<span class="hljs-number">256</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (conv2): Conv2d(<span class="hljs-number">256</span>, <span class="hljs-number">256</span>, kernel_size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn2): BatchNorm2d(<span class="hljs-number">256</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (avgpool): Identity()<br>        (conv3): Conv2d(<span class="hljs-number">256</span>, <span class="hljs-number">1024</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn3): BatchNorm2d(<span class="hljs-number">1024</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (relu): ReLU(inplace=<span class="hljs-literal">True</span>)<br>        )<br>        (<span class="hljs-number">2</span>): Bottleneck(<br>        (conv1): Conv2d(<span class="hljs-number">1024</span>, <span class="hljs-number">256</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn1): BatchNorm2d(<span class="hljs-number">256</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (conv2): Conv2d(<span class="hljs-number">256</span>, <span class="hljs-number">256</span>, kernel_size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn2): BatchNorm2d(<span class="hljs-number">256</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (avgpool): Identity()<br>        (conv3): Conv2d(<span class="hljs-number">256</span>, <span class="hljs-number">1024</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn3): BatchNorm2d(<span class="hljs-number">1024</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (relu): ReLU(inplace=<span class="hljs-literal">True</span>)<br>        )<br>        (<span class="hljs-number">3</span>): Bottleneck(<br>        (conv1): Conv2d(<span class="hljs-number">1024</span>, <span class="hljs-number">256</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn1): BatchNorm2d(<span class="hljs-number">256</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (conv2): Conv2d(<span class="hljs-number">256</span>, <span class="hljs-number">256</span>, kernel_size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn2): BatchNorm2d(<span class="hljs-number">256</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (avgpool): Identity()<br>        (conv3): Conv2d(<span class="hljs-number">256</span>, <span class="hljs-number">1024</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn3): BatchNorm2d(<span class="hljs-number">1024</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (relu): ReLU(inplace=<span class="hljs-literal">True</span>)<br>        )<br>        (<span class="hljs-number">4</span>): Bottleneck(<br>        (conv1): Conv2d(<span class="hljs-number">1024</span>, <span class="hljs-number">256</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn1): BatchNorm2d(<span class="hljs-number">256</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (conv2): Conv2d(<span class="hljs-number">256</span>, <span class="hljs-number">256</span>, kernel_size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn2): BatchNorm2d(<span class="hljs-number">256</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (avgpool): Identity()<br>        (conv3): Conv2d(<span class="hljs-number">256</span>, <span class="hljs-number">1024</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn3): BatchNorm2d(<span class="hljs-number">1024</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (relu): ReLU(inplace=<span class="hljs-literal">True</span>)<br>        )<br>        (<span class="hljs-number">5</span>): Bottleneck(<br>        (conv1): Conv2d(<span class="hljs-number">1024</span>, <span class="hljs-number">256</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn1): BatchNorm2d(<span class="hljs-number">256</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (conv2): Conv2d(<span class="hljs-number">256</span>, <span class="hljs-number">256</span>, kernel_size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn2): BatchNorm2d(<span class="hljs-number">256</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (avgpool): Identity()<br>        (conv3): Conv2d(<span class="hljs-number">256</span>, <span class="hljs-number">1024</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn3): BatchNorm2d(<span class="hljs-number">1024</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (relu): ReLU(inplace=<span class="hljs-literal">True</span>)<br>        )<br>    )<br>    (layer4): Sequential(<br>        (<span class="hljs-number">0</span>): Bottleneck(<br>        (conv1): Conv2d(<span class="hljs-number">1024</span>, <span class="hljs-number">512</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn1): BatchNorm2d(<span class="hljs-number">512</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (conv2): Conv2d(<span class="hljs-number">512</span>, <span class="hljs-number">512</span>, kernel_size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn2): BatchNorm2d(<span class="hljs-number">512</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (avgpool): AvgPool2d(kernel_size=<span class="hljs-number">2</span>, stride=<span class="hljs-number">2</span>, padding=<span class="hljs-number">0</span>)<br>        (conv3): Conv2d(<span class="hljs-number">512</span>, <span class="hljs-number">2048</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn3): BatchNorm2d(<span class="hljs-number">2048</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (relu): ReLU(inplace=<span class="hljs-literal">True</span>)<br>        (downsample): Sequential(<br>            (-<span class="hljs-number">1</span>): AvgPool2d(kernel_size=<span class="hljs-number">2</span>, stride=<span class="hljs-number">2</span>, padding=<span class="hljs-number">0</span>)<br>            (<span class="hljs-number">0</span>): Conv2d(<span class="hljs-number">1024</span>, <span class="hljs-number">2048</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>            (<span class="hljs-number">1</span>): BatchNorm2d(<span class="hljs-number">2048</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        )<br>        )<br>        (<span class="hljs-number">1</span>): Bottleneck(<br>        (conv1): Conv2d(<span class="hljs-number">2048</span>, <span class="hljs-number">512</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn1): BatchNorm2d(<span class="hljs-number">512</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (conv2): Conv2d(<span class="hljs-number">512</span>, <span class="hljs-number">512</span>, kernel_size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn2): BatchNorm2d(<span class="hljs-number">512</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (avgpool): Identity()<br>        (conv3): Conv2d(<span class="hljs-number">512</span>, <span class="hljs-number">2048</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn3): BatchNorm2d(<span class="hljs-number">2048</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (relu): ReLU(inplace=<span class="hljs-literal">True</span>)<br>        )<br>        (<span class="hljs-number">2</span>): Bottleneck(<br>        (conv1): Conv2d(<span class="hljs-number">2048</span>, <span class="hljs-number">512</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn1): BatchNorm2d(<span class="hljs-number">512</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (conv2): Conv2d(<span class="hljs-number">512</span>, <span class="hljs-number">512</span>, kernel_size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), padding=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn2): BatchNorm2d(<span class="hljs-number">512</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (avgpool): Identity()<br>        (conv3): Conv2d(<span class="hljs-number">512</span>, <span class="hljs-number">2048</span>, kernel_size=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), stride=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), bias=<span class="hljs-literal">False</span>)<br>        (bn3): BatchNorm2d(<span class="hljs-number">2048</span>, eps=<span class="hljs-number">1e-05</span>, momentum=<span class="hljs-number">0.1</span>, affine=<span class="hljs-literal">True</span>, track_running_stats=<span class="hljs-literal">True</span>)<br>        (relu): ReLU(inplace=<span class="hljs-literal">True</span>)<br>        )<br>    )<br>    (attnpool): AttentionPool2d(<br>        (k_proj): Linear(in_features=<span class="hljs-number">2048</span>, out_features=<span class="hljs-number">2048</span>, bias=<span class="hljs-literal">True</span>)<br>        (q_proj): Linear(in_features=<span class="hljs-number">2048</span>, out_features=<span class="hljs-number">2048</span>, bias=<span class="hljs-literal">True</span>)<br>        (v_proj): Linear(in_features=<span class="hljs-number">2048</span>, out_features=<span class="hljs-number">2048</span>, bias=<span class="hljs-literal">True</span>)<br>        (c_proj): Linear(in_features=<span class="hljs-number">2048</span>, out_features=<span class="hljs-number">1024</span>, bias=<span class="hljs-literal">True</span>)<br>    )<br>    )<br>    (transformer): Transformer(<br>    (resblocks): Sequential(<br>        (<span class="hljs-number">0</span>): ResidualAttentionBlock(<br>        (attn): MultiheadAttention(<br>            (out_proj): _LinearWithBias(in_features=<span class="hljs-number">512</span>, out_features=<span class="hljs-number">512</span>, bias=<span class="hljs-literal">True</span>)<br>        )<br>        (ln_1): LayerNorm((<span class="hljs-number">512</span>,), eps=<span class="hljs-number">1e-05</span>, elementwise_affine=<span class="hljs-literal">True</span>)<br>        (mlp): Sequential(<br>            (c_fc): Linear(in_features=<span class="hljs-number">512</span>, out_features=<span class="hljs-number">2048</span>, bias=<span class="hljs-literal">True</span>)<br>            (gelu): QuickGELU()<br>            (c_proj): Linear(in_features=<span class="hljs-number">2048</span>, out_features=<span class="hljs-number">512</span>, bias=<span class="hljs-literal">True</span>)<br>        )<br>        (ln_2): LayerNorm((<span class="hljs-number">512</span>,), eps=<span class="hljs-number">1e-05</span>, elementwise_affine=<span class="hljs-literal">True</span>)<br>        )<br>        (<span class="hljs-number">1</span>): ResidualAttentionBlock(<br>        (attn): MultiheadAttention(<br>            (out_proj): _LinearWithBias(in_features=<span class="hljs-number">512</span>, out_features=<span class="hljs-number">512</span>, bias=<span class="hljs-literal">True</span>)<br>        )<br>        (ln_1): LayerNorm((<span class="hljs-number">512</span>,), eps=<span class="hljs-number">1e-05</span>, elementwise_affine=<span class="hljs-literal">True</span>)<br>        (mlp): Sequential(<br>            (c_fc): Linear(in_features=<span class="hljs-number">512</span>, out_features=<span class="hljs-number">2048</span>, bias=<span class="hljs-literal">True</span>)<br>            (gelu): QuickGELU()<br>            (c_proj): Linear(in_features=<span class="hljs-number">2048</span>, out_features=<span class="hljs-number">512</span>, bias=<span class="hljs-literal">True</span>)<br>        )<br>        (ln_2): LayerNorm((<span class="hljs-number">512</span>,), eps=<span class="hljs-number">1e-05</span>, elementwise_affine=<span class="hljs-literal">True</span>)<br>        )<br>        (<span class="hljs-number">2</span>): ResidualAttentionBlock(<br>        (attn): MultiheadAttention(<br>            (out_proj): _LinearWithBias(in_features=<span class="hljs-number">512</span>, out_features=<span class="hljs-number">512</span>, bias=<span class="hljs-literal">True</span>)<br>        )<br>        (ln_1): LayerNorm((<span class="hljs-number">512</span>,), eps=<span class="hljs-number">1e-05</span>, elementwise_affine=<span class="hljs-literal">True</span>)<br>        (mlp): Sequential(<br>            (c_fc): Linear(in_features=<span class="hljs-number">512</span>, out_features=<span class="hljs-number">2048</span>, bias=<span class="hljs-literal">True</span>)<br>            (gelu): QuickGELU()<br>            (c_proj): Linear(in_features=<span class="hljs-number">2048</span>, out_features=<span class="hljs-number">512</span>, bias=<span class="hljs-literal">True</span>)<br>        )<br>        (ln_2): LayerNorm((<span class="hljs-number">512</span>,), eps=<span class="hljs-number">1e-05</span>, elementwise_affine=<span class="hljs-literal">True</span>)<br>        )<br>        (<span class="hljs-number">3</span>): ResidualAttentionBlock(<br>        (attn): MultiheadAttention(<br>            (out_proj): _LinearWithBias(in_features=<span class="hljs-number">512</span>, out_features=<span class="hljs-number">512</span>, bias=<span class="hljs-literal">True</span>)<br>        )<br>        (ln_1): LayerNorm((<span class="hljs-number">512</span>,), eps=<span class="hljs-number">1e-05</span>, elementwise_affine=<span class="hljs-literal">True</span>)<br>        (mlp): Sequential(<br>            (c_fc): Linear(in_features=<span class="hljs-number">512</span>, out_features=<span class="hljs-number">2048</span>, bias=<span class="hljs-literal">True</span>)<br>            (gelu): QuickGELU()<br>            (c_proj): Linear(in_features=<span class="hljs-number">2048</span>, out_features=<span class="hljs-number">512</span>, bias=<span class="hljs-literal">True</span>)<br>        )<br>        (ln_2): LayerNorm((<span class="hljs-number">512</span>,), eps=<span class="hljs-number">1e-05</span>, elementwise_affine=<span class="hljs-literal">True</span>)<br>        )<br>        (<span class="hljs-number">4</span>): ResidualAttentionBlock(<br>        (attn): MultiheadAttention(<br>            (out_proj): _LinearWithBias(in_features=<span class="hljs-number">512</span>, out_features=<span class="hljs-number">512</span>, bias=<span class="hljs-literal">True</span>)<br>        )<br>        (ln_1): LayerNorm((<span class="hljs-number">512</span>,), eps=<span class="hljs-number">1e-05</span>, elementwise_affine=<span class="hljs-literal">True</span>)<br>        (mlp): Sequential(<br>            (c_fc): Linear(in_features=<span class="hljs-number">512</span>, out_features=<span class="hljs-number">2048</span>, bias=<span class="hljs-literal">True</span>)<br>            (gelu): QuickGELU()<br>            (c_proj): Linear(in_features=<span class="hljs-number">2048</span>, out_features=<span class="hljs-number">512</span>, bias=<span class="hljs-literal">True</span>)<br>        )<br>        (ln_2): LayerNorm((<span class="hljs-number">512</span>,), eps=<span class="hljs-number">1e-05</span>, elementwise_affine=<span class="hljs-literal">True</span>)<br>        )<br>        (<span class="hljs-number">5</span>): ResidualAttentionBlock(<br>        (attn): MultiheadAttention(<br>            (out_proj): _LinearWithBias(in_features=<span class="hljs-number">512</span>, out_features=<span class="hljs-number">512</span>, bias=<span class="hljs-literal">True</span>)<br>        )<br>        (ln_1): LayerNorm((<span class="hljs-number">512</span>,), eps=<span class="hljs-number">1e-05</span>, elementwise_affine=<span class="hljs-literal">True</span>)<br>        (mlp): Sequential(<br>            (c_fc): Linear(in_features=<span class="hljs-number">512</span>, out_features=<span class="hljs-number">2048</span>, bias=<span class="hljs-literal">True</span>)<br>            (gelu): QuickGELU()<br>            (c_proj): Linear(in_features=<span class="hljs-number">2048</span>, out_features=<span class="hljs-number">512</span>, bias=<span class="hljs-literal">True</span>)<br>        )<br>        (ln_2): LayerNorm((<span class="hljs-number">512</span>,), eps=<span class="hljs-number">1e-05</span>, elementwise_affine=<span class="hljs-literal">True</span>)<br>        )<br>        (<span class="hljs-number">6</span>): ResidualAttentionBlock(<br>        (attn): MultiheadAttention(<br>            (out_proj): _LinearWithBias(in_features=<span class="hljs-number">512</span>, out_features=<span class="hljs-number">512</span>, bias=<span class="hljs-literal">True</span>)<br>        )<br>        (ln_1): LayerNorm((<span class="hljs-number">512</span>,), eps=<span class="hljs-number">1e-05</span>, elementwise_affine=<span class="hljs-literal">True</span>)<br>        (mlp): Sequential(<br>            (c_fc): Linear(in_features=<span class="hljs-number">512</span>, out_features=<span class="hljs-number">2048</span>, bias=<span class="hljs-literal">True</span>)<br>            (gelu): QuickGELU()<br>            (c_proj): Linear(in_features=<span class="hljs-number">2048</span>, out_features=<span class="hljs-number">512</span>, bias=<span class="hljs-literal">True</span>)<br>        )<br>        (ln_2): LayerNorm((<span class="hljs-number">512</span>,), eps=<span class="hljs-number">1e-05</span>, elementwise_affine=<span class="hljs-literal">True</span>)<br>        )<br>        (<span class="hljs-number">7</span>): ResidualAttentionBlock(<br>        (attn): MultiheadAttention(<br>            (out_proj): _LinearWithBias(in_features=<span class="hljs-number">512</span>, out_features=<span class="hljs-number">512</span>, bias=<span class="hljs-literal">True</span>)<br>        )<br>        (ln_1): LayerNorm((<span class="hljs-number">512</span>,), eps=<span class="hljs-number">1e-05</span>, elementwise_affine=<span class="hljs-literal">True</span>)<br>        (mlp): Sequential(<br>            (c_fc): Linear(in_features=<span class="hljs-number">512</span>, out_features=<span class="hljs-number">2048</span>, bias=<span class="hljs-literal">True</span>)<br>            (gelu): QuickGELU()<br>            (c_proj): Linear(in_features=<span class="hljs-number">2048</span>, out_features=<span class="hljs-number">512</span>, bias=<span class="hljs-literal">True</span>)<br>        )<br>        (ln_2): LayerNorm((<span class="hljs-number">512</span>,), eps=<span class="hljs-number">1e-05</span>, elementwise_affine=<span class="hljs-literal">True</span>)<br>        )<br>        (<span class="hljs-number">8</span>): ResidualAttentionBlock(<br>        (attn): MultiheadAttention(<br>            (out_proj): _LinearWithBias(in_features=<span class="hljs-number">512</span>, out_features=<span class="hljs-number">512</span>, bias=<span class="hljs-literal">True</span>)<br>        )<br>        (ln_1): LayerNorm((<span class="hljs-number">512</span>,), eps=<span class="hljs-number">1e-05</span>, elementwise_affine=<span class="hljs-literal">True</span>)<br>        (mlp): Sequential(<br>            (c_fc): Linear(in_features=<span class="hljs-number">512</span>, out_features=<span class="hljs-number">2048</span>, bias=<span class="hljs-literal">True</span>)<br>            (gelu): QuickGELU()<br>            (c_proj): Linear(in_features=<span class="hljs-number">2048</span>, out_features=<span class="hljs-number">512</span>, bias=<span class="hljs-literal">True</span>)<br>        )<br>        (ln_2): LayerNorm((<span class="hljs-number">512</span>,), eps=<span class="hljs-number">1e-05</span>, elementwise_affine=<span class="hljs-literal">True</span>)<br>        )<br>        (<span class="hljs-number">9</span>): ResidualAttentionBlock(<br>        (attn): MultiheadAttention(<br>            (out_proj): _LinearWithBias(in_features=<span class="hljs-number">512</span>, out_features=<span class="hljs-number">512</span>, bias=<span class="hljs-literal">True</span>)<br>        )<br>        (ln_1): LayerNorm((<span class="hljs-number">512</span>,), eps=<span class="hljs-number">1e-05</span>, elementwise_affine=<span class="hljs-literal">True</span>)<br>        (mlp): Sequential(<br>            (c_fc): Linear(in_features=<span class="hljs-number">512</span>, out_features=<span class="hljs-number">2048</span>, bias=<span class="hljs-literal">True</span>)<br>            (gelu): QuickGELU()<br>            (c_proj): Linear(in_features=<span class="hljs-number">2048</span>, out_features=<span class="hljs-number">512</span>, bias=<span class="hljs-literal">True</span>)<br>        )<br>        (ln_2): LayerNorm((<span class="hljs-number">512</span>,), eps=<span class="hljs-number">1e-05</span>, elementwise_affine=<span class="hljs-literal">True</span>)<br>        )<br>        (<span class="hljs-number">10</span>): ResidualAttentionBlock(<br>        (attn): MultiheadAttention(<br>            (out_proj): _LinearWithBias(in_features=<span class="hljs-number">512</span>, out_features=<span class="hljs-number">512</span>, bias=<span class="hljs-literal">True</span>)<br>        )<br>        (ln_1): LayerNorm((<span class="hljs-number">512</span>,), eps=<span class="hljs-number">1e-05</span>, elementwise_affine=<span class="hljs-literal">True</span>)<br>        (mlp): Sequential(<br>            (c_fc): Linear(in_features=<span class="hljs-number">512</span>, out_features=<span class="hljs-number">2048</span>, bias=<span class="hljs-literal">True</span>)<br>            (gelu): QuickGELU()<br>            (c_proj): Linear(in_features=<span class="hljs-number">2048</span>, out_features=<span class="hljs-number">512</span>, bias=<span class="hljs-literal">True</span>)<br>        )<br>        (ln_2): LayerNorm((<span class="hljs-number">512</span>,), eps=<span class="hljs-number">1e-05</span>, elementwise_affine=<span class="hljs-literal">True</span>)<br>        )<br>        (<span class="hljs-number">11</span>): ResidualAttentionBlock(<br>        (attn): MultiheadAttention(<br>            (out_proj): _LinearWithBias(in_features=<span class="hljs-number">512</span>, out_features=<span class="hljs-number">512</span>, bias=<span class="hljs-literal">True</span>)<br>        )<br>        (ln_1): LayerNorm((<span class="hljs-number">512</span>,), eps=<span class="hljs-number">1e-05</span>, elementwise_affine=<span class="hljs-literal">True</span>)<br>        (mlp): Sequential(<br>            (c_fc): Linear(in_features=<span class="hljs-number">512</span>, out_features=<span class="hljs-number">2048</span>, bias=<span class="hljs-literal">True</span>)<br>            (gelu): QuickGELU()<br>            (c_proj): Linear(in_features=<span class="hljs-number">2048</span>, out_features=<span class="hljs-number">512</span>, bias=<span class="hljs-literal">True</span>)<br>        )<br>        (ln_2): LayerNorm((<span class="hljs-number">512</span>,), eps=<span class="hljs-number">1e-05</span>, elementwise_affine=<span class="hljs-literal">True</span>)<br>        )<br>    )<br>    )<br>    (token_embedding): Embedding(<span class="hljs-number">49408</span>, <span class="hljs-number">512</span>)<br>    (ln_final): LayerNorm((<span class="hljs-number">512</span>,), eps=<span class="hljs-number">1e-05</span>, elementwise_affine=<span class="hljs-literal">True</span>)<br>)<br>)<br></code></pre></td></tr></table></figure>
+        &lt;/details&gt;
+</code></pre>
+<h2 id="相关数据集"><a href="#相关数据集" class="headerlink" title="相关数据集"></a>相关数据集</h2><p>自然领域：</p>
+<ul>
+<li>DAQUAR</li>
+<li>VQA1.0/2.0</li>
+<li>COCOQA</li>
+<li>CLEVR</li>
+</ul>
+<p>医学领域：(主要是针对CT,X光，以及核磁共振光谱图)</p>
+<ul>
+<li>VQA-Med（噪音很多，本次不实验）<ul>
+<li>CT：</li>
+<li>X-ray：</li>
+<li>MAR：</li>
+</ul>
+</li>
+<li>SLAKE（VQA-Med Plus）<br>数据大小：642张医学图像，14K的问答对，5个身体部位类别：头，胸，腹，脖子，盆腔；10类问题：器官，位置，知识，异常，模态，平面，质量，颜色，尺寸，形状。</li>
+<li>VQA-RAD</li>
+<li>VQA-PATH （病理数据集，可以后期补做）</li>
+</ul>
+<h2 id="现有方法总结"><a href="#现有方法总结" class="headerlink" title="现有方法总结"></a>现有方法总结</h2><h3 id="视觉编码器"><a href="#视觉编码器" class="headerlink" title="视觉编码器"></a>视觉编码器</h3><ol>
+<li>CLIP医学预训练模型：PUBCLIP</li>
+<li>MTPT多任务混合预训练：</li>
+<li>MAML元学习编码器：解决以不同器官异常状态为类别的k-shot n-way分类问题</li>
+<li>常用降噪模块DAE：用于医学图像降噪<br>MAML又叫模型不可知元学习，是一种针对小样本领域非常行之有效的方法，在元学习中，我们从大量的相关学习任务中获取一小部分的样本点，然后通过元学习器来生成一个快速的学习器，再通过少量的样本作用在新的相关的任务之上。也就是通过相似任务获得一个较优的网络初始化权重，再进行学习，并且可以极大地减小梯度下降次数，提高学习效率（类比获得基本认知，再精细认知）</li>
+</ol>
+<p><strong>算法流程</strong></p>
+<p>如何训练初始化权重？<br>假设模型是f，可以用参数θ描述，找来k个与目标近似的任务Tk，并把它们作为一个batch，对每个任务定义loss，并且通过梯度下降最小化得到θimin，这个就是针对任务Ti的初始化参数。k个都训练后，就可以获得响应的参数集合，在采样下一个batch前，使用元更新或者元优化。并通过梯度下降计算出了相对最优参数，并且通过任务Ti中的参数对应的梯度，更新初始化的随机参数。<br>这一步可以使得模型的初始化移动到了一个相对最优的位置。这一步就是元步，元更新，元训练。</p>
+<h3 id="文本编码器"><a href="#文本编码器" class="headerlink" title="文本编码器"></a>文本编码器</h3><ol>
+<li>RNN</li>
+<li>Bert</li>
+<li>QCR\TCR</li>
+</ol>
+<h3 id="模型交互思路"><a href="#模型交互思路" class="headerlink" title="模型交互思路"></a>模型交互思路</h3><ol>
+<li>BiATT</li>
+<li>SANATT</li>
+<li>CMSA注意力混合<br>主要使用的方法</li>
+<li>typeatt附加模块<br>待使用的方法</li>
+<li>跨模态的注意力</li>
+</ol>
+<h2 id="实验模型：CSMA-MTPT"><a href="#实验模型：CSMA-MTPT" class="headerlink" title="实验模型：CSMA-MTPT"></a>实验模型：CSMA-MTPT</h2><p>基于注意力机制的模态融合方法，其中使用到的方法有自注意力机制，多头注意力机制，注意力机制下的模态融合本质上就是优化特征的权重筛选，强调相关性的特征占比。</p>
+<h2 id="实验模型："><a href="#实验模型：" class="headerlink" title="实验模型："></a>实验模型：</h2><p>可以做一个不同的视觉或者语言编码器组合的影响实验</p>
+<ol>
+<li><p>CLIP-AE-BAN/SAN</p>
+</li>
+<li><p>CMSA-MTPT/BAN/SAN</p>
+</li>
+<li><p>MAML-AE-BAN/SAN</p>
+</li>
+</ol>
+<h3 id="多任务损失L端到端的训练医学VQA："><a href="#多任务损失L端到端的训练医学VQA：" class="headerlink" title="多任务损失L端到端的训练医学VQA："></a>多任务损失L端到端的训练医学VQA：</h3><p>$$ L=L_{\text {spe }}+L_{\text {com }} $$</p>
+<h3 id="图像编码：从关注视觉特征表达上入手，提高模型性能"><a href="#图像编码：从关注视觉特征表达上入手，提高模型性能" class="headerlink" title="图像编码：从关注视觉特征表达上入手，提高模型性能"></a>图像编码：从关注视觉特征表达上入手，提高模型性能</h3><p>我们使用三个独立的ResNet-34网络在相应的外部数据集上预训练，以分别捕获MRI、CT、X-射线的视觉特征。然后使用一个分类器确定医学图像的种类，并以soft方式选择相应的视觉特征：<br>$$ v=w_{1} v_{a}+w_{2} v_{h}+w_{3} v_{c} $$</p>
+<p>v表示最终视觉特征，va,vh,vc分别表示从解码器的对应腹部、头部和胸部图像的输出特征。w是图像种类分类器的输出向量，表示每个医学图像种类的权重。<br>此外，为了更好理解和回答有关局部图像定位的问题，我们按照[27]获得有同样分辨率的8维空间特征图t作为视觉特征w。空间特征图t中每个位置的空间向量编码归一化坐标（左上、中间、右下、网格的宽和高）。</p>
+<h3 id="文字编码"><a href="#文字编码" class="headerlink" title="文字编码"></a>文字编码</h3><p>按照前面的工作[17]，每个单词都表示为来自VQA-RAD的一个200维BioWordVec词嵌入和另一个200维增强嵌入的连接。BioWordVec是一种基于PubMed和MeSH的预训练的生物医学词嵌入。每个400维嵌入向量送入LSTM获取问题嵌入q∈ R 12×1024。</p>
+<p>运用最新的bert获得更加优质的编码能力不失为一项选择,代码能力上也同时要求更高的能力。</p>
+<h3 id="跨模态自注意力"><a href="#跨模态自注意力" class="headerlink" title="跨模态自注意力"></a>跨模态自注意力</h3><p>跨模态的注意力方式，多注意力机制，先了解程序运作机制，在从实验中获得改进的方法<br>我的思考：<br>特征的本质是一种整合或者抽象化后的信息，可以由向量表示，横看成岭侧成峰，但描述的依旧是这一座有特色的山，不同的视角(维度)的信息可以更好地帮助我们认知这个事务，重构还原其本来的样貌，以及更加深入地了解其本质（从投影挖掘并重建存在于高维度的信息）我认为起机理和一些思考大抵如下：</p>
+<ol>
+<li>维度冗余现象：cat一组特征向量确实可以得到更优秀的特征表达，但如果是相似的观察或者描述方法依然存在维度同质化的问题，其表现其实就是在该特征的真实描述空间上存在线性相关的基向量。cat方法不会把这两组向量合并，而是作为两组独立的向量存在于空间当中，这样的方式会增加其编码的<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/31951092">稀疏特性</a>，降低学习效率以及会影响到模型的训练收敛和最后的拟合结果。要解决这个问题，根据论文巴拉巴拉（其实是我）传统的思路是在同一套编码规则下通过相似性判断和线性约束解决。我的方法是直接把编码特征拍平，由自注意力让网络去选择和表征（也就是学习）其有效表达</li>
+<li>贝叶斯的奥秘：贝叶斯原理直击认知和学习的本质，没有先验的认知和似然作为联系桥梁后验是不存在的。同时也揭示着解决信息不确定性的通路，就是以一个先验知识作为基础，不断通过证据消除不确定性。</li>
+</ol>
+<h3 id="贝叶斯神经网络（BNN）原理"><a href="#贝叶斯神经网络（BNN）原理" class="headerlink" title="贝叶斯神经网络（BNN）原理"></a>贝叶斯神经网络（BNN）原理</h3><h4 id="理由"><a href="#理由" class="headerlink" title="理由"></a>理由</h4><p>模型在推理层/线性层使用了贝叶斯神经网络模型（BNN），贝叶斯神经网络与传统的点估计网络不同，点估计网络的权重w是一个固定的参数，而贝叶斯神经网络的参数是一个概率分布，从而在权重上引入了不确定性。基于先验再通过贝叶斯反向传播算法得道这些权值的一个后验分布形式。有多种优势XXX，在本问题中，贝叶斯推理方法的加入可以给医学诊断这种具有高风险性，高安全需求的行为带来更多，更充分的实施依据。缓解因为模型推理过程中由于不确定性带来的偏差。以及通过后验分布，可以清晰的得到模型对推理的导向，从而提高了模型推理的可解释性。</p>
+<h4 id="数学概念和解释"><a href="#数学概念和解释" class="headerlink" title="数学概念和解释"></a>数学概念和解释</h4><p>通过不断的采样预测，本质上也是一种集成预测的方法。而且贝叶斯方法比最大似然估计更适合对小样本数据进行建模，贝叶斯方法中，参数的后验分布通过先验和似然的乘积获得，因此贝叶斯可以在模型中引入先验知识，在样本数据较少的情况下提高了模型的收敛能力，降低小样本训练过拟合的风险。</p>
+<p>在贝叶斯反向传播中，由于权值的真实分布往往非常复杂，故采用变分近似的方法来对权值的后验分布进行近似估计。就是为每个权值设定一个变分后验，然后通过最小化变分后验和真实后验之间的KL散度从而达到近似的效果。便于神经网络进行训练。</p>
+<p>分偶然不确定性和感知不确定性，偶然不确定性存在于数据产生所自带偏差中，是固有的，在模型训练时就会将其作为知识学习进去。感知不确定性是预测时产生的，只与模型相关，可能是因为学习不充分所导致，理论上可以被消除。</p>
+<h2 id="代码通读以及实验"><a href="#代码通读以及实验" class="headerlink" title="代码通读以及实验"></a>代码通读以及实验</h2><p><strong>构建模型中必须注意的维度匹配问题</strong><br>多模态模型中，往往都是定义好了所有的channal和维度要求，再喂响应的数据进行学习<br>所以，视觉编码器的维度定义在args里，有多种，也有混合，模型会根据这个参数来定义一些编码器，注意力层，卷积层，全连接的维度。编码层就按照这个维度去编码得到这个维度的向量，然后给后续层进行处理，千万注意对应关系。<br>文字编码器同理，LSTM的in，hid，out_dim都对齐文字的编码维度，比如glove，bio等编码，然后和注意力层相连接。<br>样例：我在代码中常犯的一些问题，v_emb和q_emb分别与FCnet的对齐关系（FCnet在定义时就有indim，outdim）所以我的v，q输入维度必须和这几个参数对齐</p>
+<p>解读代码和其中的数学原理</p>
+<ul>
+<li><p>数据处理部分（序列化，还有获取标签返回）</p>
+<ol>
+<li>这部分就是dataset_RAD.py中的一系列class和处理函数，针对的是一些处理过的数据集，例如将图片和问答对序列化，然后_load_data，</li>
+<li>图片中根据自己所用的方法去选用不用的裁切方式，例如采用元学习时，将图片进行最小裁切成84<em>84或者128</em>128</li>
+<li>在定义时还要给图片的维数做一个定义，好拼接后续模型</li>
+<li>获得标签/匹配对（getitem）</li>
+</ol>
+</li>
+<li><p>模型搭建部分（图像编码器，语言编码器）</p>
+<ol>
+<li>图像编码器中可以使用预训练好的编码模型，例如独立的CLIP，maml，DAE以及CMSA论文的三集成MTPT编码器，等方式</li>
+<li>语言编码器可以用LSTM和纯注意力，或者使用Bert（自用）</li>
+</ol>
+</li>
+<li><p>特征融合部分</p>
+<ol>
+<li>采用注意力融合的方式</li>
+<li>采用QCR-TCR的分段汇总方式</li>
+</ol>
+</li>
+<li><p>推理部分</p>
+<ol>
+<li>两层全连接，经典分类器</li>
+<li>贝叶斯全连接层（把输出的分布都推理出来）</li>
+</ol>
+</li>
+<li><p>训练部分</p>
+<ol>
+<li>多个loss的合计会带来什么问题</li>
+</ol>
+</li>
+<li><p>验证部分</p>
+</li>
+</ul>
+<h3 id="实验流程"><a href="#实验流程" class="headerlink" title="实验流程"></a>实验流程</h3><ul>
+<li><p>可控制变量（实验）一览：</p>
+<ul>
+<li>选用不同的视觉编码器以及其组合<ul>
+<li>Maml</li>
+<li>DAE</li>
+<li>CLIP<ul>
+<li>VIT32(论文中在SLAKE上表现最优)</li>
+<li>RN50(论文中在RAD上表现最优)</li>
+<li>RN50*4</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>选用不用的文字编码器<ul>
+<li>LSTM</li>
+<li>Self Attention</li>
+</ul>
+</li>
+<li>选用不同的模态交互注意力<ul>
+<li>SAN</li>
+<li>BAN</li>
+<li>CMSA</li>
+</ul>
+</li>
+<li>选用不同的分类器求loss<ul>
+<li>FC</li>
+<li>Bayes-FC<ul>
+<li>贝叶斯先验分布（prior.py）形式：球形高斯分布（sigma方差，设定值为0.1）</li>
+<li>loss占比alpha（默认设定值为1）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>额外<ul>
+<li>loss控制是否采用dwa算法</li>
+<li>是否加入多头注意力层</li>
+<li>对问题采不采用QCR-TCR（有点麻烦）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>设计实验<br>  实验一：通过准确率说明我的注意力模型构建方法（MEVF-CMSA-plus版本）在融合不同视觉编码器上更有效，缓解模态信息融合中存在的信息干扰问题（信息强化公式）<br>  实验思路：单个编码器下的性能实验（MAMLDAE-BAN | MAMLDAE-CMSA），多个编码器性能实验（MAMLDAECLIP-BAN | MAMLDAECLIP-CMSA）<br>  作图：1.性能对比表格 2.跨模态对齐实验之我设计的注意力机制如何更充分的对齐不同模态的信息以及有着更好的表征，画对应的featuremap。</p>
+<ul>
+<li>MEVF1(MAML+DAE-BAN)：已做Overcoming Data Limitation in Medical Visual Question Answering?</li>
+<li>MEVF2(pubCLIP+AE-BAN)：已做Does CLIP Benefit Visual Question Answering in the Medical Domain as Much as it Does in the General Domain?</li>
+<li>MEVF3(pubCLIP+MAML+AE-BAN)：无融合算法，纯concat，如果性能反而下降说明多模态信息中存在特征空间互斥的问题</li>
+<li>OUTMEVF(pubCLIP+MAML+AE-CMSAplus):用了新的方法，得到了性能的提升，证实我的融合方法可以解决上述问题</li>
+</ul>
+<p>  实验二：CMSA的跨模态表达能力，以及和开放预训练模型CLIP结合后提升的open-end能力<br>  作图：1. 文字图像匹配的注意力图 2. 问答实验</p>
+<ul>
+<li>MTCLIP</li>
+<li>NEW DESIGN：混合图像编码器+Bert语言模型+多对齐注意力+贝叶斯决策</li>
+</ul>
+<p>  实验三：贝叶斯拒绝分类实验，提高模型决策的可解释性和诊断安全性<br>  作图：1. 贝叶斯分类层的输出结果以及其相应的不确定性分布图 2. 拒绝分类实验（拒绝率）</p>
+<ul>
+<li>问题：部分贝叶斯算不算贝叶斯，只在分类层采用贝叶斯有什么意义？<br>  答：根据论文1.《Weight Uncertainty in Neural Network》2.LiBRe: A Practical Bayesian Approach to Adversarial Detection不确定性的由来可知，部分网络的可行性存在，并且起到集成分类器，小样本下抗过拟合的效果</li>
+<li>问题：为什么加入贝叶斯后性能反而有所上升？但收敛速度不如传统分类器（slake数据集上的实验现象）<br>  答：因为贝叶斯分类器相比传统的分类器计算loss本质是多次采样取均值，并且趋近的是一个变分后验分布。</li>
+<li>OUTMEVF(pubCLIP+MAML+AE-CMSAplus)</li>
+<li>OUTMEVF(pubCLIP+MAML+AE-CMSAplus-Bayes)<ul>
+<li>已经初步验证了参数sigma=0.1 a=0.0001会达到较优水平</li>
+</ul>
+</li>
+</ul>
+<p>  实验四：对比学习预训练模型加入Med-VQA的意义<br>  已有实验：一个一个类比</p>
+<p>  实验五：不同融合方法的对比</p>
+</li>
+<li><p>对比实验</p>
+<ul>
+<li>IDEA</li>
+<li>FRAMWORK</li>
+<li>DATASET</li>
+</ul>
+</li>
+<li><p>消融实验：证明我方法里某些局部方法的有效性和非敏感性，也就是证明我的思路起了主要作用</p>
+<ul>
+<li>INPT-CMSA：不用特殊预训练过的编码器</li>
+<li>SPTP-CMSA：单任务预训练训练的编码器</li>
+<li>MTPT-BAN：多任务预训练的编码器+双线性池化</li>
+<li>MTPT-CMSA：多任务预训练的编码器+跨模态自注意力</li>
+</ul>
+</li>
+</ul>
+<h3 id="实验结果和测试"><a href="#实验结果和测试" class="headerlink" title="实验结果和测试"></a>实验结果和测试</h3><ol>
+<li><p>CLIP-AE-BAN/SAN</p>
+</li>
+<li><p>CMSA-MTPT/BAN/SAN</p>
+</li>
+<li><p>MAML-AE-BAN/SAN</p>
+</li>
+</ol>
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><ol>
+<li><p>新的视觉模型在图像表达上的提升和原因<br> 不同的编码方式有不同的作用，例如自编码器可以缓解图像噪声问题，元学习模型可以缓解训练样本不足的问题，CLIP对比学习可以解决领域泛化问题，提高开放域问答的能力。如何把握这些特征之间的关联，以及更好地采用这些特征，可以由自注意力机制实现。</p>
+</li>
+<li><p>新的语言模型的改进点和理由<br> 暂无发现</p>
+</li>
+<li><p>注意力模型的改进理由和作用<br> 传统的方法是使用双线性池化方法和注意力堆叠方法，新的方法有交互式注意力不断学习图片的文本的共同表达。</p>
+</li>
+<li><p>贝叶斯推理在此处的意义<br> <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/182454452">重要</a></p>
+</li>
+</ol>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>A Dual-Attention Learning Network with Word and Sentence Embedding for Medical Visual Question Answering</p>
+<h2 id="文字材料"><a href="#文字材料" class="headerlink" title="文字材料"></a>文字材料</h2><p>融合向量问题和方法的讨论(<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/359581718):%E5%A4%A7%E9%83%A8%E5%88%86%E6%98%AFconcat%E5%92%8Csum">https://www.zhihu.com/question/359581718):大部分是concat和sum</a></p>
+<p>相比通用领域，医学视觉问答在技术上更具挑战性：</p>
+<ol>
+<li><p>专业知识要求高，专家注释费用昂贵，且无法直接从图像合成问答对。</p>
+</li>
+<li><p>通用领域图像和医学图像存在差异，基于通用领域图形预训练模型的迁移学习在医疗视觉问答任务上的表现有待提升。</p>
+</li>
+<li><p>医疗视觉问答需要聚焦在图像的细粒度上，因为病变是微观的。</p>
+</li>
+</ol>
+<p>从现有技术来说，目前的影像分析模块可以被视为一个Close-end的问答系统，回答影像分类的是/否问题，它的问题类型受限、问题领域受限、推理能力有限。未来的分析将会走向Open-End的模式，回答多医学领域、多影像模态的开放式问题。</p>
+<p>医疗领域可通过引入外部知识库，如电子病历、知识图谱等，对模型进行优化。另外，医疗领域视觉问答模型的可解释性和可信度是重点问题。在发掘数据规律时，可多采用平衡的数据分布，增加一些正则的模式来缓解单模态下信息偏差的问题。目前来说，深度学习如同一个黑盒，有不可解释性，从建模前、建模中和建模后，透明化一些数据规律，提高模型的可解释性与可信度，也是日后相应研究努力的一个方向。</p>
+
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>Natu Matu<br>
+        <strong>本文链接：</strong><a href="https://631212502.github.io/2022/07/01/VQA/" title="https:&#x2F;&#x2F;631212502.github.io&#x2F;2022&#x2F;07&#x2F;01&#x2F;VQA&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;631212502.github.io&#x2F;2022&#x2F;07&#x2F;01&#x2F;VQA&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/mmdl/" rel="tag">mmdl</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E5%AD%A6%E6%9C%AF/" rel="tag">学术</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E8%AE%BA%E6%96%87/" rel="tag">论文</a>
+    
+</div>
+
+  
+      <div class="nexmoe-post-footer">
+          <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: 'cdc194d30f71cf392fdd',
+        clientSecret: 'b27b4f1ec813cb7eaa115ab184569422b663176a',
+        id: window.location.pathname,
+        repo: '631212502.github.io',
+        owner: '631212502',
+        admin: '631212502'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+      </div>
+  
+</div>
+                <div class="nexmoe-post-right">
+                <div class="nexmoe-fixed">
+                    <div class="nexmoe-tool"> 
+                        
+                            
+                            
+                                <button class="mdui-fab catalog" style="overflow:unset;">
+                                    <i class="nexmoefont icon-i-catalog"></i>
+                                    <div class="nexmoe-toc">
+                                        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%86%E8%A7%89%E9%97%AE%E7%AD%94%EF%BC%88VQA%EF%BC%89%E8%83%8C%E6%99%AF"><span class="toc-number">1.</span> <span class="toc-text">视觉问答（VQA）背景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#VQA%E6%A2%97%E6%A6%82"><span class="toc-number">1.1.</span> <span class="toc-text">VQA梗概</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VQA%E6%8A%80%E6%9C%AF%E6%A8%A1%E5%9E%8B%E8%BF%AD%E4%BB%A3"><span class="toc-number">1.2.</span> <span class="toc-text">VQA技术模型迭代</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MEDVQA%E7%9A%84%E5%8F%91%E5%B1%95"><span class="toc-number">2.</span> <span class="toc-text">MEDVQA的发展</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%96%E4%BA%BA%E6%80%BB%E7%BB%93%E7%9F%A5%E4%B9%8E"><span class="toc-number">2.1.</span> <span class="toc-text">他人总结知乎</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%BB%E5%AD%A6%E5%BD%B1%E5%83%8F%E4%B8%8A%E7%9A%84VQA"><span class="toc-number">3.</span> <span class="toc-text">医学影像上的VQA</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E9%A2%91%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.1.</span> <span class="toc-text">视频介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8E%E8%87%AA%E7%84%B6%E5%9B%BE%E5%83%8FVQA%E5%AF%B9%E6%AF%94"><span class="toc-number">3.2.</span> <span class="toc-text">与自然图像VQA对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%91%E7%9A%84%E4%B8%80%E4%BA%9B%E8%A7%82%E5%AF%9F%EF%BC%88%E9%A2%86%E5%9F%9F%E6%95%B4%E7%90%86%EF%BC%89"><span class="toc-number">3.3.</span> <span class="toc-text">我的一些观察（领域整理）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A7%91%E6%99%AE%E6%80%9D%E8%B7%AF"><span class="toc-number">3.3.1.</span> <span class="toc-text">科普思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%86%E5%9F%9F%E7%BB%BC%E8%BF%B0"><span class="toc-number">3.3.2.</span> <span class="toc-text">领域综述</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B7%E6%9C%AC%E4%B8%8A%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9A"><span class="toc-number">3.4.</span> <span class="toc-text">样本上的区别：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%91%E7%9A%84%E4%B8%80%E4%BA%9B%E5%89%8D%E6%9C%9F%E5%B7%A5%E4%BD%9C"><span class="toc-number">4.</span> <span class="toc-text">我的一些前期工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#mmf"><span class="toc-number">4.1.</span> <span class="toc-text">mmf</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bert-read-code"><span class="toc-number">4.2.</span> <span class="toc-text">Bert read code</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vilt"><span class="toc-number">4.3.</span> <span class="toc-text">Vilt</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BAN-MED-%E9%98%85%E8%AF%BB"><span class="toc-number">4.4.</span> <span class="toc-text">BAN+MED 阅读</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%90%9E%E6%87%82%E6%A8%A1%E5%9E%8B%E5%92%8C%E4%BB%A3%E7%A0%81"><span class="toc-number">4.5.</span> <span class="toc-text">搞懂模型和代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-number">5.</span> <span class="toc-text">相关数据集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%B0%E6%9C%89%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93"><span class="toc-number">6.</span> <span class="toc-text">现有方法总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E8%A7%89%E7%BC%96%E7%A0%81%E5%99%A8"><span class="toc-number">6.1.</span> <span class="toc-text">视觉编码器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E7%BC%96%E7%A0%81%E5%99%A8"><span class="toc-number">6.2.</span> <span class="toc-text">文本编码器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E4%BA%A4%E4%BA%92%E6%80%9D%E8%B7%AF"><span class="toc-number">6.3.</span> <span class="toc-text">模型交互思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%A8%A1%E5%9E%8B%EF%BC%9ACSMA-MTPT"><span class="toc-number">7.</span> <span class="toc-text">实验模型：CSMA-MTPT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%A8%A1%E5%9E%8B%EF%BC%9A"><span class="toc-number">8.</span> <span class="toc-text">实验模型：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E4%BB%BB%E5%8A%A1%E6%8D%9F%E5%A4%B1L%E7%AB%AF%E5%88%B0%E7%AB%AF%E7%9A%84%E8%AE%AD%E7%BB%83%E5%8C%BB%E5%AD%A6VQA%EF%BC%9A"><span class="toc-number">8.1.</span> <span class="toc-text">多任务损失L端到端的训练医学VQA：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E7%BC%96%E7%A0%81%EF%BC%9A%E4%BB%8E%E5%85%B3%E6%B3%A8%E8%A7%86%E8%A7%89%E7%89%B9%E5%BE%81%E8%A1%A8%E8%BE%BE%E4%B8%8A%E5%85%A5%E6%89%8B%EF%BC%8C%E6%8F%90%E9%AB%98%E6%A8%A1%E5%9E%8B%E6%80%A7%E8%83%BD"><span class="toc-number">8.2.</span> <span class="toc-text">图像编码：从关注视觉特征表达上入手，提高模型性能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E5%AD%97%E7%BC%96%E7%A0%81"><span class="toc-number">8.3.</span> <span class="toc-text">文字编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%A8%E6%A8%A1%E6%80%81%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B"><span class="toc-number">8.4.</span> <span class="toc-text">跨模态自注意力</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%EF%BC%88BNN%EF%BC%89%E5%8E%9F%E7%90%86"><span class="toc-number">8.5.</span> <span class="toc-text">贝叶斯神经网络（BNN）原理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%90%86%E7%94%B1"><span class="toc-number">8.5.1.</span> <span class="toc-text">理由</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E5%AD%A6%E6%A6%82%E5%BF%B5%E5%92%8C%E8%A7%A3%E9%87%8A"><span class="toc-number">8.5.2.</span> <span class="toc-text">数学概念和解释</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E9%80%9A%E8%AF%BB%E4%BB%A5%E5%8F%8A%E5%AE%9E%E9%AA%8C"><span class="toc-number">9.</span> <span class="toc-text">代码通读以及实验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%B5%81%E7%A8%8B"><span class="toc-number">9.1.</span> <span class="toc-text">实验流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C%E5%92%8C%E6%B5%8B%E8%AF%95"><span class="toc-number">9.2.</span> <span class="toc-text">实验结果和测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-number">9.3.</span> <span class="toc-text">结论</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-number">10.</span> <span class="toc-text">参考文献</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E5%AD%97%E6%9D%90%E6%96%99"><span class="toc-number">11.</span> <span class="toc-text">文字材料</span></a></li></ol>
+                                    </div>
+                                </button>
+                            
+                        
+                        <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="aplayerContent">
+        <meting-js
+        style="position:absolute; z-index:99999" 
+        type="playlist" 
+        server="netease" 
+        id="6976153408" 
+        fixed="true"
+        autoplay="true"
+        order="random"
+        loop="all"
+        list-folded="false"
+        preload="auto"
+        list-max-height="500px"
+        lrc-type="1">
+        </meting-js> 
+    </div>
+    <script>
+        // 对所有链接跳转事件绑定pjax容器container,只在容器中跳转
+        $(document).pjax('a[target!=_blank]', '#pageContent', {fragment: '#pageContent', timeout:8000})
+    </script>
+     
+    <div id="nexmoe-search-space">
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <input class="search-input" type="text" placeholder="搜索" oninput="sinput();">
+                </div>
+                <a class="search-close" onclick="sclose();">×</a>
+            </div>
+            <div class="search-body"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+ 
+
+<script async src="/js/app.js?v=1704991421146"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+
+
+    
+
+
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<!--烟花爆炸-->
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script type="text/javascript" src="/js/firework.js"></script>
+<!--单击显示文字-->
+<script type="text/javascript" src="/js/click_show_text.js"></script>
+</html>
+
+

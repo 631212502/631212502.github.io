@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    
+    <meta name="baidu-site-verification" content="code-NrUjkxdqT5" />
+    <title>论文一时爽，复现火葬场 - Eutupia by 夏夢</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="願いが叶う場所">
+    <meta name="keywords" content="null">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
+
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/logo.png" type="image/png" />
+    <meta name="description" content="身如钢铁，心若琉璃">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文一时爽，复现火葬场">
+<meta property="og:url" content="https://631212502.github.io/2020/04/18/%E6%9C%89%E5%85%B3%E8%87%AA%E5%B7%B1%E5%BC%80%E5%A7%8B%E6%90%AD%E7%BD%91%E7%BB%9C%E9%82%A3%E4%BB%B6%E4%BA%8B/index.html">
+<meta property="og:site_name" content="Eutupia by 夏夢">
+<meta property="og:description" content="身如钢铁，心若琉璃">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic2.zhimg.com/v2-e794b44d3bb0ddca1343f76c2e8b5b18_1440w.jpg">
+<meta property="og:image" content="https://cuijiahua.com/wp-content/uploads/2018/01/dl_3_5.png">
+<meta property="article:published_time" content="2020-04-18T00:29:05.000Z">
+<meta property="article:modified_time" content="2023-12-02T09:04:09.888Z">
+<meta property="article:author" content="Natu Matu">
+<meta property="article:tag" content="Coding">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic2.zhimg.com/v2-e794b44d3bb0ddca1343f76c2e8b5b18_1440w.jpg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
+    <!-- require APlayer -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+	<!-- require MetingJS : 未解决歌单播放问题-->
+	<script src="https://cdn.jsdelivr.net/npm/meting@latest/dist/Meting.min.js"></script>
+    <!-- require pjax -->
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+    <!-- DPlayer -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.js"></script>
+    <link rel="stylesheet" href="/css/style.css?v=1704991421295">
+     
+    
+        <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
+    
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1704991421295">
+    
+        <link rel="stylesheet" href="/custom.css">
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body class="mdui-drawer-body-left">
+    
+    <div id="pageContent">
+        <div id="nexmoe-background">
+            <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/202211081936671.jpg)"></div>
+            <div class="mdui-appbar mdui-shadow-0">
+                <div class="mdui-toolbar">
+                    <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                    <div class="mdui-toolbar-spacer"></div>
+                    <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                    <a href="/" title="Natu Matu" class="mdui-btn mdui-btn-icon"><img src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/avatar.jpg" alt="Natu Matu"></a>
+                </div>
+            </div>
+        </div>
+        <div id="nexmoe-header">
+            <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="Natu Matu">
+            <img src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/avatar.jpg" alt="Natu Matu" alt="Natu Matu">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>50</div>
+        <div><span>标签</span>17</div>
+        <div><span>分类</span>4</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/gate.html" title="小憩歌单">
+            <i class="mdui-list-item-icon nexmoefont icon-coffee"></i>
+            <div class="mdui-list-item-content">
+                小憩歌单
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/PY.html" title="左邻右舍">
+            <i class="mdui-list-item-icon nexmoefont icon-wechat-fill"></i>
+            <div class="mdui-list-item-content">
+                左邻右舍
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/album.html" title="时间光影">
+            <i class="mdui-list-item-icon nexmoefont icon-calendar-fill"></i>
+            <div class="mdui-list-item-content">
+                时间光影
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/natunoyume.html" title="拾音纪行">
+            <i class="mdui-list-item-icon nexmoefont icon-telegram"></i>
+            <div class="mdui-list-item-content">
+                拾音纪行
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+         
+            <form id="search_form" action_e="https://cn.bing.com/search?q=" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder="搜索"></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://qm.qq.com/cgi-bin/qm/qr?k=QriGs7GcXMPd6scnWXeO-IJ5TP8Qm8sd&noverify=0" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="https://space.bilibili.com/10580381" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .1);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/631212502" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .1);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=631212502@qq.com" target="_blank" mdui-tooltip="{content: '邮箱'}" style="color: rgb(51, 153, 255);background-color: rgba(51, 153, 255, .1);">
+            <i class="nexmoefont icon-mail-fill"></i>
+        </a><a class="mdui-ripple" href="https://steamcommunity.com/profiles/76561199013116495/" target="_blank" mdui-tooltip="{content: 'steam'}" style="color: rgb(3, 98, 255);background-color: rgba(3, 98, 255, .1);">
+            <i class="nexmoefont icon-steam"></i>
+        </a><a class="mdui-ripple" href="https://www.xiaohongshu.com/user/profile/5fcc10c4000000000100b0b7?xhsshare=CopyLink&appuid=5fcc10c4000000000100b0b7&apptime=1660447872" target="_blank" mdui-tooltip="{content: '小红书'}" style="color: rgb(250, 136, 111);background-color: rgba(250, 136, 111, .1);">
+            <i class="nexmoefont icon-calendar-fill"></i>
+        </a><a class="mdui-ripple" href="/null" target="_blank" mdui-tooltip="{content: '知乎'}" style="color: ;background-color: ;">
+            <i class="nexmoefont icon-zhihu"></i>
+        </a><a class="mdui-ripple" href="/null" target="_blank" mdui-tooltip="{content: '推特'}" style="color: ;background-color: ;">
+            <i class="nexmoefont icon-twitter"></i>
+        </a><a class="mdui-ripple" href="https://chat.openai.com/chat" target="_blank" mdui-tooltip="{content: 'GPT'}" style="color: rgb(45, 13, 73);background-color: rgba(45, 13, 73, .1);">
+            <i class="nexmoefont icon-eye-fill"></i>
+        </a>
+    </div>
+</div>
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/Coding/" style="font-size: 17.14px;">Coding</a> <a href="/tags/Competition/" style="font-size: 11.43px;">Competition</a> <a href="/tags/MMDL/" style="font-size: 10px;">MMDL</a> <a href="/tags/S-Project/" style="font-size: 14.29px;">S_Project</a> <a href="/tags/mmdl/" style="font-size: 18.57px;">mmdl</a> <a href="/tags/page-building/" style="font-size: 12.86px;">page_building</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 15.71px;">博客</a> <a href="/tags/%E5%AD%A6%E6%9C%AF/" style="font-size: 15.71px;">学术</a> <a href="/tags/%E6%91%84%E5%BD%B1/" style="font-size: 14.29px;">摄影</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 11.43px;">旅行</a> <a href="/tags/%E6%AD%8C%E3%81%86/" style="font-size: 11.43px;">歌う</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 17.14px;">笔记</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">编程</a> <a href="/tags/%E8%A8%80%E8%91%89/" style="font-size: 20px;">言葉</a> <a href="/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 14.29px;">记录</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 12.86px;">论文</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 17.14px;">随笔</a>
+    </div>
+    
+  </div>
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/小さな考え/">小さな考え</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/无情の勉強マシン/">无情の勉強マシン</a>
+          <span class="category-list-count">7</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/言けない言葉/">言けない言葉</a>
+          <span class="category-list-count">6</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/音楽が辞めよう/">音楽が辞めよう</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/">2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/">2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/">2010</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+
+    
+    <span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt = new Date("08/31/2021 17:38:00"); //在此处修改你的建站时间
+        now.setTime(now.getTime() + 250);
+        days = (now - grt) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt) / 1000 / 60 / 60 - 24 * dnum;
+        hnum = Math.floor(hours);
+        if (String(hnum).length == 1) {
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt) / 1000 / 60 - 24 * 60 * dnum - 60 * hnum;
+        mnum = Math.floor(minutes);
+        if (String(mnum).length == 1) {
+            mnum = "0" + mnum;
+        }
+        seconds = (now - grt) / 1000 - 24 * 60 * 60 * dnum - 60 * 60 * hnum - 60 * mnum;
+        snum = Math.round(seconds);
+        if (String(snum).length == 1) {
+            snum = "0" + snum;
+        }
+        document.getElementById("timeDate").innerHTML = 
+            " 风雨中度过了 " + dnum + " 天 ";
+        document.getElementById("times").innerHTML =
+            hnum + " 小时 " + mnum + " 分 "; 
+    }
+    setInterval("createtime()", 250);
+</script>
+<!-- + snum + " 秒 "-->
+    
+</aside>
+
+
+    <div class="nexmoe-copyright">
+        &copy; 2024 Natu Matu
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        
+    </div>
+</div><!-- .nexmoe-drawer -->
+<div style="font-size: 13px">
+    <link rel="stylesheet" href="https://widget.heweather.net/standard/static/css/he-standard.css?v=1.4.0"><script src="https://widget.heweather.net/standard/static/js/he-standard.js?v=1.4.0"></script><script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    本站总访问量  <a id="busuanzi_value_site_pv"></a> 次<br>
+    本站访客数<a id="busuanzi_value_site_uv"></a>人次
+</div>
+
+        </div>
+        <div id="nexmoe-content">
+            <div class="nexmoe-primary">
+                <div class="nexmoe-post">
+
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: NaN%;"> 
+              <img data-src="https://cdn.jsdelivr.net/gh/631212502/CDN/sucai/self-imagine/R-C.b93ca5f3505d26a4637111c447a39f5c" data-sizes="auto" alt="论文一时爽，复现火葬场" class="lazyload">
+              <h1>论文一时爽，复现火葬场</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2020年04月18日</a>
+    <a><i class="nexmoefont icon-areachart"></i>3k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 13 分钟</a>
+</div>
+
+      
+
+      <p><strong>身如钢铁，心若琉璃</strong></p>
+<span id="more"></span>
+
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p><strong>随着技术门槛的降低以及在如今机器学习、深度学习变得日渐大白菜的大背景下。人人都能够上手训练神经网络调试参数，私以为没有数学基础已经相应的编程功底很难再实现自己的无可替代性，故开一贴，记录思考，寻求变革！</strong></p>
+<h2 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h2><ol>
+<li>环境准备：<ul>
+<li>硬件篇:性能拉满，模型吃灰，不如去打游戏！</li>
+<li>软件篇：总有de不完的BUG</li>
+</ul>
+</li>
+<li>分析模型<ul>
+<li>数学原理：谁会啊~你会嘛，我不会</li>
+<li>模型实现：Ctrl+C+V：这我熟悉</li>
+</ul>
+</li>
+<li>模型实现<ul>
+<li>处理数据：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/130673468">PyTorch加载自己的数据集</a></li>
+<li>模型搭建：？？？</li>
+<li>模型训练：？？？</li>
+<li>模型测试：？？？</li>
+</ul>
+</li>
+</ol>
+<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><p>硬件设备：RTX3060<em>1、TITAN Xp</em>2<br>软件：RTX3060:Nvidia462.30+CUDA11.1+cudnn8.0.1+pytorch1.8<br>      TITAN Xp:Nvidia460.72+CUDA10.7+cudnn7.0.1+pytorch1.7<br>    <strong><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/391748794">2021年下半年显卡选购攻略</a></strong></p>
+<h2 id="分析模型"><a href="#分析模型" class="headerlink" title="分析模型"></a>分析模型</h2><p>识别手写数字，除了使用传统的贝叶斯概率模型，感知机或者支持向量机做分类意外，使用图像的方法越来越主流，尤其是再imageNet，已经超越了人类达到了惊人的99%！</p>
+<h3 id="数学原理"><a href="#数学原理" class="headerlink" title="数学原理"></a>数学原理</h3><p>LeNet-5出自论文Gradient-Based Learning Applied to Document Recognition，是一种用于手写体字符识别的非常高效的卷积神经网络。<br>PS：数学上的卷积操作自行参考网络与信号系统教科书（PS：如果没有卷积操作对数值特征的名感性，也就没有后来的图像处理什么事情了）</p>
+<h4 id="激活函数操作，选用，以及意义"><a href="#激活函数操作，选用，以及意义" class="headerlink" title="激活函数操作，选用，以及意义"></a>激活函数操作，选用，以及意义</h4><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://pic2.zhimg.com/v2-e794b44d3bb0ddca1343f76c2e8b5b18_1440w.jpg" alt="常见的激活函数" class="lazyload"><br>    <strong>激活函数本质上是为了增强网络对非线性参数的拟合能力</strong><br>        激活函数是来向神经网络中引入非线性因素的，通过激活函数，神经网络就可以拟合各种曲线。如果不用激励函数，每一层输出都是上层输入的线性函数，无论神经网络有多少层，输出都是输入的线性组合。如果使用的话，激活函数给神经元引入了非线性因素，使得神经网络可以任意逼<em>任何非线性函数，这样神经网络就可以应用到众多的非线性模型中。<br>    <strong>激活函数主要有两大类：Relu与sigmoid</strong><br>        sigmoid：sigmoid是使用范围最广的一类激活函数，具有指数的形状，它在物理意义上最为接近神经元。sigmoid的输出是（0，1），具有很好的性质，可以被表示做概率或者用于输入的归一化等等。<br>        tanh: tanh也是一种非常常见的激活函数，与sigmoid相比，它的输出均值为0，这使得它的收敛速度要比sigmoid快，减少了迭代更新的次数。<br>        Relu：ReLU是针对sigmoid和tanh的饱和性二提出的新的激活函数。从上图中可以很容易的看到，当<code>x&gt;0</code>的时候，不存在饱和问题，所以ReLU能够在 <code>x&gt;0</code> 的时候保持梯度不衰减，从而缓解梯度消失的问题。这让我们可以以有监督的方式训练深度神经网络，而无需依赖无监督的逐层训练。然而，随着训练的推进，部分输入会落入硬饱和区（即 <code>x&lt;0</code> 的区域），导致权重无法更新，这种现象称为“神经元死亡”。<br>    <strong>LeNet5参数详解（麻雀虽小，五脏俱全)</strong><br>        数据类型：有Mnist数据集图像为32</em>32<br>        1. 先把图像的特征卷积出来（卷积核过大过小都不好，过大容易丢失细节信息，过小容易过拟合以及降低模型训练速度，一般选用样本大小的五分之一较为适宜），这里采用5<em>5，故原特征降为（32-5+1）28</em>28<br>        2. 激活函数使用（）<br>        3. 池化过滤掉一些不重要的特征，消除弱化扰动，提高对特征识别的鲁棒性（池化操作还有很好的特征降维、防止过拟合的作用）采用2<em>2,故得14</em>14<br>        4. 继续重复卷积得10<em>10（14-5+1）,这里通过特征图的组合运算得到了16各特征图。第一次池化之后是第二次卷积，第二次卷积的输出是C3，16个10x10的特征图，卷积核大小是 5</em>5. 我们知道S2 有6个 14*14 的特征图，怎么从6 个特征图得到 16个特征图了？ 这里是通过对S2 的特征图特殊组合计算得到的16个特征图。具体如下：<br>        <img data-fancybox="gallery" data-sizes="auto" data-src="https://cuijiahua.com/wp-content/uploads/2018/01/dl_3_5.png" alt="特殊组合计算" class="lazyload"><br>        5.继续下采样池化<br>        6.全连接后输出</p>
+<h3 id="模型实现"><a href="#模型实现" class="headerlink" title="模型实现"></a>模型实现</h3><h4 id="数据处理dataset-py"><a href="#数据处理dataset-py" class="headerlink" title="数据处理dataset.py"></a>数据处理dataset.py</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> torchvision<br>torchvision.datasets.MNIST(<span class="hljs-string">&#x27;./data&#x27;</span>, download=<span class="hljs-literal">True</span>)<br></code></pre></td></tr></table></figure>
+<h4 id="模型搭建model-py"><a href="#模型搭建model-py" class="headerlink" title="模型搭建model.py"></a>模型搭建model.py</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#model.py</span><br><span class="hljs-keyword">import</span> torch<br><span class="hljs-keyword">import</span> torch.nn <span class="hljs-keyword">as</span> nn<br><span class="hljs-keyword">from</span> torch.nn.modules <span class="hljs-keyword">import</span> module<br><span class="hljs-keyword">from</span> torch.nn.modules.linear <span class="hljs-keyword">import</span> Linear<br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string"></span><br><span class="hljs-string">从图中可以看出，其输入32x32的灰度图像，由于MNIST数据集的图像为28x28，因此，我们将输入改为28x28，并依次计算每一层输出的特征图大小。其每一层参数大致如下：</span><br><span class="hljs-string"></span><br><span class="hljs-string">输入层：输入大小28x28，通道数为1。注意：本层不算LeNet-5的网络结构，一般情况下不将输入层视为网络层次结构之一。</span><br><span class="hljs-string"></span><br><span class="hljs-string">C1-卷积层：输入大小28x28，通道数为1；输出大小28x28，通道数为6；卷积核大小为5x5；步长为1；边缘补零为2；激活函数为ReLU。注意：为了提升卷积神经网络的效果，在每个卷积层后添加激活函数，本教程使用的激活函数为ReLU。</span><br><span class="hljs-string"></span><br><span class="hljs-string">S2-池化层：输入大小28x28，通道数为6；输出大小14x14，通道数为6；池化核大小为2x2；步长为2；池化方式为最大池化。</span><br><span class="hljs-string"></span><br><span class="hljs-string">C3-卷积层：输入大小14x14，通道数为6；输出大小10x10，通道数为16；卷积核大小为5x5；步长为1；边缘补零为0；激活函数为ReLU。</span><br><span class="hljs-string"></span><br><span class="hljs-string">S4-池化层：输入大小10x10，通道数为16；输出大小5x5，通道数为16；池化核大小为2x2；步长为2；池化方式为最大池化。</span><br><span class="hljs-string"></span><br><span class="hljs-string">C5-卷积层：输入大小5x5，通道数为16；输出大小1x1，通道数为120；卷积核大小为5x5；步长为1；边缘补零为0；激活函数为ReLU。注意：这层也可以看作全连接层，可以通过全连接的方法实现。</span><br><span class="hljs-string"></span><br><span class="hljs-string">F6-全连接层：输入为120维向量；输出为84维向量；激活函数为ReLU。</span><br><span class="hljs-string"></span><br><span class="hljs-string">OUTPUT-输出层：输入为84维向量；输出为10维向量。注意：该层也是全连接层，且不带激活函数。</span><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LeNet</span>(<span class="hljs-params">nn.Module</span>):</span><span class="hljs-comment">#定义模型，继承torch本身里的类型</span><br><br>    <span class="hljs-comment">#初始化函数</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span>(<span class="hljs-params">self</span>):</span><br>        <span class="hljs-built_in">super</span>(LeNet,self).__init__()<br>        self.C1 = nn.Conv2d(in_channels=<span class="hljs-number">1</span>,out_channels=<span class="hljs-number">6</span>,kernel_size=<span class="hljs-number">5</span>,stride=<span class="hljs-number">1</span>,padding=<span class="hljs-number">2</span>)<br>        <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">        in_channels：输入的通道数</span><br><span class="hljs-string"></span><br><span class="hljs-string">        out_channels：输出的通道数</span><br><span class="hljs-string"></span><br><span class="hljs-string">        kernel_size：卷积核的大小。若卷积核是方形，则只需要一个整数边长；若不是方形，则需要输入一个元组表示高和宽</span><br><span class="hljs-string"></span><br><span class="hljs-string">        stride：卷积核每次滑动的步长，默认为1</span><br><span class="hljs-string"></span><br><span class="hljs-string">        padding：设置边缘补零的大小（也就是在输入特征图外围增加几圈0）</span><br><span class="hljs-string"></span><br><span class="hljs-string">        dilation：控制卷积核之间的间距，默认为0；若使用空洞卷积则需要对该参数进行设置</span><br><span class="hljs-string"></span><br><span class="hljs-string">        groups：控制输入和输出之间的连接，平时不常用，若使用分组卷积则需要设置该参数</span><br><span class="hljs-string"></span><br><span class="hljs-string">        bias：是否设置偏置，默认为 True</span><br><span class="hljs-string"></span><br><span class="hljs-string">        adding_mode：边缘补零模式，默认为”zeros“</span><br><span class="hljs-string">        &quot;&quot;&quot;</span><br><br>        self.R1 = nn.ReLU()<br>        self.S2 = nn.MaxPool2d(kernel_size=<span class="hljs-number">2</span>,stride=<span class="hljs-number">2</span>)<br>        self.C3 = nn.Conv2d(in_channels=<span class="hljs-number">6</span>,out_channels=<span class="hljs-number">16</span>,kernel_size=<span class="hljs-number">5</span>,stride=<span class="hljs-number">1</span>,padding=<span class="hljs-number">0</span>)<br>        self.R2 = nn.ReLU()<br>        self.S4 = nn.MaxPool2d(kernel_size=<span class="hljs-number">2</span>,stride=<span class="hljs-number">2</span>)<br>        self.C5 = nn.Conv2d(in_channels=<span class="hljs-number">16</span>,out_channels=<span class="hljs-number">120</span>,kernel_size=<span class="hljs-number">5</span>,stride=<span class="hljs-number">1</span>,padding=<span class="hljs-number">0</span>)<br>        self.R3 = nn.ReLU()<br>        self.F6 = nn.Linear(in_features=<span class="hljs-number">120</span>,out_features=<span class="hljs-number">84</span>)<br>        self.R4 = nn.ReLU()<br>        self.OUT = nn.Linear(<span class="hljs-number">84</span>,<span class="hljs-number">10</span>)<br><br>    <span class="hljs-comment">#前向函数</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">forward</span>(<span class="hljs-params">self,x</span>):</span><br>        x = self.C1(x)<br>        x = self.R1(x)<br>        x = self.S2(x)<br>        x = self.C3(x)<br>        x = self.R2(x)<br>        x = self.S4(x)<br>        x = self.C5(x)<br>        x = self.R3(x)<br>        x = x.view(x.size(<span class="hljs-number">0</span>), -<span class="hljs-number">1</span>)<span class="hljs-comment">#计算批大小。size，-1=120（自动计算）改变维度，四维转成二维，因为全连接层之接受二维张量输入</span><br>        <span class="hljs-built_in">print</span>(x.size())<br>        x = self.F6(x)<br>        x = self.R4(x)<br>        x = self.OUT(x)<br>        <span class="hljs-keyword">return</span> x<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:<br>    model = LeNet()<br>    <span class="hljs-built_in">print</span>(model)<br>    a = torch.randn(<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">28</span>,<span class="hljs-number">28</span>)<br>    b = model(a)<br>    <span class="hljs-built_in">print</span>(b.size())<br></code></pre></td></tr></table></figure>
+<h4 id="模型训练train-py"><a href="#模型训练train-py" class="headerlink" title="模型训练train.py"></a>模型训练train.py</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> torch<br><span class="hljs-keyword">import</span> torchvision<br><span class="hljs-keyword">import</span> torch.nn <span class="hljs-keyword">as</span> nn<br><span class="hljs-keyword">import</span> torch.utils.data <span class="hljs-keyword">as</span> Data<br><br><span class="hljs-keyword">from</span> model <span class="hljs-keyword">import</span> LeNet<br>model = LeNet()<span class="hljs-comment">#导入模型</span><br><br>Epoch = <span class="hljs-number">5</span><br>batch_size = <span class="hljs-number">64</span><br>lr = <span class="hljs-number">0.001</span><br><br>train_data = torchvision.datasets.MNIST(root=<span class="hljs-string">&#x27;./data/&#x27;</span>, train=<span class="hljs-literal">True</span>, transform=torchvision.transforms.ToTensor(), download=<span class="hljs-literal">False</span>)<span class="hljs-comment">#定义数据集</span><br><br>train_loader = Data.DataLoader(train_data, batch_size=batch_size, shuffle=<span class="hljs-literal">True</span>, num_workers=<span class="hljs-number">0</span>, drop_last=<span class="hljs-literal">True</span>)<span class="hljs-comment">#把数据喂给模型</span><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">Data.DataLoader(dataset, batch_size, shuffle, sampler, batch_sampler, num_workers, collate_fn, pin_memory, drop_last, timeout, worker_init_fn, prefetch_factor, persistent_workers)</span><br><span class="hljs-string">以下是其常用参数的介绍：</span><br><span class="hljs-string"></span><br><span class="hljs-string">dataset：数据集，可以使用Data.DataSet类或者torchvision.datasets</span><br><span class="hljs-string"></span><br><span class="hljs-string">batch_size：批大小，每次迭代送入模型的图像数量</span><br><span class="hljs-string"></span><br><span class="hljs-string">shuffle：是否打乱数据集，默认为False</span><br><span class="hljs-string"></span><br><span class="hljs-string">num_workers：使用的线程数，DataLoader支持多线程读取数据以提升效率，该值为0或1是使用单线程进行读取。一般情况下该值不要超过cpu的最大线程，如果使用GPU训练模型的话该值越大其显存占用也会越大，日常使用中需要根据电脑的配置进行调节。默认为0</span><br><span class="hljs-string"></span><br><span class="hljs-string">pin_memory：是否使用锁页内存，可以理解为是否将数据集全部强制加载进内存，且不与虚拟内存进行交换，设为True的话可以使得模型的训练快一些，默认为False</span><br><span class="hljs-string"></span><br><span class="hljs-string">drop_last：是否丢弃最后不足batch_size的数据。有时候，数据集并不能整除batch_size，最后一批图像的数量会小于batch_size，这个参数决定是否将这一批数据丢弃，默认为False</span><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-comment">#损失函数与优化器</span><br>loss_function = nn.CrossEntropyLoss()<br>optimizer = torch.optim.Adam(model.parameters(), lr=lr)<br><span class="hljs-comment">#启用梯度</span><br>torch.set_grad_enabled(<span class="hljs-literal">True</span>)<br>model.train()<br><span class="hljs-comment">#CUDA加速</span><br>device = torch.device(<span class="hljs-string">&quot;cuda:0&quot;</span> <span class="hljs-keyword">if</span> torch.cuda.is_available() <span class="hljs-keyword">else</span> <span class="hljs-string">&quot;cuda:1&quot;</span> <span class="hljs-keyword">or</span> <span class="hljs-string">&quot;cpu&quot;</span>)<br><span class="hljs-built_in">print</span>(device)<br>model.to(device)<br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">在pytorch中，神经网络的训练一般是分以下几个步骤进行的：</span><br><span class="hljs-string"></span><br><span class="hljs-string">1) 获得DataLoader中的数据x和标签y</span><br><span class="hljs-string"></span><br><span class="hljs-string">2) 将优化器的梯度清零</span><br><span class="hljs-string"></span><br><span class="hljs-string">3) 将数据送入模型中获得预测的结果y_pred</span><br><span class="hljs-string"></span><br><span class="hljs-string">4) 将标签和预测结果送入损失函数获得损失</span><br><span class="hljs-string"></span><br><span class="hljs-string">5) 将损失值反向传播</span><br><span class="hljs-string"></span><br><span class="hljs-string">6) 使用优化器对模型的参数进行更新</span><br><span class="hljs-string"></span><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-keyword">for</span> epoch <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(Epoch):<span class="hljs-comment">#设置遍历数据集</span><br>    running_loss = <span class="hljs-number">0.0</span><br>    acc = <span class="hljs-number">0.0</span><br>    <span class="hljs-keyword">for</span> step, data <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(train_loader):<span class="hljs-comment">#便利迭代</span><br>        x,y = data <span class="hljs-comment">#1</span><br>        optimizer.zero_grad()<span class="hljs-comment">#2</span><br>        y_pred = model(x.to(device,torch.<span class="hljs-built_in">float</span>))<span class="hljs-comment">#3</span><br>        loss = loss_function(y_pred,y.to(device,torch.long))<span class="hljs-comment">#4</span><br>        loss.backward()<span class="hljs-comment">#5</span><br>        running_loss += <span class="hljs-built_in">float</span>(loss.data.cpu())<br>        pred = y_pred.argmax(dim=<span class="hljs-number">1</span>)<br>        acc += (pred.data.cpu() == y.data).<span class="hljs-built_in">sum</span>()<br>        optimizer.step()<span class="hljs-comment">#6</span><br>        <span class="hljs-keyword">if</span> step % <span class="hljs-number">100</span> == <span class="hljs-number">99</span>:<span class="hljs-comment">#训练进程可视化</span><br>            loss_avg = running_loss / (step + <span class="hljs-number">1</span>)<br>            acc_avg = <span class="hljs-built_in">float</span>(acc / ((step + <span class="hljs-number">1</span>) * batch_size))<br>            <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Epoch&#x27;</span>, epoch + <span class="hljs-number">1</span>, <span class="hljs-string">&#x27;,step&#x27;</span>, step + <span class="hljs-number">1</span>, <span class="hljs-string">&#x27;| Loss_avg: %.4f&#x27;</span> % loss_avg, <span class="hljs-string">&#x27;|Acc_avg:%.4f&#x27;</span> % acc_avg)<br><span class="hljs-comment">#保存模型</span><br>torch.save(model,<span class="hljs-string">&#x27;./LeNet.pkl&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<h4 id="模型测试test-py"><a href="#模型测试test-py" class="headerlink" title="模型测试test.py"></a>模型测试test.py</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> torch<br><span class="hljs-keyword">import</span> torchvision<br><span class="hljs-keyword">import</span> torch.utils.data <span class="hljs-keyword">as</span> Data<br><br>test_data = torchvision.datasets.MNIST(root=<span class="hljs-string">&#x27;./data/&#x27;</span>, train=<span class="hljs-literal">False</span>, transform=torchvision.transforms.ToTensor(), download=<span class="hljs-literal">False</span>)<span class="hljs-comment">#测试数据</span><br>test_loader = Data.DataLoader(test_data, batch_size=<span class="hljs-number">1</span>, shuffle=<span class="hljs-literal">False</span>)<br><br>device = torch.device(<span class="hljs-string">&quot;cuda:0&quot;</span> <span class="hljs-keyword">if</span> torch.cuda.is_available() <span class="hljs-keyword">else</span> <span class="hljs-string">&quot;cpu&quot;</span>)<br><br>net = torch.load(<span class="hljs-string">&#x27;./LeNet.pkl&#x27;</span>,map_location=torch.device(device))<span class="hljs-comment">#模型</span><br><br>net.to(device)<span class="hljs-comment">#放进CUDA</span><br><br>torch.set_grad_enabled(<span class="hljs-literal">False</span>)<span class="hljs-comment">#关闭自动求导，不反梯度更新模型参数（测试）</span><br>net.<span class="hljs-built_in">eval</span>()<br><br>length = test_data.data.size(<span class="hljs-number">0</span>)<span class="hljs-comment">#获取测试集合的大小</span><br>acc = <span class="hljs-number">0.0</span><br><span class="hljs-keyword">for</span> i, data <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(test_loader):<span class="hljs-comment">#同训练，acc=正确/总样本</span><br>    x, y = data<br>    y_pred = net(x.to(device, torch.<span class="hljs-built_in">float</span>))<br>    pred = y_pred.argmax(dim=<span class="hljs-number">1</span>)<br>    acc += (pred.data.cpu() == y.data).<span class="hljs-built_in">sum</span>()<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Predict:&#x27;</span>, <span class="hljs-built_in">int</span>(pred.data.cpu()), <span class="hljs-string">&#x27;|Ground Truth:&#x27;</span>, <span class="hljs-built_in">int</span>(y.data))<br><br>acc = (acc/length)*<span class="hljs-number">100</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;准确率：%.2f&#x27;</span>%acc,<span class="hljs-string">&#x27;%&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>Natu Matu<br>
+        <strong>本文链接：</strong><a href="https://631212502.github.io/2020/04/18/%E6%9C%89%E5%85%B3%E8%87%AA%E5%B7%B1%E5%BC%80%E5%A7%8B%E6%90%AD%E7%BD%91%E7%BB%9C%E9%82%A3%E4%BB%B6%E4%BA%8B/" title="https:&#x2F;&#x2F;631212502.github.io&#x2F;2020&#x2F;04&#x2F;18&#x2F;%E6%9C%89%E5%85%B3%E8%87%AA%E5%B7%B1%E5%BC%80%E5%A7%8B%E6%90%AD%E7%BD%91%E7%BB%9C%E9%82%A3%E4%BB%B6%E4%BA%8B&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;631212502.github.io&#x2F;2020&#x2F;04&#x2F;18&#x2F;%E6%9C%89%E5%85%B3%E8%87%AA%E5%B7%B1%E5%BC%80%E5%A7%8B%E6%90%AD%E7%BD%91%E7%BB%9C%E9%82%A3%E4%BB%B6%E4%BA%8B&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/Coding/" rel="tag">Coding</a>
+    
+</div>
+
+  
+      <div class="nexmoe-post-footer">
+          <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: 'cdc194d30f71cf392fdd',
+        clientSecret: 'b27b4f1ec813cb7eaa115ab184569422b663176a',
+        id: window.location.pathname,
+        repo: '631212502.github.io',
+        owner: '631212502',
+        admin: '631212502'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+      </div>
+  
+</div>
+                <div class="nexmoe-post-right">
+                <div class="nexmoe-fixed">
+                    <div class="nexmoe-tool"> 
+                        
+                            
+                            
+                                <button class="mdui-fab catalog" style="overflow:unset;">
+                                    <i class="nexmoefont icon-i-catalog"></i>
+                                    <div class="nexmoe-toc">
+                                        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%AD%A5%E9%AA%A4"><span class="toc-number"></span> <span class="toc-text">实现步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="toc-number"></span> <span class="toc-text">环境准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%9E%90%E6%A8%A1%E5%9E%8B"><span class="toc-number"></span> <span class="toc-text">分析模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E5%AD%A6%E5%8E%9F%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">数学原理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E6%93%8D%E4%BD%9C%EF%BC%8C%E9%80%89%E7%94%A8%EF%BC%8C%E4%BB%A5%E5%8F%8A%E6%84%8F%E4%B9%89"><span class="toc-number">1.1.</span> <span class="toc-text">激活函数操作，选用，以及意义</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.</span> <span class="toc-text">模型实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86dataset-py"><span class="toc-number">2.1.</span> <span class="toc-text">数据处理dataset.py</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%90%AD%E5%BB%BAmodel-py"><span class="toc-number">2.2.</span> <span class="toc-text">模型搭建model.py</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83train-py"><span class="toc-number">2.3.</span> <span class="toc-text">模型训练train.py</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%95test-py"><span class="toc-number">2.4.</span> <span class="toc-text">模型测试test.py</span></a></li></ol></li></ol>
+                                    </div>
+                                </button>
+                            
+                        
+                        <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="aplayerContent">
+        <meting-js
+        style="position:absolute; z-index:99999" 
+        type="playlist" 
+        server="netease" 
+        id="6976153408" 
+        fixed="true"
+        autoplay="true"
+        order="random"
+        loop="all"
+        list-folded="false"
+        preload="auto"
+        list-max-height="500px"
+        lrc-type="1">
+        </meting-js> 
+    </div>
+    <script>
+        // 对所有链接跳转事件绑定pjax容器container,只在容器中跳转
+        $(document).pjax('a[target!=_blank]', '#pageContent', {fragment: '#pageContent', timeout:8000})
+    </script>
+     
+    <div id="nexmoe-search-space">
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <input class="search-input" type="text" placeholder="搜索" oninput="sinput();">
+                </div>
+                <a class="search-close" onclick="sclose();">×</a>
+            </div>
+            <div class="search-body"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+ 
+
+<script async src="/js/app.js?v=1704991421299"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+
+
+    
+
+
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<!--烟花爆炸-->
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script type="text/javascript" src="/js/firework.js"></script>
+<!--单击显示文字-->
+<script type="text/javascript" src="/js/click_show_text.js"></script>
+</html>
+
+
