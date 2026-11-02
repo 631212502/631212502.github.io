@@ -1,0 +1,1 @@
+{"Version":3,"FileReferences":{"Moc":"moyu.moc3","Textures":["moyu.1024/texture_00.png"],"Physics":"moyu.physics3.json","DisplayInfo":"moyu.cdi3.json"},"Groups":[{"Target":"Parameter","Name":"EyeBlink","Ids":["ParamEyeLOpen","ParamEyeROpen"]},{"Target":"Parameter","Name":"LipSync","Ids":[]}]}
