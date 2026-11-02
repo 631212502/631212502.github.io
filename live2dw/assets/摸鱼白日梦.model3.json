@@ -1,0 +1,26 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "摸鱼白日梦.moc3",
+		"Textures": [
+			"摸鱼白日梦.1024/texture_00.png"
+		],
+		"Physics": "摸鱼白日梦.physics3.json",
+		"DisplayInfo": "摸鱼白日梦.cdi3.json"
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": [
+				"ParamEyeLOpen",
+				"ParamEyeROpen"
+			]
+		},
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": []
+		}
+	]
+}
